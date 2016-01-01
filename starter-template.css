@@ -6,3 +6,21 @@ body {
   padding: 40px 15px;
   text-align: center;
 }
+img#site-header {
+	margin: 0 auto 20 auto;
+	display: block;
+	max-width: 90%
+}
+
+/* Allow hovering on navbar links */
+@media (min-width: 992px) {
+		ul.nav li.dropdown:hover > ul.dropdown-menu {
+			display: block;
+		}
+}
+
+img.center {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
