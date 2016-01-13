@@ -7,7 +7,8 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" sizes="192x192" href="img/brain_favicon_large.png">
 
     <title>FAMNM | FIRST® Alumni & Mentors Network at Michigan</title>
 
@@ -30,6 +31,10 @@
 
   <body>
 
+	<div>
+		<a href="index.html"><img id="site-header" src="img/logo.jpg" alt="Welcome to FAMNM"/></a>
+	</div>
+
     <!--<nav class="navbar navbar-inverse navbar-fixed-top"> -->
     <nav class="navbar navbar-inverse">
       <div class="container">
@@ -45,22 +50,34 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="#">Home</a></li>-->
-            <li><a href="about.html">About</a></li>
-            <li><a href="events.html">Events</a></li>         
-            <li><a href="membership.html">Membership</a></li>
-            <li><a href="photos.html">Photos</a></li>
-            <li><a href="calendar.html">Calendar</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a> 
+            	<ul class="dropdown-menu">
+            		<li><a href="about.html">The FAMNM</a>
+            		<li><a href="membership.html">Organizational Structure</a></li>
+            		<li><a href="photos.html">Photos</a></li>
+            		<li><a href="contact.html">Contact Us</a></li>
+            	</ul>
+            </li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FIRST Teams <span class="caret"></span></a>
+            	<ul class="dropdown-menu">
+            		<li><a href="kickoff.html">FRC Kickoff</a></li>
+            		<li><a href="events.html">Events</a></li>
+            	</ul>
+            </li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FAMNM Members <span class="caret"></span></a>
+				<ul class="dropdown-menu">
+            		<li><a href="calendar.html">Calendar</a></li>
+				</ul>
+            </li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
     </nav>
 
     <div class="container">
-
-      <div><center>
-      <img src="img/logo.jpg" alt="Welcome to FAMNM"></img>
-      </div></center>
 
      <div class="starter-template">
         <h1>The <i>FIRST<sup>®</sup></i> Alumni Mentors Network at Michigan</h1><br>
@@ -75,7 +92,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
