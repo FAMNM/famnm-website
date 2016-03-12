@@ -7,7 +7,7 @@ body {
   text-align: center;
 }
 img#site-header {
-	margin: 0 auto 20 auto;
+	margin: 0 auto 20px auto;
 	display: block;
 	max-width: 90%
 }
