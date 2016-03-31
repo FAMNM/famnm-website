@@ -3,7 +3,7 @@ body {
   padding: 30px;
 }
 .starter-template {
-  padding: 40px 15px;
+  padding: 20px 15px;
   text-align: center;
 }
 img#site-header {
@@ -23,4 +23,43 @@ img.center {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+}
+
+/** Carousel **/
+div.carousel-inner > div {
+	height: 500px;
+}
+
+div.carousel-inner img {
+	height: 100%;
+}
+
+div.carousel-inner div.carousel-tmp {
+	padding: 200px;
+}
+
+div.carousel-inner div.loading {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.loading {
+	border: 10px solid white;
+	border-top: 10px solid #bcbcbc;
+	border-bottom: 10px solid #bcbcbc;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg);}
 }
