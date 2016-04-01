@@ -1,8 +1,3 @@
-function start_fillCarousel()
-{
-	runAjax("https://raw.githubusercontent.com/FAMNM/famnm-website/site-structure/img/carousel/list.xml",fillCarousel);
-}
-
 function fillCarousel(listXml)
 {
 	var carousel = document.getElementById("carousel-frontpage");
@@ -18,6 +13,9 @@ function fillCarousel(listXml)
 		var indicator = document.createElement("li");
 		indicator.setAttribute("data-target","#carousel-frontpage");
 		indicator.setAttribute("data-slide-to",i);
+		
+		if (i == 0)
+			indicator.classList.add("active");
 		
 		carousel.getElementsByTagName("ol")[0].appendChild(indicator);
 		
@@ -36,13 +34,13 @@ function fillCarousel(listXml)
 		
 		//INITIALIZE SLIDE IMAGE *************************************
 		slideImg.src = "img/carousel/" + items[i].getAttribute("fname");
-		slideImg.alt = items[i].getElementsByTagName("title")[0].nodeValue;
+		slideImg.alt = items[i].getElementsByTagName("title")[0].textContent;
 		slideDiv.appendChild(slideImg);
 		
 		//INITIALIZE SLIDE CAPTION ***********************************
 		slideCaption.classList.add("carousel-caption");
-		slideTitle.innerHTML = items[i].getElementsByTagName("title")[0].nodeValue;
-		slideDesc.innerHTML = items[i].getElementsByTagName("description")[0].nodeValue;
+		slideTitle.innerHTML = items[i].getElementsByTagName("title")[0].textContent;
+		slideDesc.innerHTML = items[i].getElementsByTagName("description")[0].textContent;
 		
 		slideCaption.appendChild(slideTitle);
 		slideCaption.appendChild(slideDesc);
@@ -52,7 +50,12 @@ function fillCarousel(listXml)
 	}
 }
 
-function runAjax(url,method,callback)
+function start_fillCarousel()
+{
+	runAjax("https://raw.githubusercontent.com/FAMNM/famnm-website/site-structure/img/carousel/list.xml",fillCarousel);
+}
+
+function runAjax(url,callback)
 {
 	var xrq = new XMLHttpRequest();
 	

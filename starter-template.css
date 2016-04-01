@@ -2,10 +2,25 @@ body {
   /*padding-top: 30px;*/
   padding: 30px;
 }
+
+/** Basic style formatting **/
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
 .starter-template {
   padding: 20px 15px;
   text-align: center;
 }
+
 img#site-header {
 	margin: 0 auto 20px auto;
 	display: block;
@@ -25,22 +40,99 @@ img.center {
 	display: block;
 }
 
+ul.sponsor-display {
+	padding: 0;
+	vertical-align: middle;
+	height: 200px;
+}
+
+ul.sponsor-display > li {
+	list-style-type: none;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+ul.sponsor-display > li:hover {
+	background-color: #cccccc;
+}
+
+ul.sponsor-display > li > a {
+	display: block;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+ul.sponsor-display > li img {
+	max-height: 180px;
+}
+
 /** Carousel **/
-div.carousel-inner > div {
-	height: 500px;
-}
 
-div.carousel-inner img {
-	height: 100%;
+@media (max-width: 767px)
+{
+	div.carousel-inner > .item {
+		height: 300px;
+	}
+	
+	div.carousel-inner img {
+		width: auto;
+		max-width: none !important;
+		height: 300px !important;
+		max-height: 300px;
+		margin: 0 auto;
+	}
+	div.carousel-inner > div.carousel-tmp {
+		padding: 100px;
+		height: 300px;
+	}
+	div.carousel-inner div.carousel-caption {
+		display: none;
+	}
 }
-
-div.carousel-inner div.carousel-tmp {
-	padding: 200px;
+@media (min-width: 768px)
+{
+	div.carousel-inner > .item {
+		height: 400px;
+	}
+	
+	div.carousel-inner img {
+		width: auto;
+		max-width: none !important;
+		height: 400px !important;
+		max-height: 500px;
+		margin: 0 auto;
+	}
+	div.carousel-inner > div.carousel-tmp {
+		padding: 150px;
+		height: 400px;
+	}
+}
+@media (min-width: 1200px)
+{
+	div.carousel-inner > .item {
+		height: 500px;
+	}
+	
+	div.carousel-inner img {
+		width: auto;
+		max-width: none !important;
+		height: 500px !important;
+		max-height: 500px;
+		margin: 0 auto;
+	}
+	div.carousel-inner > div.carousel-tmp {
+		padding: 200px;
+		height: 500px;
+	}
 }
 
 div.carousel-inner div.loading {
 	margin-left: auto;
 	margin-right: auto;
+}
+
+div.carousel-caption {
+	background-color: rgba(0,0,0,0.5);
 }
 
 div.loading {
