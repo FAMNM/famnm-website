@@ -35,6 +35,7 @@ function fillCarousel(listXml)
 		//INITIALIZE SLIDE IMAGE *************************************
 		slideImg.src = "img/carousel/" + items[i].getAttribute("fname");
 		slideImg.alt = items[i].getElementsByTagName("title")[0].textContent;
+		
 		slideDiv.appendChild(slideImg);
 		
 		//INITIALIZE SLIDE CAPTION ***********************************
