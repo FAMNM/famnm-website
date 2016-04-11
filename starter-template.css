@@ -3,7 +3,7 @@ body {
   padding: 30px;
 }
 
-/* BASIC FORMATTING RULES */
+/** Basic style formatting **/
 .bold {
 	font-weight: bold;
 }
@@ -17,24 +17,252 @@ body {
 }
 
 .starter-template {
-  padding: 40px 15px;
+  padding: 20px 15px;
   text-align: center;
-}
-img#site-header {
-	margin: 0 auto 20 auto;
-	display: block;
-	max-width: 90%
-}
-
-/* Allow hovering on navbar links */
-@media (min-width: 992px) {
-		ul.nav li.dropdown:hover > ul.dropdown-menu {
-			display: block;
-		}
 }
 
 img.center {
 	margin-left: auto;
 	margin-right: auto;
 	display: block;
+}
+
+img#site-header {
+	margin: 0 auto 20px auto;
+	display: block;
+	max-width: 90%
+}
+
+iframe {
+	max-width: 100%;
+}
+
+/* Allow hovering on navbar links */
+@media (min-width: 768px) {
+		ul.nav li.dropdown:hover > ul.dropdown-menu {
+			display: block;
+		}
+}
+
+/** Front page column layout **/
+@media (max-width: 768px)
+{
+	div.frontpage-sidecol
+	{
+		margin-top: 20px;
+		background-color: #cccccc;
+	}	
+}
+
+@media (min-width: 768px)
+{
+	div.frontpage-maincol {
+		float: left;
+		margin-top: 20px;
+		width: 75%;
+	}
+	div.frontpage-sidecol {
+		float: left;
+		margin-top: 20px;
+		width: 25%;
+		background-color: #cccccc;
+	}
+	div.frontpage-sidecol + * {
+		clear: both;
+	}
+}
+
+/** Quicklinks **/
+
+ul.quicklinks {
+	padding: 20px;
+	font-size: 1.25em;
+}
+
+ul.quicklinks * {
+	text-align: center;
+	list-style-type: none;
+}
+
+ul.quicklinks li {
+	cursor: default;
+}
+
+ul.quicklinks li > a {
+	color: inherit;
+	display: block;
+	padding: 5px;
+}
+
+ul.quicklinks li > a:hover {
+	text-decoration: none;
+	background-color: #aaaaaa;
+}
+
+ul.quicklinks > li:hover > a {
+	font-weight: bold;
+}
+
+ul.quicklinks li > ul {
+	max-height: 0;
+	overflow: hidden;
+	background-color: #dedede;
+	-webkit-transition: max-height 0.5s;
+	-moz-tranisition: max-height 0.5s;
+	-ms-transition: max-height 0.5s;
+	-o-transition: max-height 0.5s;
+	transition: max-height 0.5s;
+}
+
+ul.quicklinks li:hover > ul {
+	max-height: 500px;
+}
+
+ul.quicklinks ul {
+	padding-left: 0;
+}
+
+/** Sponsor display list **/
+
+ul.sponsor-display {
+	padding: 0;
+	vertical-align: middle;
+	height: auto;
+	margin: 0 auto;
+}
+
+@media (max-width: 768px)
+{
+	ul.sponsor-display > li {
+		list-style-type: none;
+		vertical-align: middle;
+	}
+}
+
+@media (min-width: 768px)
+{
+	ul.sponsor-display > li {
+		list-style-type: none;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+
+ul.sponsor-display > li:hover {
+	background-color: #cccccc;
+}
+
+ul.sponsor-display > li > a {
+	display: block;
+	padding: 10px;
+	vertical-align: middle;
+}
+
+ul.sponsor-display > li img {
+	max-height: 180px;
+	max-width: 100%;
+}
+
+/** Carousel **/
+
+@media (max-width: 767px)
+{
+	div.carousel-inner {
+		height: 300px;
+	}
+	
+	div.carousel-inner > .item {
+		height: 100%;
+	}
+	
+	div.carousel-inner img {
+		max-width: 100% !important;
+		max-height: 300px;
+		margin: auto;
+		vertical-align: middle;
+	}
+	
+	div.carousel-inner > .item > img {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	div.carousel-inner > div.carousel-tmp {
+		padding: 100px;
+		height: 300px;
+		max-height: 300px;
+	}
+	div.carousel-inner div.carousel-caption {
+		display: none;
+	}
+	ol.carousel-indicators {
+		background-color: rgba(0,0,0,0.5);
+	}
+}
+@media (min-width: 768px)
+{
+	div.carousel-inner > .item {
+		height: 400px;
+	}
+	
+	div.carousel-inner img {
+		width: auto;
+		max-width: none !important;
+		height: 400px !important;
+		max-height: 500px;
+		margin: 0 auto;
+	}
+	div.carousel-inner > div.carousel-tmp {
+		padding: 150px;
+		height: 400px;
+	}
+}
+@media (min-width: 1200px)
+{
+	div.carousel-inner > .item {
+		height: 500px;
+	}
+	
+	div.carousel-inner img {
+		width: auto;
+		max-width: none !important;
+		height: 500px !important;
+		max-height: 500px;
+		margin: 0 auto;
+	}
+	div.carousel-inner > div.carousel-tmp {
+		padding: 200px;
+		height: 500px;
+	}
+}
+
+div.carousel-inner div.loading {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+div.carousel-caption {
+	background-color: rgba(0,0,0,0.5);
+}
+
+div.loading {
+	border: 10px solid white;
+	border-top: 10px solid #bcbcbc;
+	border-bottom: 10px solid #bcbcbc;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	-webkit-animation: spin 1s linear infinite;
+	animation: spin 1s linear infinite;
+}
+
+@-webkit-keyframes spin {
+	0% { -webkit-transform: rotate(0deg); }
+	100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+	0% { transform: rotate(0deg); }
+	100% { transform: rotate(360deg);}
 }

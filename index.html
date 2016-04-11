@@ -1,4 +1,4 @@
-<CTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" sizes="192x192" href="img/brain_favicon_large.png">
 
-    <title>FAMNM | FIRST® Alumni & Mentors Network at Michigan</title>
+    <title>FAMNM | FIRST® Alumni &amp; Mentors Network at Michigan</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -29,7 +29,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body onload="start_fillCarousel()">
 
 	<div>
 		<a href="index.html"><img id="site-header" src="img/logo.jpg" alt="Welcome to FAMNM"/></a>
@@ -51,26 +51,54 @@
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="#">Home</a></li>-->
             <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About <span class="caret"></span></a> 
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us<span class="caret"></span></a> 
             	<ul class="dropdown-menu">
-            		<li><a href="about.html">The FAMNM</a>
-            		<li><a href="membership.html">Organizational Structure</a></li>
+            		<li><a href="about/index.html">The FAMNM</a>
+            		<li><a href="about/leadership.html">Leadership</a></li>
+            		<li><a href="about/org-structure.html">Organizational Structure</a></li>
+            		<li><a href="about/previous-events.html">Previous Events</a></li>
+            		<li><a href="about/opportunities.html">Opportunities @ FAMNM</a></li>
+            	</ul>
+            </li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Media<span class="caret"></span></a>
+            	<ul class="dropdown-menu">
             		<li><a href="photos.html">Photos</a></li>
-            		<li><a href="contact.html">Contact Us</a></li>
+            		<li><a href="http://facebook.com/theFAMNM">Facebook</a></li>
+            		<li><a href="http://twitter.com/theFAMNM">Twitter</a></li>
+            		<li><a href="http://instagram.com/theFAMNM">Instagram</a>
             	</ul>
             </li>
             <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FIRST Teams <span class="caret"></span></a>
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FAMNM Members<span class="caret"></span></a>
             	<ul class="dropdown-menu">
-            		<li><a href="kickoff.html">FRC Kickoff</a></li>
-            		<li><a href="events.html">Events</a></li>
+            		<li><a href="members/calendar.html">Calendar and upcoming events</a></li>
+            		<li><a href="members/teams/resources.html">Forms and resources</a></li>
+            		<li><a href="https://maizepages.umich.edu/organization/FAMNM">Maize Pages</a></li>
             	</ul>
             </li>
             <li class="dropdown">
-            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FAMNM Members <span class="caret"></span></a>
-				<ul class="dropdown-menu">
-            		<li><a href="calendar.html">Calendar</a></li>
-				</ul>
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Affiliated Teams<span class="caret"></span></a>
+            	<ul class="dropdown-menu">
+            		<li><a href="teams/mez.html">MEZ info</a></li>
+            		<li><a href="teams/maker-works.html">Maker Works</a></li>
+            		<li><a href="teams/resources.html">Available Resources</a></li>
+            		<li><a href="">Resource Request Form</a></li>
+            		<li><a href="">Mentor request form</a></li> <!-- Link directly to form? -->
+            		<li><a href="teams/tutor.html">Freelance Mentor Program</a></li>
+            		<li><a href="teams/workshops.html">Workshops</a></li>
+            		<li><a href="teams/coordination.html">Coordination districts</a></li>
+            	</ul>
+            </li>
+            <li class="dropdown">
+            	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved<span class="caret"></span></a>
+            	<ul class="dropdown-menu">
+            		<li><a href="sponsor/orgs.html">As a Student Organization</a></li>
+            		<li><a href="sponsor/corporate.html">As a Corporation</a></li>
+            		<li><a href="sponsor/teams.html">As a FIRST Team</a></li>
+            		<li><a href="sponsor/member.html">As a U of M Student</a></li>
+            		
+            	</ul>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -80,11 +108,83 @@
     <div class="container">
 
      <div class="starter-template">
-        <h1>The <i>FIRST<sup>®</sup></i> Alumni Mentors Network at Michigan</h1><br>
-        <p class="bold lead">Please <a href="http://goo.gl/forms/9UONp9gzBj">click here</a> to leave feedback for our 2016 FRC Kickoff event.</p>
-
-        <h2>Mission Statement</h2><br>
-        <p class="lead">The mission of FAMNM is to inspire K-12 students to pursue STEM, business, & community outreach opportunities; to support Michigan <i>FIRST<sup>®</sup></i> teams, mentors, & volunteers; and to develop a professional network of <i>FIRST<sup>®</sup></i> supporters at the University of Michigan.</p>
+        <h1><i>FIRST<sup>&reg;</sup></i> Alumni and Mentors Network at Michigan</h1><br>
+        
+        <div id="carousel-frontpage" class="carousel slide" data-ride="carousel">
+        	<ol class="carousel-indicators">
+        	</ol>
+        	<div class="carousel-inner" role="listbox">
+        		<div class="carousel-tmp"><div class="loading"></div></div>
+        	</div>
+        	<a class="left carousel-control" href="#carousel-frontpage" role="button" data-slide="prev">
+        		<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        		<span class="sr-only">Last</span>
+        	</a>
+        	<a class="right carousel-control" href="#carousel-frontpage" role="button" data-slide="next">
+        		<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        		<span class="sr-only">Next</span>
+        	</a>
+        </div>
+        
+        <div class="frontpage-maincol">
+	        <h2>FAMNM At a Glance</h2>
+	        <p>FAMNM is a University of Michigan student organization devoted to organizing student and departmental efforts to support the <span class="italic">FIRST<sup>&reg;</sup></span> program locally and throughout the state of Michigan.
+	        	FAMNM offers college students the opportunity to volunteer in the various <span class="italic">FIRST<sup>&reg;</sup></span> programs and events, provides funding for teams,
+				and acts as a liason between teams and various university departments.</p>
+	        <h2>What is <span class="italic">FIRST<sup>&reg;</sup></span>?</h2>
+	        <p><span class="italic">FIRST<sup>&reg;</sup></span> (For Inspiration and Recognition of Science and Technology) is a non-profit organization intended to
+	        	get K-12 children involved in science, technology, engineering, and mathematics (STEM). Founded in 1989, it now reaches over 400,000 kids worldwide.
+	        	<a href="http://firstinspires.org/" target="_blank">Learn More &gt;</a></p>
+	        	<iframe style="width: 560px; height: 315px;" src="https://www.youtube-nocookie.com/embed/EEQTEIfQ9CI" frameborder="0" allowfullscreen></iframe>
+	        <h2>Partners and sponsors</h2>
+	        <ul class="sponsor-display">
+	        	<li><a href="http://cedo.engin.umich.edu" target="_blank"><img class="center" src="img/sponsor/cedo.png" alt="Center for Engineering Diversity and Outreach"/></a></li>
+	        	<li><a href="http://detroitcenter.umich.edu/projects/michigan-engineering-zone" target="_blank"><img class="center" src="img/sponsor/mez.png" alt="Michigan Engineering Zone"/></a></li>
+	        	<li><a href="http://maker-works.com" target="_blank"><img class="center" src="img/sponsor/makerworks.png" alt="Maker Works"/></a></li>
+	        	<li><a href="http://engin.umich.edu" target="_blank"><img class="center" src="img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
+	        	<li><a href="http://esg.engin.umich.edu" target="_blank"><img class="center" src="img/sponsor/esg.png" alt="Engineering Student Government"/></a></li>
+	        </ul>
+        </div>
+        <div class="frontpage-sidecol">
+        	<ul class="quicklinks">
+        		<li><a>Learn More</a>
+        		<ul>
+        			<li><a href="about/index.html">FAMNM</a></li>
+        			<li><a href="http://www.firstinspires.org">FIRST</a></li>
+        			<li><a href="http://umich.edu">University of Michigan</a></li>
+        		</ul>
+        		</li>
+        		<li><a href="sponsor/corporate.html">Sponsor Us</a></li>
+        		<li><a>Join Us</a>
+        		<ul>
+        			<li><a href="sponsor/member.html">U of M Students</a></li>
+        			<li><a href="sponsor/teams.html">FIRST Teams</a></li>
+        		</ul>
+        		</li>
+        	</ul>
+        	<h4>Upcoming Events</h4>
+        	<iframe src="https://www.google.com/calendar/embed?src=umich.edu_d5st3c9m44jijj28fs6m7j44b0%40group.calendar.google.com&ctz=America/New_York&mode=AGENDA&height=400" frameborder="0" style="width: 85%; height: 400px;"></iframe>
+        </div>
+        
+        <!--
+        	Contents:
+        	- Carousel with pictures (above)
+        	- FAMNM at a glance 
+        		- FAMNM is for everyone, regardless of major or school
+        	- What is FIRST (+link/video)
+        	- FIRST logo should be somewhere (top right on all pages)
+        	- Partners/sponsors
+        	- Right sidebar
+        		- Learn more about FAMNM
+        		- Learn more about FIRST (link out to FIRST)
+        		- Learn more about U of M
+        		- Sponsor us
+        		- General quicklinks
+        			- CEDO
+        			- MEZ
+        			- Maker Works
+       			- Upcoming events 
+         -->
       </div>
     </div><!-- /.container -->
 
@@ -95,6 +195,8 @@
     <script src="js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!-- Page JavaSript -->
+    <script src="js/carousel-frontpage.js"></script>
     <!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <div class="navbar-header">
