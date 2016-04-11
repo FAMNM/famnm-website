@@ -53,7 +53,7 @@ function fillCarousel(listXml)
 
 function start_fillCarousel()
 {
-	runAjax("https://raw.githubusercontent.com/FAMNM/famnm-website/site-structure/img/carousel/list.xml",fillCarousel);
+	runAjax("http://famnm.club/img/carousel/list.xml",fillCarousel);
 }
 
 function runAjax(url,callback)
