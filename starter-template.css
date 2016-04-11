@@ -84,6 +84,10 @@ ul.quicklinks * {
 	list-style-type: none;
 }
 
+ul.quicklinks li {
+	cursor: default;
+}
+
 ul.quicklinks li > a {
 	color: inherit;
 	display: block;
@@ -112,11 +116,6 @@ ul.quicklinks li > ul {
 
 ul.quicklinks li:hover > ul {
 	max-height: 500px;
-	-webkit-transition: max-height 0.5s;
-	-moz-tranisition: max-height 0.5s;
-	-ms-transition: max-height 0.5s;
-	-o-transition: max-height 0.5s;
-	transition: max-height 0.5s;
 }
 
 ul.quicklinks ul {
