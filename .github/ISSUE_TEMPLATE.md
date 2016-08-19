@@ -1,8 +1,6 @@
 <!--
     Please read this comment. You may delete it after reading if you wish, but it will not be shown when you submit the request either way.
-    
     Please use the section that applies to your particular issue. Delete anything that does not apply to you.
-    
     We will not accept any content changes or page requests from non-FAMNM members (for obvious reasons), but anyone may submit a bug or style issue.
 -->
 
@@ -18,7 +16,7 @@
 
 <!-- SECTION: PAGE REQUESTS -->
 **Navbar location**: Where the page should appear on the navbar, for example: "About > Leadership".
-**Page Draft**: A link or upload to the page
+**Page Draft**: A link to or file upload of a draft of the page you want to add
 <!-- END SECTION: PAGE REQUESTS -->
 
 # Additional information
