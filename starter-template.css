@@ -33,6 +33,11 @@ img#site-header {
 	max-width: 90%
 }
 
+div.img-row > img {
+	display: inline-block;
+	vertical-align: middle;
+}
+
 iframe {
 	max-width: 100%;
 }
