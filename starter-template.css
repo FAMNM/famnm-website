@@ -36,6 +36,15 @@ img#site-header {
 div.img-row > img {
 	display: inline-block;
 	vertical-align: middle;
+	height: 300px;
+}
+
+@media (max-width: 768px)
+{
+	div.img-row > img {
+		height: auto;
+		width: 300px;
+	}
 }
 
 iframe {
