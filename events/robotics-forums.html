@@ -21,6 +21,9 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="../js/ie-emulation-modes-warning.js"></script>
+    
+    <!-- Script to load forms in modal dialogs -->
+    <script src="../js/web-encapsulation.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -124,7 +127,8 @@
      		<li><a href="https://docs.google.com/document/d/1Hlfb6f4sTKnrPrCRra_FO8QaVzk5KyMEsNRpgLlPuG4/edit?usp=sharing" target="_blank">Session descriptions</a></li>
      		<li><a href="https://drive.google.com/file/d/0B9IdLquRQuaabWpZOXc2bmZ2bEk/view?usp=sharing" target="_blank">Event map</a></li>
      	</ul>
-     	<p>If your team is interested in attending, please fill out the <a href="https://goo.gl/forms/dYePumSpYXzxIgMk2" target="_blank">registration form</a>.</p>
+     	<p>If your team is interested in attending, please fill out the
+			<a onclick="openInModal(event, 'Robotics Forums Registration')" href="https://goo.gl/forms/dYePumSpYXzxIgMk2" target="_blank">registration form</a>.</p>
      	<p>More info to come!</p>
       </div>
     </div><!-- /.container -->
