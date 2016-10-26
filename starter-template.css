@@ -250,17 +250,17 @@ ul.sponsor-display > li img {
 		height: 100%;
 	}
 	
-	div.carousel-inner img {
+	div.carousel-inner > .item > img {
 		max-width: 100% !important;
 		max-height: 300px;
 		margin: auto;
 		vertical-align: middle;
-	}
-	
-	div.carousel-inner > .item > img {
 		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
+	}
+	div.carousel-inner img.loading {
+		height: 30%;
 	}
 	
 	div.carousel-inner > div.carousel-tmp {
@@ -281,12 +281,15 @@ ul.sponsor-display > li img {
 		height: 400px;
 	}
 	
-	div.carousel-inner img {
+	div.carousel-inner > .item > img {
 		width: auto;
 		max-width: none !important;
 		height: 400px !important;
 		max-height: 500px;
 		margin: 0 auto;
+	}
+	div.carousel-inner img.loading {
+		height: 50%;
 	}
 	div.carousel-inner > div.carousel-tmp {
 		padding: 150px;
@@ -299,12 +302,15 @@ ul.sponsor-display > li img {
 		height: 500px;
 	}
 	
-	div.carousel-inner img {
+	div.carousel-inner > .item > img {
 		width: auto;
 		max-width: none !important;
 		height: 500px !important;
 		max-height: 500px;
 		margin: 0 auto;
+	}
+	div.carousel-inner img.loading {
+		height: 75%;
 	}
 	div.carousel-inner > div.carousel-tmp {
 		padding: 200px;
