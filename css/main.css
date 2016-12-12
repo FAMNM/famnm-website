@@ -1,0 +1,53 @@
+body {
+  /*padding-top: 30px;*/
+  padding: 30px;
+}
+
+/** Basic style formatting **/
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.content {
+  padding: 20px 15px;
+  text-align: center;
+}
+
+img {
+	max-width: 100%;
+}
+
+img.center {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+}
+
+img#site-header {
+	margin: 0 auto 20px auto;
+	display: block;
+	max-width: 90%
+}
+
+iframe {
+	max-width: 100%;
+}
+
+.modal iframe {
+	max-height: 500px;
+}
+
+/* Allow hovering on navbar links */
+@media (min-width: 768px) {
+		ul.nav li.dropdown:hover > ul.dropdown-menu {
+			display: block;
+		}
+}
