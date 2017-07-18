@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<CTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -10,17 +10,18 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="icon" sizes="192x192" href="../img/brain_favicon_large.png">
 
-    <title>Robotics Forums | FIRST® Alumni &amp; Mentors Network at Michigan</title>
+    <title>Kickoff | FIRST® Alumni &amp; Mentors Network at Michigan</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../css/bootstrap.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
 
     <!-- Custom styles for this template -->
     <link href="../css/main.css" rel="stylesheet">
+    <link href="../css/page-common.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="../js/ie-emulation-modes-warning.js"></script>
+    <!--<script src="js/ie-emulation-modes-warning.js"></script> -->
     
     <!-- Script to load forms in modal dialogs -->
     <script src="../js/web-encapsulation.js"></script>
@@ -30,6 +31,28 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    
+    <style>
+    	ul {
+    		list-style-type: none;
+    		padding-left: 0;
+    	}
+    	table.kickoff-agenda {
+    		text-align: center;
+    		margin: 0 auto;
+    	}
+    	table.kickoff-agenda td {
+    		border: 2px solid #f1c232;
+    		padding: 3px;
+    		width: 33%;
+    	}
+    	.kickoff-agenda td:first-child {
+    		font-weight: bold;
+    	}
+    	.kickoff-agenda td:last-child {
+    		font-style: italic;
+    	}
+    </style>
   </head>
 
   <body>
@@ -38,6 +61,7 @@
 		<a href="../index.html"><img id="site-header" src="../img/logo.jpg" alt="Welcome to FAMNM"/></a>
 	</div>
 
+    <!--<nav class="navbar navbar-inverse navbar-fixed-top"> -->
     <nav class="navbar navbar-inverse">
       <div class="container">
         <div class="navbar-header">
@@ -51,7 +75,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="#">Home</a></li>-->
+            <li class="active"><!--<a href="#">Home</a></li>-->
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us<span class="caret"></span></a> 
                 <ul class="dropdown-menu">
@@ -74,8 +98,8 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="kickoff.html">FAMNM FRC Kickoff</a></li>
-                    <li><a href="ftc.html">FAMNM FTC Kickoff</a></li>
-                    <li class="active"><a href="robotics-forums.html">Robotics Forums</a></li>
+                    <li class="active"><a href="ftc.html">FAMNM FTC Kickoff</a></li>
+                    <li><a href="robotics-forums.html">Robotics Forums</a></li>
                 </ul>
             </li>
             <li class="dropdown">
@@ -116,14 +140,13 @@
     <div class="container">
 
      <div class="content">
-     	<h1>FAMNM Robotics Forums</h1>
-     	<p>The FAMNM Robotics Forums is an annual event hosted on the U of M Campus for teams to come and build their <span class="italic">FIRST</span>&reg; Robotics knowledge.
-      The FAMNM Forums is an annual event hosted on the U of M campus for teams to come and build their FIRST Robotics knowledge. The event features seminars on a wide range of topics, including mechanical design, strategy, team organization, volunteering, <span class="italic">FIRST</span>&reg; alumni opportunities, and more! FAMNM is always looking for feedback from teams on what seminars they’d like to see!</p>
-      <div class="img-row" style="margin-bottom: 1em;">
-          <img src="../img/forums/auditorium.png" alt="2016 FAMNM Forums" height=250 width=350/> <!-- This is from Kickoff, but we don't have any pictures from Forums... -->
-      </div>
-     	<h2>2017 FAMNM Robotics Forums</h2>
-      <p>FAMNM is excited to host our second annual FAMNM Forums event! We're currently in the planning stages, and will be using all of the great feedback we've received to make this event bigger and better. Check back closer to the Fall for more information!</p>
+        <h1>FAMNM <span class="italic">FIRST</span>&reg; Tech Challenge Kickoff</h1>
+        <p>The <span class="italic">FIRST</span>&reg;  Tech Challenge (FTC) season begins each year in early September with a worldwide kickoff. At this time, the year’s challenge is revealed and teams begin their design and build season. Kickoffs provide an opportunity for teams to work with each other, brainstorm ideas, learn valuable skills through workshops, and interact with a full FTC game field. </p>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/tNPvKb7-3xE" frameborder="0" allowfullscreen></iframe>
+        <h2>2017 FAMNM <span class="italic">FIRST</span>&reg; Tech Challenge Kickoff</h2>
+        <h3>University of Michigan - Ann Arbor</h3>
+        <h3>Saturday, September 9<sup>th</sup>, 2017</h3>
+        <p>FAMNM is excited to host our first ever FTC Kickoff event! If you're team is interested in attending this event, please fill out this <a href="https://docs.google.com/a/umich.edu/forms/d/1XxBxqqLKwx95rP8s-ADDvFgQ2xnhB7Fm1lku44YmMSA/edit?usp=drive_web">interest survey</a>. Check back closer to the event for more details!</p>
       </div>
     </div><!-- /.container -->
 
@@ -134,5 +157,12 @@
     <script src="../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+    <!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <div class="navbar-header">
+
+      </div>      
+    </nav>-->
+
   </body>
 </html>
