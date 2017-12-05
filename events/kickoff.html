@@ -22,7 +22,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <!--<script src="js/ie-emulation-modes-warning.js"></script> -->
-    
+
     <!-- Script to load forms in modal dialogs -->
     <script src="../js/web-encapsulation.js"></script>
 
@@ -31,32 +31,28 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
     <style>
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+        body {
+          font-family: Arial;
         }
-        table.kickoff-agenda {
-            text-align: center;
-            margin: 0 auto;
+        .table th {
+          text-align: center;
         }
-        table.kickoff-agenda td {
-            border: 2px solid #f1c232;
-            padding: 3px;
-            width: 33%;
+        .table td {
+          text-align: center;
         }
-        .kickoff-agenda td:first-child {
-            font-weight: bold;
+        #map_wrapper {
+            height: 400px;
         }
-        .kickoff-agenda td:last-child {
-            font-style: italic;
+        #map_canvas {
+            width: 100%;
+            height: 100%;
         }
     </style>
   </head>
 
   <body>
-  
+
     <div>
         <a href="../index.html"><img id="site-header" src="../img/logo.jpg" alt="Welcome to FAMNM"/></a>
     </div>
@@ -77,7 +73,11 @@
           <ul class="nav navbar-nav">
             <!--<li class="active"><a href="#">Home</a></li>-->
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">About us<span class="caret"></span></a> 
+                <a href="#" class="dropdown-toggle"
+                data-toggle="dropdown"
+                role="button" aria-haspopup="true"
+                aria-expanded="false">About us<span
+                class="caret"></span></a>
                 <ul class="dropdown-menu">
                     <li><a href="../about/index.html">The FAMNM</a></li>
                     <li><a href="../about/leadership.html">Leadership</a></li>
@@ -128,7 +128,7 @@
                     <li><a href="../sponsor/corporate.html">As a Corporation</a></li>
                     <li><a href="../sponsor/teams.html">As a FIRST Team</a></li>
                     <li><a href="../sponsor/member.html">As a U of M Student</a></li>
-                    
+
                 </ul>
             </li>
           </ul>
@@ -137,22 +137,142 @@
     </nav>
 
     <div class="container">
-
      <div class="content">
-        <h1>FAMNM <span class="italic">FIRST</span>&reg; Robotics Kickoff</h1>
-        <p>The <span class="italic">FIRST</span>&reg; Robotics Competition (FRC) season begins each year in early January with a worldwide kickoff. At this time, the year’s challenge is revealed and teams begin their 6-week design and build season.
-        	Kickoffs provide an opportunity for teams to interact with each other, pick up their Kit of Parts, and learn about the game. FAMNM has been hosting a kickoff event on the University of Michigan campus since 2016 and it has grown to over 40 teams from the greater Ann Arbor area.
-        	In addition to showing the game reveal broadcast, we offer tours of the university’s engineering campus, presentations by inspiring professionals and university faculty, and a mock field setup to help students understand the new game.</p>
-        <div class="img-row" style="margin-bottom: 1em;">
-            <img src="../img/kickoff/kickoff-2017-stamps.png" alt="2017 FAMNM FRC Kickoff at Stamps Auditorium"/>
-            <img src="../img/kickoff/kickoff-2016-bbbb.png" alt="2016 FAMNM FRC Kickoff at the Bob and Betty Beyster Building, with field"/>
+       <div class="page-header">
+         <h1>2018 FRC Kickoff at the University of Michigan</h1>
+       </div>
+       <div id="map_wrapper">
+         <div id="map_canvas" class="mapping"></div>
+       </div>
+      <br>
+      <div class="panel-group">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapseSchedule">Schedule</a>
+            </h4>
+          </div>
+          <div id="collapseSchedule" class="panel-collapse collapse">
+            <div class="panel-body">
+              <iframe src="https://calendar.google.com/calendar/embed?src=umich.edu_hd2041tdhau7elu3ts6vakb540%40group.calendar.google.com&ctz=America/New_York&mode=day&showNav=0&showPrint=0&showTabs=0&showCalendars=0&showTz=0&dates=20180106/20180106&times="
+              style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+            </div>
+          </div>
         </div>
-        <h2>2018 FAMNM <span class="italic">FIRST</span>&reg; Robotics Kickoff</h2>
-        <h4>University of Michigan - Ann Arbor</h4>
-        <h4>Saturday, January 6<sup>th</sup>, 2018</h4>
-        <p>FAMNM is excited to host our third annual FRC Kickoff event! We’re currently in the planning stages of the event, using all of the great feedback we’ve received. Check back closer to the event for more details!</p>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapseBR">Breakout Rooms</a>
+            </h4>
+          </div>
+          <div id="collapseBR" class="panel-collapse collapse">
+            <div class="panel-body">Breakout Room assignments coming soon!</div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapseOC">Opening Ceremonies</a>
+            </h4>
+          </div>
+          <div id="collapseOC" class="panel-collapse collapse">
+            <div class="panel-body">Opening Ceremony info coming soon!</div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapseParking">Parking</a>
+            </h4>
+          </div>
+          <div id="collapseParking" class="panel-collapse collapse">
+            <div class="panel-body">
+              <b>The following lots are free of charge and will NOT require a Blue Permit on the day of the event only:</b>
+              <br><br>
+              <table class="table">
+                <tbody>
+                  <tr><td>NC27 Parking Lot</td></tr>
+                  <tr><td>NC21 Parking Lot</td></tr>
+                  <tr><td>NC60 Parking Lot</td></tr>
+                  <tr><td>NC43 Parking Lot</td></tr>
+                  <tr><td>NC5 Parking Lot</td></tr>
+                  <tr><td>NC8 Parking Lot</td></tr>
+                  <tr><td>NC10 Parking Lot</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" href="#collapseFAQ">FAQ</a>
+            </h4>
+          </div>
+          <div id="collapseFAQ" class="panel-collapse collapse">
+            <div class="panel-body">
+              <p><b>Will we have access to our breakout room
+                when we arrive?</b><br>
+              Yes, breakout rooms open at 8am, and teams are encouraged to
+              leave their belongings, lunches, etc in their breakout rooms.</p><br>
+              <p><b>If members of our team arrive seperately, do they all have
+                to check in?</b><br>
+              No, only the head mentor should report to check-in.</p><br>
+              <p><b>What different food options are there for the event</b><br>
+              Your head mentor should have received a Domino's Pizza Order form.
+              Teams may also bring food and store it in their breakout rooms,
+              or explore a number of local dining options, which are a short
+              walk or drive from North Campus.</p><br>
+              <p><b>The NC27 Lot says 'Blue Permit Required Mon-Sat'.
+                Does this mean we can't park there?</b><br>
+              The Blue Permit will NOT be enforced on the day of the event.
+              Teams are free to park in any spot not designated as a 'Gold' spot.</p><br>
+              <p><b>Will we have access to a projector in our breakout room?</b><br>
+              Yes, all breakout rooms come equipped with outlets and a projector.</p><br>
+              <p><b>What time should we arrive?</b><br>
+              Check-in starts at 8am and runs through 10am. There will be tours
+              offered during the morning prior to Opening Ceremonies as well
+              as the UofM Fair.</p><br>
+              <p><b>What is FAMNM?</b><br>
+              <a href='../about/index.html'>Learn more about us!</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div><!-- /.container -->
+    <footer>
+      <!--Footer Links-->
+      <div class="container">
+          <div class="row">
+
+              <!--First column-->
+              <div class="col-md-3">
+                  <img class='img' src="../img/kickoff/ConsumersColorLogo.png">
+              </div>
+              <!--/.First column-->
+
+              <!--Second column-->
+              <div class="col-md-3">
+                  <img height="85px" class='img' src="../img/kickoff/shell-logo-design.gif">
+              </div>
+              <!--/.Second column-->
+
+              <!--Second column-->
+              <div class="col-md-3">
+                  <img height="80px" class='img' src="../img/kickoff/engineeringLogo-01.jpg">
+              </div>
+              <!--/.Second column-->
+
+              <!--Second column-->
+              <div class="col-md-3">
+                  <img class='img' src="../img/kickoff/Maker-Works.jpeg">
+              </div>
+              <!--/.Second column-->
+          </div>
+      </div>
+      <!--/.Footer Links-->
+    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -164,8 +284,8 @@
     <!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">
         <div class="navbar-header">
-      </div>      
+      </div>
     </nav>-->
-
+    <script src='../js/kickoff/map.js'></script>
   </body>
 </html>
