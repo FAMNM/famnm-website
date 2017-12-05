@@ -60,6 +60,47 @@
           vertical-align: middle;
           padding-bottom: 5px;
         }
+        
+        /** Sponsor display list **/
+		ul.sponsor-display {
+			padding: 0;
+			vertical-align: middle;
+			height: auto;
+			margin: 0 auto;
+			text-align: center;
+		}
+		
+		@media (max-width: 768px)
+		{
+			ul.sponsor-display > li {
+				list-style-type: none;
+				vertical-align: middle;
+			}
+		}
+		
+		@media (min-width: 768px)
+		{
+			ul.sponsor-display > li {
+				list-style-type: none;
+				display: inline-block;
+				vertical-align: middle;
+			}
+		}
+		
+		ul.sponsor-display > li:hover {
+			background-color: #cccccc;
+		}
+		
+		ul.sponsor-display > li > a {
+			display: block;
+			padding: 10px;
+			vertical-align: middle;
+		}
+		
+		ul.sponsor-display > li img {
+			max-height: 180px;
+			max-width: 100%;
+		}
     </style>
   </head>
 
@@ -311,47 +352,13 @@
         </div>
       </div>
       </div>
+      <ul class="sponsor-display">
+      	<li><a href="https://www.consumersenergy" target="_blank"><img class="center" src="../img/kickoff/sponsor/ConsumersColorLogo.png" alt="Consumers Energy"/></a></li>
+      	<li><a href="http://shell.com" target="_blank"><img class="center" src="../img/kickoff/sponsor/shell-logo-design.gif" alt="Shell"/></a></li>
+      	<li><a href="https://maker-works.com" target="_blank"><img class="center" src="../img/sponsor/makerworks.png" alt="Maker Works"/></a></li>
+      	<li><a href="https://engin.umich.edu" target="_blank"><img class="center" src="../img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
+      </ul>
     </div><!-- /.container -->
-    <footer>
-      <!--Footer Links-->
-      <div class="container">
-          <div class="row">
-
-              <!--First column-->
-              <div class="col-md-3">
-                  <a href="https://www.consumersenergy.com/">
-                    <img class='img' src="../img/kickoff/ConsumersColorLogo.png">
-                  </a>
-              </div>
-              <!--/.First column-->
-
-              <!--Second column-->
-              <div class="col-md-3">
-                  <a href="http://www.shell.com/">
-                    <img height="85px" class='img' src="../img/kickoff/shell-logo-design.gif">
-                  </a>
-              </div>
-              <!--/.Second column-->
-
-              <!--Second column-->
-              <div class="col-md-3">
-                  <a href="https://www.engin.umich.edu/">
-                    <img height="80px" class='img' src="../img/kickoff/engineeringLogo-01.jpg">
-                  </a>
-              </div>
-              <!--/.Second column-->
-
-              <!--Second column-->
-              <div class="col-md-3">
-                  <a href="https://maker-works.com/">
-                    <img class='img' src="../img/kickoff/Maker-Works.jpeg">
-                  </a>
-              </div>
-              <!--/.Second column-->
-          </div>
-      </div>
-      <!--/.Footer Links-->
-    </footer>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
