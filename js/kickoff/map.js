@@ -10,7 +10,7 @@ function initialize() {
     var map;
     var bounds = new google.maps.LatLngBounds();
     var mapOptions = {
-        mapTypeId: 'roadmap'
+        mapTypeId: 'roadmap',
     };
 
     // Display a map on the page
@@ -127,7 +127,7 @@ function initialize() {
     // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
     var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
         this.setZoom(17);
+        map.setCenter(new google.maps.LatLng(42.292013, -83.715837));
         google.maps.event.removeListener(boundsListener);
     });
-
 }
