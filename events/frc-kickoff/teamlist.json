@@ -1,0 +1,281 @@
+[
+	{
+		"number":66,
+		"name":"Grizzly Robotics",
+		"school":"Ypsilanti STEMM Middle College",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":470,
+		"name":"Grizzly Robotics",
+		"school":"Ypsilanti ACTech High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch": false,
+		"tour":false
+	},
+	{
+		"number":815,
+		"name":"Advanced Power",
+		"school":"Allen Park High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch": false,
+		"tour":true
+	},
+	{
+		"number":830,
+		"name":"The Rat Pack",
+		"school":"Ann Arbor Huron High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":1076,
+		"name":"Pi Hi Samurai",
+		"school":"Ann Arbor Pioneer High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":1189,
+		"name":"The Gearheads",
+		"school":"Grosse Pointe Public School System",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":1502,
+		"name":"Technicacl Difficulties",
+		"school":"Chelsea High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":3322,
+		"name":"Eagle Imperium",
+		"school":"Ann Arbor Skyline High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":3604,
+		"name":"Goon Squad",
+		"school":"Woodhaven High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":3641,
+		"name":"The Flying Toasters",
+		"school":"South Lyon High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":3656,
+		"name":"Dexter Dreadbots",
+		"school":"Dexter High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":3668,
+		"name":"TroBots",
+		"school":"Whitmore Lake High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":3773,
+		"name":"Cobalt Commanders",
+		"school":"Tecumseh High School",
+		"broadcast":"Unassigned",
+		"breakout":true,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":4395,
+		"name":"Dundee Vi-Borgs",
+		"school":"Dundee High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":4405,
+		"name":"The Atoms Family",
+		"school":"Plymouth Christian Academy",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":5067,
+		"name":"Steiner Steel Storm",
+		"school":"Rudolf Steiner High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":5090,
+		"name":"TorqueNados",
+		"school":"Trenton High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":5498,
+		"name":"Wired Devils",
+		"school":"Grosse Ile High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":5530,
+		"name":"The Lawnmowers",
+		"school":"Greenhills",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":true,
+		"tour":true
+	},
+	{
+		"number":5567,
+		"name":"Code Red Robotics",
+		"school":"Milan High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":5676,
+		"name":"The HEROES (Hillsdale Robotics)",
+		"school":"Hillsdale High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":6081,
+		"name":"Digital Dislocators",
+		"school":"Manchester High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":6092,
+		"name":"QBots",
+		"school":"Quincy High School",
+		"broadcast":"Unassigned",
+		"breakout":true,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":6101,
+		"name":"Strange Quarks",
+		"school":"Washtenaw Technical Middle College",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":true,
+		"tour":false
+	},
+	{
+		"number":6119,
+		"name":"Prototype Pumas",
+		"school":"Pansophia Academy",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":6528,
+		"name":"Terror Bytes",
+		"school":"Oscar A. Carlson High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":true,
+		"tour":true
+	},
+	{
+		"number":6538,
+		"name":"Linc-Bots",
+		"school":"Lincoln High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":false,
+		"tour":true
+	},
+	{
+		"number":6580,
+		"name":"Positive Charge",
+		"school":"Marshall Academy",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":true,
+		"tour":true
+	},
+	{
+		"number":6618,
+		"name":"WARHBOTS",
+		"school":"Flat Rock Community High School",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":true,
+		"tour":true
+	},
+	{
+		"number":7147,
+		"name":"Falcons Senior Robotics Team",
+		"school":"Central Academy",
+		"broadcast":"Unassigned",
+		"breakout":false,
+		"lunch":false,
+		"tour":false
+	},
+	{
+		"number":7175,
+		"name":"CHS Lafata",
+		"school":"Clinton High School",
+		"broadcast":"Unassigned",
+		"breakout":"Unassigned",
+		"lunch":true,
+		"tour":true
+	},
+]
