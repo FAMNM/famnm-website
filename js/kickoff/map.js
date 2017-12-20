@@ -77,7 +77,7 @@ function initialize() {
         ['<div class="info_content">' +
         '<h3>Kit Distribution</h3>' + '<p>Chrysler Room 133</p>' + '</div>'],
         ['<div class="info_content">' +
-        '<h3>Dow Bulding</h3>' + '<p>Breakout Rooms</p>' + '</div>'],
+        '<h3>Dow Building</h3>' + '<p>Breakout Rooms</p>' + '</div>'],
         ['<div class="info_content"><h3>NC27 Parking Lot</h3>'],
         ['<div class="info_content"><h3>NC48 Parking Lot</h3>'],
         ['<div class="info_content"><h3>NC60 Parking Lot</h3>'],
