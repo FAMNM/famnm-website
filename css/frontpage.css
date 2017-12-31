@@ -5,6 +5,7 @@
 	div.frontpage-maincol {
 		float: left;
 		margin-top: 20px;
+		padding-right: 5px;
 		width: 75%;
 	}
 	div.frontpage-sidecol {
