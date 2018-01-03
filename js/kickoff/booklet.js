@@ -209,16 +209,16 @@ var bNs = {
            location:"CHRYS 133"
        },
        {
-           event:"Breakout Rooms Open",
-           start:getTime(11,30),
-           end:getTime(18,0),
-           location:"t:breakout"
-       },
-       {
            event:"Game Field Open",
            start:getTime(12,0),
            end:getTime(15,0),
            location:"DUDE GAL"
+       },
+       {
+           event:"Breakout Rooms Open",
+           start:getTime(11,30),
+           end:getTime(18,0),
+           location:"t:breakout"
        }
     ],
     map: {},
