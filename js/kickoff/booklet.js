@@ -47,14 +47,49 @@ var bNs = {
             var cell = mainSchedule.appendChild(document.createElement("tr")).appendChild(document.createElement("td"));
             var timeDiv = cell.appendChild(document.createElement("div"));
             var titleDiv = cell.appendChild(document.createElement("div"));
-            var locDiv = cell.appendChild(document.createElement("div"));
+            var locLnk = cell.appendChild(document.createElement("div")).appendChild(document.createElement("a"));
             
             cell.style.textAlign = "center";
             timeDiv.style.fontWeight = "bold";
             timeDiv.textContent = bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end);
             
             titleDiv.textContent = evt.event;
-            locDiv.textContent = loc.name;
+            locLnk.textContent = loc.name;
+            locLnk.href = "#map";
+            locLnk.addEventListener("click", function (event) {
+                var marker = bNs.getMarker(loc.code);
+                
+                if (bNs.activeMarker) bNs.activeMarker.setMap(null);
+                if (bNs.winListener) {
+                    google.maps.event.removeListener(bNs.winListener);
+                    bNs.winListener = undefined;
+                }
+                
+                if (marker.length === 0) {
+                    event.preventDefault();
+                    bNs.activeMarker = undefined;
+                    return;
+                }
+                
+                var pos = new google.maps.LatLng(marker[2], marker[3]);
+                bNs.activeMarker = new google.maps.Marker({
+                   position: pos,
+                   map: bNs.map,
+                   icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                   title: marker[0]
+                });
+                bNs.map.setCenter(pos);
+                bNs.map.setZoom(18);
+                
+                google.maps.event.addListener(bNs.activeMarker, "click", (function(mrk) {
+                    return function() {
+                        bNs.infoWindow.setContent("<h3>" + loc.name + "</h3>");
+                        bNs.infoWindow.open(map, mrk);
+                    }
+                })(bNs.activeMarker));
+                
+                google.maps.event.trigger(bNs.activeMarker, "click");
+            });
             
             //"active" applies a gray background, "info" applies a blue background
             if (time >= evt.end) cell.parentElement.classList.add("active");
@@ -80,7 +115,7 @@ var bNs = {
         } else return;
         
         if (bNs.activeTeam.intervalId !== undefined)
-            clearInterval($.activeTeam.intervalId);
+            clearInterval(bNs.activeTeam.intervalId);
         
         emptyDiv.style.display = "none";
         if (bNs.setTeam(num) >= 0) {
@@ -127,6 +162,13 @@ var bNs = {
         });
         
         return locObj;
+    },
+    getMarker: function (code) {
+      for (var i = 0; i < bNs.markers.length; ++i) {
+          if (code === bNs.markers[i][1]) return bNs.markers[i];
+      }
+      
+      return [];
     },
     activeTeam:{},
     schedule:[
@@ -207,6 +249,7 @@ var bNs = {
         ["Dow Building 1005", "DOW 1005", 42.292721, -83.715589],
         ["Dow Building 1006", "DOW 1006", 42.292919, -83.715597],
         ["Dow Building 1010", "DOW 1010", 42.292937, -83.715503],
+        ["Dow Building 1014", "DOW 1013", 42.292728, -83.715412],
         ["Dow Building 1014", "DOW 1014", 42.292945, -83.715350],
         ["Dow Building 1017", "DOW 1017", 42.292745, -83.715261],
         ["Dow Buliding 1018", "DOW 1018", 42.292880, -83.715223],
@@ -224,6 +267,14 @@ var bNs = {
 };
 
 function initMap () {
+    var mapJump = document.createElement("div");
+    var jumpLink = mapJump.appendChild(document.createElement("a"));
+    
+    mapJump.classList.add("map-jump");
+    jumpLink.textContent = "Return to schedule";
+    jumpLink.href = "#team-num-name";
+    jumpLink.style.fontSize = "1.25em";
+    
     bNs.map = new google.maps.Map(document.querySelector("#map"),
                                   {
                                     center: new google.maps.LatLng(42.2945,-83.7215),
@@ -231,8 +282,8 @@ function initMap () {
                                     mapTypeId: google.maps.MapTypeId.ROADMAP
                                   });
     bNs.map.setTilt(45);
-    /*bNs.map.fitBounds({east:-83.712525, north:42.293979, south:42.290441,
-                     west:-83.718466});*/
+    bNs.infoWindow = new google.maps.InfoWindow();
+    bNs.map.controls[google.maps.ControlPosition.TOP_CENTER].push(mapJump);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -245,4 +296,37 @@ document.addEventListener("DOMContentLoaded", function () {
     bNs.ajaxGet("../../js/kickoff/teamlist.json", function (teams) {
         bNs.teams = teams;
     });
+    
+    //Initialize countdown clock
+    var computeDiff = function () {
+        var diff = (getTime(11,30).getTime() - (new Date()).getTime());
+        var d,h,m,s;
+        
+        var countdownClock = document.querySelector(".countdown-clock");
+        
+        if (diff < 0) diff = 0;
+        
+        //Knock off milliseconds
+        diff = Math.floor(diff / 1e3);
+        s = diff % 60;
+        
+        //Knock off seconds
+        diff = Math.floor(diff / 60);
+        m = diff % 60;
+        
+        //Knock off minutes
+        diff = Math.floor(diff / 60);
+        h = diff % 24;
+        
+        //Knock off hours
+        d = Math.floor(diff / 24);
+        
+        var times = [d, h, m, s];
+        
+        for (var i = 0; i < countdownClock.children.length; ++i)
+            countdownClock.children[i].textContent = times[i];
+    };
+    
+    computeDiff();
+    setInterval(computeDiff, 1000);
 });
