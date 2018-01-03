@@ -1,4 +1,4 @@
-<CTYPE html>
+<DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -35,14 +35,17 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
-        body {
-          font-family: Arial;
-        }
+    	html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+	        font-family: Arial;
+		}
         .table th {
-          text-align: center;
+        	text-align: center;
         }
         .table td {
-          text-align: center;
+        	text-align: center;
         }
         #map_wrapper {
             height: 400px;
@@ -52,16 +55,16 @@
             height: 100%;
         }
         #legend {
-          font-family: Arial, sans-serif;
-          background: #fff;
-          padding: 10px;
-          margin: 10px;
-          border: 3px solid #000;
-          text-align: left;
+			font-family: Arial, sans-serif;
+			background: #fff;
+			padding: 10px;
+			margin: 10px;
+			border: 3px solid #000;
+			text-align: left;
         }
         #legend img {
-          vertical-align: middle;
-          padding-bottom: 5px;
+			vertical-align: middle;
+			padding-bottom: 5px;
         }
         .team-empty {
         	margin-top: 1em;
@@ -230,8 +233,6 @@
        	<h2 id="team-num-name"></h2>
        	<h3 id="team-school" class="italic"></h3>
        	<hr/>
-       	<h4>Happening Now</h4>
-       	<ul id="happening-now"></ul>
        	<table class="table table-bordered">
        	<thead>
        		<tr><th>Schedule</th></tr>
@@ -239,7 +240,7 @@
        	<tbody id="schedule">
        	</tbody>
        	</table>
-       	<div id="map"></div>
+       	<div id="map" style="height: 600px;"></div>
        </div>
       </div>
       <h3 style="text-align: center;">Sponsors</h3>

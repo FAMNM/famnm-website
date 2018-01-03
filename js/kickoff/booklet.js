@@ -25,7 +25,7 @@ var bNs = {
         xrq.responseType = "json";
         
         xrq.onreadystatechange = function () {
-            if (xrq.readyState == 4 && xrq.status == "200")
+            if (xrq.readyState == 4 && (xrq.status == 200 || xrq.status == 0))
                 callback(xrq.response);
         }
         
@@ -33,17 +33,13 @@ var bNs = {
     },
     loadSchedules: function (time) {
         time = (time === undefined ? new Date() : time);
+        var mainSchedule = document.querySelector("#schedule");
         
-        var altSchedule = document.getElementById("happening-now");
-        var mainSchedule = altSchedule.nextElementSibling.lastElementChild;
-        
-        while (altSchedule.firstChild)
-            altSchedule.removeChild(altSchedule.firstChild);
         while (mainSchedule.firstChild)
             mainSchedule.removeChild(mainSchedule.firstChild);
         
         //Fill main schedule
-        bNs.schedule.main.forEach(function (evt) {
+        bNs.schedule.forEach(function (evt) {
             var loc = bNs.resolveLocation(evt.location);
             
             if (loc.code === false) return;
@@ -63,6 +59,7 @@ var bNs = {
             //"active" applies a gray background, "info" applies a blue background
             if (time >= evt.end) cell.parentElement.classList.add("active");
             else if (time >= evt.start) cell.parentElement.classList.add("info");
+            else cell.parentElement.classList.add("warning");
         });
     },
     teamNumAccepted: function (event) {
@@ -82,15 +79,20 @@ var bNs = {
                            10);
         } else return;
         
+        if (bNs.activeTeam.intervalId !== undefined)
+            clearInterval($.activeTeam.intervalId);
+        
         emptyDiv.style.display = "none";
         if (bNs.setTeam(num) >= 0) {
             bNs.loadSchedules();
+            bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
             
             teamNumName.textContent = num + ": " + bNs.activeTeam.name;
             teamSchool.textContent = bNs.activeTeam.school;
             
             errDiv.style.display = "none";
             dispDiv.style.display = "block";
+            google.maps.event.trigger(bNs.map, "resize");
         } else {
             errDiv.style.display = "block";
             dispDiv.style.display = "none";
@@ -127,60 +129,56 @@ var bNs = {
         return locObj;
     },
     activeTeam:{},
-    schedule:{
-        main:[
-           {
-               event:"Team Check-In",
-               start:getTime(8,0),
-               end:getTime(10,0),
-               location:"PIER"
-           },
-           {
-               event:"Breakout Rooms Open",
-               start:getTime(8,0),
-               end:getTime(10,0),
-               location:"t:breakout"
-           },
-           {
-               event:"Opening Ceremonies and Broadcast",
-               start:getTime(10,0),
-               end:getTime(11,30),
-               location:"t:broadcast"
-           },
-           {
-               event:"Breakout Rooms Open",
-               start:getTime(11,30),
-               end:getTime(18,0),
-               location:"t:breakout"
-           }
-        ],
-        additional:[
-           {
-               event:"North Campus Tours",
-               start:getTime(8,15),
-               end:getTime(9,15),
-               location:"PIER"
-           },
-           {
-               event:"UM Fair",
-               start:getTime(8,30),
-               end:getTime(10,0),
-               location:"DUDE CON"
-           },
-           {
-               event:"Kit Distribution",
-               start:getTime(11,30),
-               end:getTime(15,0),
-               location:"CHRYS 133"
-           },
-           {
-               event:"Game Field Open",
-               start:getTime(12,0),
-               end:getTime(15,0),
-               location:"DUDE GAL"
-           }
-        ]
-    },
+    schedule:[
+       {
+           event:"Team Check-In",
+           start:getTime(8,0),
+           end:getTime(10,0),
+           location:"PIER"
+       },
+       {
+           event:"Breakout Rooms Open",
+           start:getTime(8,0),
+           end:getTime(10,0),
+           location:"t:breakout"
+       },
+       {
+           event:"North Campus Tours",
+           start:getTime(8,15),
+           end:getTime(9,15),
+           location:"PIER"
+       },
+       {
+           event:"UM Fair",
+           start:getTime(8,30),
+           end:getTime(10,0),
+           location:"DUDE CON"
+       },
+       {
+           event:"Opening Ceremonies and Broadcast",
+           start:getTime(10,0),
+           end:getTime(11,30),
+           location:"t:broadcast"
+       },
+       {
+           event:"Kit Distribution",
+           start:getTime(11,30),
+           end:getTime(15,0),
+           location:"CHRYS 133"
+       },
+       {
+           event:"Breakout Rooms Open",
+           start:getTime(11,30),
+           end:getTime(18,0),
+           location:"t:breakout"
+       },
+       {
+           event:"Game Field Open",
+           start:getTime(12,0),
+           end:getTime(15,0),
+           location:"DUDE GAL"
+       }
+    ],
     locations:[
         ["220","- Chesebrough Auditorium (Room 220)"],
         ["GAL","Gallery"],
@@ -226,10 +224,15 @@ var bNs = {
 };
 
 function initMap () {
-    bNs.map = new google.maps.Map(document.getElementById("map"), {mapTypeId: "roadmap"});
+    bNs.map = new google.maps.Map(document.querySelector("#map"),
+                                  {
+                                    center: new google.maps.LatLng(42.2945,-83.7215),
+                                    zoom: 17,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                  });
     bNs.map.setTilt(45);
-    bNs.map.fitBounds({east:-83.712525, north:42.293979, south:42.290441,
-                     west:-83.718466});
+    /*bNs.map.fitBounds({east:-83.712525, north:42.293979, south:42.290441,
+                     west:-83.718466});*/
 }
 
 document.addEventListener("DOMContentLoaded", function () {
