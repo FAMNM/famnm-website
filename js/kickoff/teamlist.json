@@ -1,0 +1,310 @@
+[
+	{
+		"number":66,
+		"name":"Grizzly Robotics",
+		"school":"Ypsilanti STEMM Middle College",
+		"broadcast":"CHRYS 220",
+		"breakout":"DOW 1010"
+	},
+	{
+		"number":451,
+		"name":"The Cat Attack",
+		"school":"Maumee, Sylvania area schools",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	},
+	{
+		"number":470,
+		"name":"Grizzly Robotics",
+		"school":"Ypsilanti ACTech High School",
+		"broadcast":"GGBL 1571",
+		"breakout":false
+	},
+	{
+		"number":815,
+		"name":"Advanced Power",
+		"school":"Allen Park High School",
+		"broadcast":"GGBL 1571",
+		"breakout":"BBB 1690"
+	},
+	{
+		"number":830,
+		"name":"The Rat Pack",
+		"school":"Ann Arbor Huron High School",
+		"broadcast":"CHRYS 220",
+		"breakout":"EECS 1303"
+	},
+	{
+		"number":1076,
+		"name":"Pi Hi Samurai",
+		"school":"Ann Arbor Pioneer High School",
+		"broadcast":"STAMPS",
+		"breakout":"EECS 1311"
+	},
+	{
+		"number":1189,
+		"name":"The Gearheads",
+		"school":"Grosse Pointe Public School System",
+		"broadcast":"CHRYS 220",
+		"breakout":false
+	},
+	{
+		"number":1502,
+		"name":"Technical Difficulties",
+		"school":"Chelsea High School",
+		"broadcast":"STAMPS",
+		"breakout":false
+	},
+	{
+		"number":1701,
+		"name":"RoboCubs",
+		"school":"University of Detroit Jesuit High School",
+		"broadcast":"GGBL 1571",
+		"breakout":false
+	},
+	{
+		"number":3322,
+		"name":"Eagle Imperium",
+		"school":"Ann Arbor Skyline High School",
+		"broadcast":"STAMPS",
+		"breakout":"EECS 1500"
+	},
+	{
+		"number":3604,
+		"name":"Goon Squad",
+		"school":"Woodhaven High School",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	},
+	{
+		"number":3641,
+		"name":"The Flying Toasters",
+		"school":"South Lyon High School",
+		"broadcast":"BBB 1670",
+		"breakout":"BBB 1670"
+	},
+	{
+		"number":3656,
+		"name":"Dexter Dreadbots",
+		"school":"Dexter High School",
+		"broadcast":"STAMPS",
+		"breakout":false
+	},
+	{
+		"number":3668,
+		"name":"TroBots",
+		"school":"Whitmore Lake High School",
+		"broadcast":"CHRYS 220",
+		"breakout":false
+	},
+	{
+		"number":3707,
+		"name":"Brighton TechnoDogs",
+		"school":"Brighton High School",
+		"broadcast":"GGBL 1571",
+		"breakout":false
+	},
+	{
+		"number":3773,
+		"name":"Cobalt Commanders",
+		"school":"Tecumseh High School",
+		"broadcast":"STAMPS",
+		"breakout":"DOW 2150"
+	},
+	{
+		"number":4395,
+		"name":"Dundee Vi-Borgs",
+		"school":"Dundee High School",
+		"broadcast":"CHRYS 220",
+		"breakout":"EECS 1012"
+	},
+	{
+		"number":4405,
+		"name":"The Atoms Family",
+		"school":"Plymouth Christian Academy",
+		"broadcast":"STAMPS",
+		"breakout":"DOW 1006"
+	},
+	{
+		"number":5066,
+		"name":"Singularity",
+		"school":"Saline High School",
+		"broadcast":"CHRYS 220",
+		"breakout":false
+	},
+	{
+		"number":5067,
+		"name":"Steiner Steel Storm",
+		"school":"Rudolf Steiner High School",
+		"broadcast":"GGBL 1571",
+		"breakout":"DUDE A"
+	},
+	{
+		"number":5090,
+		"name":"TorqueNados",
+		"school":"Trenton High School",
+		"broadcast":"GGBL 1571",
+		"breakout":"DOW 1017"
+	},
+	{
+		"number":5498,
+		"name":"Wired Devils",
+		"school":"Grosse Ile High School",
+		"broadcast":"CHRYS 220",
+		"breakout":false
+	},
+	{
+		"number":5530,
+		"name":"The Lawnmowers",
+		"school":"Greenhills",
+		"broadcast":"DOW 1013",
+		"breakout":"DOW 1005"
+	},
+	{
+		"number":5567,
+		"name":"Code Red Robotics",
+		"school":"Milan High School",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	},
+	{
+		"number":5676,
+		"name":"The HEROES (Hillsdale Robotics)",
+		"school":"Hillsdale High School",
+		"broadcast":"DOW 1013",
+		"breakout":"DOW 1014"
+	},
+	{
+		"number":5685,
+		"name":"Robo Terriers",
+		"school":"Litchfield High School",
+		"broadcast":"GGBL 1571",
+		"breakout":false
+	},
+	{
+		"number":5688,
+		"name":"Robo Cats",
+		"school":"Pittsford Area High School",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	},
+	{
+		"number":5708,
+		"name":"Zebrotics",
+		"school":"Ann Arbor Community High School",
+		"broadcast":"STAMPS",
+		"breakout":"DOW 3150"
+	},
+	{
+		"number":6081,
+		"name":"Digital Dislocators",
+		"school":"Manchester High School",
+		"broadcast":"STAMPS",
+		"breakout":false
+	},
+	{
+		"number":6089,
+		"name":"Cyber Cougars",
+		"school":"Annapolis High School",
+		"broadcast":"CHRYS 220",
+		"breakout":false
+	},
+	{
+		"number":6092,
+		"name":"QBots",
+		"school":"Quincy High School",
+		"broadcast":"CHRYS 220",
+		"breakout":false
+	},
+	{
+		"number":6101,
+		"name":"Strange Quarks",
+		"school":"Washtenaw Technical Middle College",
+		"broadcast":"STAMPS",
+		"breakout":"DOW 1018"
+	},
+	{
+		"number":6119,
+		"name":"Prototype Pumas",
+		"school":"Pansophia Academy",
+		"broadcast":"DOW 1013",
+		"breakout":"EECS 1003"
+	},
+	{
+		"number":6150,
+		"name":"BlueBotics",
+		"school":"Adrian High School",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	},
+	{
+		"number":6190,
+		"name":"Will-er Run",
+		"school":"Canton Preparatory High School",
+		"broadcast":"GGBL 1571",
+		"breakout":"DOW 2166"
+	},
+	{
+		"number":6528,
+		"name":"Terror Bytes",
+		"school":"Oscar A. Carlson High School",
+		"broadcast":"STAMPS",
+		"breakout":"CHRYS 265"
+	},
+	{
+		"number":6538,
+		"name":"Linc-Bots",
+		"school":"Lincoln High School",
+		"broadcast":"GGBL 1571",
+		"breakout":"EECS 1008"
+	},
+	{
+		"number":6556,
+		"name":"Waldron Bot Heads",
+		"school":"Waldron High School",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	},
+	{
+		"number":6570,
+		"name":"Whiteford Bobcats",
+		"school":"Whiteford High School",
+		"broadcast":"STAMPS",
+		"breakout":false
+	},
+	{
+		"number":6580,
+		"name":"Positive Charge",
+		"school":"Marshall Academy",
+		"broadcast":"CHRYS 220",
+		"breakout":"EECS 1003"
+	},
+	{
+		"number":6618,
+		"name":"WARHBOTS",
+		"school":"Flat Rock Community High School",
+		"broadcast":"GGBL 1571",
+		"breakout":false
+	},
+	{
+		"number":7147,
+		"name":"Falcons Senior Robotics Team",
+		"school":"Central Academy",
+		"broadcast":"STAMPS",
+		"breakout":false
+	},
+	{
+		"number":7175,
+		"name":"CHS Lafata",
+		"school":"Clinton High School",
+		"broadcast":"DOW 1013",
+		"breakout":"DUDE B"
+	},
+	{
+		"number":7209,
+		"name":"Homer Robotics Club",
+		"school":"Homer Community High School",
+		"broadcast":"DOW 1013",
+		"breakout":false
+	}
+]
