@@ -71,12 +71,12 @@ var bNs = {
                     return;
                 }
                 
-                var pos = new google.maps.LatLng(marker[2], marker[3]);
+                var pos = new google.maps.LatLng(marker[1], marker[2]);
                 bNs.map.activeMarker = new google.maps.Marker({
                    position: pos,
                    map: bNs.map.map,
                    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                   title: marker[0]
+                   title: loc.name
                 });
                 bNs.map.map.setCenter(pos);
                 bNs.map.map.setZoom(18);
@@ -165,7 +165,7 @@ var bNs = {
     },
     getMarker: function (code) {
       for (var i = 0; i < bNs.markers.length; ++i) {
-          if (code === bNs.markers[i][1]) return bNs.markers[i];
+          if (code === bNs.markers[i][0]) return bNs.markers[i];
       }
       
       return [];
@@ -236,34 +236,34 @@ var bNs = {
         ["PIER","Pierpont Commons"]
     ],
     markers:[
-        ["Pierpont Commons", "PIER", 42.291384, -83.717490],
-        ["Duderstadt Connector", "DUDE CON", 42.291225, -83.716470],
-        ["Duderstadt Gallery", "DUDE GAL", 42.291166, -83.716745],
-        ["Duderstadt A", "DUDE A", 42.291088, -83.716381],
-        ["Duderstadt B", "DUDE B", 42.291088, -83.716381],
-        ["Chrysler 133", "CHRYS 133", 42.290646, -83.716900],
-        ["Chrysler - Chesebrough Auditorium (Room 220)", "CHRYS 220", 42.290877, -83.716737],
-        ["Chrysler 265", "CHRYS 265", 42.290761, -83.716949],
-        ["Stamps Auditorium", "STAMPS", 42.291976, -83.716931],
-        ["Bob and Betty Beyster Building 1670", "BBB 1670", 42.292868, -83.716273],
-        ["Bob and Betty Beyster Building 1690", "BBB 1690", 42.292870, -83.716463],
-        ["Dow Building 1005", "DOW 1005", 42.292721, -83.715589],
-        ["Dow Building 1006", "DOW 1006", 42.292919, -83.715597],
-        ["Dow Building 1010", "DOW 1010", 42.292937, -83.715503],
-        ["Dow Building 1014", "DOW 1013", 42.292728, -83.715412],
-        ["Dow Building 1014", "DOW 1014", 42.292945, -83.715350],
-        ["Dow Building 1017", "DOW 1017", 42.292745, -83.715261],
-        ["Dow Buliding 1018", "DOW 1018", 42.292880, -83.715223],
-        ["Dow Building 2150", "DOW 2150", 42.292723, -83.715376],
-        ["Dow Building 2166", "DOW 2166", 42.292723, -83.715376],
-        ["Dow Building 3150", "DOW 3150", 42.292723, -83.715376],
-        ["GG Brown 1571", "GGBL 1571", 42.293140, -83.714917],
-        ["EECS Building 1003", "EECS 1003", 42.292653, -83.714466],
-        ["EECS Building 1008", "EECS 1008", 42.292653, -83.714466],
-        ["EECS Building 1012", "EECS 1012", 42.292653, -83.714466],
-        ["EECS Building 1303", "EECS 1303", 42.292502, -83.714353],
-        ["EECS Building 1311", "EECS 1311", 42.292323, -83.714417],
-        ["EECS Building 1500", "EECS 1500", 42.292271, -83.714581]
+        ["PIER", 42.291384, -83.717490],
+        ["DUDE CON", 42.291225, -83.716470],
+        ["DUDE GAL", 42.291166, -83.716745],
+        ["DUDE A", 42.291088, -83.716381],
+        ["DUDE B", 42.291088, -83.716381],
+        ["CHRYS 133", 42.290646, -83.716900],
+        ["CHRYS 220", 42.290877, -83.716737],
+        ["CHRYS 265", 42.290761, -83.716949],
+        ["STAMPS", 42.291976, -83.716931],
+        ["BBB 1670", 42.292868, -83.716273],
+        ["BBB 1690", 42.292870, -83.716463],
+        ["DOW 1005", 42.292721, -83.715589],
+        ["DOW 1006", 42.292919, -83.715597],
+        ["DOW 1010", 42.292937, -83.715503],
+        ["DOW 1013", 42.292728, -83.715412],
+        ["DOW 1014", 42.292945, -83.715350],
+        ["DOW 1017", 42.292745, -83.715261],
+        ["DOW 1018", 42.292880, -83.715223],
+        ["DOW 2150", 42.292723, -83.715376],
+        ["DOW 2166", 42.292723, -83.715376],
+        ["DOW 3150", 42.292723, -83.715376],
+        ["GGBL 1571", 42.293140, -83.714917],
+        ["EECS 1003", 42.292653, -83.714466],
+        ["EECS 1008", 42.292653, -83.714466],
+        ["EECS 1012", 42.292653, -83.714466],
+        ["EECS 1303", 42.292502, -83.714353],
+        ["EECS 1311", 42.292323, -83.714417],
+        ["EECS 1500", 42.292271, -83.714581]
     ]
 };
 
