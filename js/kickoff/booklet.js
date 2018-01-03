@@ -59,9 +59,9 @@ var bNs = {
             locLnk.addEventListener("click", function (event) {
                 var marker = bNs.getMarker(loc.code);
                 
-                if (bNs.activeMarker) bNs.activeMarker.setMap(null);
-                if (bNs.winListener) {
-                    google.maps.event.removeListener(bNs.winListener);
+                if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
+                if (bNs.map.winListener) {
+                    google.maps.event.removeListener(bNs.map.winListener);
                     bNs.winListener = undefined;
                 }
                 
@@ -72,23 +72,23 @@ var bNs = {
                 }
                 
                 var pos = new google.maps.LatLng(marker[2], marker[3]);
-                bNs.activeMarker = new google.maps.Marker({
+                bNs.map.activeMarker = new google.maps.Marker({
                    position: pos,
-                   map: bNs.map,
+                   map: bNs.map.map,
                    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
                    title: marker[0]
                 });
-                bNs.map.setCenter(pos);
-                bNs.map.setZoom(18);
+                bNs.map.map.setCenter(pos);
+                bNs.map.map.setZoom(18);
                 
-                google.maps.event.addListener(bNs.activeMarker, "click", (function(mrk) {
+                bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function(mrk) {
                     return function() {
-                        bNs.infoWindow.setContent("<h3>" + loc.name + "</h3>");
-                        bNs.infoWindow.open(map, mrk);
+                        bNs.map.infoWindow.setContent("<h3>" + loc.name + "</h3>");
+                        bNs.map.infoWindow.open(map, mrk);
                     }
-                })(bNs.activeMarker));
+                })(bNs.map.activeMarker));
                 
-                google.maps.event.trigger(bNs.activeMarker, "click");
+                google.maps.event.trigger(bNs.map.activeMarker, "click");
             });
             
             //"active" applies a gray background, "info" applies a blue background
@@ -127,7 +127,7 @@ var bNs = {
             
             errDiv.style.display = "none";
             dispDiv.style.display = "block";
-            google.maps.event.trigger(bNs.map, "resize");
+            google.maps.event.trigger(bNs.map.map, "resize");
         } else {
             errDiv.style.display = "block";
             dispDiv.style.display = "none";
@@ -221,6 +221,7 @@ var bNs = {
            location:"DUDE GAL"
        }
     ],
+    map: {},
     locations:[
         ["220","- Chesebrough Auditorium (Room 220)"],
         ["GAL","Gallery"],
@@ -275,15 +276,15 @@ function initMap () {
     jumpLink.href = "#team-num-name";
     jumpLink.style.fontSize = "1.25em";
     
-    bNs.map = new google.maps.Map(document.querySelector("#map"),
+    bNs.map.map = new google.maps.Map(document.querySelector("#map"),
                                   {
                                     center: new google.maps.LatLng(42.2945,-83.7215),
                                     zoom: 17,
                                     mapTypeId: google.maps.MapTypeId.ROADMAP
                                   });
-    bNs.map.setTilt(45);
-    bNs.infoWindow = new google.maps.InfoWindow();
-    bNs.map.controls[google.maps.ControlPosition.TOP_CENTER].push(mapJump);
+    bNs.map.map.setTilt(45);
+    bNs.map.infoWindow = new google.maps.InfoWindow();
+    bNs.map.map.controls[google.maps.ControlPosition.TOP_CENTER].push(mapJump);
 }
 
 document.addEventListener("DOMContentLoaded", function () {
