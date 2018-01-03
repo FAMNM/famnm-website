@@ -300,7 +300,7 @@ document.addEventListener("DOMContentLoaded", function () {
     
     //Initialize countdown clock
     var computeDiff = function () {
-        var diff = (getTime(11,30).getTime() - (new Date()).getTime());
+        var diff = (getTime(10,30).getTime() - (new Date()).getTime());
         var d,h,m,s;
         
         var countdownClock = document.querySelector(".countdown-clock");
