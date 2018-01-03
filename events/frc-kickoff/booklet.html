@@ -25,6 +25,9 @@
 
     <!-- Script to load forms in modal dialogs -->
     <script src="../../js/web-encapsulation.js"></script>
+    
+    <!-- Page script -->
+    <script src="../../js/kickoff/booklet.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -66,6 +69,10 @@
         .team-error,
         .team-disp {
         	display: none;
+        }
+        
+        #schedule .active > td {
+        	color: #999999;
         }
 
         /** Sponsor display list **/
@@ -209,9 +216,9 @@
          <h1>2018 FRC Kickoff Digital Booklet</h1>
        </div>
        <div class="input-group">
-       		<input type="text" class="form-control" placeholder="Team number"/>
+       		<input type="text" class="form-control" placeholder="Team number" onkeypress="bNs.teamNumAccepted(event)"/>
        		<span class="input-group-btn">
-       			<button class="btn btn-default" type="button">View</button>
+       			<button class="btn btn-default" type="button" onclick="bNs.teamNumAccepted(event)">View</button>
        		</span>
        </div>
        <p class="team-empty">Enter your team number above to see your team's schedule,
@@ -220,6 +227,19 @@
       		We're sorry, we don't have a schedule for that team.<br/><br/>
       		If your team is only picking up your Kit of Parts, please see the <a href="../kickoff.html">main kickoff page</a>.</p>
        <div class="team-disp">
+       	<h2 id="team-num-name"></h2>
+       	<h3 id="team-school" class="italic"></h3>
+       	<hr/>
+       	<h4>Happening Now</h4>
+       	<ul id="happening-now"></ul>
+       	<table class="table table-bordered">
+       	<thead>
+       		<tr><th>Schedule</th></tr>
+       	</thead>
+       	<tbody id="schedule">
+       	</tbody>
+       	</table>
+       	<div id="map"></div>
        </div>
       </div>
       <h3 style="text-align: center;">Sponsors</h3>
@@ -235,7 +255,7 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="..././js/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../../assets/js/ie10-viewport-bug-workaround.js"></script>
     <!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
@@ -243,6 +263,5 @@
         <div class="navbar-header">
       </div>
     </nav>-->
-    <script src='../../js/kickoff/map.js'></script>
   </body>
 </html>
