@@ -210,7 +210,7 @@ var bNs = {
        },
        {
            event:"Game Field Open",
-           start:getTime(12,0),
+           start:getTime(11,45),
            end:getTime(15,0),
            location:"DUDE GAL"
        },
