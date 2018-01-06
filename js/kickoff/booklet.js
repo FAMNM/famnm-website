@@ -128,6 +128,9 @@ var bNs = {
             errDiv.style.display = "none";
             dispDiv.style.display = "block";
             google.maps.event.trigger(bNs.map.map, "resize");
+            
+            //Make the team number persist across refreshes
+            localStorage.setItem("team", bNs.activeTeam.number);
         } else {
             errDiv.style.display = "block";
             dispDiv.style.display = "none";
@@ -296,6 +299,15 @@ document.addEventListener("DOMContentLoaded", function () {
     //Load team information
     bNs.ajaxGet("../../js/kickoff/teamlist.json", function (teams) {
         bNs.teams = teams;
+        
+        //Load the current team
+        var team = localStorage.getItem("team");
+        
+        if (team.length > 0) {
+            var teamInput = document.querySelector(".input-group").firstElementChild;
+            teamInput.value = team;
+            teamInput.nextElementSibling.firstElementChild.click();
+        }
     });
     
     //Initialize countdown clock
