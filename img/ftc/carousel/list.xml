@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<carousel>
+	<carousel-item fname="field.jpg">
+		<title>2016 FAMNM FRC Kickoff</title>
+		<description>Teams gather in Stamps Auditorium to watch the kickoff broadcast.</description>
+	</carousel-item>
+	<carousel-item fname="eecs.jpg">
+		<title>At the Apple Orchard</title>
+		<description>FAMNM on a social trip to the Plymouth Orchards and Cider Mill on November 1, 2015.</description>
+	</carousel-item>
+	<carousel-item fname="demo.jpg">
+		<title>All-Girls Competition</title>
+		<description>FAMNM volunteers at the 2015 All-Girls FRC competition in Bloomfield Hills.</description>
+	</carousel-item>
+	<carousel-item fname="stamps.jpg">
+		<title>Hockey Game</title>
+		<description>FAMNM at a hockey game. Go Blue!</description>
+	</carousel-item>
+	<carousel-item fname="workshop.jpg">
+		<title>2016 FAMNM FRC Kickoff</title>
+		<description>Teams crowd the Bob and Betty Beyster Building to interact with the on-site field.</description>
+	</carousel-item>
+</carousel>
