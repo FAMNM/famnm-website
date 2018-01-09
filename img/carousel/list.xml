@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <carousel>
+	<carousel-item fname="frc-kickoff-2018-field.jpg">
+		<title>2018 FAMNM FRC Kickoff</title>
+		<description>Teams congregate at the Duderstadt Art Gallery to interact with the on-site field for FIRST&reg; POWER UP&#8480;.</description>
+	</carousel-item>
 	<carousel-item fname="ginsberg-service-cord.png">
 		<title>Mentoring</title>
 		<description>FAMNM cofounder Rachel Goubert works with her team. Courtesy of the Edward Ginsberg Center</description>
@@ -23,9 +27,5 @@
 	<carousel-item fname="famnm-all-girls-2017.jpg">
 		<title>Volunteering</title>
 		<description>FAMNM volunteers at the 2017 All-Girls FRC offseason competition in Bloomfield Hills.</description>
-	</carousel-item>
-	<carousel-item fname="kickoff-field.jpg">
-		<title>2016 FAMNM FRC Kickoff</title>
-		<description>Teams crowd the Bob and Betty Beyster Building to interact with the on-site field.</description>
 	</carousel-item>
 </carousel>
