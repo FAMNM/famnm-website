@@ -1,530 +1,397 @@
+---
+2018 Kickoff Digital Booklet | FIRST® Alumni & Mentors Network at Michigan
+---
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="icon" sizes="192x192" href="../../img/brain_favicon_large.png">
 
-    <title>2018 Kickoff Digital Booklet | FIRST® Alumni &amp; Mentors Network at Michigan</title>
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-
-    <!-- Custom styles for this template -->
-    <link href="../../css/main.css" rel="stylesheet">
-    <link href="../../css/page-common.css" rel="stylesheet">
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <!--<script src="js/ie-emulation-modes-warning.js"></script> -->
-
-    <!-- Script to load forms in modal dialogs -->
-    <script src="../../js/web-encapsulation.js"></script>
-    
-    <!-- Page script -->
-    <script src="../../js/kickoff/booklet.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+<head>
+    {% include page-common.html %}
     <style>
-    	html, body {
-			height: 100%;
-			margin: 0;
-			padding: 0;
-	        font-family: Arial;
-		}
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: Arial;
+        }
+
         .table th {
-        	text-align: center;
+            text-align: center;
         }
+
         .table td {
-        	text-align: center;
+            text-align: center;
         }
+
         .map-jump {
-			font-family: Arial, sans-serif;
-			background: #fff;
-			padding: 10px;
-			margin: 10px;
-			border: 3px solid #000;
-			text-align: left;
+            font-family: Arial, sans-serif;
+            background: #fff;
+            padding: 10px;
+            margin: 10px;
+            border: 3px solid #000;
+            text-align: left;
         }
+
         .countdown-clock {
-        	font-size: 3em;
-        	font-weight: bold;
+            font-size: 3em;
+            font-weight: bold;
         }
-        .countdown-clock > .time-part:after {
-        	font-size: 0.5em;
+
+        .countdown-clock>.time-part:after {
+            font-size: 0.5em;
         }
-        .countdown-clock > .days:after {
-        	content:"d";
+
+        .countdown-clock>.days:after {
+            content: "d";
         }
-        .countdown-clock > .hours:after {
-        	content:"h";
+
+        .countdown-clock>.hours:after {
+            content: "h";
         }
-        .countdown-clock > .minutes:after {
-        	content:"m";
+
+        .countdown-clock>.minutes:after {
+            content: "m";
         }
-        .countdown-clock > .seconds:after {
-        	content:"s";
+
+        .countdown-clock>.seconds:after {
+            content: "s";
         }
+
         .team-empty {
-        	margin-top: 1em;
+            margin-top: 1em;
         }
+
         .team-error,
         .team-disp {
-        	display: none;
+            display: none;
         }
-        
-        #schedule .active > td {
-        	color: #999999;
+
+        #schedule .active>td {
+            color: #999999;
         }
 
         /** Sponsor display list **/
-		ul.sponsor-display {
-			padding: 0;
-			vertical-align: middle;
-			height: auto;
-			margin: 0 auto;
-			text-align: center;
-		}
 
-		@media (max-width: 768px)
-		{
-			ul.sponsor-display > li {
-				list-style-type: none;
-				vertical-align: middle;
-			}
-			
-			ul.sponsor-display > li img {
-				max-width: 100%;
-			}
-			
-			#map {
-				height: 400px;
-			}
-		}
+        ul.sponsor-display {
+            padding: 0;
+            vertical-align: middle;
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
 
-		@media (min-width: 768px)
-		{
-			ul.sponsor-display > li {
-				list-style-type: none;
-				display: inline-block;
-				vertical-align: middle;
-			}
-			
-			ul.sponsor-display > li img {
-				max-width: 250px;
-			}
-			
-			#map {
-				height: 600px;
-			}
-		}
+        @media (max-width: 768px) {
+            ul.sponsor-display>li {
+                list-style-type: none;
+                vertical-align: middle;
+            }
 
-		ul.sponsor-display > li:hover {
-			background-color: #cccccc;
-		}
+            ul.sponsor-display>li img {
+                max-width: 100%;
+            }
 
-		ul.sponsor-display > li > a {
-			display: block;
-			padding: 10px;
-			vertical-align: middle;
-		}
+            #map {
+                height: 400px;
+            }
+        }
 
-		ul.sponsor-display > li img {
-			max-height: 180px;
-		}
+        @media (min-width: 768px) {
+            ul.sponsor-display>li {
+                list-style-type: none;
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            ul.sponsor-display>li img {
+                max-width: 250px;
+            }
+
+            #map {
+                height: 600px;
+            }
+        }
+
+        ul.sponsor-display>li:hover {
+            background-color: #cccccc;
+        }
+
+        ul.sponsor-display>li>a {
+            display: block;
+            padding: 10px;
+            vertical-align: middle;
+        }
+
+        ul.sponsor-display>li img {
+            max-height: 180px;
+        }
     </style>
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <div>
-        <a href="../../index.html"><img id="site-header" src="../../img/logo.jpg" alt="Welcome to FAMNM"/></a>
-    </div>
+    {% include header.html %}
 
-    <!--<nav class="navbar navbar-inverse navbar-fixed-top"> -->
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="../../index.html">FAMNM</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <!--<li class="active"><a href="#">Home</a></li>-->
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle"
-                data-toggle="dropdown"
-                role="button" aria-haspopup="true"
-                aria-expanded="false">About us<span
-                class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="../../about/index.html">The FAMNM</a></li>
-                    <li><a href="../../about/leadership.html">Leadership</a></li>
-                    <li><a href="../../about/org-structure.html">Organizational Structure</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Media<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="https://www.flickr.com/photos/152238347@N08/">Photos</a></li>
-                    <li><a href="http://facebook.com/theFAMNM">Facebook</a></li>
-                    <li><a href="http://twitter.com/theFAMNM">Twitter</a></li>
-                    <li><a href="https://www.instagram.com/the.famnm/">Instagram</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li class="active"><a href="../kickoff.html">FAMNM FRC Kickoff</a></li>
-                    <li><a href="../ftc.html">FAMNM FTC Kickoff</a></li>
-                    <li><a href="../robotics-forums.html">FAMNM Forums</a></li>
-                	<li><a href="../diversity-mixer.html">Diversity Mixer</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">FAMNM Members<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="../../members/calendar.html">Calendar and upcoming events</a></li>
-                    <li><a href="https://maizepages.umich.edu/organization/FAMNM">Maize Pages</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Affiliated Teams<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="../../teams/mez.html">MEZ info</a></li>
-                    <li><a href="../../teams/maker-works.html">Maker Works</a></li>
-                    <li><a href="../../teams/resources.html">Available Resources</a></li>
-                    <li><a href="https://docs.google.com/forms/d/e/1FAIpQLSfWLWTk1T2MULRsCVxPT5RF-DxmBI_6_uUxYjBMGkQFslgk0g/viewform" target="_blank">Mentor and Resource Request Form</a></li>
-                    <li><a href="../../teams/tutor.html">Freelance Mentor Program</a></li>
-                    <li><a href="../../teams/workshops.html">Workshops</a></li>
-                    <li><a href="../../teams/coordination.html">Coordination Districts</a></li>
-                </ul>
-            </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Get Involved<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="../../sponsor/orgs.html">As a Student Organization</a></li>
-                    <li><a href="../../sponsor/corporate.html">As a Corporation</a></li>
-                    <li><a href="../../sponsor/teams.html">As a FIRST Team</a></li>
-                    <li><a href="../../sponsor/member.html">As a U of M Student</a></li>
-
-                </ul>
-            </li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </nav>
 
     <div class="container">
-     <div class="content">
-       <div class="page-header">
-         <h1>2018 FRC Kickoff Digital Booklet</h1>
-       </div>
-       <div class="input-group">
-       		<input type="text" class="form-control" placeholder="Team number" onkeypress="bNs.teamNumAccepted(event)"/>
-       		<span class="input-group-btn">
+        <div class="content">
+            <div class="page-header">
+                <h1>2018 FRC Kickoff Digital Booklet</h1>
+            </div>
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Team number" onkeypress="bNs.teamNumAccepted(event)" />
+                <span class="input-group-btn">
        			<button class="btn btn-default" type="button" onclick="bNs.teamNumAccepted(event)">View</button>
        		</span>
-       </div>
-       <p class="team-empty">Enter your team number above to see your team's schedule,
-       		find broadcast and breakout rooms, and view additional kickoff information.</p>
-       <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br/>
-      		We're sorry, we don't have a schedule for that team.<br/><br/>
-      		If your team is only picking up your Kit of Parts, please see the <a href="../kickoff.html">main kickoff page</a>.</p>
-       <div class="team-disp">
-       	<h2 id="team-num-name"></h2>
-       	<h3 id="team-school" class="italic"></h3>
-       	<hr/>
-       	<ul style="list-style-type: none; padding-left: 0;">
-       		<li><a href="#sched">Schedule</a></li>
-       		<li><a href="#power-up"><span class="italic">FIRST</span>&reg; POWER UP&#8480;</a></li>
-       		<li><a href="#um-fair">UM Fair</a></li>
-       	</ul>
-       	<p class="italic">Click on or touch a location to view it on a map</p>
-       	<table id="sched" class="table table-bordered">
-       	<thead>
-       		<tr><th>Schedule</th></tr>
-       	</thead>
-       	<tbody id="schedule">
-       	</tbody>
-       	</table>
-       	
-       	<img id="power-up" src="https://www.firstinspires.org/sites/default/files/uploads/rightimage/2018-power-up-logo-promo.jpg" style="max-height: 150px;"/>
-       	<h4>Countdown</h4>
-       	<div class="countdown-clock">
-       		<span class="days time-part">0</span>
-       		<span class="hours time-part">0</span>
-       		<span class="minutes time-part">0</span>
-       		<span class="seconds time-part">0</span>
-     	</div>
-       	<h4>Manuals and resources</h4>
-       	<p>Game manual password:</p>
-       	<p style="font-size: 1.5em; font-weight: bold">pLaY&4%R3aL!</p>
-       	<ul style="list-style-type: none; padding-left: 0;">
-			<li><a href="https://firstfrc.blob.core.windows.net/frc2018/Manual/2018FRCGameSeasonManual.pdf" target="_blank">Encrypted game manual</a></li>
-			<li><a href="https://www.youtube.com/playlist?list=PLZT9pIgNOV6Zmqw9Aj1F1u2FD5x8gIyfm" target="_blank">Field tour videos</a></li>
-		</ul>
-       	<h3 id="um-fair">UM Fair</h3>
-       	<p>The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved with. Expand any of the panels below to learn more about an organization!</p>
-       	<div class="panel-group">
-	       	<div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+            </div>
+            <p class="team-empty">Enter your team number above to see your team's schedule, find broadcast and breakout rooms, and view additional kickoff information.</p>
+            <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br/> We're sorry, we don't have a schedule for that team.<br/><br/> If your team is only picking up your Kit of Parts, please see the <a href="../kickoff.html">main kickoff page</a>.</p>
+            <div class="team-disp">
+                <h2 id="team-num-name"></h2>
+                <h3 id="team-school" class="italic"></h3>
+                <hr/>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li><a href="#sched">Schedule</a></li>
+                    <li><a href="#power-up"><span class="italic">FIRST</span>&reg; POWER UP&#8480;</a></li>
+                    <li><a href="#um-fair">UM Fair</a></li>
+                </ul>
+                <p class="italic">Click on or touch a location to view it on a map</p>
+                <table id="sched" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Schedule</th>
+                        </tr>
+                    </thead>
+                    <tbody id="schedule">
+                    </tbody>
+                </table>
+
+                <img id="power-up" src="https://www.firstinspires.org/sites/default/files/uploads/rightimage/2018-power-up-logo-promo.jpg" style="max-height: 150px;" />
+                <h4>Countdown</h4>
+                <div class="countdown-clock">
+                    <span class="days time-part">0</span>
+                    <span class="hours time-part">0</span>
+                    <span class="minutes time-part">0</span>
+                    <span class="seconds time-part">0</span>
+                </div>
+                <h4>Manuals and resources</h4>
+                <p>Game manual password:</p>
+                <p style="font-size: 1.5em; font-weight: bold">pLaY&4%R3aL!</p>
+                <ul style="list-style-type: none; padding-left: 0;">
+                    <li><a href="https://firstfrc.blob.core.windows.net/frc2018/Manual/2018FRCGameSeasonManual.pdf" target="_blank">Encrypted game manual</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLZT9pIgNOV6Zmqw9Aj1F1u2FD5x8gIyfm" target="_blank">Field tour videos</a></li>
+                </ul>
+                <h3 id="um-fair">UM Fair</h3>
+                <p>The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved with. Expand any of the panels below to learn more about an organization!</p>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#solarcar">University of Michigan Solar Car Team</a>
 	            </h4>
-	          </div>
-	          <div id="solarcar" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>The University of Michigan Solar Car Team is an entirely student-run organization that designs and builds solar electric vehicles.
-						The team races both nationally and internationally. Since its establishment in 1990, the team has built 13 vehicles,
-						won the American Solar Challenge nine times, won the Abu Dhabi Solar Challenge, placed third in the World Solar Challenge five times,
-						and most recently came in second in the 2017 World Solar Challenge. The team is recognized as the most successful team in North America.</p>
-					<p>It takes the team 2 years to build a new car. Improvements on the design and construction of the next car begin immediately following the completion of the current one.
-						In the summer, the team is either participating in the American Solar Challenge or preparing for the World Solar Challenge, depending on the year.
-						This makes it essential to maintain a level of commitment within the organization year-round.</p>
-					<p>Our team is an entirely student run project team that designs, builds, and races the world's fastest solar vehicles.
-						With four engineering divisions; mechanical, electrical, aerodynamics, and strategy, as well as operations and business divisions,
-						our team brings together students from a multitude of backgrounds and disciplines to work together towards a common goal: win our races.</p>
-					<p>The Race Crew, composed of around 20 people, for the World Solar Challenge takes off the fall semester in order to travel to Australia to race.
-						The crew ships off to Australia in early September. They then go through a solid month of strenuous testing.
-						The team stays at a hostel during this month and works around-the-clock on the car in a nearby workspace.
-						The strategists adjust to predicting car performance and energy usage in the Australian sun,
-						the engineers practice driving the car on new roads, and eventually the crew runs a "mock race" 1,800 miles from one side of the country
-						to the other in order to prepare for the real 1,800 mile race.
-						While the Race Crew is in Australia, the interim leaders take charge in Ann Arbor to keep the team running efficiently.</p>
-					<p>This summer the team will seek our 10th national championship in the 2018 American Solar Challenge, a 1,700 mile race that runs from Omaha, Nebraska to Bend, Oregon!</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="solarcar" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>The University of Michigan Solar Car Team is an entirely student-run organization that designs and builds solar electric vehicles. The team races both nationally and internationally. Since its establishment in 1990, the
+                                    team has built 13 vehicles, won the American Solar Challenge nine times, won the Abu Dhabi Solar Challenge, placed third in the World Solar Challenge five times, and most recently came in second in the 2017 World Solar
+                                    Challenge. The team is recognized as the most successful team in North America.</p>
+                                <p>It takes the team 2 years to build a new car. Improvements on the design and construction of the next car begin immediately following the completion of the current one. In the summer, the team is either participating in
+                                    the American Solar Challenge or preparing for the World Solar Challenge, depending on the year. This makes it essential to maintain a level of commitment within the organization year-round.</p>
+                                <p>Our team is an entirely student run project team that designs, builds, and races the world's fastest solar vehicles. With four engineering divisions; mechanical, electrical, aerodynamics, and strategy, as well as operations
+                                    and business divisions, our team brings together students from a multitude of backgrounds and disciplines to work together towards a common goal: win our races.</p>
+                                <p>The Race Crew, composed of around 20 people, for the World Solar Challenge takes off the fall semester in order to travel to Australia to race. The crew ships off to Australia in early September. They then go through a
+                                    solid month of strenuous testing. The team stays at a hostel during this month and works around-the-clock on the car in a nearby workspace. The strategists adjust to predicting car performance and energy usage in the
+                                    Australian sun, the engineers practice driving the car on new roads, and eventually the crew runs a "mock race" 1,800 miles from one side of the country to the other in order to prepare for the real 1,800 mile race.
+                                    While the Race Crew is in Australia, the interim leaders take charge in Ann Arbor to keep the team running efficiently.</p>
+                                <p>This summer the team will seek our 10th national championship in the 2018 American Solar Challenge, a 1,700 mile race that runs from Omaha, Nebraska to Bend, Oregon!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#robotics-institute">Robotics Institute</a>
 	            </h4>
-	          </div>
-	          <div id="robotics-institute" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>Michigan Robotics aims to accelerate the development of new robotics capabilities by bringing together roboticists
-						of all stripes under one roof so that they can share problems and solutions.
-						Core robotics faculty will be housed in a <a href="https://robotics.umich.edu/about/#facility" target="_blank">$75 million facility</a> with shared collaboration and laboratory space,
-						to be completed in 2020. They will work closely with interdisciplinary robotics researchers from across the University.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="robotics-institute" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>Michigan Robotics aims to accelerate the development of new robotics capabilities by bringing together roboticists of all stripes under one roof so that they can share problems and solutions. Core robotics faculty will
+                                    be housed in a <a href="https://robotics.umich.edu/about/#facility" target="_blank">$75 million facility</a> with shared collaboration and laboratory space, to be completed in 2020. They will work closely with interdisciplinary
+                                    robotics researchers from across the University.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#mhybrid">MHybrid</a>
 	            </h4>
-	          </div>
-	          <div id="mhybrid" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>Michigan Hybrid Racing (MHybrid) is the University of Michigan’s official Formula Hybrid racing team.
-						Founded in 2011, we are a multidisciplinary, student-run organization.
-						Our mission is to design, build, test, and finance our own high-performance, hybrid-electric Formula-style race car.
-						The team then competes at the Formula Hybrid competition at the New Hampshire International Speedway in the spring against teams from all over the world.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="mhybrid" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>Michigan Hybrid Racing (MHybrid) is the University of Michigan’s official Formula Hybrid racing team. Founded in 2011, we are a multidisciplinary, student-run organization. Our mission is to design, build, test, and finance
+                                    our own high-performance, hybrid-electric Formula-style race car. The team then competes at the Formula Hybrid competition at the New Hampshire International Speedway in the spring against teams from all over the world.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#mheal">M-HEAL</a>
 	            </h4>
-	          </div>
-	          <div id="mheal" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>M-HEAL (Michigan Health Engineered for All Lives) is a student organization that empowers students to design human-centered solutions for global health inequities.
-						We provide students with opportunities to build the necessary skills for global health design through interactive workshops; local, domestic,
-						and international volunteering opportunities; and project experience.</p>
-					<p>We support a diverse set of project teams at a variety of stages in the design process from problem definition to prototyping.
-						Project teams communicate regularly with in-country partners to develop community-specific solutions,
-						and travel to deliver prototypes and gain feedback for future iterations.
-						Our Incubator program offers members ways to explore new ideas and learn new skills;
-						interested members either develop their own need statement or are provided with one, and then, small teams are guided through the design process.
-						In all of our activities, M-HEAL strives to cultivate a well-informed, creative, and collaborative community prepared to make a positive impact for global health.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="mheal" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>M-HEAL (Michigan Health Engineered for All Lives) is a student organization that empowers students to design human-centered solutions for global health inequities. We provide students with opportunities to build the necessary
+                                    skills for global health design through interactive workshops; local, domestic, and international volunteering opportunities; and project experience.</p>
+                                <p>We support a diverse set of project teams at a variety of stages in the design process from problem definition to prototyping. Project teams communicate regularly with in-country partners to develop community-specific solutions,
+                                    and travel to deliver prototypes and gain feedback for future iterations. Our Incubator program offers members ways to explore new ideas and learn new skills; interested members either develop their own need statement
+                                    or are provided with one, and then, small teams are guided through the design process. In all of our activities, M-HEAL strives to cultivate a well-informed, creative, and collaborative community prepared to make a
+                                    positive impact for global health.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#maav">MAAV</a>
 	            </h4>
-	          </div>
-	          <div id="maav" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>The Michigan Autonomous Aerial Vehicles student project team strives to provide practical,
-						hands-on experience for students by competing annually in the International Aerial Robotics Competition (IARC).
-						Members of MAAV engage in the design, building, and testing of an autonomous Unmanned Aerial Vehicle (UAV)
-						while furthering multiple areas of Computer Science and Aerospace Engineering research.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="maav" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>The Michigan Autonomous Aerial Vehicles student project team strives to provide practical, hands-on experience for students by competing annually in the International Aerial Robotics Competition (IARC). Members of MAAV
+                                    engage in the design, building, and testing of an autonomous Unmanned Aerial Vehicle (UAV) while furthering multiple areas of Computer Science and Aerospace Engineering research.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#innovate-blue">Innovate Blue</a>
 	            </h4>
-	          </div>
-	          <div id="innovate-blue" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>As the University of Michigan’s hub for entrepreneurship and innovation,
-						nnovate Blue helps turn ideas into action by supporting, connecting,
-						and expanding the Michigan entrepreneurial network and community.
-						With more than 15 programs and centers in entrepreneurship and more than 30 entrepreneurial student organizations,
-						University of Michigan programs deliver one of the best and broadest engaged learning experiences on entrepreneurship.</p>
-					<p>Taken together, programs at the University of Michigan encourage innovation,
-						creativity and an entrepreneurial spirit that spurs economic development and contributes to the public good.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="innovate-blue" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>As the University of Michigan’s hub for entrepreneurship and innovation, nnovate Blue helps turn ideas into action by supporting, connecting, and expanding the Michigan entrepreneurial network and community. With more than
+                                    15 programs and centers in entrepreneurship and more than 30 entrepreneurial student organizations, University of Michigan programs deliver one of the best and broadest engaged learning experiences on entrepreneurship.</p>
+                                <p>Taken together, programs at the University of Michigan encourage innovation, creativity and an entrepreneurial spirit that spurs economic development and contributes to the public good.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#admissions">University of Michigan College of Engineering Admissions</a>
 	            </h4>
-	          </div>
-	          <div id="admissions" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>Michigan Engineering offers an impressive array of educational programs and options, including:
-						top-ranked undergraduate and graduate programs in nearly every engineering field;
-						12 engineering departments/divisions and 60+ engineering fields of study;
-						flexible interdisciplinary degree programs;
-						combined bachelor's/master's programs;
-						and unique international exchange opportunities.</p>
-					<p>The college application process takes time and effort — and a lot of information.
-						Even once a decision is made to apply to a school, the process for doing so can be daunting.
-						The Office of Recruitment & Admissions is able to answer any questions or concerns about the admissions process to the College of Engineering.
-						Admission to the College of Engineering is based on the strength of an applicant's academic preparation to pursue an engineering degree.
-						The admissions requirements are designed to assure that each student who is accepted has the intellectual capacity combined with the necessary interest and motivation to be successful.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="admissions" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>Michigan Engineering offers an impressive array of educational programs and options, including: top-ranked undergraduate and graduate programs in nearly every engineering field; 12 engineering departments/divisions and
+                                    60+ engineering fields of study; flexible interdisciplinary degree programs; combined bachelor's/master's programs; and unique international exchange opportunities.</p>
+                                <p>The college application process takes time and effort — and a lot of information. Even once a decision is made to apply to a school, the process for doing so can be daunting. The Office of Recruitment & Admissions is able
+                                    to answer any questions or concerns about the admissions process to the College of Engineering. Admission to the College of Engineering is based on the strength of an applicant's academic preparation to pursue an engineering
+                                    degree. The admissions requirements are designed to assure that each student who is accepted has the intellectual capacity combined with the necessary interest and motivation to be successful.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#finaid">University of Michigan Office of Financial Aid</a>
 	            </h4>
-	          </div>
-	          <div id="finaid" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>U-M Office of Financial Aid's Mission is:</p>
-	            	<ul>
-	            		<li>To ensure that accomplished students from a wide range of backgrounds and experiences are able to attend the University.</li>
-	            		<li>To provide &#8212; in a fair, confidential, and responsible manner &#8212; financial resources, information, options,
-							and advice that remove financial barriers and allow students to focus on academic success.</li>
-						<li>To employ an innovative spirit and factual approach to improve our processes and offer premier service to students and the University community.</li>
-	            	</ul>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="finaid" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>U-M Office of Financial Aid's Mission is:</p>
+                                <ul>
+                                    <li>To ensure that accomplished students from a wide range of backgrounds and experiences are able to attend the University.</li>
+                                    <li>To provide &#8212; in a fair, confidential, and responsible manner &#8212; financial resources, information, options, and advice that remove financial barriers and allow students to focus on academic success.</li>
+                                    <li>To employ an innovative spirit and factual approach to improve our processes and offer premier service to students and the University community.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#army-rotc">Army ROTC</a>
 	            </h4>
-	          </div>
-	          <div id="army-rotc" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>Start your college career strong by enrolling in the University of Michigan's Army Reserve Officers Training Corps (ROTC) Program!</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="army-rotc" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>Start your college career strong by enrolling in the University of Michigan's Army Reserve Officers Training Corps (ROTC) Program!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#ipe">International Programs in Engineering (IPE)</a>
 	            </h4>
-	          </div>
-	          <div id="ipe" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>Every year 600+ College of Engineering students embark on an experience abroad where they gain valuable life experience and prepare for the challenges of today’s global workplace.
-						It is our mission to prepare our graduates for success in the global engineering profession by helping all CoE students gain international experience.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="ipe" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>Every year 600+ College of Engineering students embark on an experience abroad where they gain valuable life experience and prepare for the challenges of today’s global workplace. It is our mission to prepare our graduates
+                                    for success in the global engineering profession by helping all CoE students gain international experience.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#nsbe">National Society of Black Engineers (NSBE)</a>
 	            </h4>
-	          </div>
-	          <div id="nsbe" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>NSBE's mission is "to increase the number of culturally responsible Black engineers who excel academically, succeed professionally and positively impact the community."
-						We represent one of the largest student-run organizations in the country, with over 30,000 active members. Our membership spans not only states, but countries.</p>
-					<p>The University of Michigan's NSBE chapter was chartered in 1984 and has become very active in the College of Engineering.
-						NSBE sponsors community outreach projects, social gatherings for members, and brings company representatives to general body meetings for networking opportunities.</p>
-	            </div>
-	          </div>
-	        </div>
-	        <div class="panel panel-default">
-	          <div class="panel-heading">
-	            <h4 class="panel-title">
+                        </div>
+                        <div id="nsbe" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>NSBE's mission is "to increase the number of culturally responsible Black engineers who excel academically, succeed professionally and positively impact the community." We represent one of the largest student-run organizations
+                                    in the country, with over 30,000 active members. Our membership spans not only states, but countries.</p>
+                                <p>The University of Michigan's NSBE chapter was chartered in 1984 and has become very active in the College of Engineering. NSBE sponsors community outreach projects, social gatherings for members, and brings company representatives
+                                    to general body meetings for networking opportunities.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
 	              <a data-toggle="collapse" href="#swe">Society of Women Engineers (SWE)</a>
 	            </h4>
-	          </div>
-	          <div id="swe" class="panel-collapse collapse">
-	            <div class="panel-body">
-	            	<p>The Society of Women Engineers at the University of Michigan provides its members with the ideal engineering and college experience.
-						Every year, we run the biggest career fair on campus, invite over 350 companies to host corporate information sessions,
-						engage hundreds of K-12 students across the globe in engineering outreach activities, host several charity events (including a 5k Fun Run and The Engineering Games),
-						and organize several networking and professional development events. Our mission statement is to encourage women to excel as engineers and leaders,
-						and to promote an inclusive community within the College and the profession that fosters universal success in engineering, independent of gender.</p>
-	            </div>
-	          </div>
-	        </div>
-       	</div>
-       	<h3>North Campus Map</h3>
-       	<div id="map"></div>
-       </div>
-      </div>
-      <h3 style="text-align: center;">Sponsors</h3>
-      <ul class="sponsor-display">
-      	<li><a href="https://www.consumersenergy.com" target="_blank"><img class="center" src="../../img/kickoff/sponsor/ConsumersColorLogo.png" alt="Consumers Energy"/></a></li>
-      	<li><a href="http://shell.com" target="_blank"><img class="center" src="../../img/kickoff/sponsor/shell-logo-design.gif" alt="Shell"/></a></li>
-      	<li><a href="https://maker-works.com" target="_blank"><img class="center" src="../../img/sponsor/makerworks.png" alt="Maker Works"/></a></li>
-      	<li><a href="https://engin.umich.edu" target="_blank"><img class="center" src="../../img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
-      </ul>
-      <h3 style="text-align: center;">Connect with FAMNM!</h3>
-      <ul style="list-style-type: none; padding-left: 0; text-align: center;">
-      	<li><a href="https://www.facebook.com/theFAMNM" target="_blank">Facebook: theFAMNM</a></li>
-      	<li><a href="https://twitter.com/TheFAMNM" target="_blank">Twitter: @TheFAMNM</a></li>
-      	<li><a href="mailto:famnm.leadership@umich.edu">Email: famnm.leadership@umich.edu</a></li>
-      </ul>
-      <ul style="list-style-type: none; padding-left: 0; margin-top: 1em; text-align: center;">
-      	<li>#UMICHKickoff</li>
-      	<li>#FAMNMKickoff</li>
-      	<li>#UMICHFRC</li>
-      </ul>
-    </div><!-- /.container -->
+                        </div>
+                        <div id="swe" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <p>The Society of Women Engineers at the University of Michigan provides its members with the ideal engineering and college experience. Every year, we run the biggest career fair on campus, invite over 350 companies to host
+                                    corporate information sessions, engage hundreds of K-12 students across the globe in engineering outreach activities, host several charity events (including a 5k Fun Run and The Engineering Games), and organize several
+                                    networking and professional development events. Our mission statement is to encourage women to excel as engineers and leaders, and to promote an inclusive community within the College and the profession that fosters
+                                    universal success in engineering, independent of gender.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h3>North Campus Map</h3>
+                <div id="map"></div>
+            </div>
+        </div>
+        <h3 style="text-align: center;">Sponsors</h3>
+        <ul class="sponsor-display">
+            <li><a href="https://www.consumersenergy.com" target="_blank"><img class="center" src="../../img/kickoff/sponsor/ConsumersColorLogo.png" alt="Consumers Energy"/></a></li>
+            <li><a href="http://shell.com" target="_blank"><img class="center" src="../../img/kickoff/sponsor/shell-logo-design.gif" alt="Shell"/></a></li>
+            <li><a href="https://maker-works.com" target="_blank"><img class="center" src="../../img/sponsor/makerworks.png" alt="Maker Works"/></a></li>
+            <li><a href="https://engin.umich.edu" target="_blank"><img class="center" src="../../img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
+        </ul>
+        <h3 style="text-align: center;">Connect with FAMNM!</h3>
+        <ul style="list-style-type: none; padding-left: 0; text-align: center;">
+            <li><a href="https://www.facebook.com/theFAMNM" target="_blank">Facebook: theFAMNM</a></li>
+            <li><a href="https://twitter.com/TheFAMNM" target="_blank">Twitter: @TheFAMNM</a></li>
+            <li><a href="mailto:famnm.leadership@umich.edu">Email: famnm.leadership@umich.edu</a></li>
+        </ul>
+        <ul style="list-style-type: none; padding-left: 0; margin-top: 1em; text-align: center;">
+            <li>#UMICHKickoff</li>
+            <li>#FAMNMKickoff</li>
+            <li>#UMICHFRC</li>
+        </ul>
+    </div>
+    <!-- /.container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="../../js/bootstrap.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    <!--<nav class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container">
-        <div class="navbar-header">
-      </div>
-    </nav>-->
-  </body>
+    {% include scripts-common.html %}
+</body>
+
 </html>
