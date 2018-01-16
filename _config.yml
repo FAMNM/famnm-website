@@ -9,7 +9,7 @@
 title: FIRST® Alumni & Mentors Network at Michigan
 email: pcbonnen@umich.edu
 description: > # this means to ignore newlines until "baseurl:"
-  The FAMNM's website full of totally awesome shiiit
+  Website for the FAMNM. Has resources for teams, students, and associated organizations.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 twitter_username: TheFAMNM
