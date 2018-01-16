@@ -11,7 +11,7 @@ email: pcbonnen@umich.edu
 description: > # this means to ignore newlines until "baseurl:"
   The FAMNM's website full of totally awesome shiiit
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://famnm.club" # the base hostname & protocol for your site
+url: "" # the base hostname & protocol for your site
 twitter_username: TheFAMNM
 github_username:  famnm
 
