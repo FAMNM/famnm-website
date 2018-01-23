@@ -1,6 +1,7 @@
 body {
     /*padding-top: 30px;*/
      padding: 30px;
+     font-family: 'Roboto', sans-serif;
 }
 
 /** Basic style formatting **/
@@ -22,7 +23,14 @@ body {
 }
 
 .text-par {
-    text-align: left;
+    text-align: justify;
+}
+
+@media all and (min-width: 1024px) {
+  .text-par {
+    width: 80%;
+    margin: 10px auto;
+  }
 }
 
 img {
