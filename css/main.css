@@ -22,7 +22,14 @@ body {
 }
 
 .text-par {
-    text-align: left;
+    text-align: justify;
+}
+
+@media all and (min-width: 1024px) {
+  .text-par {
+    width: 80%;
+    margin: 10px auto;
+  }
 }
 
 img {
