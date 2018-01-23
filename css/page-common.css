@@ -51,6 +51,12 @@ div.img-right > img {
 		height: 300px;
 	}
 
+	div.carousel {
+		min-width: 60%
+		max-width: 80%;
+		margin: 0 auto;
+	}
+
 	div.carousel-inner > .item {
 		height: 100%;
 	}
@@ -86,6 +92,11 @@ div.img-right > img {
 		height: 400px;
 	}
 
+	div.carousel {
+		width: 60%;
+		margin: 0 auto;
+	}
+
 	div.carousel-inner > .item > img {
 		width: auto;
 		max-width: none !important;
@@ -105,6 +116,11 @@ div.img-right > img {
 {
 	div.carousel-inner > .item {
 		height: 500px;
+	}
+
+	div.carousel {
+		width: 60%;
+		margin: 0 auto;
 	}
 
 	div.carousel-inner > .item > img {
