@@ -37,7 +37,7 @@ body > * {
     text-align: justify;
 }
 
-@media all and (min-width: 1024px) {
+@media all and (min-width: 992px) {
   .text-par {
     width: 80%;
     margin: 10px auto;
