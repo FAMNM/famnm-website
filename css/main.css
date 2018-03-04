@@ -59,7 +59,7 @@ body > * {
 	background-color: #000e33;
 	color: #ffffff;
 	clear: both;
-	margin: 0 -30px -30px -30px;
+	margin: 1em -30px -30px -30px;
 	font-size: 1.25em;
 	box-shadow: inset 0px 10px 8px 0px #00071a;
 	flex-grow: 1;
