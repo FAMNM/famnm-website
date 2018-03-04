@@ -5,6 +5,32 @@ title: About The FAMNM | FIRST® Alumni & Mentors Network at Michigan
 <html lang="en">
   <head>
     {% include title-styles.html %}
+    <style>
+    	ul#sponsors {
+    		padding-left: 0;
+    		list-style-type: none;
+    	}
+    	ul#sponsors > li {
+    		display: inline-block;
+    		margin: 10px;
+    	}
+    	
+    	ul#sponsors > li > a {
+    		display: block;
+    		padding: 5px;
+    		color: inherit;
+    		text-decoration: none;
+    	}
+    	
+    	ul#sponsors > li:hover > a {
+    		background-color: #cccccc;
+    	}
+    	
+    	ul#sponsors > li > a > img {
+    		max-width: 300px;
+    		max-height: 150px;
+    	}
+    </style>
   </head>
 
   <body>
@@ -22,6 +48,15 @@ title: About The FAMNM | FIRST® Alumni & Mentors Network at Michigan
 
          	<p class="lead text-par">FAMNM will also act as a collegiate network for both <i>FIRST<sup>®</sup></i> Alumni and University of Michigan students who volunteer with and support <i>FIRST<sup>®</sup></i> teams.
           		The organization aims to provide professional development opportunities including but not limited to resume critiquing, mock interviews, and corporate recruiting events.</p>
+        
+        <h1>Sponsors</h1>
+        <ul id="sponsors">
+        	<li><a href="http://cedo.engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/cedo.png" alt="Center for Engineering Diversity and Outreach"/></a></li>
+            <li><a href="http://detroitcenter.umich.edu/projects/michigan-engineering-zone" target="_blank"><img src="{{site.url}}/img/sponsor/mez.png" alt="Michigan Engineering Zone"/></a></li>
+            <li><a href="http://maker-works.com" target="_blank"><img src="{{site.url}}/img/sponsor/makerworks.png" alt="Maker Works"/></a></li>
+            <li><a href="http://engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
+            <li><a href="http://esg.engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/esg.png" alt="Engineering Student Government"/></a></li>
+        </ul>
       </div>
     </div><!-- /.container -->
 	
