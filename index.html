@@ -4,7 +4,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <!DOCTYPE html>
 <html lang="en">
   <head>
-  	{% include page-common.html %}
+  	{% include title-styles.html %}
   	<link href="{{site.url}}/css/frontpage.css" rel="stylesheet">
   </head>
 
@@ -12,24 +12,46 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
     {% include header.html %}
 
-    <div class="container">
-
-     <div class="content">
-        <div id="carousel-frontpage" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-            </ol>
-            <div class="carousel-inner" role="listbox">
-                <div class="carousel-tmp"><img class="loading" src="img/loading_brain.gif" alt="Loading..."/></div>
+    <div class="frontpage-container">
+     	<div class="frontpage-media">
+     		<img id="frontpage-logo" class="center" src="img/logo.png" alt="FIRST Alumni and Mentors Network at Michigan"/>
+     		<div id="frontpage-carousel" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+              </ol>
+              <div class="carousel-inner" role="listbox">
+                  <div class="carousel-tmp"><img class="carousel-loading" src="img/loading_brain.gif" alt="Loading..."/></div>
+              </div>
+              <a class="left carousel-control" href="#frontpage-carousel" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Last</span>
+              </a>
+              <a class="right carousel-control" href="#frontpage-carousel" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+              </a>
+          </div>
+     	</div>
+     	
+     	<div class="frontpage-feed">
+     		<h2>FAMNM At a Glance</h2>
+            <p class="text-par">FAMNM is a University of Michigan student organization devoted to organizing student and departmental efforts to support the <span class="italic">FIRST<sup>&reg;</sup></span> program locally and throughout the state of Michigan.
+                FAMNM offers college students the opportunity to volunteer in the various <span class="italic">FIRST<sup>&reg;</sup></span> programs and events, provides funding for teams,
+                and acts as a liason between teams and various university departments.</p>
+            <h2>What is <span class="italic">FIRST<sup>&reg;</sup></span>?</h2>
+            <p class="text-par"><span class="italic">FIRST<sup>&reg;</sup></span> (For Inspiration and Recognition of Science and Technology) is a non-profit organization intended to
+                get K-12 children involved in science, technology, engineering, and mathematics (STEM). Founded in 1989, it now reaches over 400,000 kids worldwide.
+                <a href="http://firstinspires.org/" target="_blank">Learn more &gt;</a></p>
+            <iframe style="width: 560px; height: 315px; display: block; margin: 0 auto;" src="https://www.youtube-nocookie.com/embed/EEQTEIfQ9CI" frameborder="0" allowfullscreen></iframe>
+            <div class="frontpage-twitter-timeline">
+            	<a class="twitter-timeline" data-height="500" data-width="560" data-dnt="true" href="https://twitter.com/TheFAMNM?ref_src=twsrc%5Etfw">Tweets by TheFAMNM</a>
             </div>
-            <a class="left carousel-control" href="#carousel-frontpage" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-                <span class="sr-only">Last</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-frontpage" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+     	</div>
+
+     	<div style="clear: both;"></div>
+
+	 <!--
+     <div class="content">
+        
 
         <div class="frontpage-maincol">
             <h2>FAMNM At a Glance</h2>
@@ -70,13 +92,16 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <h4>Upcoming Events</h4>
             <iframe src="https://www.google.com/calendar/embed?src=umich.edu_d5st3c9m44jijj28fs6m7j44b0%40group.calendar.google.com&ctz=America/New_York&mode=AGENDA&height=400" frameborder="0" style="width: 85%; height: 400px;"></iframe>
         </div>
-      </div>
+      </div> -->
     </div><!-- /.container -->
+    
+    {% include footer.html %}
 
-	{% include scripts-common.html %}
+	{% include scripts.html %}
     <!-- Page JavaSript -->
     <script src="js/carousel-frontpage.js"></script>
     <script src="js/web-encapsulation.js"></script>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
   </body>
 </html>

@@ -1,6 +1,6 @@
 function fillCarousel(listXml)
 {
-	var carousel = document.getElementById("carousel-frontpage");
+	var carousel = document.getElementById("frontpage-carousel");
 	var slideContainer = carousel.getElementsByClassName("carousel-inner")[0];
 	var items = listXml.getElementsByTagName("carousel-item");
 	
@@ -11,7 +11,7 @@ function fillCarousel(listXml)
 	{
 		//INITIALIZE SLIDE INDICATOR *********************************
 		var indicator = document.createElement("li");
-		indicator.setAttribute("data-target","#carousel-frontpage");
+		indicator.setAttribute("data-target","#frontpage-carousel");
 		indicator.setAttribute("data-slide-to",i);
 		
 		if (i == 0)
