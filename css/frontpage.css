@@ -16,20 +16,31 @@
 	margin-bottom: 1em;
 }
 	
-.frontpage-twitter-timeline{
+.frontpage-twitter-timeline {
 	margin: 1em auto;
 	max-width: 560px;
 }
 
-@media (min-width: 992px) {
+@media (max-width: 991px) {
 	.frontpage-media {
-		float: right;
-		width: 65%;
+		margin-bottom: 1em;
+	}
+}
+
+@media (min-width: 992px) {
+	.frontpage-container {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: space-around;
+	}
+	
+	.frontpage-media {
+		margin-top: 6em;
+		flex: 0 1 65%;
 	}
 	
 	.frontpage-feed {
-		float: left;
-		width: 35%;
+		flex: 0 1 35%;
 	}
 }
 
@@ -83,6 +94,10 @@ div.carousel-tmp > img.carousel-loading {
 }
 @media (min-width: 768px)
 {
+	div.carousel {
+		width: 80%;
+	}
+	
 	div.carousel-inner > .item {
 		height: 400px;
 	}
