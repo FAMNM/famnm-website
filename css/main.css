@@ -108,6 +108,12 @@ body > * {
 	}
 }
 
+.contact-logo {
+	max-width: 200px;
+	max-height: 200px;
+	margin-bottom: 20px;
+}
+
 @media all and (min-width: 992px) {
 	.footer .footer-col {
 		margin-top: 2em;
@@ -254,7 +260,7 @@ div.carousel-inner {
 	div.carousel {
 		margin: 0 auto;
 	}
-	
+
 	div.carousel-inner > .item {
 		height: 500px;
 	}
@@ -292,4 +298,3 @@ div.loading {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg);}
 }
-
