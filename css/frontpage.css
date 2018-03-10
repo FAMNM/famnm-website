@@ -45,11 +45,11 @@
 div.carousel-tmp > img.carousel-loading {
 	background: radial-gradient(#ffffff, #333 70%);
 	position: absolute;
-	top: calc(50% - 50px);
-	left: calc(50% - 50px);
-	width: 100px;
-	height: 100px;
-	padding: 10px;
+	top: calc(50% - 75px);
+	left: calc(50% - 75px);
+	width: 150px;
+	height: 150px;
+	padding: 25px;
 	margin: 0 auto;
 }
 
