@@ -204,6 +204,17 @@ div.carousel-inner {
 	background-color: #333;
 }
 
+div.carousel-inner > .item > img {
+	width: 100%;
+	overflow: hidden;
+	object-fit: cover;
+	margin: auto;
+	vertical-align: middle;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
 @media (max-width: 767px)
 {
 	div.carousel-inner {
@@ -220,15 +231,6 @@ div.carousel-inner {
 		height: 100%;
 	}
 
-	div.carousel-inner > .item > img {
-		max-width: 100% !important;
-		max-height: 300px;
-		margin: auto;
-		vertical-align: middle;
-		position: relative;
-		top: 50%;
-		transform: translateY(-50%);
-	}
 	div.carousel-inner div.carousel-caption {
 		display: none;
 	}
@@ -246,14 +248,6 @@ div.carousel-inner {
 		margin: 0 auto;
 		max-width: 80%;
 	}
-
-	div.carousel-inner > .item > img {
-		width: auto;
-		max-width: none !important;
-		height: 400px !important;
-		max-height: 500px;
-		margin: 0 auto;
-	}
 }
 @media (min-width: 1200px)
 {
@@ -263,14 +257,6 @@ div.carousel-inner {
 
 	div.carousel-inner > .item {
 		height: 500px;
-	}
-
-	div.carousel-inner > .item > img {
-		width: auto;
-		max-width: none !important;
-		height: 500px !important;
-		max-height: 500px;
-		margin: 0 auto;
 	}
 }
 
