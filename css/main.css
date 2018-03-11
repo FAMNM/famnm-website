@@ -108,12 +108,6 @@ body > * {
 	}
 }
 
-.contact-logo {
-	max-width: 200px;
-	max-height: 200px;
-	margin-bottom: 20px;
-}
-
 @media all and (min-width: 992px) {
 	.footer .footer-col {
 		margin-top: 2em;
@@ -141,6 +135,12 @@ img#site-header {
 div.img-left > img,
 div.img-right > img {
 	width: 100%;
+}
+
+.contact-logo {
+	max-width: 200px;
+	max-height: 200px;
+	margin-bottom: 20px;
 }
 
 @media (max-width: 767px) {
