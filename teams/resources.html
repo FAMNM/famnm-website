@@ -9,7 +9,11 @@ title: Available Resources | FIRST® Alumni & Mentors Network at Michigan
         .text-par{
             width: 100%;
         }
-        .img-contain > img {
+        .img-contain {
+        	display: flex;
+        	justify-content: center;
+        }
+        .img-contain > div img {
             max-height: 300px;
             margin: 5px;
         }
@@ -42,16 +46,22 @@ title: Available Resources | FIRST® Alumni & Mentors Network at Michigan
         <h1 class="page-header">Available Resources</h1>
             <h2>Waterjet</h2>
             <p class="text-par">One of the Resources we are available to provide to teams is waterjet time. We are provided with about 5 hours of Waterjet Time each year.
-    			For cutting parts out of aluminum or steel sheets, the waterjet can create parts to very tight tolerances.
-    			The picture to the right is the waterjet cutting out a chassis plate for Team 830: The Rat Pack.</p>
-    		<p class="text-par">This waterjet time is donated to us by the FABLab (The Digital Fabrication Lab at Taubman College).</p>
+    			For cutting parts out of aluminum or steel sheets, the waterjet can create parts to very tight tolerances.</p>
             <br>
             <div class="img-contain">
-                <img alt="Waterjet" class="img-rounded" src="../img/teams/waterjet.jpg" />
-                <img alt="3D Printer" class="img-rounded" src="http://um3d.dc.umich.edu/wp-content/uploads/2015/03/20170214_171110-480x360.jpg" />
+                <div class="img-blur-container">
+                	<img alt="Waterjet" class="img-rounded center" src="../img/teams/waterjet.jpg" />
+                	<div class="img-overlay">Chassis parts for Team 830 (The Rat Pack, from Ann Arbor Huron High School) being cut on the waterjet.
+						The waterjet time is donated to us by the FABLab (The Digital Fabrication Lab at Taubman College).</div>
+               	</div>
+               	<div class="img-blur-container">
+               		<img alt="3D Printer" class="img-rounded" src="http://um3d.dc.umich.edu/wp-content/uploads/2015/03/20170214_171110-480x360.jpg" />
+               		<div class="img-overlay">3D printers at the Duderstadt Center.</div>
+               	</div>
             </div>
             <div style="text-align: center;">
-                <span id="waterjet-label" class="bold">Chassis parts for a local Ann Arbor team</span>, <span id="printer-label" class="bold">3D printers at the Duderstadt Center</span>
+            	Roll over an image for more!
+                <!-- <span id="waterjet-label" class="bold">Chassis parts for a local Ann Arbor team</span>, <span id="printer-label" class="bold">3D printers at the Duderstadt Center</span> -->
             </div>
             <div style="clear: both"></div>
             <h2>3D Printing</h2>
