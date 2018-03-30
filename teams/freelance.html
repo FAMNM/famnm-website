@@ -5,6 +5,19 @@ title: Freelance Mentor Program | FIRST® Alumni & Mentors Network at Michigan
 <html lang="en">
   <head>
     {% include title-styles.html %}
+    <style>
+      #freelance-img {
+        max-width: 500px; 
+        margin-bottom: 10px;
+      }
+      
+      @media(max-width: 767px) {
+        #freelance-img {
+          max-width: 100%;
+        }
+      }
+
+    </style>
   </head>
 
   <body>
@@ -15,15 +28,20 @@ title: Freelance Mentor Program | FIRST® Alumni & Mentors Network at Michigan
 
      <div class="content">
         <h1 class="page-header">Freelance Mentor Program</h1>
-        <p>The Freelance Mentor Program looks to provide mentor resources to a broad range of teams.
-			It can be difficult for students to commit to mentoring a team for a full season and there are always teams looking for more mentors.
-			To solve these issues, the Freelance Mentor Program allows University of Michigan students with expertise in areas such as chassis, electronics,
-			and programming to assist teams on a case by case basis. For example, if a team needs programming help, a few members of this program could visit a team and provide assistance with their programming.
-			This would allow the team to get help, while not committing these kids to mentoring for the full season.</p>
+        <p class="text-par">The Freelance Mentor Program looks to provide mentor
+        resources to a broad range of teams. It can be difficult for students to
+        commit to mentoring a team for a full season and there are always teams
+        looking for more mentors. To solve these issues, the Freelance Mentor
+        Program allows University of Michigan students with expertise in areas
+        such as chassis, electronics, and programming to assist teams on a case
+        by case basis. For example, if a team needs programming help, a few
+        freelance mentors could visit a team and provide assistance with their
+        programming. This would allow the team to get help, while not committing
+        the mentors to a full season.</p>
 
-      <img class="img center" style="max-width: 500px; margin-bottom: 10px" src="../img/teams/fr_mentor1.jpg" alt="FAMNM Freelance Mentoring">
+      <img class="img center" id="freelance-img" src="../img/teams/fr_mentor1.jpg" alt="FAMNM Freelance Mentoring">
 
-		<p class="bold">This program is currently a work in progress. We hope to have this implemented for the 2018 FRC season.</p>
+		<p class="bold">Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for <span class="italic">FIRST</span>&reg; Power Up!</p>
       </div>
     </div><!-- /.container -->
 
