@@ -5,6 +5,16 @@ title: MakerWorks | FIRST® Alumni & Mentors Network at Michigan
 <html lang="en">
   <head>
     {% include title-styles.html %}
+    <style>
+    .col-md-6,
+    .col-xs-12 {
+        max-width: 100%;
+    }
+
+    .img-blur-container img {
+        width: 100%;
+    }
+    </style>
   </head>
 
   <body>
@@ -16,28 +26,28 @@ title: MakerWorks | FIRST® Alumni & Mentors Network at Michigan
         <div class="page-header">
             <img src="../img/teams/makerworks.gif" alt="Maker Works Logo"/>
         </div>
-        <p class="lead">
+        <p class="lead text-par">
             Maker Works is a community workshop in Ann Arbor that provides tools, space, and training for businesses, entrepreneurs, artists, makers, and more. They also provide resources for 5 local FIRST Robotics Competition teams. Maker Works has been a great supporter of FAMNM as well. We use their extensive woodshop to build the mock field for our FRC Kickoff each year.
         </p>
-        <p class="lead">
+        <p class="lead text-par">
             For more information, check out their website: <a href="https://maker-works.com">maker-works.com</a></p>
         </p>
-
+        
         <div class="row">
-            <div class="col-md-6 col-xs-12">
-                <img src="../img/teams/famnm_at_makerworks.jpg" alt="FAMNM at Maker Works" style="max-width: 450px; margin-top: 1em;"/>
-                <p style="max-width: 450px; text-align: center; margin: 0 auto; padding: 0px 10px;">FAMNM Members at Maker Works building the field for our 2017 FRC Kickoff</p>
+            <div class="img-blur-container col-md-6 col-xs-12">
+                <img src="../img/teams/famnm_at_makerworks.jpg" alt="FAMNM at Maker Works" style="margin-top: 1em;"/>
+                <div class="img-overlay">FAMNM Members at Maker Works building the field for our 2017 FRC Kickoff</div>
             </div>
-            <div class="col-md-6 col-xs-12">
-                <img src="../img/teams/fieldbuild.jpg" alt="FAMNM Members with a finished FIRST Steamworks field element" style="max-width: 450px; margin-top: 1em;"/>
-                <p style="max-width: 450px; text-align: center; margin: 0 auto; padding: 0px 10px;">Field builders with the finished Steamworks boiler</p>
+            <div class="img-blur-container col-md-6 col-xs-12">
+                <img src="../img/teams/fieldbuild.jpg" alt="FAMNM Members with a finished FIRST Steamworks field element" style="margin-top: 1em;"/>
+                <div class="img-overlay">Field builders with the finished Steamworks boiler</div>
             </div>
         </div>
 
       </div>
     </div><!-- /.container -->
 
-	{% include footer.html %}
+    {% include footer.html %}
     {% include scripts.html %}
   </body>
 </html>
