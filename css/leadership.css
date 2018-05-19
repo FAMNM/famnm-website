@@ -15,10 +15,6 @@ ul.member-display > li {
 	overflow: hidden;
 }
 
-ul.member-display > li:hover {
-	background-color: #cccccc;
-}
-
 ul.member-display > li > a {
 	display: block;
 	height: 325px;
@@ -55,6 +51,7 @@ ul.member-display > li .leadership-overlay {
 	background-color: rgba(0,0,0,0.25);
 	width: 100%;
 	transition: 0.25s;
+	padding: 0 2px;
 }
 
 ul.member-display > li:hover .leadership-overlay {
