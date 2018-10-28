@@ -241,6 +241,9 @@ iframe {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
     }
+    ul.nav ul.dropdown-menu {
+        top: 90%;
+    }
 }
 
 /** Carousel **/
