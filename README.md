@@ -10,3 +10,5 @@ FAMNM is a University of Michigan student organization devoted to organizing stu
 ---
 
 [View FAMNM on GitHub](https://github.com/FAMNM)
+
+# Basic SEO tools to be included in your CodeCamp
