@@ -59,7 +59,7 @@ div.carousel-tmp > img.carousel-loading {
 		height: 300px;
 	}
 	
-	div.carousel-inner > .item {
+	div.carousel-inner > .carousel-item {
 		height: 100%;
 	}
 	
@@ -85,7 +85,7 @@ div.carousel-tmp > img.carousel-loading {
 		width: 80%;
 	}
 	
-	div.carousel-inner > .item {
+	div.carousel-inner > .carousel-item {
 		height: 400px;
 	}
 	div.carousel-inner img.loading {
@@ -98,7 +98,7 @@ div.carousel-tmp > img.carousel-loading {
 }
 @media (min-width: 1200px)
 {
-	div.carousel-inner > .item {
+	div.carousel-inner > .carousel-item {
 		height: 500px;
 	}
 	div.carousel-inner img.loading {
