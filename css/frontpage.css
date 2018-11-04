@@ -53,13 +53,24 @@ div.carousel-tmp > img.carousel-loading {
 	margin: 0 auto;
 }
 
+div.carousel-item > img {
+    max-height: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
 @media (max-width: 767px)
 {
 	div.carousel-inner {
 		height: 300px;
 	}
 	
-	div.carousel-inner > .item {
+	div.carousel-inner > .carousel-item {
 		height: 100%;
 	}
 	
@@ -85,7 +96,7 @@ div.carousel-tmp > img.carousel-loading {
 		width: 80%;
 	}
 	
-	div.carousel-inner > .item {
+	div.carousel-inner > .carousel-item {
 		height: 400px;
 	}
 	div.carousel-inner img.loading {
@@ -98,7 +109,7 @@ div.carousel-tmp > img.carousel-loading {
 }
 @media (min-width: 1200px)
 {
-	div.carousel-inner > .item {
+	div.carousel-inner > .carousel-item {
 		height: 500px;
 	}
 	div.carousel-inner img.loading {
@@ -112,6 +123,11 @@ div.carousel-tmp > img.carousel-loading {
 
 div.carousel-caption {
 	background-color: rgba(0,0,0,0.5);
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        padding: 1.5em;
 }
 
 @-webkit-keyframes spin {

@@ -92,9 +92,9 @@ var bNs = {
             });
             
             //"active" applies a gray background, "info" applies a blue background
-            if (time >= evt.end) cell.parentElement.classList.add("active");
-            else if (time >= evt.start) cell.parentElement.classList.add("info");
-            else cell.parentElement.classList.add("warning");
+            if (time >= evt.end) cell.parentElement.classList.add("table-active");
+            else if (time >= evt.start) cell.parentElement.classList.add("table-info");
+            else cell.parentElement.classList.add("table-warning");
         });
     },
     teamNumAccepted: function (event) {

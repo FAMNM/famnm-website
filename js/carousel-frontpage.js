@@ -27,7 +27,7 @@ function fillCarousel(listXml)
 		var slideDesc = document.createElement("p");
 		
 		//INITIALIZE SLIDE WRAPPER ***********************************
-		slideDiv.classList.add("item");
+		slideDiv.classList.add("carousel-item");
 		
 		if (i == 0)
 			slideDiv.classList.add("active");

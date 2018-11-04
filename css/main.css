@@ -49,7 +49,25 @@ body > * {
   }
 }
 
+.card-header > a {
+    color: inherit;
+}
+
 /** Navbar formatting **/
+
+
+@media (min-width: 768px) {
+    .navbar {
+        padding-left: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .navbar {
+        padding: 8px 27.5px;
+    }
+}
+
 .navbar-brand > img {
 	max-height: 22px;
 	opacity: 0.5;
@@ -123,6 +141,9 @@ body > * {
 /** Image formatting **/
 img {
     max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
 }
 
 img.center {
@@ -240,6 +261,9 @@ iframe {
 @media (min-width: 768px) {
     ul.nav li.dropdown:hover > ul.dropdown-menu {
         display: block;
+    }
+    ul.nav ul.dropdown-menu {
+        top: 90%;
     }
 }
 
