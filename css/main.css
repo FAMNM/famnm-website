@@ -42,6 +42,15 @@ body > * {
 	padding-bottom: 10px;
 }
 
+@media all and (max-width: 767px) {
+    .text-par {
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
 @media all and (min-width: 992px) {
   .text-par {
     width: 80%;
