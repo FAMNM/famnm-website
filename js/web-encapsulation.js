@@ -35,8 +35,8 @@ function openInModal (event, title)
 	modalParts.footer.firstElementChild.textContent = "Close";
 	modalParts.footer.firstElementChild.onclick = closeModal;
 	
-	modalParts.div.className += " in";
-	modalParts.header.lastElementChild.textContent = title;
+	modalParts.div.className += " show";
+	modalParts.header.firstElementChild.textContent = title;
 }
 
 function getLargeModal ()
@@ -52,7 +52,7 @@ function getLargeModal ()
 	modalParts.footer = modalParts.content.appendChild(document.createElement("div"));
 	
 	//Set modal properties
-	modalParts.div.className = "modal fade";
+	modalParts.div.className = "modal fade bd-example-modal-lg";
 	modalParts.div.id = "large-modal-open";
 	modalParts.div.style.backgroundColor = "rgba(0,0,0,0.5)";
 	modalParts.div.tabIndex = -1;
@@ -66,18 +66,18 @@ function getLargeModal ()
 	modalParts.body.className = "modal-body";
 	modalParts.footer.className = "modal-footer";
 	
-	modalParts.header.appendChild(document.createElement("button"));
-	modalParts.header.firstElementChild.type = "button";
-	modalParts.header.firstElementChild.className = "close";
-	modalParts.header.firstElementChild.setAttribute("data-dismiss", "modal");
-	modalParts.header.firstElementChild.setAttribute("aria-label", "Close");
-	modalParts.header.firstElementChild.appendChild(document.createElement("span"));
-	modalParts.header.firstElementChild.firstElementChild.textContent = "\u2a09";
-	modalParts.header.firstElementChild.onclick = closeModal;
-	
 	modalParts.header.appendChild(document.createElement("h4"));
-	modalParts.header.lastElementChild.className = "modal-title";
-	modalParts.header.lastElementChild.id = "modal-header";
+	modalParts.header.firstElementChild.className = "modal-title";
+	modalParts.header.firstElementChild.id = "modal-header";
+	
+	modalParts.header.appendChild(document.createElement("button"));
+	modalParts.header.lastElementChild.type = "button";
+	modalParts.header.lastElementChild.className = "close";
+	modalParts.header.lastElementChild.setAttribute("data-dismiss", "modal");
+	modalParts.header.lastElementChild.setAttribute("aria-label", "Close");
+	modalParts.header.lastElementChild.appendChild(document.createElement("span"));
+	modalParts.header.lastElementChild.lastElementChild.textContent = "\u2a09";
+	modalParts.header.lastElementChild.onclick = closeModal;
 	
 	return modalParts;
 }
