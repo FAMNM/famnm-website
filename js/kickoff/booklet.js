@@ -1,5 +1,5 @@
 function getTime (hour, minute) {
-    return new Date (2018,0,6,hour,minute,0,0,0);
+    return new Date (2019,0,5,hour,minute,0,0,0);
 }
 var bNs = {
     getTimeString: function (time) {
@@ -54,15 +54,20 @@ var bNs = {
             timeDiv.textContent = bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end);
             
             titleDiv.textContent = evt.event;
+            locLnk.classList.add("map-jump");
             locLnk.textContent = loc.name;
-            locLnk.href = "#map";
+            locLnk.dataset.toggle = "modal";
+            locLnk.dataset.target = "#mapModal";
             locLnk.addEventListener("click", function (event) {
                 var marker = bNs.getMarker(loc.code);
+
+                bNs.map.modalTitle.text(loc.name);
                 
                 if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
                 if (bNs.map.winListener) {
                     google.maps.event.removeListener(bNs.map.winListener);
                     bNs.winListener = undefined;
+                    bNs.map.infoWindow.setContent("");
                 }
                 
                 if (marker.length === 0) {
@@ -83,12 +88,17 @@ var bNs = {
                 
                 bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function(mrk) {
                     return function() {
-                        bNs.map.infoWindow.setContent("<h3>" + loc.name + "</h3>");
+                        bNs.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
                         bNs.map.infoWindow.open(map, mrk);
                     }
                 })(bNs.map.activeMarker));
                 
                 google.maps.event.trigger(bNs.map.activeMarker, "click");
+
+                /* When the user clicks on two locations that are far away from
+                 * one another, some of the tiles don't load. I'm not sure why;
+                 * none of the solutions I've found seem to fix it (yet).
+                 */
             });
             
             //"active" applies a gray background, "info" applies a blue background
@@ -271,26 +281,20 @@ var bNs = {
 };
 
 function initMap () {
-    var mapJump = document.createElement("div");
-    var jumpLink = mapJump.appendChild(document.createElement("a"));
-    
-    mapJump.classList.add("map-jump");
-    jumpLink.textContent = "Return to schedule";
-    jumpLink.href = "#team-num-name";
-    jumpLink.style.fontSize = "1.25em";
-    
-    bNs.map.map = new google.maps.Map(document.querySelector("#map"),
+    bNs.map.map = new google.maps.Map($("#map").get(0),
                                   {
                                     center: new google.maps.LatLng(42.2945,-83.7215),
                                     zoom: 17,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                    gestureHandling: "greedy"
                                   });
+
     bNs.map.map.setTilt(45);
     bNs.map.infoWindow = new google.maps.InfoWindow();
-    bNs.map.map.controls[google.maps.ControlPosition.TOP_CENTER].push(mapJump);
+    bNs.map.modalTitle = $("#map-active-loc");
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     // Asynchronously Load the map API
     var script = document.createElement('script');
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap";
@@ -304,18 +308,18 @@ document.addEventListener("DOMContentLoaded", function () {
         var team = localStorage.getItem("team");
         
         if (team.length > 0) {
-            var teamInput = document.querySelector(".input-group").firstElementChild;
-            teamInput.value = team;
-            teamInput.nextElementSibling.firstElementChild.click();
+            var teamInput = $($(".input-group").children()[0]);
+            teamInput.val(team);
+            teamInput.next().trigger("click");
         }
     });
     
     //Initialize countdown clock
     var computeDiff = function () {
-        var diff = (getTime(10,30).getTime() - (new Date()).getTime());
+        var diff = (getTime(10,0).getTime() - (new Date()).getTime());
         var d,h,m,s;
         
-        var countdownClock = document.querySelector(".countdown-clock");
+        var countdownClock = $(".countdown-clock").get(0);
         
         if (diff < 0) diff = 0;
         
