@@ -5,6 +5,21 @@ title: FAMNM Forums | FIRST® Alumni & Mentors Network at Michigan
 <html lang="en">
   <head>
     {% include title-styles.html %}
+    <style>
+        #map-wrap {
+            width: 100%;
+            margin: 1.5em 0;
+        }
+        #map {
+            height: 400px;
+        }
+        #legend {
+            margin-bottom: 1.5em;
+        }
+        #legend img {
+            display: inline-block;
+        }
+    </style>
   </head>
   <body>
 
@@ -16,10 +31,28 @@ title: FAMNM Forums | FIRST® Alumni & Mentors Network at Michigan
       <h1 class="page-header">2018 FAMNM Forums</h1>
       <p class="text-par font-weight-bold">FAMNM is once again hosting the FAMNM Forums on U of M's North Campus on November 17! Check back soon for details!</p>
       <p class="text-center"><a href="https://goo.gl/forms/BhazwWADHde8aEKY2" class="btn btn-primary" onclick="openInModal(event, '2018 FAMNM Forums Team Registration')">Click here to register</a></p>
+      <h2>Map</h2>
+      <div id="map-wrap">
+          <div id="map"></div>
+      </div>
+      <div id="legend" class="row font-weight-bold">
+          <span class="col-sm">
+              <img src="../img/kickoff/icons/parking.png" alt="Parking"/>
+              Parking
+          </span>
+          <span class="col-sm">
+              <img src="../img/kickoff/icons/star.png" alt="Check In"/>
+              Check In
+          </span>
+          <span class="col-sm">
+              <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Session Rooms">
+              Session Rooms
+          </span>
+      </div>
+      <h2>About the event</h2>
       <div class="img-row" style="margin-bottom: 1em;">
           <img src="../img/forums/auditorium.png" alt="2016 FAMNM Forums" height=250 width=350/> <!-- This is from Kickoff, but we don't have any pictures from Forums... -->
       </div>
-      <h2>About the event</h2>
       <p class = "text-par">The FAMNM Robotics Forums is an annual event hosted on the U of M Campus for teams to come and build their <span class="italic">FIRST</span>&reg; Robotics knowledge.
       The event features seminars on a wide range of topics, including mechanical design, strategy, team organization, volunteering, <span class="italic">FIRST</span>&reg; alumni opportunities, and more! FAMNM is always looking for feedback from teams on what seminars they’d like to see!</p>
     </div>
@@ -27,5 +60,6 @@ title: FAMNM Forums | FIRST® Alumni & Mentors Network at Michigan
 	{% include footer.html %}
         {% include scripts.html %}
         <script src="../js/web-encapsulation.js"></script>
+        <script src="../js/forums.js"></script>
   </body>
 </html>
