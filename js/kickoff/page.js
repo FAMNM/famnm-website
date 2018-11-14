@@ -93,7 +93,7 @@ var bNs = {
                     }
                 })(bNs.map.activeMarker));
                 
-                google.maps.event.trigger(bNs.map.activeMarker, "click");
+                setTimeout(google.maps.event.trigger, 500, bNs.map.activeMarker, "click");
 
                 /* When the user clicks on two locations that are far away from
                  * one another, some of the tiles don't load. I'm not sure why;
