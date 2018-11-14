@@ -1,5 +1,51 @@
 ---
 title: FAMNM Forums | FIRST® Alumni & Mentors Network at Michigan
+schedule:
+    - 0:
+        type: "generic"
+        time: "9:00 AM"
+        title: "Check In"
+        location: "Dow West Entrance"
+    - 0:
+        type: "presentation"
+        time: "10:00 AM"
+        title: "How to Train Your Driver"
+        presenter: "Ellen Green"
+        description: "Tips, tricks, and best practices when it comes to training your driver for competition season."
+    - 0:
+        type: "presentation"
+        time: "10:30 AM"
+        title: "Using PIDs to Create an Effective Visionless Autonomous"
+        presenter: "Jessica Kline"
+        description: "An explanation of how PIDs function, how to tune them, and how to use them in the code. Specific focus is put on using a PID in conjunction with Motion Magic for driving during auton."
+    - 0:
+        type: "presentation"
+        time: "11:00 AM"
+        title: "How To: West Coast Drive"
+        presenter: "Solomon Shurge"
+        description: "Everything you need to know to get started with the West Coast Drive system."
+    - 0:
+        type: "generic"
+        time: "12:00 PM"
+        title: "Lunch Break"
+    - 0:
+        type: "presentation"
+        time: "1:00 PM"
+        title: "<span class='font-italic'>FIRST</span>&reg; Badges and Your Team"
+        presenter: "Ron Weber"
+        description: "An introduction to what <span class='font-italic'>FIRST</span>&reg; Badges are and how you can use them in your team, particularly in team training."
+    - 0:
+        type: "presentation"
+        time: "2:00 PM"
+        title: "Autonomous Driving with Ultrasonics"
+        presenter: "Michael Lindskov"
+        description: "The presentation will take the audience through a code walk of state table, ramp functions used with ultrasonics, and demonstration of a robot driving through an obstacle course using ultrasonics."
+    - 0:
+        type: "presentation"
+        time: "3:00 PM"
+        title: "Post Presentation Panel"
+        presenter: "FAMNM and Friends"
+        description: "We are here to talk about our <span class='font-italic'>FIRST</span>&reg; experiences and answer your questions!"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +75,7 @@ title: FAMNM Forums | FIRST® Alumni & Mentors Network at Michigan
 
      <div class="content">
       <h1 class="page-header">2018 FAMNM Forums</h1>
-      <p class="text-par font-weight-bold">FAMNM is once again hosting the FAMNM Forums on U of M's North Campus on November 17! Check back soon for details!</p>
+      <p class="text-center font-weight-bold">FAMNM is once again hosting the FAMNM Forums on U of M's North Campus on November 17!</p>
       <p class="text-center"><a href="https://goo.gl/forms/BhazwWADHde8aEKY2" class="btn btn-primary" onclick="openInModal(event, '2018 FAMNM Forums Team Registration')">Click here to register</a></p>
       <h2>Map</h2>
       <div id="map-wrap">
@@ -49,6 +95,52 @@ title: FAMNM Forums | FIRST® Alumni & Mentors Network at Michigan
               Session Rooms
           </span>
       </div>
+      <h2>Schedule</h2>
+      <table class="table table-striped table-bordered d-none d-md-table">
+          <thead>
+              <tr>
+                  <th>Time</th>
+                  <th>Presentation Title</th>
+                  <th>Presenter</th>
+                  <th>Presentation Description</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for item in page.schedule %}
+              <tr>
+                  <td class="text-right">{{ item[0].time }}</td>
+                  {% if item[0].type == "generic" %}
+                  <td colspan="3">
+                      <span class="font-weight-bold text-uppercase">{{ item[0].title }}</span>
+                      {% if item[0] contains "location" %}
+                      <br/>{{ item[0].location }}
+                      {% endif %}
+                  </td>
+                  {% else %}
+                  <td>{{ item[0].title }}</td>
+                  <td>{{ item[0].presenter }}</td>
+                  <td>{{ item[0].description }}</td>
+                  {% endif %}
+              </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+      <table class="table table-striped table-bordered d-md-none d-lg-none d-xl-none">
+          <tbody>
+              {% for item in page.schedule %}
+              <tr><td>
+                  <p>{{ item[0].time }}</p>
+                  <p class="font-weight-bold">{{ item[0].title }}</p>
+                  {% if item[0].type == "generic" and item[0] contains "location" %}
+                  <p>{{ item[0].location }}</p>
+                  {% elsif item[0].type == "presentation" %}
+                  <p class="font-italic">Presented by: {{ item[0].presenter }}</p>
+                  <p>{{ item[0].description }}</p>
+                  {% endif %}
+              </td></tr>
+              {% endfor %}
+          </tbody>
+      </table>
       <h2>About the event</h2>
       <div class="img-row" style="margin-bottom: 1em;">
           <img src="../img/forums/auditorium.png" alt="2016 FAMNM Forums" height=250 width=350/> <!-- This is from Kickoff, but we don't have any pictures from Forums... -->
