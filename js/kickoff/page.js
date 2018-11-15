@@ -234,7 +234,26 @@ var bNs = {
            location:"t:breakout"
        }
     ],
-    map: {},
+    map: {
+        toggleParking: function (show) {
+            show = (show === undefined ? !bNs.map.parkingShown : show);
+
+            if (show === bNs.map.parkingShown) return;
+
+            bNs.map.parkingMarkers.forEach(function (mkr) {
+                mkr.setMap(show ? bNs.map.map : null);
+            });
+
+            if (show) {
+                bNs.map.map.fitBounds(bNs.map.parkingBounds);
+            }
+
+            bNs.map.parkingShown = show;
+            $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
+        },
+        parkingShown: false,
+        parkingMarkers: []
+    },
     locations:[
         ["220","- Chesebrough Auditorium (Room 220)"],
         ["GAL","Gallery"],
@@ -247,6 +266,15 @@ var bNs = {
         ["BBB","Bob and Betty Beyster Building"],
         ["DOW","Dow Building"],
         ["PIER","Pierpont Commons"]
+    ],
+    parking:[
+        { lot: "NC5", lat: 42.288055, lng: -83.714438 },
+        { lot: "NC8", lat: 42.287934, lng: -83.713655 },
+        { lot: "NC10", lat: 42.289723, lng: -83.721736 },
+        { lot: "NC27", lat: 42.292254, lng: -83.718010 },
+        { lot: "NC43", lat: 42.287924, lng: -83.717173 },
+        { lot: "NC48", lat: 42.293288, lng: -83.717167 },
+        { lot: "NC60", lat: 42.290550, lng: -83.712640 }
     ],
     markers:[
         ["PIER", 42.291384, -83.717490],
@@ -292,6 +320,28 @@ function initMap () {
     bNs.map.map.setTilt(45);
     bNs.map.infoWindow = new google.maps.InfoWindow();
     bNs.map.modalTitle = $("#map-active-loc");
+
+    bNs.map.parkingBounds = new google.maps.LatLngBounds();
+
+    //Initialize parking markers
+    bNs.parking.forEach(function (lot) {
+        var mkr = new google.maps.Marker({
+            position: lot,
+            map: null,
+            title: lot.lot + " Parking Lot",
+            icon: "../img/kickoff/icons/parking.png"
+        });
+
+        google.maps.event.addListener(mkr, "click", (function (mkr) {
+            return function () {
+                bNs.map.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
+                bNs.map.infoWindow.open(map, mkr);
+            }
+        })(mkr));
+
+        bNs.map.parkingMarkers.push(mkr);
+        bNs.map.parkingBounds.extend(lot);
+    });
 }
 
 $(document).ready(function () {
