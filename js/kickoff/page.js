@@ -93,7 +93,10 @@ var bNs = {
                     }
                 })(bNs.map.activeMarker));
                 
-                setTimeout(google.maps.event.trigger, 500, bNs.map.activeMarker, "click");
+                setTimeout(function () {
+                    google.maps.event.trigger(bNs.map.activeMarker, "click");
+                    google.maps.event.trigger(bNs.map.map, "resize");
+                }, 500);
 
                 /* When the user clicks on two locations that are far away from
                  * one another, some of the tiles don't load. I'm not sure why;
@@ -109,10 +112,10 @@ var bNs = {
     },
     teamNumAccepted: function (event) {
         var num;
-        var emptyDiv = document.querySelector(".team-empty");
-        var errDiv = emptyDiv.nextElementSibling;
-        var dispDiv = errDiv.nextElementSibling;
-        var teamNumName = dispDiv.firstElementChild;
+        var emptyDiv = $(".team-empty");
+        var errDiv = $(".team-error");
+        var dispDiv = $(".team-disp");
+        var teamNumName = dispDiv.children().get(0);
         var teamSchool = teamNumName.nextElementSibling;
         
         
@@ -127,7 +130,7 @@ var bNs = {
         if (bNs.activeTeam.intervalId !== undefined)
             clearInterval(bNs.activeTeam.intervalId);
         
-        emptyDiv.style.display = "none";
+        emptyDiv.css("display", "none");
         if (bNs.setTeam(num) >= 0) {
             bNs.loadSchedules();
             bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
@@ -135,15 +138,14 @@ var bNs = {
             teamNumName.textContent = num + ": " + bNs.activeTeam.name;
             teamSchool.textContent = bNs.activeTeam.school;
             
-            errDiv.style.display = "none";
-            dispDiv.style.display = "block";
-            google.maps.event.trigger(bNs.map.map, "resize");
+            errDiv.css("display", "none");
+            dispDiv.css("display", "block");
             
             //Make the team number persist across refreshes
             localStorage.setItem("team", bNs.activeTeam.number);
         } else {
-            errDiv.style.display = "block";
-            dispDiv.style.display = "none";
+            errDiv.css("display", "block");
+            dispDiv.css("display", "none");
         }
     },
     setTeam: function (num) {
@@ -245,11 +247,50 @@ var bNs = {
             });
 
             if (show) {
-                bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                if ($(bNs.map.map.getDiv()).width() === 0) {
+                    google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
+                        bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                    });
+                } else {
+                    bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                }
             }
 
             bNs.map.parkingShown = show;
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
+        },
+        showKOP: function () {
+            var mkr = bNs.getMarker(bNs.resolveLocation(bNs.schedule[5].location))
+            
+            if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
+            if (bNs.map.winListener) {
+                google.maps.event.removeListener(bNs.map.winListener);
+                bNs.winListener = undefined;
+                bNs.map.infoWindow.setContent("");
+            }
+
+            var pos = new google.maps.LatLng(mkr[1], mkr[2]);
+            bNs.map.activeMarker = new google.maps.Marker({
+                position: pos,
+                map: bNs.map.map,
+                icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                title: "KOP Pickup"
+            });
+            
+            bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", function () {
+                bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + mkr[0]);
+                bNs.map.infoWindow.open(map, mkr);
+            });
+
+            if ($(bNs.map.map.getDiv()).width() === 0) {
+                google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
+                    bNs.map.map.setCenter(pos);
+                    bNs.map.map.setZoom(18);
+                });
+            } else {
+                bNs.map.map.setCenter(pos);
+                bNs.map.map.setZoom(18);
+            }
         },
         parkingShown: false,
         parkingMarkers: []
@@ -311,8 +352,8 @@ var bNs = {
 function initMap () {
     bNs.map.map = new google.maps.Map($("#map").get(0),
                                   {
-                                    center: new google.maps.LatLng(42.2945,-83.7215),
-                                    zoom: 17,
+                                    center: new google.maps.LatLng(42.291964,-83.715810),
+                                    zoom: 16,
                                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                                     gestureHandling: "greedy"
                                   });
@@ -342,6 +383,8 @@ function initMap () {
         bNs.map.parkingMarkers.push(mkr);
         bNs.map.parkingBounds.extend(lot);
     });
+
+    $(".maps-btn").removeAttr("disabled");
 }
 
 $(document).ready(function () {
