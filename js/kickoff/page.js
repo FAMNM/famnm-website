@@ -384,6 +384,17 @@ function initMap () {
         bNs.map.parkingBounds.extend(lot);
     });
 
+    google.maps.event.addListener(bNs.map.map, "maptypeid_changed", function () {
+        var mapType = bNs.map.map.getMapTypeId();
+        var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
+                                ? "../img/kickoff/icons/parking-white.png"
+                                : "../img/kickoff/icons/parking.png");
+
+        bNs.map.parkingMarkers.forEach(function (mkr) {
+            mkr.setIcon(newParkingIcon);
+        });
+    });
+
     $(".maps-btn").removeAttr("disabled");
 }
 
