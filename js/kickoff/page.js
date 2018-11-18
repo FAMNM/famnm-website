@@ -260,7 +260,8 @@ var bNs = {
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
         },
         showKOP: function () {
-            var mkr = bNs.getMarker(bNs.resolveLocation(bNs.schedule[5].location))
+            var loc = bNs.resolveLocation(bNs.schedule[5].location);
+            var mkr = bNs.getMarker(loc.code)
             
             if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
             if (bNs.map.winListener) {
@@ -278,8 +279,8 @@ var bNs = {
             });
             
             bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", function () {
-                bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + mkr[0]);
-                bNs.map.infoWindow.open(map, mkr);
+                bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
+                bNs.map.infoWindow.open(map, bNs.map.activeMarker);
             });
 
             if ($(bNs.map.map.getDiv()).width() === 0) {
