@@ -115,8 +115,8 @@ var bNs = {
         var emptyDiv = $(".team-empty");
         var errDiv = $(".team-error");
         var dispDiv = $(".team-disp");
-        var teamNumName = dispDiv.children().get(0);
-        var teamSchool = teamNumName.nextElementSibling;
+        var teamNumName = $("#team-num-name");
+        var teamSchool = $("#team-school");
         
         
         if (event.currentTarget.type === "text") {
@@ -135,8 +135,8 @@ var bNs = {
             bNs.loadSchedules();
             bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
             
-            teamNumName.textContent = num + ": " + bNs.activeTeam.name;
-            teamSchool.textContent = bNs.activeTeam.school;
+            teamNumName.text(num + ": " + bNs.activeTeam.name);
+            teamSchool.text(bNs.activeTeam.school);
             
             errDiv.css("display", "none");
             dispDiv.css("display", "block");
@@ -263,6 +263,8 @@ var bNs = {
             var loc = bNs.resolveLocation(bNs.schedule[5].location);
             var mkr = bNs.getMarker(loc.code)
             
+            bNs.map.modalTitle.text("KOP Pick Up");
+
             if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
             if (bNs.map.winListener) {
                 google.maps.event.removeListener(bNs.map.winListener);
