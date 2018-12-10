@@ -1,5 +1,5 @@
 function getTime (hour, minute) {
-    return new Date (2018,0,6,hour,minute,0,0,0);
+    return new Date (2019,0,5,hour,minute,0,0,0);
 }
 var bNs = {
     getTimeString: function (time) {
@@ -54,15 +54,20 @@ var bNs = {
             timeDiv.textContent = bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end);
             
             titleDiv.textContent = evt.event;
+            locLnk.classList.add("map-jump");
             locLnk.textContent = loc.name;
-            locLnk.href = "#map";
+            locLnk.dataset.toggle = "modal";
+            locLnk.dataset.target = "#mapModal";
             locLnk.addEventListener("click", function (event) {
                 var marker = bNs.getMarker(loc.code);
+
+                bNs.map.modalTitle.text(loc.name);
                 
                 if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
                 if (bNs.map.winListener) {
                     google.maps.event.removeListener(bNs.map.winListener);
                     bNs.winListener = undefined;
+                    bNs.map.infoWindow.setContent("");
                 }
                 
                 if (marker.length === 0) {
@@ -83,12 +88,20 @@ var bNs = {
                 
                 bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function(mrk) {
                     return function() {
-                        bNs.map.infoWindow.setContent("<h3>" + loc.name + "</h3>");
+                        bNs.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
                         bNs.map.infoWindow.open(map, mrk);
                     }
                 })(bNs.map.activeMarker));
                 
-                google.maps.event.trigger(bNs.map.activeMarker, "click");
+                setTimeout(function () {
+                    google.maps.event.trigger(bNs.map.activeMarker, "click");
+                    google.maps.event.trigger(bNs.map.map, "resize");
+                }, 500);
+
+                /* When the user clicks on two locations that are far away from
+                 * one another, some of the tiles don't load. I'm not sure why;
+                 * none of the solutions I've found seem to fix it (yet).
+                 */
             });
             
             //"active" applies a gray background, "info" applies a blue background
@@ -99,11 +112,11 @@ var bNs = {
     },
     teamNumAccepted: function (event) {
         var num;
-        var emptyDiv = document.querySelector(".team-empty");
-        var errDiv = emptyDiv.nextElementSibling;
-        var dispDiv = errDiv.nextElementSibling;
-        var teamNumName = dispDiv.firstElementChild;
-        var teamSchool = teamNumName.nextElementSibling;
+        var emptyDiv = $(".team-empty");
+        var errDiv = $(".team-error");
+        var dispDiv = $(".team-disp");
+        var teamNumName = $("#team-num-name");
+        var teamSchool = $("#team-school");
         
         
         if (event.currentTarget.type === "text") {
@@ -117,23 +130,22 @@ var bNs = {
         if (bNs.activeTeam.intervalId !== undefined)
             clearInterval(bNs.activeTeam.intervalId);
         
-        emptyDiv.style.display = "none";
+        emptyDiv.css("display", "none");
         if (bNs.setTeam(num) >= 0) {
             bNs.loadSchedules();
             bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
             
-            teamNumName.textContent = num + ": " + bNs.activeTeam.name;
-            teamSchool.textContent = bNs.activeTeam.school;
+            teamNumName.text(num + ": " + bNs.activeTeam.name);
+            teamSchool.text(bNs.activeTeam.school);
             
-            errDiv.style.display = "none";
-            dispDiv.style.display = "block";
-            google.maps.event.trigger(bNs.map.map, "resize");
+            errDiv.css("display", "none");
+            dispDiv.css("display", "block");
             
             //Make the team number persist across refreshes
             localStorage.setItem("team", bNs.activeTeam.number);
         } else {
-            errDiv.style.display = "block";
-            dispDiv.style.display = "none";
+            errDiv.css("display", "block");
+            dispDiv.css("display", "none");
         }
     },
     setTeam: function (num) {
@@ -224,7 +236,68 @@ var bNs = {
            location:"t:breakout"
        }
     ],
-    map: {},
+    map: {
+        toggleParking: function (show) {
+            show = (show === undefined ? !bNs.map.parkingShown : show);
+
+            if (show === bNs.map.parkingShown) return;
+
+            bNs.map.parkingMarkers.forEach(function (mkr) {
+                mkr.setMap(show ? bNs.map.map : null);
+            });
+
+            if (show) {
+                if ($(bNs.map.map.getDiv()).width() === 0) {
+                    google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
+                        bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                    });
+                } else {
+                    bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                }
+            }
+
+            bNs.map.parkingShown = show;
+            $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
+        },
+        showKOP: function () {
+            var loc = bNs.resolveLocation(bNs.schedule[5].location);
+            var mkr = bNs.getMarker(loc.code)
+            
+            bNs.map.modalTitle.text("KOP Pick Up");
+
+            if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
+            if (bNs.map.winListener) {
+                google.maps.event.removeListener(bNs.map.winListener);
+                bNs.winListener = undefined;
+                bNs.map.infoWindow.setContent("");
+            }
+
+            var pos = new google.maps.LatLng(mkr[1], mkr[2]);
+            bNs.map.activeMarker = new google.maps.Marker({
+                position: pos,
+                map: bNs.map.map,
+                icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                title: "KOP Pickup"
+            });
+            
+            bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", function () {
+                bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
+                bNs.map.infoWindow.open(map, bNs.map.activeMarker);
+            });
+
+            if ($(bNs.map.map.getDiv()).width() === 0) {
+                google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
+                    bNs.map.map.setCenter(pos);
+                    bNs.map.map.setZoom(18);
+                });
+            } else {
+                bNs.map.map.setCenter(pos);
+                bNs.map.map.setZoom(18);
+            }
+        },
+        parkingShown: false,
+        parkingMarkers: []
+    },
     locations:[
         ["220","- Chesebrough Auditorium (Room 220)"],
         ["GAL","Gallery"],
@@ -237,6 +310,15 @@ var bNs = {
         ["BBB","Bob and Betty Beyster Building"],
         ["DOW","Dow Building"],
         ["PIER","Pierpont Commons"]
+    ],
+    parking:[
+        { lot: "NC5", lat: 42.288055, lng: -83.714438 },
+        { lot: "NC8", lat: 42.287934, lng: -83.713655 },
+        { lot: "NC10", lat: 42.289723, lng: -83.721736 },
+        { lot: "NC27", lat: 42.292254, lng: -83.718010 },
+        { lot: "NC43", lat: 42.287924, lng: -83.717173 },
+        { lot: "NC48", lat: 42.293288, lng: -83.717167 },
+        { lot: "NC60", lat: 42.290550, lng: -83.712640 }
     ],
     markers:[
         ["PIER", 42.291384, -83.717490],
@@ -271,26 +353,55 @@ var bNs = {
 };
 
 function initMap () {
-    var mapJump = document.createElement("div");
-    var jumpLink = mapJump.appendChild(document.createElement("a"));
-    
-    mapJump.classList.add("map-jump");
-    jumpLink.textContent = "Return to schedule";
-    jumpLink.href = "#team-num-name";
-    jumpLink.style.fontSize = "1.25em";
-    
-    bNs.map.map = new google.maps.Map(document.querySelector("#map"),
+    bNs.map.map = new google.maps.Map($("#map").get(0),
                                   {
-                                    center: new google.maps.LatLng(42.2945,-83.7215),
-                                    zoom: 17,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    center: new google.maps.LatLng(42.291964,-83.715810),
+                                    zoom: 16,
+                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                    gestureHandling: "greedy"
                                   });
+
     bNs.map.map.setTilt(45);
     bNs.map.infoWindow = new google.maps.InfoWindow();
-    bNs.map.map.controls[google.maps.ControlPosition.TOP_CENTER].push(mapJump);
+    bNs.map.modalTitle = $("#map-active-loc");
+
+    bNs.map.parkingBounds = new google.maps.LatLngBounds();
+
+    //Initialize parking markers
+    bNs.parking.forEach(function (lot) {
+        var mkr = new google.maps.Marker({
+            position: lot,
+            map: null,
+            title: lot.lot + " Parking Lot",
+            icon: "../img/kickoff/icons/parking.png"
+        });
+
+        google.maps.event.addListener(mkr, "click", (function (mkr) {
+            return function () {
+                bNs.map.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
+                bNs.map.infoWindow.open(map, mkr);
+            }
+        })(mkr));
+
+        bNs.map.parkingMarkers.push(mkr);
+        bNs.map.parkingBounds.extend(lot);
+    });
+
+    google.maps.event.addListener(bNs.map.map, "maptypeid_changed", function () {
+        var mapType = bNs.map.map.getMapTypeId();
+        var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
+                                ? "../img/kickoff/icons/parking-white.png"
+                                : "../img/kickoff/icons/parking.png");
+
+        bNs.map.parkingMarkers.forEach(function (mkr) {
+            mkr.setIcon(newParkingIcon);
+        });
+    });
+
+    $(".maps-btn").removeAttr("disabled");
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+$(document).ready(function () {
     // Asynchronously Load the map API
     var script = document.createElement('script');
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap";
@@ -304,18 +415,18 @@ document.addEventListener("DOMContentLoaded", function () {
         var team = localStorage.getItem("team");
         
         if (team.length > 0) {
-            var teamInput = document.querySelector(".input-group").firstElementChild;
-            teamInput.value = team;
-            teamInput.nextElementSibling.firstElementChild.click();
+            var teamInput = $($(".input-group").children()[0]);
+            teamInput.val(team);
+            teamInput.next().trigger("click");
         }
     });
     
     //Initialize countdown clock
     var computeDiff = function () {
-        var diff = (getTime(10,30).getTime() - (new Date()).getTime());
+        var diff = (getTime(10,0).getTime() - (new Date()).getTime());
         var d,h,m,s;
         
-        var countdownClock = document.querySelector(".countdown-clock");
+        var countdownClock = $(".countdown-clock").get(0);
         
         if (diff < 0) diff = 0;
         
