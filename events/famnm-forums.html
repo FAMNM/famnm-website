@@ -9,21 +9,24 @@ schedule:
     - 0:
         type: "presentation"
         time: "10:00 AM"
-        title: "How to Train Your Driver"
-        presenter: "Ellen Green"
-        description: "Tips, tricks, and best practices when it comes to training your driver for competition season."
+        title: "Pre Presentation Panel"
+        presenter: "FAMNM and Friends"
+        description: "We are here to talk about FAMNM, our scholarship, and answer your questions!"
+        link: "https://www.twitch.tv/videos/337704355"
     - 0:
         type: "presentation"
         time: "10:30 AM"
         title: "Using PIDs to Create an Effective Visionless Autonomous"
         presenter: "Jessica Kline"
         description: "An explanation of how PIDs function, how to tune them, and how to use them in the code. Specific focus is put on using a PID in conjunction with Motion Magic for driving during auton."
+        link: "https://www.twitch.tv/videos/337704356"
     - 0:
         type: "presentation"
         time: "11:00 AM"
         title: "How To: West Coast Drive"
         presenter: "Solomon Shurge"
         description: "Everything you need to know to get started with the West Coast Drive system."
+        link: "https://www.twitch.tv/videos/337705631"
     - 0:
         type: "generic"
         time: "12:00 PM"
@@ -34,18 +37,14 @@ schedule:
         title: "<span class='font-italic'>FIRST</span>&reg; Badges and Your Team"
         presenter: "Ron Weber"
         description: "An introduction to what <span class='font-italic'>FIRST</span>&reg; Badges are and how you can use them in your team, particularly in team training."
+        link: "https://www.twitch.tv/videos/337707434"
     - 0:
         type: "presentation"
         time: "2:00 PM"
         title: "Autonomous Driving with Ultrasonics"
         presenter: "Michael Lindskov"
         description: "The presentation will take the audience through a code walk of state table, ramp functions used with ultrasonics, and demonstration of a robot driving through an obstacle course using ultrasonics."
-    - 0:
-        type: "presentation"
-        time: "3:00 PM"
-        title: "Post Presentation Panel"
-        presenter: "FAMNM and Friends"
-        description: "We are here to talk about our <span class='font-italic'>FIRST</span>&reg; experiences and answer your questions!"
+        link: "https://www.twitch.tv/videos/337707435"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -75,8 +74,11 @@ schedule:
 
      <div class="content">
       <h1 class="page-header">2018 FAMNM Forums</h1>
-      <p class="text-center font-weight-bold">FAMNM is once again hosting the FAMNM Forums on U of M's North Campus on November 17!</p>
-      <p class="text-center"><a href="https://goo.gl/forms/BhazwWADHde8aEKY2" class="btn btn-primary" onclick="openInModal(event, '2018 FAMNM Forums Team Registration')">Click here to register</a></p>
+      <p class="text-center font-weight-bold">Thanks to those who attended FAMNM Forums both in person and virtually! We hope to see you again next year.</p>
+      <p class="text-center">If you attended (in person or virtually), please leave us feedback at the link below!</p>
+      <p class="text-center">If you missed this year's forums, you can find recordings of each session linked in the schedule.</p>
+      <p class="text-center"><a href="https://goo.gl/forms/FAF2tieM8aGfrxHv2" class="btn btn-primary" target="_blank" rel="noreferrer">Send us feedback!</a></p>
+      <p class="text-center"><a href="https://drive.google.com/drive/folders/10voIqJ_cXBfOTu4Pl46DRis5lgFh4krs?usp=sharing" class="btn btn-primary" target="_blank">Slide decks</a></p>
       <h2>Map</h2>
       <div id="map-wrap">
           <div id="map"></div>
@@ -91,8 +93,8 @@ schedule:
               Check In
           </span>
           <span class="col-sm">
-              <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Session Rooms">
-              Session Rooms
+              <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Presentation Room">
+              Presentation Room (DOW 1013)
           </span>
       </div>
       <h2>Schedule</h2>
@@ -117,7 +119,15 @@ schedule:
                       {% endif %}
                   </td>
                   {% else %}
-                  <td>{{ item[0].title }}</td>
+                  <td>
+                    {% if item[0].type == "presentation" and item[0] contains "link" %}
+                    <a href="{{ item[0].link }}" target="_blank" rel="noreferrer">
+                    {% endif %}
+                    {{ item[0].title }}
+                    {% if item[0].type == "presentation" and item[0] contains "link" %}
+                    </a>
+                    {% endif %}
+                  </td>
                   <td>{{ item[0].presenter }}</td>
                   <td>{{ item[0].description }}</td>
                   {% endif %}
@@ -130,7 +140,15 @@ schedule:
               {% for item in page.schedule %}
               <tr><td>
                   <p>{{ item[0].time }}</p>
-                  <p class="font-weight-bold">{{ item[0].title }}</p>
+                  <p class="font-weight-bold">
+                    {% if item[0].type == "presentation" and item[0] contains "link" %}
+                    <a href="{{ item[0].link }}" target="_blank" rel="noreferrer">
+                    {% endif %}
+                    {{ item[0].title }}
+                    {% if item[0].type == "presentation" and item[0] contains "link" %}
+                    </a>
+                    {% endif %}
+                  </p>
                   {% if item[0].type == "generic" and item[0] contains "location" %}
                   <p>{{ item[0].location }}</p>
                   {% elsif item[0].type == "presentation" %}
@@ -141,7 +159,7 @@ schedule:
               {% endfor %}
           </tbody>
       </table>
-      <h2>About the event</h2>
+      <h2>About FAMNM Forums</h2>
       <div class="img-row" style="margin-bottom: 1em;">
           <img src="../img/forums/auditorium.png" alt="2016 FAMNM Forums" height=250 width=350/> <!-- This is from Kickoff, but we don't have any pictures from Forums... -->
       </div>

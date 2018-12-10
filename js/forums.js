@@ -14,7 +14,7 @@ function initMap () {
     var places = [
         { name: "Check In", icon: "checkin", lat: 42.292686, lon: -83.715573 },
         { name: "Parking", icon: "parking", lat: 42.292242, lon: -83.717560 },
-        { name: "Session Rooms", icon: "rooms", lat: 42.292835, lon: -83.715431 }
+        { name: "Presentation Room (DOW 1013)", icon: "rooms", lat: 42.292835, lon: -83.715431 }
     ];
 
     var icons = {
