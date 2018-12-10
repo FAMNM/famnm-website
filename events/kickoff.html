@@ -135,23 +135,28 @@ title: 2019 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
             <div class="page-header">
                 <h1>2019 FAMNM FRC Kickoff</h1>
             </div>
-            <ul style="list-style-type: none; padding-left: 0;">
+            <p class="text-par"><span class="font-weight-bold">FAMNM is excited to be hosting our fourth annual FRC Kickoff!</span> Details will be posted to this page as they become available.</p>
+            <p class="text-par">If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
+                If you wish to order a pizza lunch for your team, that link may also be found below.</p>
+            <ul class="d-none" style="list-style-type: none; padding-left: 0;">
                 <li><a href="#sched">Schedule</a></li>
                 <li><a href="#dest-deep-space"><span class="italic">FIRST</span>&reg; Destination: Deep Space&#8480;</a></li>
                 <li><a href="#um-fair">UM Fair</a></li>
             </ul>
             <p id="quick-links">
                 <span class="font-weight-bold">Quick links:</span><br/>
+                <a class="btn btn-primary" href="https://goo.gl/forms/MaiX3XYOdWy2AmKf1" onclick="openInModal(event, 'Team Registration Form')" target="_blank">Registration</a>
+                <a class="btn btn-primary" href="https://goo.gl/forms/Ow1b5Gcwz1JBcPIG2" onclick="openInModal(event, 'Team Pizza Order Form')" target="_blank">Lunch Order Form</a>
                 <button type="button" class="maps-btn btn btn-primary" data-toggle="modal" data-target="#mapModal" onclick="bNs.map.toggleParking(true)" disabled>Parking</button>
                 <button type="button" class="maps-btn btn btn-primary" data-toggle="modal" data-target="#mapModal" onclick="bNs.map.showKOP()" disabled>KOP Pick-Up</button></p>
-            <h2 id="sched">Schedule</h2>
-            <div class="input-group">
+            <h2 id="sched" class="d-none">Schedule</h2>
+            <div class="input-group d-none">
                 <input type="text" class="form-control" placeholder="Team number" onkeypress="bNs.teamNumAccepted(event)" />
                 <span class="input-group-append">
        			<button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event)">View</button>
        		</span>
             </div>
-            <p class="team-empty">Enter your team number above to see your team's schedule, find broadcast and breakout rooms, and view additional kickoff information.</p>
+            <p class="d-none team-empty">Enter your team number above to see your team's schedule, find broadcast and breakout rooms, and view additional kickoff information.</p>
             <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br/> We're sorry, we don't have a schedule for that team.</p>
             <div class="team-disp">
                 <p class="italic">Click on or touch a location to view it on a map</p>
@@ -177,18 +182,18 @@ title: 2019 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                 <span class="minutes time-part">0</span>
                 <span class="seconds time-part">0</span>
             </div>
-            <h4>Manuals and resources</h4>
-            <p>Game manual password:</p>
-            <p style="font-size: 1.5em; font-weight: bold">TBA</p>
+            <h4 class="d-none">Manuals and resources</h4>
+            <p class="d-none">Game manual password:</p>
+            <p class="d-none" style="font-size: 1.5em; font-weight: bold">TBA</p>
             <!--
             <ul style="list-style-type: none; padding-left: 0;">
                 <li><a href="https://firstfrc.blob.core.windows.net/frc2018/Manual/2018FRCGameSeasonManual.pdf" target="_blank">Encrypted game manual</a></li>
                 <li><a href="https://www.youtube.com/playlist?list=PLZT9pIgNOV6Zmqw9Aj1F1u2FD5x8gIyfm" target="_blank">Field tour videos</a></li>
             </ul>
             -->
-            <h3 id="um-fair">UM Fair</h3>
-            <p>The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved with. Expand any of the panels below to learn more about an organization!</p>
-            <div class="panel-group">
+            <h3 id="um-fair" class="d-none">UM Fair</h3>
+            <p class="d-none">The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved with. Expand any of the panels below to learn more about an organization!</p>
+            <div class="panel-group d-none">
                 <div class="card">
                     <div class="card-header">
                         <a data-toggle="collapse" href="#solarcar">University of Michigan Solar Car Team</a>
@@ -369,6 +374,7 @@ title: 2019 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
 	{% include footer.html %}
     {% include scripts.html %}
     <script src="{{site.url}}/js/kickoff/page.js"></script>
+    <script src="{{site.url}}/js/web-encapsulation.js"></script>
 </body>
 
 </html>
