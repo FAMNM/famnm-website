@@ -260,7 +260,7 @@ var bNs = {
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
         },
         showKOP: function () {
-            var loc = bNs.resolveLocation(bNs.schedule[5].location);
+            var loc = bNs.resolveLocation(bNs.schedule[4].location);
             var mkr = bNs.getMarker(loc.code)
             
             bNs.map.modalTitle.text("KOP Pick Up");
