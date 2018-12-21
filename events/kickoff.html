@@ -153,15 +153,16 @@ title: 2019 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                 <a class="btn btn-primary" href="https://goo.gl/forms/Ow1b5Gcwz1JBcPIG2" onclick="openInModal(event, 'Team Pizza Order Form')" target="_blank">Lunch Order Form</a>
                 <button type="button" class="maps-btn btn btn-primary" data-toggle="modal" data-target="#mapModal" onclick="bNs.map.toggleParking(true)" disabled>Parking</button>
                 <button type="button" class="maps-btn btn btn-primary" data-toggle="modal" data-target="#mapModal" onclick="bNs.map.showKOP()" disabled>KOP Pick-Up</button></p>
-            <h2 id="sched" class="d-none">Schedule</h2>
-            <div class="input-group d-none">
+            <h2 id="sched">Schedule</h2>
+            <div class="input-group">
                 <input type="text" class="form-control" placeholder="Team number" onkeypress="bNs.teamNumAccepted(event)" />
                 <span class="input-group-append">
        			<button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event)">View</button>
        		</span>
             </div>
-            <p class="d-none team-empty">Enter your team number above to see your team's schedule, find broadcast and breakout rooms, and view additional kickoff information.</p>
-            <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br/> We're sorry, we don't have a schedule for that team.</p>
+            <p class="team-empty">Enter your team number above to see your team's schedule, find broadcast and breakout rooms, and view additional kickoff information.</p>
+            <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br/> We're sorry, we don't have a schedule for that team.<br/>
+                If your team is just picking up your Kit of Parts, you can pick it up at <a href="#" data-toggle="modal" data-target="#mapModal" onclick="bNs.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.</p>
             <div class="team-disp">
                 <p class="italic">Click on or touch a location to view it on a map</p>
                 <table id="sched-table" class="table table-bordered">
