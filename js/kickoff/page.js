@@ -199,12 +199,12 @@ var bNs = {
            end:getTime(10,0),
            location:"t:breakout"
        },
-       {
+       /*{
            event:"North Campus Tours",
            start:getTime(8,15),
            end:getTime(9,15),
            location:"PIER"
-       },
+       },*/
        {
            event:"UM Fair",
            start:getTime(8,30),
@@ -224,7 +224,7 @@ var bNs = {
            location:"CHRYS 133"
        },
        {
-           event:"Game Field Open",
+           event:"Virtual Game Field Open",
            start:getTime(11,45),
            end:getTime(15,0),
            location:"DUDE GAL"
@@ -304,12 +304,12 @@ var bNs = {
         ["CON","Connector"],
         ["DUDE","Duderstadt"],
         ["CHRYS","Chrysler"],
-        ["STAMPS","Stamps Auditorium"],
         ["GGBL","GG Brown"],
         ["EECS","EECS Building"],
         ["BBB","Bob and Betty Beyster Building"],
         ["DOW","Dow Building"],
-        ["PIER","Pierpont Commons"]
+        ["PIER","Pierpont Commons"],
+        ["FXB","Fran\u00e7ois-Xavier Bagnoud Building"]
     ],
     parking:[
         { lot: "NC5", lat: 42.288055, lng: -83.714438 },
@@ -324,12 +324,8 @@ var bNs = {
         ["PIER", 42.291384, -83.717490],
         ["DUDE CON", 42.291225, -83.716470],
         ["DUDE GAL", 42.291166, -83.716745],
-        ["DUDE A", 42.291088, -83.716381],
-        ["DUDE B", 42.291088, -83.716381],
         ["CHRYS 133", 42.290646, -83.716900],
         ["CHRYS 220", 42.290877, -83.716737],
-        ["CHRYS 265", 42.290761, -83.716949],
-        ["STAMPS", 42.291976, -83.716931],
         ["BBB 1670", 42.292868, -83.716273],
         ["BBB 1690", 42.292870, -83.716463],
         ["DOW 1005", 42.292721, -83.715589],
@@ -339,16 +335,15 @@ var bNs = {
         ["DOW 1014", 42.292945, -83.715350],
         ["DOW 1017", 42.292745, -83.715261],
         ["DOW 1018", 42.292880, -83.715223],
-        ["DOW 2150", 42.292723, -83.715376],
-        ["DOW 2166", 42.292723, -83.715376],
-        ["DOW 3150", 42.292723, -83.715376],
         ["GGBL 1571", 42.293140, -83.714917],
         ["EECS 1003", 42.292653, -83.714466],
-        ["EECS 1008", 42.292653, -83.714466],
+        ["EECS 1005", 42.292653, -83.714466],
         ["EECS 1012", 42.292653, -83.714466],
+        ["EECS 1200", 42.292548, -83.714585],
         ["EECS 1303", 42.292502, -83.714353],
         ["EECS 1311", 42.292323, -83.714417],
-        ["EECS 1500", 42.292271, -83.714581]
+        ["EECS 1500", 42.292271, -83.714581],
+        ["FXB 1109", 42.293502, -83.711731]
     ]
 };
 
