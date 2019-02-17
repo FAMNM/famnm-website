@@ -17,16 +17,24 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
 			font-size: 40px;
 			font-weight: bold;
 		}
-                .desc-row:not(:first-child) {
-                    margin-top: 1em;
-                }
                 .lead-card {
                     padding: 1.5em;
                     background-color: #eeeeee;
                 }
-                @media (max-width: 767px) {
-                    img ~ .desc {
+                @media (min-width: 768px) {
+                    .desc-row:not(:first-child) {
                         margin-top: 1em;
+                    }
+                }
+                @media (max-width: 767px) {
+                    .img-contain ~ .desc {
+                        margin-top: 1em;
+                    }
+                    .desc-row {
+                        padding: 1em 0;
+                    }
+                    .desc-row:not(:last-child) {
+                        border-bottom: 1px solid #777777;
                     }
                 }
 	</style>
@@ -50,10 +58,14 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                                      at Kettering's FIRST Robotics Community Center. Competing alongside other Ri3D teams from Michigan State University, Ferris State University,
                                      Grand Valley State University, and Kettering University, the FAMNM Ri3D team managed to wrest their way to victory and claim the <span class="font-weight-bold">first-ever FACC Ri3D trophy!</span></p>
                               </div>
-                              <img class="col-md-6 mx-auto" src="{{site.url}}/img/ri3d/2019-winners.jpg"/>
+                              <div class="col-md-6 img-contain">
+                                  <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-winners.jpg"/>
+                              </div>
 			 </div>
                          <div class="row desc-row text-left">
-                             <img class="col-md-6 mx-auto" src="{{site.url}}/img/ri3d/andrew-can-use-rivets.png"/>
+                             <div class="col-md-6 img-contain">
+                                 <img class="mx-auto" src="{{site.url}}/img/ri3d/andrew-can-use-rivets.png"/>
+                             </div>
                              <div class="col-md-6 desc">
                                  <h2 id="purpose">Why does FAMNM have an Ri3D team?</h2>
                                  <p>Our primary goal is to show new FRC teams the process behind designing and building a robot from the ground up to compete in an FRC competition.
@@ -71,10 +83,14 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                                     and attendance in at least one auxiliary event (such as FACC or livestreams). If you have further questions, please email
                                     <a href="mailto:famnm.pd-vp@umich.edu">famnm.pd-vp@umich.edu</a>.</p>
                              </div>
-                             <img class="col-md-6 mx-auto" src="{{site.url}}/img/ri3d/2019-team-conf-room.png"/>
+                             <div class="col-md-6 img-contain">
+                                 <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-team-conf-room.png"/>
+                             </div>
                          </div>
                          <div class="row desc-row text-left">
-                             <img class="col-md-6 mx-auto" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
+                             <div class="col-md-6 img-contain">
+                                 <img class="mx-auto" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
+                             </div>
                              <div class="col-md-6 desc">
                                  <h2 id="sponsor">How do I sponsor the FAMNM Ri3D team?</h2>
                                  <p>The FAMNM Ri3D team is currently looking for sponsors! If you would like to sponsor us, please contact
