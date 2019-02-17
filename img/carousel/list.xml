@@ -1,35 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <carousel>
-	<carousel-item fname="lincoln-event.jpg">
-		<title>2018 Lincoln District Event</title>
-		<description>FAMNM Volunteers help out at the 2018 FiM Lincoln Event! Photo credit to Jonathan Skowronek.</description>
-	</carousel-item>
-	<carousel-item fname="frc-kickoff-field-2018.jpg">
-		<title>2018 FAMNM FRC Kickoff</title>
-		<description>Teams congregate at the Duderstadt Art Gallery to interact with the on-site field for FIRST&#174; POWER UP&#8480;.</description>
-	</carousel-item>
-	<carousel-item fname="ginsberg-service-cord.png">
-		<title>Mentoring</title>
-		<description>FAMNM cofounder Rachel Goubert works with her team. Courtesy of the Edward Ginsberg Center</description>
+	<carousel-item fname="frc-kickoff-talk-2019.jpg">
+		<title>2019 FAMNM FRC Kickoff</title>
+		<description>Teams listen to a talk from the University's Dr. Krishna Garikipati at the reveal of FIRST&#174; DESTINATION: DEEP SPACE Presented By The Boeing Company.</description>
 	</carousel-item>
 	<carousel-item fname="east-jackson-ftc.jpg">
 		<title>Volunteering</title>
-		<description>FAMNM wins the Volunteer Award at the 2017 East Jackson FTC Qualifier!</description>
+		<description>FAMNM wins the Volunteer Award at the 2018 East Jackson FTC Qualifier!</description>
 	</carousel-item>
-	<carousel-item fname="ftc-kickoff-2017.jpg">
-		<title>FTC Kickoff</title>
-		<description>FAMNM displays a full field setup at our 2017 FIRST Tech Challenge kickoff in September</description>
+	<carousel-item fname="kettering-fll-2018.jpg">
+		<title>Kettering FLL Qualifier</title>
+		<description>FAMNM judges at the Kettering FLL event in November 2018.</description>
 	</carousel-item>
-	<carousel-item fname="apple-orchard-2017.jpg">
+	<carousel-item fname="apple-orchard-2018.jpg">
 		<title>At the Apple Orchard</title>
-		<description>FAMNM on a social trip to Wiard's apple orchard in September 2017</description>
+		<description>FAMNM on a social trip to Erwin's Apple Orchard in October 2018.</description>
 	</carousel-item>
-	<carousel-item fname="hockey.jpg">
-		<title>Hockey Game</title>
-		<description>FAMNM at a hockey game. Go Blue!</description>
+	<carousel-item fname="../ri3d/2019-winners.jpg">
+		<title>FACC Winners!</title>
+		<description>FAMNM's new Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition!</description>
 	</carousel-item>
-	<carousel-item fname="famnm-all-girls-2017.jpg">
-		<title>Volunteering</title>
-		<description>FAMNM volunteers at the 2017 All-Girls FRC offseason competition in Bloomfield Hills.</description>
+	<carousel-item fname="game-night-2018.jpg">
+		<title>FAMNM Game Night</title>
+		<description>FAMNM celebrates a successful semester with a night of food and games.</description>
+	</carousel-item>
+	<carousel-item fname="lincoln-event.jpg">
+		<title>2018 Lincoln District Event</title>
+		<description>FAMNM Volunteers help out at the 2018 FiM Lincoln Event! Photo credit to Jonathan Skowronek.</description>
 	</carousel-item>
 </carousel>
