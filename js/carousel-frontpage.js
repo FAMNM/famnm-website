@@ -21,6 +21,7 @@ function fillCarousel(listXml)
 		
 		//VARIABLES FOR SLIDE ****************************************
 		var slideDiv = document.createElement("div");
+		var slideBackImg = document.createElement("img");
 		var slideImg = document.createElement("img");
 		var slideCaption = document.createElement("div");
 		var slideTitle = document.createElement("h3");
@@ -32,7 +33,14 @@ function fillCarousel(listXml)
 		if (i == 0)
 			slideDiv.classList.add("active");
 		
+		//INITIALIZE BLURRED BACK IMAGE ******************************
+		slideBackImg.src = "img/carousel/" + items[i].getAttribute("fname");
+		slideBackImg.classList.add("carousel-back-image")
+		
+
+		slideDiv.appendChild(slideBackImg);
 		//INITIALIZE SLIDE IMAGE *************************************
+
 		slideImg.src = "img/carousel/" + items[i].getAttribute("fname");
 		slideImg.alt = items[i].getElementsByTagName("title")[0].textContent;
 		
@@ -53,7 +61,7 @@ function fillCarousel(listXml)
 
 function start_fillCarousel()
 {
-	runAjax("https://famnm.club/img/carousel/list.xml",fillCarousel);
+	runAjax("img/carousel/list.xml",fillCarousel);
 }
 
 function runAjax(url,callback)
