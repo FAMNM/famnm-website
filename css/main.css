@@ -15,6 +15,10 @@ body > * {
 	flex-shrink: 0;
 }
 
+a {
+	white-space: nowrap;
+}
+
 /** Basic style formatting **/
 .bold {
     font-weight: bold;
