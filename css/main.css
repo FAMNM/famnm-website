@@ -14,9 +14,10 @@ body {
 body > * {
 	flex-shrink: 0;
 }
-
-a {
-	white-space: nowrap;
+@media (min-width: 768px) {
+	p a {
+		white-space: nowrap;
+	}
 }
 
 /** Basic style formatting **/
