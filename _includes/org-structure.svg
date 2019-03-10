@@ -167,39 +167,6 @@
 </g></g></g></g><g
                id="g94"
                transform="scale(381)" /><g
-               id="svg-dir-marketing"
-               inkscape:label="#g2047"><g
-                 id="g98"><path
-                   d="m 60163,73234.06 v 0 C 60163,71434.69 61621.684,69976 63421.066,69976 H 97764.94 c 864.09,0 1692.79,343.26 2303.79,954.266 611.01,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 H 63421.066 C 61621.684,89524 60163,88065.31 60163,86265.94 Z"
-                   style="fill:#e9cc06;fill-opacity:1;fill-rule:evenodd;stroke:none"
-                   id="path100"
-                   inkscape:connector-curvature="0" /></g><path
-                 d="m 60163,73234.06 v 0 C 60163,71434.69 61621.684,69976 63421.066,69976 H 97764.94 c 864.09,0 1692.79,343.26 2303.79,954.266 611.01,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 H 63421.066 C 61621.684,89524 60163,88065.31 60163,86265.94 Z"
-                 style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
-                 id="path102"
-                 inkscape:connector-curvature="0" /><g
-                 id="g108"
-                 transform="matrix(381,0,0,381,61117.25,70930.252)"><text
-   id="text112"
-   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   transform="translate(14.700436,19.068935)"><tspan
-     id="tspan110"
-     sodipodi:role="line"
-     y="0"
-     x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of </tspan></text>
-
-
-<text
-   id="text116"
-   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   transform="translate(16.901875,41.068935)"><tspan
-     id="tspan114"
-     sodipodi:role="line"
-     y="0"
-     x="0 12.32 20.271999 26.264 34.271999 42.130665 47.879997 52.154663 60.349331">Marketing</tspan></text>
-
-
-</g></g><g
                id="g118"
                transform="scale(381)" /><g
                id="svg-treasurer"
@@ -1243,4 +1210,41 @@
 
 </g></g></g></g><g
                id="g828"
-               transform="scale(381)" /></g></g></g></g></g></svg>
+               transform="scale(381)" /><g
+               transform="matrix(1.0000013,0,0,1.0000013,-106367.25,-336.90088)"
+               id="svg-dir-marketing"
+               inkscape:label="#g1311"><g
+                 inkscape:label="#g140"
+                 id="g140-7"
+                 transform="matrix(0.63898653,0,0,1,67711.326,0)"><g
+                   id="g142-0"><path
+                     inkscape:connector-curvature="0"
+                     id="path144-9"
+                     style="fill:#e9cc06;fill-opacity:1;fill-rule:evenodd;stroke:none"
+                     d="m 156869,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 54863.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -54863.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><path
+                   inkscape:connector-curvature="0"
+                   id="path146-3"
+                   style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
+                   d="m 156869,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 54863.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -54863.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
+                 transform="scale(381)"
+                 id="g148-6"><g
+                   transform="translate(414.23425,186.16864)"
+                   id="g150-0"><g
+                     id="g152-6"><text
+                       id="text156-2"
+                       style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                       transform="translate(41.62957,19.068935)"><tspan
+                         id="tspan154-6"
+                         sodipodi:role="line"
+                         y="0"
+                         x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of</tspan></text>
+<text
+                       id="text160-1"
+                       style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+                       x="43.688736"
+                       y="41.068935"><tspan
+                         id="tspan158-8"
+                         sodipodi:role="line"
+                         x="43.688736"
+                         y="41.068935">Marketing</tspan></text>
+</g></g></g></g></g></g></g></g></g></svg>
