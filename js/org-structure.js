@@ -270,7 +270,8 @@ $(window).on("load", () => {
         var area = map.find(component.id);
 
         component.container = $(".content").get(0);
-        component.trigger = "hover click";
+        component.trigger = ($(window).width() < 768) ? "click" : "hover";
+        if ($(window).width() < 768) component.placement = "top";
         area.popover(component);
     });
 });

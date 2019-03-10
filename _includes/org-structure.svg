@@ -12,14 +12,14 @@
    version="1.1"
    id="org-pic"
    xml:space="preserve"
-   width="1565.3333"
-   height="717.33331"
    viewBox="0 0 1565.3333 717.33331"
    sodipodi:docname="org-structure.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:export-filename="/home/paul/Documents/clubs/famnm/famnm-website/img/about/Org-Structure.png"
    inkscape:export-xdpi="600"
-   inkscape:export-ydpi="600"><metadata
+   inkscape:export-ydpi="600"
+   width="100%"
+   height="100%"><metadata
      id="metadata8"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -43,7 +43,7 @@
      showgrid="false"
      inkscape:pagecheckerboard="true"
      inkscape:zoom="1.2576142"
-     inkscape:cx="465.00508"
+     inkscape:cx="239.57824"
      inkscape:cy="328.94306"
      inkscape:window-x="0"
      inkscape:window-y="0"
@@ -94,6 +94,7 @@
      x="0 11.52 19.224001 29.327999 38.304001 43.799999 54.408001 64.512001 75.047997">President</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g50"
                transform="scale(381)" /><g
@@ -122,6 +123,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.12 17.615999 27.48 37.584 43.080002 54.599998 62.304001 72.407997 81.384003 86.879997 97.487999 107.592 118.128">Vice President</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -154,6 +156,7 @@
      x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of </tspan></text>
 
 
+
 <text
    id="text92"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -162,6 +165,7 @@
      sodipodi:role="line"
      y="0"
      x="0 4.629333 12.823999 18.573332 26.431999 32.424 40.618664 48.570663 52.845333 57.119999 66.304001 71.661331 77.018661 84.970665 89.245331 95.237328">Internal Affairs</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -196,6 +200,7 @@
      x="0 9.9119997 17.615999 27.719999 37.944 46.919998 57.48 65.183998 75.288002">Treasurer</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g138"
                transform="scale(381)" /><g
@@ -226,6 +231,7 @@
      x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of </tspan></text>
 
 
+
 <text
    id="text160"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -234,6 +240,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 23.538666 31.863998 39.797333 45.789333 53.741333 59.490665 67.349335 71.624001 81.685333 89.898666 95.647995 101.64 109.49866 117.45066 125.12267">Corporate Outreach</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -266,6 +273,7 @@
      x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664 77.14933 86.109329 92.101334 100.03466 104.328 112.18666 119.85867 125.60799">Director of Project </tspan></text>
 
 
+
 <text
    id="text184"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -274,6 +282,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.8373327 17.695999 24.882666 32.741333 37.015999 44.949333 53.274666 65.967995 73.826668 82.021332">Development</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -306,6 +315,7 @@
      x="0 13.608 21.466665 29.810665 42.503998 50.455997 57.437332 63.186665 71.045334">Webmaster</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g206"
                transform="scale(381)" /><g
@@ -336,6 +346,7 @@
      x="0 9.2399998 13.514667 21.186666 29.194666 37.127998 42.485332 47.842667">Kickoff </tspan></text>
 
 
+
 <text
    id="text228"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -344,6 +355,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -376,6 +388,7 @@
      x="0 9.6879997 13.962667 22.866667 32.703999">Ri3D </tspan></text>
 
 
+
 <text
    id="text252"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -384,6 +397,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -416,6 +430,7 @@
      x="0 7.2986665 16.986666 26.599998">FRC </tspan></text>
 
 
+
 <text
    id="text276"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -424,6 +439,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -456,6 +472,7 @@
      x="0 7.2986665 15.007999 24.621332">FTC </tspan></text>
 
 
+
 <text
    id="text300"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -464,6 +481,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -496,6 +514,7 @@
      x="0 7.2986665 14.709332 22.119999">FLL </tspan></text>
 
 
+
 <text
    id="text324"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -504,6 +523,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -536,6 +556,7 @@
      x="0 9.4266663 17.359999 21.634666 29.848 38.042664 43.792 51.650665 59.509331 65.501328">Volunteer </tspan></text>
 
 
+
 <text
    id="text348"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -544,6 +565,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -579,6 +601,7 @@
      x="0 15.84 26.063999 33.768002 44.063999 54.167999 61.560001 67.056 77.592003 88.031998 93.528 105.888 116.088 132.408 148.728 154.224 161.616 169.008 179.112">Marketing Committee</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g370"
                transform="scale(381)" /><g
@@ -607,6 +630,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.9119997 17.615999 27.719999 37.944 46.919998 57.48 65.183998 74.592003 80.087997 92.447998 102.648 118.968 135.28799 140.784 148.17599 155.56799 165.672">Treasury Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -639,6 +663,7 @@
      x="0 12.36 22.559999 30.264 40.967999 51.167999 58.872002 69.096001 76.487999 86.592003 92.087997 105.024 115.584 122.976 130.67999 140.784 151.008 160.87199 171.552">Corporate Outreach </tspan></text>
 
 
+
 <text
    id="text412"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -647,6 +672,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.36 22.559999 38.880001 55.200001 60.695999 68.087997 75.480003 85.584">Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -679,6 +705,7 @@
      x="0 11.52 19.224001 29.424 34.944 45.048 54.911999 62.304001 71.279999 76.776001 89.136002 99.335999 115.656 131.976 137.472 144.864 152.256 162.36">Projects Committee</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g434"
                transform="scale(381)" /><g
@@ -707,6 +734,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.456 17.952 29.4 42.048 47.543999 57.456001 67.559998 77.783997">Ri3D Team</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -739,6 +767,7 @@
      x="0 12.12 22.32 27.816 38.375999 48.911999 56.304001 66.407997 76.512001 84.216003">Volunteers</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g474"
                transform="scale(381)" /><g
@@ -767,6 +796,7 @@
      sodipodi:role="line"
      y="0"
      x="0 15.84 25.944 36.48 43.872002 54.071999 61.776001">Mentors</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -799,6 +829,7 @@
      x="0 9.3839998 17.087999 27.191999 37.296001 42.792 53.015999 63.551998 73.416 83.519997 89.015999 104.856 114.96 125.496 132.888 143.088 150.79201">Freelance Mentors</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g514"
                transform="scale(381)" /><g
@@ -829,6 +860,7 @@
      x="0 7.2986665 11.927999 21.615999 30.445332 38.154667 42.429333 51.613331 55.887997 64.101334 76.794662 84.989334 89.264">FIRST Alumni </tspan></text>
 
 
+
 <text
    id="text536"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -837,6 +869,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.8559999 17.714666 23.463999 34.439999 42.373333 48.36533 56.373333 60.647999 68.599998 74.349327 78.624001 88.759995 96.693329 102.05067">Network at UofM</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -869,6 +902,7 @@
      x="0 12.84 22.944 33.48 43.584 51.287998 61.512001 67.008003 72.503998 88.344002 98.447998 114.768 125.496 135.60001 143.304">General Members</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g558"
                transform="scale(381)" /><g
@@ -898,6 +932,7 @@
      sodipodi:role="line"
      y="0"
      x="0 17.496 27.6 38.327999 47.304001 52.799999 60.192001 70.295998 75.792 88.152 98.351997 114.672 130.992 136.48801 143.88 151.272 161.37601">Website Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1118,6 +1153,7 @@
      x="0 7.597333 14.858666 22.717333 30.389332 38.602665 44.351997 48.626663 55.813332 63.671997 67.946663 77.727997 85.661331 93.613327 99.605331">Executive Board</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g768"
                transform="scale(381)" /><g
@@ -1146,6 +1182,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 23.538666 31.397333 35.671997 43.381332 51.239998 59.191998">Core Team</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1178,6 +1215,7 @@
      x="0 9.6133327 17.546665 30.24 42.933331 47.208 52.957333 58.706665 66.565331">Committee</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g808"
                transform="scale(381)" /><g
@@ -1208,6 +1246,7 @@
      x="0 12.32 20.271999 28.466665 36.418667 44.538666 52.397331 60.647999 64.922661 74.909332 80.901329 88.834663 97.047997">Managed Group</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g828"
                transform="scale(381)" /><g
@@ -1231,20 +1270,22 @@
                    transform="translate(414.23425,186.16864)"
                    id="g150-0"><g
                      id="g152-6"><text
-                       id="text156-2"
-                       style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                       transform="translate(41.62957,19.068935)"><tspan
-                         id="tspan154-6"
-                         sodipodi:role="line"
-                         y="0"
-                         x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of</tspan></text>
+   id="text156-2"
+   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   transform="translate(41.62957,19.068935)"><tspan
+     id="tspan154-6"
+     sodipodi:role="line"
+     y="0"
+     x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of</tspan></text>
+
 <text
-                       id="text160-1"
-                       style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-                       x="43.688736"
-                       y="41.068935"><tspan
-                         id="tspan158-8"
-                         sodipodi:role="line"
-                         x="43.688736"
-                         y="41.068935">Marketing</tspan></text>
+   id="text160-1"
+   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   x="43.688736"
+   y="41.068935"><tspan
+     id="tspan158-8"
+     sodipodi:role="line"
+     x="43.688736"
+     y="41.068935">Marketing</tspan></text>
+
 </g></g></g></g></g></g></g></g></g></svg>
