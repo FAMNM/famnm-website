@@ -10,16 +10,16 @@
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    version="1.1"
-   id="svg2"
+   id="org-pic"
    xml:space="preserve"
-   width="1565.3333"
-   height="717.33331"
    viewBox="0 0 1565.3333 717.33331"
    sodipodi:docname="org-structure.svg"
    inkscape:version="0.92.3 (2405546, 2018-03-11)"
    inkscape:export-filename="/home/paul/Documents/clubs/famnm/famnm-website/img/about/Org-Structure.png"
    inkscape:export-xdpi="600"
-   inkscape:export-ydpi="600"><metadata
+   inkscape:export-ydpi="600"
+   width="100%"
+   height="100%"><metadata
      id="metadata8"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -42,9 +42,9 @@
      id="namedview4"
      showgrid="false"
      inkscape:pagecheckerboard="true"
-     inkscape:zoom="3.55707"
-     inkscape:cx="791.70317"
-     inkscape:cy="81.822287"
+     inkscape:zoom="1.2576142"
+     inkscape:cx="239.57824"
+     inkscape:cy="328.94306"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -80,13 +80,10 @@
                    id="path38"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 179914,13074.065 v 0 C 179914,11274.686 181372.69,9816 183172.06,9816 h 50735.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.005 954.27,1439.707 954.27,2303.799 v 13031.871 c 0,1799.378 -1458.69,3258.064 -3258.06,3258.064 h -50735.88 v 0 c -1799.37,0 -3258.06,-1458.686 -3258.06,-3258.064 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g40"><g
-                   style=""
                    transform="translate(474.71982,28.268385)"
                    id="g42"><g
-                     style=""
                      id="g44"><text
    id="text48"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -95,6 +92,7 @@
      sodipodi:role="line"
      y="0"
      x="0 11.52 19.224001 29.327999 38.304001 43.799999 54.408001 64.512001 75.047997">President</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -113,13 +111,10 @@
                    id="path58"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 270555,13074.065 v 0 C 270555,11274.686 272013.7,9816 273813.06,9816 h 50735.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.005 954.25,1439.707 954.25,2303.799 v 13031.871 c 0,1799.378 -1458.7,3258.064 -3258.06,3258.064 h -50735.88 v 0 c -1799.36,0 -3258.06,-1458.686 -3258.06,-3258.064 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g60"><g
-                   style=""
                    transform="translate(712.62274,28.268385)"
                    id="g62"><g
-                     style=""
                      id="g64"><text
    id="text68"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -128,6 +123,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.12 17.615999 27.48 37.584 43.080002 54.599998 62.304001 72.407997 81.384003 86.879997 97.487999 107.592 118.128">Vice President</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -146,13 +142,10 @@
                    id="path78"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 361196,12513.065 v 0 C 361196,10713.686 362654.7,9255 364454.06,9255 h 50735.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.005 954.25,1439.707 954.25,2303.799 v 13031.871 c 0,1799.378 -1458.7,3258.064 -3258.06,3258.064 h -50735.88 v 0 c -1799.36,0 -3258.06,-1458.686 -3258.06,-3258.064 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g80"><g
-                   style=""
                    transform="translate(950.5256,26.795944)"
                    id="g82"><g
-                     style=""
                      id="g84"><text
    id="text88"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -161,6 +154,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of </tspan></text>
+
 
 
 <text
@@ -173,50 +167,10 @@
      x="0 4.629333 12.823999 18.573332 26.431999 32.424 40.618664 48.570663 52.845333 57.119999 66.304001 71.661331 77.018661 84.970665 89.245331 95.237328">Internal Affairs</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g94"
                transform="scale(381)" /><g
-               id="svg-dir-marketing"
-               inkscape:label="#g1287"><g
-                 inkscape:label="#g96"
-                 id="g96"><g
-                   id="g98"><path
-                     inkscape:connector-curvature="0"
-                     id="path100"
-                     style="fill:#e9cc06;fill-opacity:1;fill-rule:evenodd;stroke:none"
-                     d="m 60163,73234.06 v 0 C 60163,71434.69 61621.684,69976 63421.066,69976 H 97764.94 c 864.09,0 1692.79,343.26 2303.79,954.266 611.01,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 H 63421.066 C 61621.684,89524 60163,88065.31 60163,86265.94 Z" /></g><path
-                   inkscape:connector-curvature="0"
-                   id="path102"
-                   style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
-                   d="m 60163,73234.06 v 0 C 60163,71434.69 61621.684,69976 63421.066,69976 H 97764.94 c 864.09,0 1692.79,343.26 2303.79,954.266 611.01,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 H 63421.066 C 61621.684,89524 60163,88065.31 60163,86265.94 Z" /></g><g
-                 style=""
-                 transform="scale(381)"
-                 id="g104"><g
-                   style=""
-                   transform="translate(160.41273,186.16864)"
-                   id="g106"><g
-                     style=""
-                     id="g108"><text
-   id="text112"
-   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   transform="translate(14.700436,19.068935)"><tspan
-     id="tspan110"
-     sodipodi:role="line"
-     y="0"
-     x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of </tspan></text>
-
-
-<text
-   id="text116"
-   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
-   transform="translate(16.901875,41.068935)"><tspan
-     id="tspan114"
-     sodipodi:role="line"
-     y="0"
-     x="0 12.32 20.271999 26.264 34.271999 42.130665 47.879997 52.154663 60.349331">Marketing</tspan></text>
-
-
-</g></g></g></g><g
                id="g118"
                transform="scale(381)" /><g
                id="svg-treasurer"
@@ -232,13 +186,10 @@
                    id="path126"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 108951,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 34343.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -34343.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g128"><g
-                   style=""
                    transform="translate(288.46524,186.16864)"
                    id="g130"><g
-                     style=""
                      id="g132"><text
    id="text136"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -247,6 +198,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.9119997 17.615999 27.719999 37.944 46.919998 57.48 65.183998 75.288002">Treasurer</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -265,13 +217,10 @@
                    id="path146"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 156869,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 54863.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -54863.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g148"><g
-                   style=""
                    transform="translate(414.23425,186.16864)"
                    id="g150"><g
-                     style=""
                      id="g152"><text
    id="text156"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -282,6 +231,7 @@
      x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of </tspan></text>
 
 
+
 <text
    id="text160"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -290,6 +240,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 23.538666 31.863998 39.797333 45.789333 53.741333 59.490665 67.349335 71.624001 81.685333 89.898666 95.647995 101.64 109.49866 117.45066 125.12267">Corporate Outreach</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -308,13 +259,10 @@
                    id="path170"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 225307,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 50735.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -50735.88 v 0 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g172"><g
-                   style=""
                    transform="translate(593.8616,186.16864)"
                    id="g174"><g
-                     style=""
                      id="g176"><text
    id="text180"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -325,6 +273,7 @@
      x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664 77.14933 86.109329 92.101334 100.03466 104.328 112.18666 119.85867 125.60799">Director of Project </tspan></text>
 
 
+
 <text
    id="text184"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -333,6 +282,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.8373327 17.695999 24.882666 32.741333 37.015999 44.949333 53.274666 65.967995 73.826668 82.021332">Development</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -351,13 +301,10 @@
                    id="path194"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 5722,101859.06 v 0 C 5722,100059.69 7180.6855,98601 8980.065,98601 h 34343.869 c 864.093,0 1692.796,343.26 2303.8,954.266 611.008,611.004 954.266,1439.704 954.266,2303.794 v 13031.88 c 0,1799.37 -1458.684,3258.06 -3258.066,3258.06 H 8980.065 C 7180.6855,118149 5722,116690.31 5722,114890.94 Z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g196"><g
-                   style=""
                    transform="translate(17.522978,261.2999)"
                    id="g198"><g
-                     style=""
                      id="g200"><text
    id="text204"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -366,6 +313,7 @@
      sodipodi:role="line"
      y="0"
      x="0 13.608 21.466665 29.810665 42.503998 50.455997 57.437332 63.186665 71.045334">Webmaster</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -384,13 +332,10 @@
                    id="path214"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 298344,101859.06 v 0 c 0,-1799.37 1458.7,-3258.06 3258.06,-3258.06 h 34343.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -34343.88 c -1799.36,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g216"><g
-                   style=""
                    transform="translate(785.55975,261.2999)"
                    id="g218"><g
-                     style=""
                      id="g220"><text
    id="text224"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -401,6 +346,7 @@
      x="0 9.2399998 13.514667 21.186666 29.194666 37.127998 42.485332 47.842667">Kickoff </tspan></text>
 
 
+
 <text
    id="text228"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -409,6 +355,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -427,13 +374,10 @@
                    id="path238"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 347080,101859.06 v 0 c 0,-1799.37 1458.7,-3258.06 3258.06,-3258.06 h 34343.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -34343.88 c -1799.36,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g240"><g
-                   style=""
                    transform="translate(913.4757,261.2999)"
                    id="g242"><g
-                     style=""
                      id="g244"><text
    id="text248"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -444,6 +388,7 @@
      x="0 9.6879997 13.962667 22.866667 32.703999">Ri3D </tspan></text>
 
 
+
 <text
    id="text252"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -452,6 +397,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -470,13 +416,10 @@
                    id="path262"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 395816,101859.06 v 0 c 0,-1799.37 1458.7,-3258.06 3258.06,-3258.06 h 34343.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -34343.88 c -1799.36,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g264"><g
-                   style=""
                    transform="translate(1041.3917,261.2999)"
                    id="g266"><g
-                     style=""
                      id="g268"><text
    id="text272"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -487,6 +430,7 @@
      x="0 7.2986665 16.986666 26.599998">FRC </tspan></text>
 
 
+
 <text
    id="text276"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -495,6 +439,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -513,13 +458,10 @@
                    id="path286"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 444552,101859.06 v 0 c 0,-1799.37 1458.7,-3258.06 3258.06,-3258.06 h 34343.88 c 864.09,0 1692.78,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -34343.88 c -1799.36,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g288"><g
-                   style=""
                    transform="translate(1169.3077,261.2999)"
                    id="g290"><g
-                     style=""
                      id="g292"><text
    id="text296"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -530,6 +472,7 @@
      x="0 7.2986665 15.007999 24.621332">FTC </tspan></text>
 
 
+
 <text
    id="text300"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -538,6 +481,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -556,13 +500,10 @@
                    id="path310"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 493288,101859.06 v 0 c 0,-1799.37 1458.7,-3258.06 3258.06,-3258.06 h 34343.88 c 864.06,0 1692.81,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -34343.88 c -1799.36,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g312"><g
-                   style=""
                    transform="translate(1297.2238,261.2999)"
                    id="g314"><g
-                     style=""
                      id="g316"><text
    id="text320"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -573,6 +514,7 @@
      x="0 7.2986665 14.709332 22.119999">FLL </tspan></text>
 
 
+
 <text
    id="text324"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -581,6 +523,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -599,13 +542,10 @@
                    id="path334"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 542024,101859.06 v 0 c 0,-1799.37 1458.7,-3258.06 3258.06,-3258.06 h 34343.88 c 864.06,0 1692.81,343.26 2303.81,954.266 611,611.004 954.25,1439.704 954.25,2303.794 v 13031.88 c 0,1799.37 -1458.7,3258.06 -3258.06,3258.06 h -34343.88 c -1799.36,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g336"><g
-                   style=""
                    transform="translate(1425.1398,261.2999)"
                    id="g338"><g
-                     style=""
                      id="g340"><text
    id="text344"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -616,6 +556,7 @@
      x="0 9.4266663 17.359999 21.634666 29.848 38.042664 43.792 51.650665 59.509331 65.501328">Volunteer </tspan></text>
 
 
+
 <text
    id="text348"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -624,6 +565,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 25.48 31.471998 39.722664 43.997334 52.191998 60.143997 65.893333 73.826668">Coordinator</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -642,13 +584,10 @@
                    id="path358"
                    style="fill:none;stroke:#040d7f;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 90563.9,97875 v 0 c 2739.39,0 4960.1,2220.71 4960.1,4960.1 v 93267.8 c 0,1315.5 -522.58,2577.12 -1452.78,3507.32 -930.2,930.2 -2191.82,1452.78 -3507.32,1452.78 H 70724.1 c -2739.39,0 -4960.1,-2220.72 -4960.1,-4960.1 v -93267.8 c 0,-2739.39 2220.71,-4960.1 4960.1,-4960.1 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g360"><g
-                   style=""
                    transform="rotate(90,-6.898335,253.80447)"
                    id="g362"><g
-                     style=""
                      id="g364"><text
    inkscape:export-ydpi="600"
    inkscape:export-xdpi="600"
@@ -660,6 +599,7 @@
      sodipodi:role="line"
      y="0"
      x="0 15.84 26.063999 33.768002 44.063999 54.167999 61.560001 67.056 77.592003 88.031998 93.528 105.888 116.088 132.408 148.728 154.224 161.616 169.008 179.112">Marketing Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -678,13 +618,10 @@
                    id="path378"
                    style="fill:none;stroke:#040d7f;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 139505.9,97875 v 0 c 2739.38,0 4960.1,2220.71 4960.1,4960.1 v 93267.8 c 0,1315.5 -522.58,2577.12 -1452.78,3507.32 -930.2,930.2 -2191.82,1452.78 -3507.32,1452.78 h -19839.8 c -2739.39,0 -4960.1,-2220.72 -4960.1,-4960.1 v -93267.8 c 0,-2739.39 2220.71,-4960.1 4960.1,-4960.1 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g380"><g
-                   style=""
                    transform="rotate(90,57.33001,318.03281)"
                    id="g382"><g
-                     style=""
                      id="g384"><text
    id="text388"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -693,6 +630,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.9119997 17.615999 27.719999 37.944 46.919998 57.48 65.183998 74.592003 80.087997 92.447998 102.648 118.968 135.28799 140.784 148.17599 155.56799 165.672">Treasury Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -711,13 +649,10 @@
                    id="path398"
                    style="fill:none;stroke:#040d7f;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 197478.9,97875 v 0 c 2739.38,0 4960.1,2220.71 4960.1,4960.1 v 93267.8 c 0,1315.5 -522.58,2577.12 -1452.78,3507.32 -930.2,930.2 -2191.82,1452.78 -3507.32,1452.78 h -19839.8 c -2739.38,0 -4960.1,-2220.72 -4960.1,-4960.1 v -93267.8 c 0,-2739.39 2220.72,-4960.1 4960.1,-4960.1 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g400"><g
-                   style=""
                    transform="rotate(90,133.41007,394.11287)"
                    id="g402"><g
-                     style=""
                      id="g404"><text
    id="text408"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -728,6 +663,7 @@
      x="0 12.36 22.559999 30.264 40.967999 51.167999 58.872002 69.096001 76.487999 86.592003 92.087997 105.024 115.584 122.976 130.67999 140.784 151.008 160.87199 171.552">Corporate Outreach </tspan></text>
 
 
+
 <text
    id="text412"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -736,6 +672,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.36 22.559999 38.880001 55.200001 60.695999 68.087997 75.480003 85.584">Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -754,13 +691,10 @@
                    id="path422"
                    style="fill:none;stroke:#040d7f;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 263852.9,97875 v 0 c 2739.38,0 4960.1,2220.71 4960.1,4960.1 v 93267.8 c 0,1315.5 -522.6,2577.12 -1452.78,3507.32 -930.19,930.2 -2191.82,1452.78 -3507.32,1452.78 h -19839.8 c -2739.38,0 -4960.1,-2220.72 -4960.1,-4960.1 v -93267.8 c 0,-2739.39 2220.72,-4960.1 4960.1,-4960.1 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g424"><g
-                   style=""
                    transform="rotate(90,220.51505,481.21785)"
                    id="g426"><g
-                     style=""
                      id="g428"><text
    id="text432"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -769,6 +703,7 @@
      sodipodi:role="line"
      y="0"
      x="0 11.52 19.224001 29.424 34.944 45.048 54.911999 62.304001 71.279999 76.776001 89.136002 99.335999 115.656 131.976 137.472 144.864 152.256 162.36">Projects Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -787,13 +722,10 @@
                    id="path442"
                    style="fill:none;stroke:#040d7f;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 377429.9,128293 v 0 c 2739.38,0 4960.1,2220.71 4960.1,4960.1 v 74331.8 c 0,1315.5 -522.6,2577.12 -1452.78,3507.32 -930.19,930.2 -2191.82,1452.78 -3507.32,1452.78 h -19839.8 c -2739.38,0 -4960.1,-2220.72 -4960.1,-4960.1 v -74331.8 c 0,-2739.39 2220.72,-4960.1 4960.1,-4960.1 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g444"><g
-                   style=""
                    transform="rotate(90,329.6476,670.18767)"
                    id="g446"><g
-                     style=""
                      id="g448"><text
    id="text452"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -802,6 +734,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.456 17.952 29.4 42.048 47.543999 57.456001 67.559998 77.783997">Ri3D Team</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -820,13 +753,10 @@
                    id="path462"
                    style="fill:none;stroke:#000000;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 572373.9,128293 v 0 c 2739.4,0 4960.1,2220.71 4960.1,4960.1 v 74331.8 c 0,1315.5 -522.56,2577.12 -1452.75,3507.32 -930.25,930.2 -2191.85,1452.78 -3507.35,1452.78 h -19839.8 c -2739.4,0 -4960.1,-2220.72 -4960.1,-4960.1 v -74331.8 c 0,-2739.39 2220.7,-4960.1 4960.1,-4960.1 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g464"><g
-                   style=""
                    transform="rotate(90,585.47961,926.01968)"
                    id="g466"><g
-                     style=""
                      id="g468"><text
    id="text472"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -835,6 +765,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.12 22.32 27.816 38.375999 48.911999 56.304001 66.407997 76.512001 84.216003">Volunteers</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -853,13 +784,10 @@
                    id="path482"
                    style="fill:none;stroke:#000000;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 395816,134435.12 v 0 c 0,-3392.2 2749.94,-6142.12 6142.12,-6142.12 H 528009.9 c 1629,0 3191.2,647.12 4343.1,1798.98 1151.9,1151.88 1799,2714.14 1799,4343.14 v 24567.76 c 0,3392.2 -2749.94,6142.12 -6142.1,6142.12 H 401958.12 c -3392.18,0 -6142.12,-2749.92 -6142.12,-6142.12 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g484"><g
-                   style=""
                    transform="translate(1043.6089,341.44873)"
                    id="g486"><g
-                     style=""
                      id="g488"><text
    id="text492"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -868,6 +796,7 @@
      sodipodi:role="line"
      y="0"
      x="0 15.84 25.944 36.48 43.872002 54.071999 61.776001">Mentors</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -886,13 +815,10 @@
                    id="path502"
                    style="fill:none;stroke:#000000;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 395814,181319.12 v 0 c 0,-3392.2 2749.94,-6142.12 6142.12,-6142.12 H 528007.9 c 1629,0 3191.2,647.11 4343.1,1798.98 1151.9,1151.88 1799,2714.14 1799,4343.14 v 24567.76 c 0,3392.2 -2749.94,6142.12 -6142.1,6142.12 H 401956.12 c -3392.18,0 -6142.12,-2749.92 -6142.12,-6142.12 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g504"><g
-                   style=""
                    transform="translate(1043.6036,464.50385)"
                    id="g506"><g
-                     style=""
                      id="g508"><text
    id="text512"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -901,6 +827,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.3839998 17.087999 27.191999 37.296001 42.792 53.015999 63.551998 73.416 83.519997 89.015999 104.856 114.96 125.496 132.888 143.088 150.79201">Freelance Mentors</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -919,13 +846,10 @@
                    id="path522"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 161099,212672.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 46403.88 c 864.09,0 1692.79,343.27 2303.79,954.27 611,611 954.27,1439.7 954.27,2303.79 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -46403.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g524"><g
-                   style=""
                    transform="translate(425.33664,552.14764)"
                    id="g526"><g
-                     style=""
                      id="g528"><text
    id="text532"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -936,6 +860,7 @@
      x="0 7.2986665 11.927999 21.615999 30.445332 38.154667 42.429333 51.613331 55.887997 64.101334 76.794662 84.989334 89.264">FIRST Alumni </tspan></text>
 
 
+
 <text
    id="text536"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -944,6 +869,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.8559999 17.714666 23.463999 34.439999 42.373333 48.36533 56.373333 60.647999 68.599998 74.349327 78.624001 88.759995 96.693329 102.05067">Network at UofM</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -962,13 +888,10 @@
                    id="path546"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 37791,244210.08 v 0 c 0,-2109.77 1710.305,-3820.08 3820.08,-3820.08 h 515139.86 c 1013.12,0 1984.81,402.47 2701.16,1118.88 716.4,716.4 1118.9,1688.04 1118.9,2701.2 v 15279.84 c 0,2109.77 -1710.3,3820.08 -3820.06,3820.08 H 41611.08 c -2109.775,0 -3820.08,-1710.31 -3820.08,-3820.08 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g548"><g
-                   style=""
                    transform="translate(102.12563,633.88153)"
                    id="g550"><g
-                     style=""
                      id="g552"><text
    id="text556"
    style="font-variant:normal;font-weight:normal;font-size:24px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -977,6 +900,7 @@
      sodipodi:role="line"
      y="0"
      x="0 12.84 22.944 33.48 43.584 51.287998 61.512001 67.008003 72.503998 88.344002 98.447998 114.768 125.496 135.60001 143.304">General Members</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1001,13 +925,14 @@
                    id="g570"><g
                      id="g572"><text
    id="text576"
-   style="font-variant:normal;font-weight:normal;font-size:15.00003038px;font-family:Oswald;-inkscape-font-specification:'Oswald, Normal';writing-mode:lr;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-style:normal;font-stretch:normal;text-anchor:start;text-align:start;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:15.00003052px;font-family:Oswald;-inkscape-font-specification:'Oswald, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
    transform="translate(21.014145,43.78209)"><tspan
-     style="font-size:24.0000486px"
+     style="font-size:24.00004768px"
      id="tspan574"
      sodipodi:role="line"
      y="0"
      x="0 17.496 27.6 38.327999 47.304001 52.799999 60.192001 70.295998 75.792 88.152 98.351997 114.672 130.992 136.48801 143.88 151.272 161.37601">Website Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1214,13 +1139,10 @@
                    id="path756"
                    style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 528602,11525.045 v 0 C 528602,10271.334 529618.3,9255 530872.06,9255 h 48379.88 c 602.06,0 1179.46,239.165 1605.16,664.881 425.7,425.716 664.9,1003.111 664.9,1605.164 v 9079.91 c 0,1253.711 -1016.3,2270.045 -2270.06,2270.045 h -48379.88 c -1253.76,0 -2270.06,-1016.334 -2270.06,-2270.045 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g758"><g
-                   style=""
                    transform="translate(1389.1519,26.036413)"
                    id="g760"><g
-                     style=""
                      id="g762"><text
    id="text766"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -1229,6 +1151,7 @@
      sodipodi:role="line"
      y="0"
      x="0 7.597333 14.858666 22.717333 30.389332 38.602665 44.351997 48.626663 55.813332 63.671997 67.946663 77.727997 85.661331 93.613327 99.605331">Executive Board</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1247,13 +1170,10 @@
                    id="path776"
                    style="fill:none;stroke:#e9cc06;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 528602,29231.045 v 0 c 0,-1253.711 1016.3,-2270.045 2270.06,-2270.045 h 48379.88 c 602.06,0 1179.46,239.164 1605.16,664.88 425.7,425.718 664.9,1003.112 664.9,1605.165 v 9079.908 c 0,1253.715 -1016.3,2270.047 -2270.06,2270.047 h -48379.88 c -1253.76,0 -2270.06,-1016.332 -2270.06,-2270.047 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g778"><g
-                   style=""
                    transform="translate(1389.1519,72.50886)"
                    id="g780"><g
-                     style=""
                      id="g782"><text
    id="text786"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -1262,6 +1182,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 23.538666 31.397333 35.671997 43.381332 51.239998 59.191998">Core Team</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1280,13 +1201,10 @@
                    id="path796"
                    style="fill:none;stroke:#040d7f;stroke-width:1524;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 528602,46937.04 v 0 c 0,-1253.71 1016.3,-2270.044 2270.06,-2270.044 h 48379.88 c 602.06,0 1179.46,239.164 1605.16,664.879 425.7,425.719 664.9,1003.115 664.9,1605.165 v 9079.91 c 0,1253.71 -1016.3,2270.046 -2270.06,2270.046 h -48379.88 c -1253.76,0 -2270.06,-1016.336 -2270.06,-2270.046 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g798"><g
-                   style=""
                    transform="translate(1389.1519,118.98129)"
                    id="g800"><g
-                     style=""
                      id="g802"><text
    id="text806"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -1295,6 +1213,7 @@
      sodipodi:role="line"
      y="0"
      x="0 9.6133327 17.546665 30.24 42.933331 47.208 52.957333 58.706665 66.565331">Committee</tspan></text>
+
 
 
 </g></g></g></g><g
@@ -1313,13 +1232,10 @@
                    id="path816"
                    style="fill:none;stroke:#000000;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
                    d="m 528602,65051.04 v 0 c 0,-1253.71 1016.3,-2270.044 2270.06,-2270.044 h 48379.88 c 602.06,0 1179.46,239.164 1605.16,664.879 425.7,425.719 664.9,1003.115 664.9,1605.165 v 9079.91 c 0,1253.714 -1016.3,2270.04 -2270.06,2270.04 h -48379.88 c -1253.76,0 -2270.06,-1016.326 -2270.06,-2270.04 z" /></g><g
-                 style=""
                  transform="scale(381)"
                  id="g818"><g
-                   style=""
                    transform="translate(1389.1519,166.5246)"
                    id="g820"><g
-                     style=""
                      id="g822"><text
    id="text826"
    style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
@@ -1330,6 +1246,46 @@
      x="0 12.32 20.271999 28.466665 36.418667 44.538666 52.397331 60.647999 64.922661 74.909332 80.901329 88.834663 97.047997">Managed Group</tspan></text>
 
 
+
 </g></g></g></g><g
                id="g828"
-               transform="scale(381)" /></g></g></g></g></g></svg>
+               transform="scale(381)" /><g
+               transform="matrix(1.0000013,0,0,1.0000013,-106367.25,-336.90088)"
+               id="svg-dir-marketing"
+               inkscape:label="#g1311"><g
+                 inkscape:label="#g140"
+                 id="g140-7"
+                 transform="matrix(0.63898653,0,0,1,67711.326,0)"><g
+                   id="g142-0"><path
+                     inkscape:connector-curvature="0"
+                     id="path144-9"
+                     style="fill:#e9cc06;fill-opacity:1;fill-rule:evenodd;stroke:none"
+                     d="m 156869,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 54863.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -54863.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><path
+                   inkscape:connector-curvature="0"
+                   id="path146-3"
+                   style="fill:none;stroke:#595959;stroke-width:381;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:8;stroke-dasharray:none;stroke-opacity:1"
+                   d="m 156869,73234.06 v 0 c 0,-1799.37 1458.69,-3258.06 3258.06,-3258.06 h 54863.88 c 864.09,0 1692.79,343.26 2303.79,954.266 611,611.004 954.27,1439.704 954.27,2303.794 v 13031.88 c 0,1799.37 -1458.69,3258.06 -3258.06,3258.06 h -54863.88 c -1799.37,0 -3258.06,-1458.69 -3258.06,-3258.06 z" /></g><g
+                 transform="scale(381)"
+                 id="g148-6"><g
+                   transform="translate(414.23425,186.16864)"
+                   id="g150-0"><g
+                     id="g152-6"><text
+   id="text156-2"
+   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   transform="translate(41.62957,19.068935)"><tspan
+     id="tspan154-6"
+     sodipodi:role="line"
+     y="0"
+     x="0 9.8373327 14.112 20.104 27.962666 35.634666 41.383999 49.317333 55.30933 59.584 67.517334 72.874664">Director of</tspan></text>
+
+<text
+   id="text160-1"
+   style="font-variant:normal;font-weight:normal;font-size:18.66666603px;font-family:Oswald;-inkscape-font-specification:Oswald-Regular;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   x="43.688736"
+   y="41.068935"><tspan
+     id="tspan158-8"
+     sodipodi:role="line"
+     x="43.688736"
+     y="41.068935">Marketing</tspan></text>
+
+</g></g></g></g></g></g></g></g></g></svg>
