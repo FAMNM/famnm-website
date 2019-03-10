@@ -3,132 +3,53 @@ title: Organizational Structure | FIRST® Alumni & Mentors Network at Michigan
 ---
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% include title-styles.html %}
     <style>
-      #org-pic {
-        max-width: 600px;
-        padding-bottom: 10px;
-      }
-
-      @media(max-width: 767px) {
-        #org-pic {
-          max-width: 100%;
+        #org-pic-contain {
+            padding: 10px 0;
+            user-select: none;
+            overflow-x: auto;
         }
-      }
 
-      .nav-tabs {
-        margin-bottom: 10px;
-      }
-
-      @media(min-width: 767px) and (max-width: 1200px) {
-        .nav-tabs a {
-          font-size: 7pt;
+        @media(min-width: 768px) {
+            #org-pic {
+              width: 100%;
+            }
         }
-      }
 
+        @media(max-width: 767px) {
+            #org-pic {
+                width: 250%; 
+            }
+        }
+
+        @media(max-width: 399px) {
+            #org-pic {
+                width: 500%;
+            }
+        }
     </style>
-  </head>
-
-  <body>
+</head>
+<body>
 
     {% include header.html %}
 
     <div class="container">
-
-     <div class="content">
-        <h1 class="page-header">FAMNM Organizational Structure</h1>
-        <img class="center img img-rounded" id="org-pic" src="../img/about/Org-Structure.png"/>
-        <p>An outline of FAMNM's organization structure. Blue boxes
-          represent FAMNM Leadership. Orange boxes represent General Body
-          Members. Green boxes are optional positions within each committee.
-          Find out more information below!
-        </p>
-
-        <ul class="nav nav-tabs nav-justified">
-          <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#mentors"><span class="italic">Mentors</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#volunteers"><span class="italic">Volunteers</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#treasury"><span class="italic">Treasury</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pd"><span class="italic">Project Development</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#maco"><span class="italic">Marketing</a></li>
-          <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#co"><span class="italic">Corporate Outreach</a></li>
-        </ul>
-      
-        <div class="tab-content">
-          <div id="mentors" class="tab-pane fade in active show">
-            <p class="text-par">FAMNM mentors assist teams both locally and
-            across the state of Michigan. As a FAMNM mentor, you can join any
-            team you'd like, but if you don't have a specific team in mind,
-            we'll find a team whose needs match your skillset! For those who'd
-            like to mentor but have a tight schedule, FAMNM also offers the
-            <a href="../teams/freelance.html">Freelance Mentor</a> program. FAMNM mentors are eligible for certain
-            travel cost reimbursements!
-            </p>
-
-            <p class="text-par">The <b>Team Coordinators</b> oversee all
-            FAMNM mentors.</p>
-          </div>
-          <div id="volunteers" class="tab-pane fade">
-            <p class="text-par">Volunteering is an excellent way to stay
-            involved in <span class="italic">FIRST</span>&reg; after high
-            school. FAMNM sends volunteers to events all across the state of
-            Michigan and beyond for all <span class="italic">FIRST</span>&reg;
-            programs. Whether you want to help out at an event close by or far
-            away, FAMNM will do its best to make sure you can get there.
-            Volunteers serving in key roles are eligible are eligble for
-            travel cost reimbursements!
-            </p>
-  
-            <p class="text-par">The <b>Volunteer Coordinator</b> oversees all
-              FAMNM volunteers.</p>
-          </div>
-          <div id="treasury" class="tab-pane fade">
-            <p class="text-par">
-              The Treasury Committee is primarily responsible for creating and
-              maintaining a budget, organizing fundraising events and finding
-              sponsorship within the University. The committee is also
-              responsible for organizing donations to <i>FIRST<sup>®</sup></i>
-              teams, as well as maintaining the <i>FIRST<sup>®</sup></i>
-              Scholarship at U of M.
-            </p>
-            <p class="text-par">The <b>VP of Treasury</b> oversees this committee.</p>
-          </div>
-          <div id="pd" class="tab-pane fade">
-            <p class="text-par">
-              The Project Development (PD) Committee is responsible for organizing
-              events on campus for <i>FIRST<sup>®</sup></i> teams. This
-              includes our annual FRC and FTC Kickoff events, Robot Quick
-              Build, FAMNM Forums, and more! Additionally, this committee
-              spearheads new programming for FAMNM as a whole.
-            </p>
-            <p class="text-par">The <b>VP of Project Development</b> oversees this committee.</p>
-          </div>
-          <div id="maco" class="tab-pane fade">
-            <p class="text-par">
-              The Marketing and Campus Outreach Committee (MACO) is responsible for
-              maintaining and updating social media accounts, recruiting new
-              members, and advertising the organization and its events. The
-              committee is also in charge of planning social events for
-              FAMNM. Finally, MACO maintains the FAMNM website.
-            </p>
-            <p class="text-par">The <b>VP of MACO</b> oversees this committee.</p>
-          </div>
-          <div id="co" class="tab-pane fade">
-            <p class="text-par">
-              The Corporate Outreach Committee organizes events for members to
-              assist with professional development (e.g. resume critiquing,
-              company presentations, and career fair prep), assists in finding
-              corporate sponsorship for FAMNM affiliated teams if necessary,
-              and is responsible for organizing skills workshops for FAMNM
-              members.
-            </p>
-            <p class="text-par">The <b>VP of Corporate Outreach</b> oversees this committee.</p>
-          </div>
+        <div class="content">
+            <h1 class="page-header">FAMNM Organizational Structure</h1>
+            <p class="text-par">Below is a chart of FAMNM's organizational
+                structure. Executive Board members and Core Team members
+                constitute FAMNM's leadership structure, the FAMNM Core.
+                Dashed lines indicate collaborative relationships between
+                committees and Core Team members. Hover over or tap any of the
+                boxes to learn more!</p>
+            <div id="org-pic-contain">{% include org-structure.svg %}</div>
         </div>
-      </div>
     </div><!-- /.container -->
 
-	  {% include footer.html %}
+    {% include footer.html %}
     {% include scripts.html %}
-  </body>
+    <script src="{{site.url}}/js/org-structure.js"></script>
+</body>
 </html>
