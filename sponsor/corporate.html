@@ -1,44 +1,51 @@
 ---
 title: Support FAMNM as a corporation or professional &#124; FIRST &reg; Alumni &amp; Mentors Network at Michigan
+FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 ---
+{% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% include title-styles.html %}
     <style>
-      @media (min-width: 769px) {
-        .img-fluid {
-          max-width: 50%
+        @media (min-width: 769px) {
+            .img-fluid {
+                max-width: 50%
+            }
         }
-      }
     </style>
-  </head>
+</head>
 
-  <body>
-  
-  	{% include header.html %}
+<body>
+
+    {% include header.html %}
 
     <div class="container">
 
-     <div class="content">
-        
-        <h1 class="page-header">Supporting FAMNM as a Corporation</h1>
-        <img src="{{site.url}}/img/sponsor/corporation.jpg" class="img-fluid"/>
-        <p class="text-par">Are you a <span class="italic">FIRST</span>&reg; supporter looking to connect to <span class="italic">FIRST</span>&reg; Alumni on campus? 
-          Often, <span class="italic">FIRST</span>&reg; supporters invest a lot into the program but have a hard time finding and
-          recruiting <span class="italic">FIRST</span>&reg; alumni. Let FAMNM connect you to our network of <span class="italic">FIRST</span>&reg;
-          alumni at the University of Michigan. Contact our Vice President of Corporate Outreach at <a href="mailto:famnm.co-vp@umich.edu">famnm.co-vp@umich.edu​</a>.
-        </p>
+        <div class="content">
+            
+            <h1 class="page-header">Supporting FAMNM as a Corporation</h1>
+            <img src="{{site.url}}/img/sponsor/corporation.jpg" class="img-fluid"/>
+            <p class="text-par">
+                Are you a {{ FIRST }} supporter looking to connect to {{ FIRST }}
+                Alumni on campus? Often, {{ FIRST }} supporters invest a lot into
+                the program but have a hard time finding and recruiting {{ FIRST }}
+                alumni. Let FAMNM connect you to our network of {{ FIRST }} alumni
+                at the University of Michigan. Contact our Vice President of 
+                Corporate Outreach at <a href="mailto:famnm.co-vp@umich.edu">famnm.co-vp@umich.edu​</a>.
+            </p>
 
-        <h1 class="page-header">Getting Involved as a Professional</h1>
-        <p class="text-par">Are you interested in mentoring a team or volunteering at an event? Contact our Head Coordinator 
-          at <a href="mailto:famnm.head-coord@umich.edu">famnm.head-coord@umich.edu​</a>.
-        </p>
-        
-      </div>
+            <h1 class="page-header">Getting Involved as a Professional</h1>
+            <p class="text-par">
+                Are you interested in mentoring a team or volunteering at an 
+                event? Contact our Head Coordinator at 
+                <a href="mailto:famnm.head-coord@umich.edu">famnm.head-coord@umich.edu​</a>.
+            </p>
+            
+        </div>
     </div><!-- /.container -->
 
-	{% include footer.html %}
+    {% include footer.html %}
     {% include scripts.html %}
-  </body>
+</body>
 </html>
