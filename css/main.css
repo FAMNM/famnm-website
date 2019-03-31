@@ -21,18 +21,6 @@ body > * {
 }
 
 /** Basic style formatting **/
-.bold {
-    font-weight: bold;
-}
-
-.italic {
-    font-style: italic;
-}
-
-.underline {
-    text-decoration: underline;
-}
-
 .content {
     padding: 20px 15px;
     text-align: center;

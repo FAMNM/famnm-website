@@ -1,6 +1,8 @@
 ---
 title: Affiliate with Us | FIRST® Alumni & Mentors Network at Michigan
+FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 ---
+{% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,52 +26,87 @@ title: Affiliate with Us | FIRST® Alumni & Mentors Network at Michigan
         <div class="container">
             <div class="content">
                 <h1 class="page-header">Affiliate with us</h1>
-                <p class="text-par">Are you a <span class="italic">FIRST</span>&reg; team looking for resources or mentors? You've come to the right place!
-                    FAMNM is here to help you by connecting you to U of M students, machinery, and opportunities.
-                    As our member base is primarily comprised of <span class="italic">FIRST</span>&reg; alumni,
-                    we do our best to provide the next generation of <span class="italic">FIRST</span>&reg; students the best experience possible
-                    and grow our extensive <span class="italic">FIRST</span>&reg; FAMNMily!
+                <p class="text-par">
+                    Are you a {{ FIRST }} team looking for resources or mentors?
+                    You've come to the right place! FAMNM is here to help you 
+                    by connecting you to U of M students, machinery, and opportunities.
+                    As our member base is primarily comprised of {{ FIRST }} alumni,
+                    we do our best to provide the next generation of {{ FIRST }}
+                    students the best experience possible and grow our extensive 
+                    {{ FIRST }} FAMNMily!
                 </p>
-                <p class="text-par" style="margin-bottom: 1.5em;">Any team that would like to obtain support and resources from FAMNM must become affiliated with FAMNM by working with one of our Coordinators to review and customize a contract.
-                    This will outline the expectations and responsibilities of both parties so as to ensure that FAMNM is best meeting the team’s needs and structure.
+                <p class="text-par" style="margin-bottom: 1.5em;">
+                    Any team that would like to obtain support and resources 
+                    from FAMNM must become affiliated with FAMNM by working 
+                    with one of our Coordinators to review and customize a contract.
+                    This will outline the expectations and responsibilities of 
+                    both parties so as to ensure that FAMNM is best meeting the
+                    team’s needs and structure.
                 </p>
                 <ul class="nav nav-tabs nav-justified">
-                    <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#frc"><span class="italic">FIRST</span>&reg; Robotics Competition</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#ftc"><span class="italic">FIRST</span>&reg; Tech Challenge</a></li>
-                    <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#fll"><span class="italic">FIRST</span>&reg; Lego League</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link active" 
+                           data-toggle="tab" 
+                           href="#frc">{{ FIRST }} Robotics Competition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           data-toggle="tab"
+                           href="#ftc">{{ FIRST }} Tech Challenge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           data-toggle="tab"
+                           href="#fll">{{ FIRST }} Lego League</a>
+                    </li>
                 </ul>
                 <div class="tab-content">
                     <div id="frc" class="tab-pane fade in active show">
-                        <img class="center contact-logo" src="../img/teams/FRC-Demos.jpg" alt="FIRST Robotics Competition">
-                        <p class="text-par">For our FRC teams, we can help provide water jet access here at U
-                            of M, and mentor support throughout the build and competition
-                            season.
+                        <img class="center contact-logo" 
+                             src="../img/teams/FRC-Demos.jpg" 
+                             alt="FIRST Robotics Competition"/>
+                        <p class="text-par">
+                            For our FRC teams, we can help provide water jet 
+                            access here at U of M, and mentor support 
+                            throughout the build and competition season.
                         </p>
-                        <p class="text-par">Interested? Email our head FRC Coordinator Alan Stahl at <a
-                            href="mailto:famnm.frc-coord@umich.edu">famnm.FRC­-coord@umich.edu​</a>
+                        <p class="text-par">
+                            Interested? Email our head FRC Coordinator Alan Stahl at 
+                            <a href="mailto:famnm.frc-coord@umich.edu">famnm.FRC­-coord@umich.edu​</a>
                             to get connected.
                         </p>
                     </div>
                     <div id="ftc" class="tab-pane fade">
-                        <img class="center contact-logo" src="../img/teams/FTC-Kickoff.jpg" alt="FIRST Tech Challenge">
-                        <p class="text-par">Currently, FAMNM supports FTC teams through our annual <a
-                            href="../events/ftc-kickoff">FTC Kickoff</a> event. As our
-                            organization continues to grow, we are actively looking for more
-                            ways to provide direct support to FTC teams.
+                        <img class="center contact-logo" 
+                             src="../img/teams/FTC-Kickoff.jpg" 
+                             alt="FIRST Tech Challenge"/>
+                        <p class="text-par">
+                            Currently, FAMNM supports FTC teams through our 
+                            annual  <a href="../events/ftc-kickoff">FTC Kickoff</a>
+                            event. As our organization continues to grow, we 
+                            are actively looking for more ways to provide 
+                            direct support to FTC teams.
                         </p>
-                        <p class="text-par">Interested in getting involved? Email our FTC Coordinator Travis Gurlik
-                            at <a href="mailto:famnm.ftc-coord@umich.edu">famnm.ftc­-coord@umich.edu​</a>
+                        <p class="text-par">
+                            Interested in getting involved? Email our FTC 
+                            Coordinator Travis Gurlik at 
+                            <a href="mailto:famnm.ftc-coord@umich.edu">famnm.ftc­-coord@umich.edu​</a>
                             to get connected.
                         </p>
                     </div>
                     <div id="fll" class="tab-pane fade">
-                        <img class="center contact-logo" src="../img/teams/FLL-TrashTrek.jpg" alt="FIRST Lego League">
-                        <p class="text-par">With FLL, we are working on building team relationships, and are
-                            currently only providing mentor support for teams in our area.
+                        <img class="center contact-logo"
+                             src="../img/teams/FLL-TrashTrek.jpg" 
+                             alt="FIRST Lego League">
+                        <p class="text-par">
+                            With FLL, we are working on building team 
+                            relationships, and are currently only providing 
+                            mentor support for teams in our area.
                         </p>
-                        <p class="text-par">Interested? Email our FLL Coordinator Allison Wilcox at ​<a
-                            href="mailto:famnm.fll-coord@umich.edu">famnm.FLL-­coord@umich.edu</a> to
-                            get connected.
+                        <p class="text-par">
+                            Interested? Email our FLL Coordinator Allison Wilcox at 
+                            ​<a href="mailto:famnm.fll-coord@umich.edu">famnm.FLL-­coord@umich.edu</a> 
+                            to get connected.
                         </p>
                     </div>
                 </div>
