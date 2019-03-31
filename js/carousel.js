@@ -1,6 +1,6 @@
 ---
 ---
-$(document).ready(function () {
+$(document).ready(() => {
     //Find list source and carousel element
     var listSource = "{{site.url}}/img/carousel/list.json";
     var carousel = $(".carousel:first");
@@ -20,7 +20,7 @@ $(document).ready(function () {
     $.ajax({
         url: listSource,
         dataType: "json"
-    }).done(function (contents) {
+    }).done(contents => {
         var slideContainer = carousel.children(".carousel-inner:first");
 
         slideContainer.empty();
@@ -68,7 +68,7 @@ $(document).ready(function () {
 
             slideContainer.append(slideDiv);
         });
-        }).fail(function (xhr, textStatus, thrownError) {
+        }).fail((xhr, textStatus, thrownError) => {
             console.log(textStatus, thrownError);
         });;
 });

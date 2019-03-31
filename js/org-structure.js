@@ -155,7 +155,7 @@ orgData = [
         placement: "left",
         content: "Managed Groups are interest groups within FAMNM that "
             + "are typically focused on a specific type of outreach "
-            + "towards the FIRST community, such as mentoring or " 
+            + "towards the FIRST community, such as mentoring or "
             + "volunteering. While they are not responsible for making any "
             + "organizational decisions, they are usually managed by one "
             + "or more members of the Core Team."
@@ -263,7 +263,7 @@ orgData = [
     }
 ];
 
-$(window).on("load", () => { 
+$(window).on("load", () => {
     var map = $("#org-pic");
 
     orgData.forEach(component => {

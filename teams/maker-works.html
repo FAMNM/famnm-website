@@ -1,53 +1,63 @@
 ---
 title: MakerWorks | FIRST® Alumni & Mentors Network at Michigan
+FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 ---
+{% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% include title-styles.html %}
     <style>
-    .col-md-6,
-    .col-xs-12 {
+        .col-md-6, .col-xs-12 {
         max-width: 100%;
-    }
-
-    .img-blur-container img {
+        }
+        .img-blur-container img {
         width: 100%;
-    }
+        }
     </style>
-  </head>
-
-  <body>
-  	{% include header.html %}
-
+</head>
+<body>
+    {% include header.html %}
     <div class="container">
-
-     <div class="content">
-        <div class="page-header">
-            <img src="../img/teams/makerworks.gif" alt="Maker Works Logo"/>
-        </div>
-        <p class="text-par">
-            Maker Works is a community workshop in Ann Arbor that provides tools, space, and training for businesses, entrepreneurs, artists, makers, and more. They also provide resources for 5 local FIRST Robotics Competition teams. Maker Works has been a great supporter of FAMNM as well. FAMNM has used their extensive woodshop to build the mock field for the 2016, 2017, and 2018 FRC Kickoff events.
-        </p>
-        <p class="text-par">
-            For more information, check out their website: <a href="https://maker-works.com">maker-works.com</a></p>
-        </p>
-        
-        <div class="row">
-            <div class="img-blur-container col-md-6 col-xs-12">
-                <img src="../img/teams/famnm_at_makerworks.jpg" alt="FAMNM at Maker Works" style="margin-top: 1em;"/>
-                <div class="img-overlay">FAMNM Members at Maker Works building the field for our 2017 FRC Kickoff</div>
+        <div class="content">
+            <div class="page-header">
+                <img src="../img/teams/makerworks.gif" alt="Maker Works Logo"/>
             </div>
-            <div class="img-blur-container col-md-6 col-xs-12">
-                <img src="../img/teams/fieldbuild.jpg" alt="FAMNM Members with a finished FIRST Steamworks field element" style="margin-top: 1em;"/>
-                <div class="img-overlay">Field builders with the finished Steamworks boiler</div>
+            <p class="text-par">
+                Maker Works is a community workshop in Ann Arbor that provides 
+                tools, space, and training for businesses, entrepreneurs, 
+                artists, makers, and more. They also provide resources for 5 
+                local {{ FIRST }} Robotics Competition teams. Maker Works has been 
+                a great supporter of FAMNM as well. FAMNM has used their 
+                extensive woodshop to build the mock field for the 2016, 
+                2017, and 2018 FRC Kickoff events.
+            </p>
+            <p class="text-par">
+                For more information, check out their website: 
+                <a href="https://maker-works.com">maker-works.com</a>
+            </p>
+            <div class="row">
+                <div class="img-blur-container col-md-6 col-xs-12">
+                    <img src="../img/teams/famnm_at_makerworks.jpg" 
+                         alt="FAMNM at Maker Works" 
+                         style="margin-top: 1em;"/>
+                    <div class="img-overlay">
+                        FAMNM Members at Maker Works building the field 
+                        for our 2017 FRC Kickoff
+                    </div>
+                </div>
+                <div class="img-blur-container col-md-6 col-xs-12">
+                    <img src="../img/teams/fieldbuild.jpg" 
+                         alt="FAMNM Members with a finished FIRST Steamworks field element" 
+                         style="margin-top: 1em;"/>
+                    <div class="img-overlay">
+                        Field builders with the finished Steamworks boiler
+                    </div>
+                </div>
             </div>
         </div>
-
-      </div>
-    </div><!-- /.container -->
-
+    </div>
     {% include footer.html %}
     {% include scripts.html %}
-  </body>
+</body>
 </html>

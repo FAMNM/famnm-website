@@ -1,8 +1,8 @@
 //Load the maps API
-$(document).ready(function () {
-    var script = document.createElement("script");
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap";
-    document.body.appendChild(script);
+$(document).ready(() => {
+    var script = $(document.createElement("script"));
+    script.attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap");
+    $(document.body).append(script);
 });
 
 //Initialize map

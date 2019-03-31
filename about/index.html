@@ -1,82 +1,110 @@
 ---
-title: About The FAMNM | FIRST® Alumni & Mentors Network at Michigan
+title: About The FAMNM | FIRST Alumni &amp; Mentors Network at Michigan
+FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 ---
+{% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% include title-styles.html %}
-    <style>
-    	ul#sponsors {
-    		padding-left: 0;
-    		list-style-type: none;
-    	}
-    	ul#sponsors > li {
-    		display: inline-block;
-    		margin: 10px;
-    	}
-    	
-    	ul#sponsors > li > a {
-    		display: block;
-    		padding: 5px;
-    		color: inherit;
-    		text-decoration: none;
-    	}
-    	
-    	ul#sponsors > li:hover > a {
-    		background-color: #cccccc;
-    	}
-    	
-    	ul#sponsors > li > a > img {
-    		max-width: 300px;
-    		max-height: 150px;
-    	}
-    	
-    	@media all and (max-width: 767px) {
-    		ul#sponsors > li > a > img {
-    			max-width: 100px;
-    		}
-    	}
-    </style>
-  </head>
-
-  <body>
-
+</head>
+<body>
     {% include header.html %}
 
     <div class="container">
+        <div class="content">
+            <div class="page-header">
+                <div><img class="center" src="{{site.url}}/img/logo.png"/></div>
+                <h1>About</h1>
+            </div>
+            <p class="text-par">FAMNM is an on campus effort to unite all of the
+                various departmental and individual student efforts of
+                supporting the {{ FIRST }} program locally and throughout the
+                state of Michigan. We act as a liaison between local {{ FIRST }}
+                teams, the University of Michigan, and any other organizations
+                that are affiliated with either of the prior organizations
+                stated (such as MEZ, WISE, Maker Works and the Fab Lab). FAMNM
+                aims to support the {{ FIRST }} teams with funds, volunteers,
+                University resources, and publicity, with the ultimate goal of
+                strengthening the relationship between the University and
+                {{ FIRST }} programs.</p>
 
-     <div class="content">
-        <div class="page-header">
-			<img class="center" src="{{site.url}}/img/logo.png"/>
-        	<h1>About</h1>
-        </div>
-		<p class="text-par">FAMNM is an on campus effort to unite all of the various departmental and individual student efforts of supporting the <i>FIRST<sup>®</sup></i> program locally and throughout the state of Michigan.
-       		We act as a liaison between local <i>FIRST<sup>®</sup></i> teams, the University of Michigan, and any other organizations that are affiliated with either of the prior organizations stated (such as MEZ, WISE, Maker Works and the Fab Lab).
-       		FAMNM aims to support the <i>FIRST<sup>®</sup></i> teams with funds, volunteers, University resources, and publicity, with the ultimate goal of strengthening the relationship between the University and <i>FIRST<sup>®</sup></i> programs.</p>
+            <p class="text-par">FAMNM also acts as a collegiate network for
+                both {{ FIRST }} Alumni and University of Michigan students who
+                volunteer with and support {{ FIRST }} teams. The organization
+                aims to provide professional development opportunities including
+                but not limited to resume critiquing, mock interviews, and
+                corporate recruiting events.</p>
 
-                <p class="text-par">FAMNM will also act as a collegiate network for both <i>FIRST<sup>®</sup></i> Alumni and University of Michigan students who volunteer with and support <i>FIRST<sup>®</sup></i> teams.
-       		The organization aims to provide professional development opportunities including but not limited to resume critiquing, mock interviews, and corporate recruiting events.</p>
-
-		<h1 class="page-header">What is <span class="italic">FIRST<sup>&reg;</sup></span>?</h1>
-            <p class="text-par"><a href="https://www.firstinspires.org/" class="italic" target="_blank">FIRST<sup>&reg;</sup></a> (For Inspiration and Recognition of Science and Technology) is a non-profit organization intended to
-                get K-12 children involved in science, technology, engineering, and mathematics (STEM). Founded in 1989, it now reaches over 400,000 kids worldwide.</p>
-            <iframe style="width: 80%; height: 315px; display: block; margin: 0 auto;" src="https://www.youtube-nocookie.com/embed/EEQTEIfQ9CI" frameborder="0" allowfullscreen></iframe>
+            <h1 class="page-header">What is {{ FIRST }}? </h1>
+            <p class="text-par">
+                <a href="https://www.firstinspires.org/" target="_blank">{{ FIRST }}</a>
+                (For Inspiration and Recognition of Science and Technology)
+                is a non-profit organization intended to get K-12 children
+                involved in science, technology, engineering, and
+                mathematics (STEM). Founded in 1989, it now reaches over
+                400,000 kids worldwide.</p>
+           
+            <div class="vid-content embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/EEQTEIfQ9CI" frameborder="0" allowfullscreen></iframe>
+            </div>
         
-        <h1>FAMNM Sponsors and Affiliates</h1>
-        <ul id="sponsors">
-        	<li><a href="https://cedo.engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/cedo.png" alt="Center for Engineering Diversity and Outreach"/></a></li>
-            <li><a href="https://detroitcenter.umich.edu/projects/michigan-engineering-zone" target="_blank"><img src="{{site.url}}/img/sponsor/mez.png" alt="Michigan Engineering Zone"/></a></li>
-            <li><a href="https://engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
-            <li><a href="https://esg.engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/esg.png" alt="Engineering Student Government"/></a></li>
-            <li><a href="https://ginsberg.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/ginsberg.png" alt="Edward Ginsberg Center"/></a></li>
-            <li><a href="https://www.consumersenergy.com" target="_blank"><img src="{{site.url}}/img/sponsor/ConsumersColorLogo.png" alt="Consumers Energy"/></a></li>
-            <li><a href="https://www.shell..com" target="_blank"><img src="{{site.url}}/img/sponsor/shell-logo-design.gif" alt="Shell"/></a></li>
-        </ul>
-      </div>
+            <h1>FAMNM Sponsors and Affiliates</h1>
+            <ul id="sponsors">
+                <li><a href="https://cedo.engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/cedo.png" alt="Center for Engineering Diversity and Outreach"/></a></li>
+                <li><a href="https://detroitcenter.umich.edu/projects/michigan-engineering-zone" target="_blank"><img src="{{site.url}}/img/sponsor/mez.png" alt="Michigan Engineering Zone"/></a></li>
+                <li><a href="https://engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
+                <li><a href="https://esg.engin.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/esg.png" alt="Engineering Student Government"/></a></li>
+                <li><a href="https://ginsberg.umich.edu" target="_blank"><img src="{{site.url}}/img/sponsor/ginsberg.png" alt="Edward Ginsberg Center"/></a></li>
+                <li><a href="https://www.consumersenergy.com" target="_blank"><img src="{{site.url}}/img/sponsor/ConsumersColorLogo.png" alt="Consumers Energy"/></a></li>
+                <li><a href="https://www.shell.com" target="_blank"><img src="{{site.url}}/img/sponsor/shell-logo-design.gif" alt="Shell"/></a></li>
+            </ul>
+        </div>
     </div><!-- /.container -->
-	
-	{% include footer.html %}
+    
+    {% include footer.html %}
     {% include scripts.html %}
+    <style>
+        ul#sponsors {
+            padding-left: 0;
+            list-style-type: none;
+        }
+        ul#sponsors > li {
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        ul#sponsors > li > a {
+            display: block;
+            padding: 5px;
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        ul#sponsors > li:hover > a {
+            background-color: #cccccc;
+        }
+        
+        ul#sponsors > li > a > img {
+            max-width: 300px;
+            max-height: 150px;
+        }
 
-  </body>
+        .vid-content {
+            margin: 1em auto;
+        }
+        
+        @media (max-width: 767px) {
+            ul#sponsors > li > a > img {
+                max-width: 100px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .vid-content {
+                width: 80%;
+            }
+        }
+    </style>
+</body>
 </html>
