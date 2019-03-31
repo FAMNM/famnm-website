@@ -2,6 +2,9 @@ html {
 	height: 100%;
 }
 
+/*
+ * Stars pattern adapted from: https://leaverou.github.io/css3patterns/#starry-night (MIT license)
+ */
 body {
     min-height: 100%;
     padding: 30px;
