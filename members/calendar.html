@@ -1,25 +1,31 @@
 ---
 title: Calendar | FIRST® Alumni & Mentors Network at Michigan
+FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 ---
+{% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     {% include title-styles.html %}
-  </head>
+</head>
 
-  <body>
-
+<body>
     {% include header.html %}
-
     <div class="container">
-
-    	<div class="content">
-        	<h1 class="page-header">The <i>FIRST<sup>®</sup></i> Alumni Mentors Network at Michigan Calendar</h1>
-			<iframe src="https://www.google.com/calendar/embed?src=umich.edu_d5st3c9m44jijj28fs6m7j44b0%40group.calendar.google.com&ctz=America/New_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
-		</div>
+        <div class="content">
+            <h1 class="page-header">
+                The {{ FIRST }} Alumni Mentors Network at Michigan Calendar
+            </h1>
+            <iframe src="https://www.google.com/calendar/embed?src=umich.edu_d5st3c9m44jijj28fs6m7j44b0%40group.calendar.google.com&ctz=America/New_York" 
+                            style="border: 0" 
+                            width="800" 
+                            height="600" 
+                            frameborder="0" 
+                            scrolling="no"/>
+        </div>
     </div><!-- /.container -->
 
-	{% include footer.html %}
+    {% include footer.html %}
     {% include scripts.html %}
-  </body>
+</body>
 </html>

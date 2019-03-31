@@ -1,8 +1,7 @@
-function getTime (hour, minute) {
-    return new Date (2019,0,5,hour,minute,0,0,0);
-}
+var getTime =  (hour, minute) => new Date (2019,0,5,hour,minute,0,0,0);
+
 var bNs = {
-    getTimeString: function (time) {
+    getTimeString: (time) => {
         var hour = time.getHours();
         var minute = time.getMinutes();
         var ampm = "AM";
@@ -10,72 +9,69 @@ var bNs = {
             var numStr = num.toString();
             return (numStr.length > 1) ? numStr : ("0" + numStr);
         };
-        
+
         if (hour >= 12) {
             ampm = "PM";
             hour -= (hour > 12) ? 12 : 0;
         } else if (hour == 0) hour = 12;
-        
+
         return hour.toString() + ":" + pad(minute) + " " + ampm;
     },
-    ajaxGet: function (url, callback) {
-        var xrq = new XMLHttpRequest();
-        
-        xrq.open("GET",url,true);
-        xrq.responseType = "json";
-        
-        xrq.onreadystatechange = function () {
-            if (xrq.readyState == 4 && (xrq.status == 200 || xrq.status == 0))
-                callback(xrq.response);
-        }
-        
-        xrq.send();
-    },
-    loadSchedules: function (time) {
+    loadSchedules: time => {
         time = (time === undefined ? new Date() : time);
-        var mainSchedule = document.querySelector("#schedule");
-        
-        while (mainSchedule.firstChild)
-            mainSchedule.removeChild(mainSchedule.firstChild);
-        
+
+        var mainSchedule = $("#schedule");
+        mainSchedule.empty();
+
         //Fill main schedule
-        bNs.schedule.forEach(function (evt) {
+        bNs.schedule.forEach(evt => {
             var loc = bNs.resolveLocation(evt.location);
-            
+
             if (loc.code === false) return;
-            
-            var cell = mainSchedule.appendChild(document.createElement("tr")).appendChild(document.createElement("td"));
-            var timeDiv = cell.appendChild(document.createElement("div"));
-            var titleDiv = cell.appendChild(document.createElement("div"));
-            var locLnk = cell.appendChild(document.createElement("div")).appendChild(document.createElement("a"));
-            
-            cell.style.textAlign = "center";
-            timeDiv.style.fontWeight = "bold";
-            timeDiv.textContent = bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end);
-            
-            titleDiv.textContent = evt.event;
-            locLnk.classList.add("map-jump");
-            locLnk.textContent = loc.name;
-            locLnk.dataset.toggle = "modal";
-            locLnk.dataset.target = "#mapModal";
-            locLnk.addEventListener("click", function (event) {
+
+            var nestedCreate = function () {
+                var nodeList = [ arguments[0] ];
+
+                for (var i = 1; i < arguments.length; ++i) {
+                    nodeList.push($(document.createElement(arguments[i])));
+                    nodeList[i].appendTo(nodeList[i - 1]);
+                }
+
+                return nodeList[nodeList.length - 1];
+            };
+
+            var cell = nestedCreate(mainSchedule, "tr", "td");
+            var timeDiv = nestedCreate(cell, "div");
+            var titleDiv = nestedCreate(cell, "div");
+            var locLnk = nestedCreate(cell, "div", "a");
+
+            cell.css("textAlign", "center");
+            timeDiv.css("fontWeight", "bold");
+            timeDiv.text(bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end));
+
+            titleDiv.text(evt.event);
+            locLnk.addClass("map-jump");
+            locLnk.text(loc.name);
+            locLnk.attr("data-toggle", "modal");
+            locLnk.attr("data-target", "#mapModal");
+            locLnk.click(event => {
                 var marker = bNs.getMarker(loc.code);
 
                 bNs.map.modalTitle.text(loc.name);
-                
+
                 if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
                 if (bNs.map.winListener) {
                     google.maps.event.removeListener(bNs.map.winListener);
                     bNs.winListener = undefined;
                     bNs.map.infoWindow.setContent("");
                 }
-                
+
                 if (marker.length === 0) {
                     event.preventDefault();
                     bNs.activeMarker = undefined;
                     return;
                 }
-                
+
                 var pos = new google.maps.LatLng(marker[1], marker[2]);
                 bNs.map.activeMarker = new google.maps.Marker({
                    position: pos,
@@ -85,14 +81,14 @@ var bNs = {
                 });
                 bNs.map.map.setCenter(pos);
                 bNs.map.map.setZoom(18);
-                
+
                 bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function(mrk) {
                     return function() {
                         bNs.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
                         bNs.map.infoWindow.open(map, mrk);
                     }
                 })(bNs.map.activeMarker));
-                
+
                 setTimeout(function () {
                     google.maps.event.trigger(bNs.map.activeMarker, "click");
                     google.maps.event.trigger(bNs.map.map, "resize");
@@ -103,44 +99,44 @@ var bNs = {
                  * none of the solutions I've found seem to fix it (yet).
                  */
             });
-            
+
             //"active" applies a gray background, "info" applies a blue background
-            if (time >= evt.end) cell.parentElement.classList.add("table-active");
-            else if (time >= evt.start) cell.parentElement.classList.add("table-info");
-            else cell.parentElement.classList.add("table-warning");
+            if (time >= evt.end) cell.parent().addClass("table-active");
+            else if (time >= evt.start) cell.parent().addClass("table-info");
+            else cell.parent().addClass("table-warning");
         });
     },
-    teamNumAccepted: function (event) {
+    teamNumAccepted: event => {
         var num;
         var emptyDiv = $(".team-empty");
         var errDiv = $(".team-error");
         var dispDiv = $(".team-disp");
         var teamNumName = $("#team-num-name");
         var teamSchool = $("#team-school");
-        
-        
-        if (event.currentTarget.type === "text") {
+        var target = $(event.currentTarget);
+
+
+        if (target.prop("type") === "text") {
             if (event.key !== "Enter") return;
-            num = parseInt(event.currentTarget.value, 10);
-        } else if (event.currentTarget.type === "button") {
-            num = parseInt(event.currentTarget.parentElement.previousElementSibling.value,
-                           10);
+            num = parseInt(target.val(), 10);
+        } else if (target.prop("type") === "button") {
+            num = parseInt(target.parent().prev().val(), 10);
         } else return;
-        
+
         if (bNs.activeTeam.intervalId !== undefined)
             clearInterval(bNs.activeTeam.intervalId);
-        
+
         emptyDiv.css("display", "none");
         if (bNs.setTeam(num) >= 0) {
             bNs.loadSchedules();
             bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
-            
+
             teamNumName.text(num + ": " + bNs.activeTeam.name);
             teamSchool.text(bNs.activeTeam.school);
-            
+
             errDiv.css("display", "none");
             dispDiv.css("display", "block");
-            
+
             //Make the team number persist across refreshes
             localStorage.setItem("team", bNs.activeTeam.number);
         } else {
@@ -148,41 +144,41 @@ var bNs = {
             dispDiv.css("display", "none");
         }
     },
-    setTeam: function (num) {
+    setTeam: num => {
         for (var i = 0; i < bNs.teams.length; ++i) {
             if (bNs.teams[i].number === num) {
                 bNs.activeTeam = bNs.teams[i];
                 return bNs.teams[i].number;
             }
         }
-        
+
         bNs.activeTeam = {};
         return -1;
     },
-    resolveLocation: function (loc) {
+    resolveLocation: loc => {
         if (loc[0] === 't') {
             if (bNs.activeTeam.number === undefined)
                 throw new Error("Team number not set");
             loc = bNs.activeTeam[loc.split(':')[1]];
         }
-        
+
         if (loc === false) {
             return {code:false, name:"N/A"};
         }
-        
+
         var locObj = {code:loc, name:loc};
-        
+
         bNs.locations.forEach(function(lMapping) {
             locObj.name = locObj.name.replace(lMapping[0], lMapping[1]);
         });
-        
+
         return locObj;
     },
-    getMarker: function (code) {
+    getMarker: code => {
       for (var i = 0; i < bNs.markers.length; ++i) {
           if (code === bNs.markers[i][0]) return bNs.markers[i];
       }
-      
+
       return [];
     },
     activeTeam:{},
@@ -237,7 +233,7 @@ var bNs = {
        }
     ],
     map: {
-        toggleParking: function (show) {
+        toggleParking: show => {
             show = (show === undefined ? !bNs.map.parkingShown : show);
 
             if (show === bNs.map.parkingShown) return;
@@ -259,10 +255,10 @@ var bNs = {
             bNs.map.parkingShown = show;
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
         },
-        showKOP: function () {
+        showKOP: () => {
             var loc = bNs.resolveLocation(bNs.schedule[4].location);
             var mkr = bNs.getMarker(loc.code)
-            
+
             bNs.map.modalTitle.text("KOP Pick Up");
 
             if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
@@ -279,7 +275,7 @@ var bNs = {
                 icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
                 title: "KOP Pickup"
             });
-            
+
             bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", function () {
                 bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
                 bNs.map.infoWindow.open(map, bNs.map.activeMarker);
@@ -348,13 +344,12 @@ var bNs = {
 };
 
 function initMap () {
-    bNs.map.map = new google.maps.Map($("#map").get(0),
-                                  {
-                                    center: new google.maps.LatLng(42.291964,-83.715810),
-                                    zoom: 16,
-                                    mapTypeId: google.maps.MapTypeId.ROADMAP,
-                                    gestureHandling: "greedy"
-                                  });
+    bNs.map.map = new google.maps.Map($("#map").get(0), {
+        center: new google.maps.LatLng(42.291964,-83.715810),
+        zoom: 16,
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        gestureHandling: "greedy"
+    });
 
     bNs.map.map.setTilt(45);
     bNs.map.infoWindow = new google.maps.InfoWindow();
@@ -363,7 +358,7 @@ function initMap () {
     bNs.map.parkingBounds = new google.maps.LatLngBounds();
 
     //Initialize parking markers
-    bNs.parking.forEach(function (lot) {
+    bNs.parking.forEach(lot => {
         var mkr = new google.maps.Marker({
             position: lot,
             map: null,
@@ -371,8 +366,8 @@ function initMap () {
             icon: "../img/kickoff/icons/parking.png"
         });
 
-        google.maps.event.addListener(mkr, "click", (function (mkr) {
-            return function () {
+        google.maps.event.addListener(mkr, "click", (mkr => {
+            return () => {
                 bNs.map.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
                 bNs.map.infoWindow.open(map, mkr);
             }
@@ -382,7 +377,7 @@ function initMap () {
         bNs.map.parkingBounds.extend(lot);
     });
 
-    google.maps.event.addListener(bNs.map.map, "maptypeid_changed", function () {
+    google.maps.event.addListener(bNs.map.map, "maptypeid_changed", () => {
         var mapType = bNs.map.map.getMapTypeId();
         var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
                                 ? "../img/kickoff/icons/parking-white.png"
@@ -398,54 +393,57 @@ function initMap () {
 
 $(document).ready(function () {
     // Asynchronously Load the map API
-    var script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap";
-    document.body.appendChild(script);
-    
+    var script = $(document.createElement('script'));
+    script.attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap");
+    $(document.body).append(script);
+
     //Load team information
-    bNs.ajaxGet("../../js/kickoff/teamlist.json", function (teams) {
+    $.ajax({
+        url: "../../js/kickoff/teamlist.json",
+        dataType: "json"
+    }).done(teams => {
         bNs.teams = teams;
-        
+
         //Load the current team
         var team = localStorage.getItem("team");
-        
+
         if (team.length > 0) {
-            var teamInput = $($(".input-group").children()[0]);
+            var teamInput = $($(".input-group").children().get(0));
             teamInput.val(team);
             teamInput.next().trigger("click");
         }
     });
-    
+
     //Initialize countdown clock
-    var computeDiff = function () {
+    var computeDiff = () => {
         var diff = (getTime(10,0).getTime() - (new Date()).getTime());
         var d,h,m,s;
-        
-        var countdownClock = $(".countdown-clock").get(0);
-        
+
+        var clockParts = $(".countdown-clock").children();
+
         if (diff < 0) diff = 0;
-        
+
         //Knock off milliseconds
         diff = Math.floor(diff / 1e3);
         s = diff % 60;
-        
+
         //Knock off seconds
         diff = Math.floor(diff / 60);
         m = diff % 60;
-        
+
         //Knock off minutes
         diff = Math.floor(diff / 60);
         h = diff % 24;
-        
+
         //Knock off hours
         d = Math.floor(diff / 24);
-        
+
         var times = [d, h, m, s];
-        
-        for (var i = 0; i < countdownClock.children.length; ++i)
-            countdownClock.children[i].textContent = times[i];
+
+        for (var i = 0; i < clockParts.length; ++i)
+            clockParts.eq(i).text(times[i]);
     };
-    
+
     computeDiff();
     setInterval(computeDiff, 1000);
 });
