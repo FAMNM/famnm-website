@@ -2,25 +2,13 @@ html {
 	height: 100%;
 }
 
-/*
- * Stars pattern adapted from: https://leaverou.github.io/css3patterns/#starry-night (MIT license)
- */
 body {
-    min-height: 100%;
-    padding: 30px;
-    padding-top: 70px;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
-    flex-direction: column;
-    background-color:black;
-    background-image:
-    radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 10px),
-    radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 5px),
-    radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 10px),
-    radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 5px);
-    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-    color: #ffffff;
+	 min-height: 100%;
+     padding: 30px;
+     padding-top: 70px;
+     font-family: 'Roboto', sans-serif;
+     display: flex;
+     flex-direction: column;
 }
 
 body > * {
@@ -93,8 +81,8 @@ body > * {
 
 /** Footer formatting **/
 .footer {
-	background-color: #9DBFDF;
-	color: #212529;
+	background-color: #000e33;
+	color: #ffffff;
 	clear: both;
 	margin: 1em -30px -30px -30px;
 	font-size: 1.25em;
@@ -134,7 +122,7 @@ body > * {
 }
 
 .footer a:not(.img-link) {
-	color: #212519;
+	color: #d7d7d7;
 	text-decoration: underline;
 	min-width: 100px;
 }
@@ -292,14 +280,6 @@ iframe {
     ul.nav ul.dropdown-menu {
         top: 90%;
     }
-}
-
-.card {
-    background-color: #222;
-}
-
-.card .card-header {
-    background-color: #333;
 }
 
 /** Carousel **/
