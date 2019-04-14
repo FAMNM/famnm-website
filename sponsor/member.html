@@ -30,58 +30,53 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
                 them to <a
                 href="mailto:famnm.secretary@umich.edu">famnm.secretary@umich.edu</a></p>
 
-            <h2>Membership</h2>
-
-            <p>Roll over an image for more details!</p>
-
-            <div class="membership row">
-                <div class="col-md-4">
-                    <h3>Volunteers</h3>
-                    <div class="img-blur-container">
-                        <img class="recruit center" src="../img/sponsor/volunteer.jpg">
-                        <div class="img-overlay">
-                            <span class="overlay-text">
-                                Every year, FAMNM sends volunteers
-                                to {{ FIRST }} events across the state of
-                                Michigan and beyond! We'll do our best to 
-                                make sure you can get to all the events of
-                                your choosing. Volunteers serving in key 
-                                roles are eligible to be reimbursed for 
-                                some travel costs!
-                            </span>
-                        </div>
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab"
+                        href="#members">General Members</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab"
+                       href="#mentors">Mentors</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab"
+                       href="#volunteers">Volunteers</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="members" class="tab-pane fade in active show">
+                    <div class="mx-auto my-3">
+                        <img class="img-fluid" src="../img/sponsor/general.jpg"/>
                     </div>
+                    General members assist FAMNM operationally. 
+                    We encourage members to attend our biweekly
+                    General Body Meetings to stay updated about 
+                    what FAMNM is up to. Want to help FAMNM 
+                    continue to grow and improve? Join one (or
+                    several) of our committees!
                 </div>
-                <div class="col-md-4">
-                    <h3>General Members</h3>
-                    <div class="img-blur-container">
-                        <img class="recruit" src="../img/sponsor/general.jpg">
-                        <div class="img-overlay">
-                            <span class="overlay-text">
-                                General members assist FAMNM operationally. 
-                                We encourage members to attend our biweekly
-                                General Body Meetings to stay updated about 
-                                what FAMNM is up to. Want to help FAMNM 
-                                continue to grow and improve? Join one (or
-                                several) of our committees!
-                            </span>
-                        </div>
+                <div id="mentors" class="tab-pane fade">
+                    <div class="mx-auto my-3">
+                        <img class="img-fluid" src="../img/sponsor/mentor.jpg"/>
                     </div>
+                    FAMNM helps match local teams and
+                    potential mentors. You can choose 
+                    to help a team full time, or 
+                    participate in the Freelance Mentor program, providing
+                    assistance to teams on an as needed basis only.
                 </div>
-                <div class="col-md-4">
-                    <h3>Mentors</h3>
-                    <div class="img-blur-container">
-                        <img class="recruit center" src="../img/sponsor/mentor.jpg">
-                        <div class="img-overlay">
-                            <span class="overlay-text">
-                                FAMNM helps match local teams and
-                                potential mentors. You can choose 
-                                to help a team full time, or 
-                                participate in the Freelance Mentor program, providing
-                                assistance to teams on an as needed basis only.
-                            </span>
-                        </div>
+                <div id="volunteers" class="tab-pane fade">
+                    <div class="mx-auto my-3">
+                        <img class="img-fluid" src="../img/sponsor/volunteer.jpg"/>
                     </div>
+                    Every year, FAMNM sends volunteers
+                    to {{ FIRST }} events across the state of
+                    Michigan and beyond! We'll do our best to 
+                    make sure you can get to all the events of
+                    your choosing. Volunteers serving in key 
+                    roles are eligible to be reimbursed for 
+                    some travel costs!
                 </div>
             </div>
         </div>
@@ -89,5 +84,10 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 
     {% include footer.html %}
     {% include scripts.html %}
+    <style>
+        .tab-content {
+            text-align: left;
+        }
+    </style>
 </body>
 </html>
