@@ -9,25 +9,12 @@ title: Available Resources | FIRST® Alumni & Mentors Network at Michigan
         .text-par{
             width: 100%;
         }
-        .img-contain {
-            display: flex;
-            justify-content: center;
+        .resource-img {
+            max-height: 350px;
         }
-        .img-contain > div {
-            max-width: 415px;
-            margin: 5px;
-        }
-        .img-contain > div img {
-            max-width: 100%;
-        }
-        @media (max-width: 767px) {
-            .img-contain {
-                flex-direction: column;
-            }
-
-            .img-contain > div {
-                max-width: 100%;
-                margin: 5px auto;
+        @media(max-width: 767px) {
+            .resource-img {
+                max-height: 100%;
             }
         }
     </style>
@@ -37,51 +24,56 @@ title: Available Resources | FIRST® Alumni & Mentors Network at Michigan
     <div class="container">
         <div class="content">
             <h1 class="page-header">Available Resources</h1>
-                <h2>Waterjet</h2>
-                <p class="text-par">
-                    One of the Resources we are available to provide to teams 
-                    is waterjet time. We are provided with about 5 hours of
-                    Waterjet Time each year. For cutting parts out of aluminum
-                    or steel sheets, the waterjet can create parts to very 
-                    tight tolerances.
-                </p>
-                <br>
-                <div class="img-contain">
-                    <div class="img-blur-container">
-                        <img alt="Waterjet" 
-                                class="img-rounded center" 
-                                src="../img/teams/waterjet.jpg" />
-                        <div class="img-overlay">
+            <ul class="nav nav-tabs nav-justified">
+                <li class="nav-item">
+                    <a class="nav-link active" 
+                       data-toggle="tab" 
+                       href="#waterjet">Waterjet</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" 
+                       data-toggle="tab"
+                       href="#printer">3D Printer</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="waterjet" class="tab-pane fade in active show">
+                    <figure class="figure">
+                        <img class="figure-img img-fluid w-auto resource-img" 
+                        src="../img/teams/waterjet.jpg" 
+                        alt="Waterjet"/>
+                        <figcaption class="figure-caption text-center mx-auto">
                             Chassis parts for Team 830 (The Rat Pack) being
                             cut on the waterjet. The waterjet time is donated
                             to us by the FABLab (The Digital Fabrication Lab 
                             at Taubman College).
-                        </div>
-                    </div>
-                    <div class="img-blur-container">
-                        <img alt="3D Printer" 
-                                class="img-rounded" 
-                                src="http://um3d.dc.umich.edu/wp-content/uploads/2015/03/20170214_171110-480x360.jpg" />
-                        <div class="img-overlay">3D printers at the Duderstadt Center.</div>
-                    </div>
+                        </figcaption>
+                    </figure>
+                    <p class="text-par">
+                        One of the Resources we are available to provide to teams 
+                        is waterjet time. We are provided with about 5 hours of
+                        Waterjet Time each year. For cutting parts out of aluminum
+                        or steel sheets, the waterjet can create parts to very 
+                        tight tolerances.
+                    </p>
                 </div>
-                <div style="text-align: center;">
-                    Roll over an image for more!
+                <div id="printer" class="tab-pane fade">
+                    <figure class="figure">
+                        <img class="figure-img img-fluid w-auto resource-img" 
+                            src="http://um3d.dc.umich.edu/wp-content/uploads/2015/03/20170214_171110-480x360.jpg" 
+                            alt="3D Printer"/>
+                        <figcaption class="figure-caption text-center mx-auto">
+                            3D printers at the Duderstadt Center.
+                        </figcaption>
+                    </figure>
+                    <p class="text-par">
+                        The University of Michigan gives students free 3D printing.
+                        If you’re needing something 3D printed we can try to assist.
+                        Free printing is reserved to items smaller than 6”x6”x4”, 
+                        although if there are larger parts we can try to accommodate.
+                    </p>
                 </div>
-                <div style="clear: both"></div>
-                <h2>3D Printing</h2>
-
-                <p class="text-par">
-                    The University of Michigan gives students free 3D printing.
-                    If you’re needing something 3D printed we can try to assist.
-                    Free printing is reserved to items smaller than 6”x6”x4”, 
-                    although if there are larger parts we can try to accommodate.
-                </p>
-                <div style="clear: both"></div>
-                <p class="bold" style="margin-top: 1em; text-align: center;">
-                    We are constantly looking to add more resources and 
-                    help local teams however we can!
-                </p>
+            </div>
         </div>
     </div><!-- /.container -->
 
