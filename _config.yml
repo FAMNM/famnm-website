@@ -17,3 +17,7 @@ github_username:  famnm
 
 # Build settings
 markdown: kramdown
+
+# Plugins (Jekyll >= 3.5.0)
+plugins:
+    - jekyll-redirect-from
