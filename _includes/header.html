@@ -30,6 +30,7 @@
         <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Events<span class="caret"></span></a>
             <ul class="dropdown-menu bg-dark">
+                <li class="dropdown-item bg-dark{% if page.url == "/events/frc-offseason.html" %} active{% endif %}"><a class="nav-link" href="{{site.url}}/events/frc-offseason.html">FRC Offseason</a></li>
                 <li class="dropdown-item bg-dark{% if page.url == "/events/kickoff.html" %} active{% endif %}"><a class="nav-link" href="{{site.url}}/events/kickoff.html">FRC Kickoff</a></li>
                 <li class="dropdown-item bg-dark{% if page.url == "/events/rqb.html" %} active{% endif %}"><a class="nav-link" href="{{site.url}}/events/rqb.html">Robot Quick Build</a><li class="dropdown-item bg-dark">
                 <li class="dropdown-item bg-dark{% if page.url == "/events/ftc-kickoff.html" %} active{% endif %}" ><a class="nav-link" href="{{site.url}}/events/ftc-kickoff.html">FTC Kickoff</a></li>
