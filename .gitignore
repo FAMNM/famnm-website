@@ -3,3 +3,4 @@ _site/
 .vscode/
 .settings/
 .project
+.jekyll-cache
