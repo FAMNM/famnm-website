@@ -17,15 +17,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 <option>
                     ------
                 </option>
-                <option>
-                    Website
-                </option>
-                <option>
-                    PD
-                </option>
-                <option>
-                    GBM
-                </option>
             </select>
         </div>
         <div>
@@ -49,10 +40,13 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         </div>
 
         <div class='uniqnames'>
+            <label for='uniqname'>Enter uniqnames of people at meeting. Hit enter to add person.</label>
+            <br/>
             <input type='text' id='uniqname'>
             <br/>
-            <button type='button' class='btn btn-outline-secondary' disabled>eashwar</button>
         </div>
+
+        <button type="button" class="btn btn-primary" id="submit">Submit</button>
     </form>
 
     
@@ -60,18 +54,40 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include scripts.html %}
     <script src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js'></script>
     <script>
-        $(document).ready(function(){
+        convertMeetingTime = (time) => {
+            if(time.includes('AM') || time.includes('12')) {
+                return time.slice(0, 5);
+            } else {
+                let hour = parseInt(time.slice(0, 3));
+                return `${(hour + 12)}:${time.slice(2, 4)}`;
+            }
+        }
+        $(() => {
+            fetch('http://backend.famnm.club/meeting_type')
+            .then( (response) =>{
+                if (!response.ok) throw Error(response.statusText);
+                return response.json();
+            }).then( (data) => {
+                data.map(type => {
+                    let meetingType = $('<option></option>');
+                    meetingType.text(type.type);
+                    $('#meetingType').append(meetingType);
+                })
+            })
+
             $('#meetingDate').attr('value', new Date().toISOString().slice(0,10));
             $('#meetingDate').prop('disabled', true);
+            
             $('input.timepicker').timepicker({ 
                 timeFormat: 'h:mm p',
                 minTime: '10:00',
                 maxTime: '22:00',
                 startTime: '10:00',
-                defaultTime: '12:00',
+                defaultTime: '10:00',
                 dropdown: true,
                 interval: 30
             });
+            
             $('#uniqname').keypress((e) => {
                 if (e.keyCode == 13)
                 {
@@ -79,12 +95,34 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     newButton.attr('type', 'button');
                     newButton.addClass('btn');
                     newButton.addClass('btn-outline-secondary');
-                    newButton.prop('disabled', true);
-                    newButton.text($('#uniqname').val())
+                    newButton.addClass('mx-3');
+                    newButton.addClass('my-3');
+                    newButton.addClass('uniqname-btn');
+                    newButton.text($('#uniqname').val());
+                    newButton.click(() => { newButton.remove(); });
                     $('.uniqnames').append(newButton);
                     $('#uniqname').val('');
                 }
             });
+
+            $('#submit').click(() => {
+                fetch('http://backend.famnm.club/meeting', {
+                    headers: {'Content-Type': 'application/json'},
+                    method: 'POST',
+                    body: JSON.stringify({
+                        meetingType: $('#meetingType').children("option:selected").val(),
+                        meetingDay: new Date().getTime(),
+                        startTime: convertMeetingTime($('#meetingStartTime').val()),
+                        endTime: convertMeetingTime($('#meetingEndTime').val()),
+                        description: $('#meetingDescription').val()
+                    })
+                }).then( (response) =>{
+                    if (!response.ok) throw Error(response.statusText);
+                    return response.json();
+                }).then( (data) => {
+                    console.log(data);
+                })
+            })
         });
     </script>
 </body>
