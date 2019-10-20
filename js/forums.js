@@ -12,15 +12,15 @@ function initMap () {
     var infoWindow = new google.maps.InfoWindow();
 
     var places = [
-        { name: "Check In", icon: "checkin", lat: 42.292686, lon: -83.715573 },
-        { name: "Parking", icon: "parking", lat: 42.292242, lon: -83.717560 },
-        { name: "Presentation Room (DOW 1013)", icon: "rooms", lat: 42.292835, lon: -83.715431 }
+        { name: "Check In", icon: "checkin", lat: 42.292700, lon: -83.716350 },
+        { name: "Parking (Lot NC-48)", icon: "parking", lat: 42.293400, lon: -83.717100 },
+        // { name: "Parking (STAMPS Auditorium)", icon: "parking", lat: 42.292242, lon: -83.717560 }
     ];
+
 
     var icons = {
         checkin: "../img/kickoff/icons/star.png",
         parking: "../img/kickoff/icons/parking.png",
-        rooms: "https://maps.google.com/mapfiles/ms/icons/red-dot.png"
     };
 
     for (var i = 0; i < places.length; ++i) {

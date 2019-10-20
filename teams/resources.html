@@ -1,95 +1,113 @@
 ---
 title: Available Resources | FIRST® Alumni & Mentors Network at Michigan
+FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 ---
+{% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    {% include title-styles.html %}
-    <style>
-        .text-par{
-            width: 100%;
-        }
-        .resource-img {
-            max-height: 350px;
-        }
-        @media(max-width: 767px) {
-            .resource-img {
-                max-height: 100%;
+    <head>
+        {% include title-styles.html %}
+        <script src="../js/web-encapsulation.js"></script>
+        <style>
+            .contact-logo {
+            max-width: 500px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             }
-        }
-    </style>
-</head>
-<body>
-    {% include header.html %}
-    <div class="container">
-        <div class="content">
-            <h1 class="page-header">Available Resources</h1>
-            <ul class="nav nav-tabs nav-justified">
-                <li class="nav-item">
-                    <a class="nav-link active" 
-                       data-toggle="tab" 
-                       href="#waterjet">Waterjet</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" 
-                       data-toggle="tab"
-                       href="#printer">3D Printer</a>
-                </li>
-            </ul>
-            <div class="tab-content">
-                <div id="waterjet" class="tab-pane fade in active show">
-                    <figure class="figure">
-                        <img class="figure-img img-fluid w-auto resource-img" 
-                        src="../img/teams/waterjet.jpg" 
-                        alt="Waterjet"/>
-                        <figcaption class="figure-caption text-center mx-auto">
-                            Chassis parts for Team 830 (The Rat Pack) being
-                            cut on the waterjet. The waterjet time is donated
-                            to us by the FABLab (The Digital Fabrication Lab 
-                            at Taubman College).
-                        </figcaption>
-                    </figure>
-                    <p class="text-par">
-                        One of the Resources we are available to provide to teams 
-                        is waterjet time. We are provided with about 5 hours of
-                        Waterjet Time each year. For cutting parts out of aluminum
-                        or steel sheets, the waterjet can create parts to very 
-                        tight tolerances.
-                    </p>
-                </div>
-                <div id="printer" class="tab-pane fade">
-                    <figure class="figure">
-                        <img class="figure-img img-fluid w-auto resource-img" 
-                            src="http://um3d.dc.umich.edu/wp-content/uploads/2015/03/20170214_171110-480x360.jpg" 
-                            alt="3D Printer"/>
-                        <figcaption class="figure-caption text-center mx-auto">
-                            3D printers at the Duderstadt Center.
-                        </figcaption>
-                    </figure>
-                    <p class="text-par">
-                        The University of Michigan gives students free 3D printing.
-                        If you’re needing something 3D printed we can try to assist.
-                        Free printing is reserved to items smaller than 6”x6”x4”, 
-                        although if there are larger parts we can try to accommodate.
-                    </p>
+            @media(max-width: 767px) {
+            .contact-logo {
+            max-width: 100%;
+            }
+            }
+        </style>
+    </head>
+    <body>
+        {% include header.html %}
+        <div class="container">
+            <div class="content">
+                <h1 class="page-header">Resources for Teams</h1>
+                <p class="text-par">
+                    Are you a {{ FIRST }} team looking for resources or mentors?
+                    You've come to the right place! FAMNM is here to help you 
+                    by connecting you to U of M students, machinery, and opportunities.
+                    As our member base is primarily comprised of {{ FIRST }} alumni,
+                    we do our best to provide the next generation of {{ FIRST }}
+                    students the best experience possible and grow our extensive 
+                    {{ FIRST }} FAMNMily!
+                </p>
+                <p class="text-par" style="margin-bottom: 1.5em;">
+                    Any team that would like to obtain support and resources 
+                    from FAMNM must become affiliated with FAMNM by working 
+                    with one of our Coordinators to review and customize a contract.
+                    This will outline the expectations and responsibilities of 
+                    both parties so as to ensure that FAMNM is best meeting the
+                    team’s needs and structure.
+                </p>
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="nav-item">
+                        <a class="nav-link active" 
+                           data-toggle="tab" 
+                           href="#frc">{{ FIRST }} Robotics Competition</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           data-toggle="tab"
+                           href="#ftc">{{ FIRST }} Tech Challenge</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" 
+                           data-toggle="tab"
+                           href="#fll">{{ FIRST }} Lego League</a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div id="frc" class="tab-pane fade in active show">
+                        <img class="center contact-logo" 
+                             src="../img/teams/FRC-Demos.jpg" 
+                             alt="FIRST Robotics Competition"/>
+                        <p class="text-par">
+                            For our FRC teams, we can help provide mentor support 
+                            throughout the build and competition season. We additionally
+                            host both an annual <a href="../events/kickoff.html">FRC Kickoff</a> and
+                            a <a href="../events/robotics-day.html">Robotics Day</a> event.
+                        </p>
+                        <p class="text-par">
+                            Interested? Email our head FRC Coordinator at <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu​</a> to get connected.
+                        </p>
+                    </div>
+                    <div id="ftc" class="tab-pane fade">
+                        <img class="center contact-logo" 
+                             src="../img/teams/FTC-Kickoff.jpg" 
+                             alt="FIRST Tech Challenge"/>
+                        <p class="text-par">
+                            Currently, FAMNM primarily supports FTC teams through our 
+                            annual  <a href="../events/ftc-kickoff">FTC Kickoff</a>
+                            event. We also provide opportunities for mentorship to local
+                            teams.
+                        </p>
+                        <p class="text-par">
+                            Interested in getting involved? Email our FTC 
+                            Coordinator at <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu​</a> to get connected.
+                        </p>
+                    </div>
+                    <div id="fll" class="tab-pane fade">
+                        <img class="center contact-logo"
+                             src="../img/teams/FLL-TrashTrek.jpg" 
+                             alt="FIRST Lego League">
+                        <p class="text-par">
+                            With FLL, we are working on building team 
+                            relationships, and are currently only providing 
+                            mentor support for teams in our area.
+                        </p>
+                        <p class="text-par">
+                            Interested? Email our FLL Coordinator at ​<a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu</a> to get connected.
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div><!-- /.container -->
-
-<!--
-https://taubmancollege.umich.edu/labs-workshops/digital-fabrication-lab/cnc-waterjet
-- Dimensional limitations
-- Materials
-Cite (with picture perhaps?)
-
-$100/hr to use the waterjet (minus operator costs)
-$500 credit (5 hrs of waterjet time)
-
-Dude 3D lab (when we get it)
-    -->
-
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
+        <!-- /.container -->
+        {% include footer.html %}
+        {% include scripts.html %}
+    </body>
 </html>
