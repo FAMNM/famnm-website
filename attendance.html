@@ -10,8 +10,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <body>
     {% include header.html %}
 
-    <form class='w-50 mx-auto'>
-        <div class='form-group'>
+    
+    <form class='w-50 mx-auto attendance-form'>
+        <h1>FAMNM Attendance Form</h1>
+        <div class='form-group my-5'>
             <label for='meetingType'>What type of meeting?</label>
             <select class='form-control' id='meetingType'>
                 <option>
@@ -19,7 +21,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 </option>
             </select>
         </div>
-        <div>
+        <div class="my-5">
             <label for='meetingDate'>Today's Date</label>
             <input type='date' id='meetingDate'>
         </div>
@@ -30,23 +32,27 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <input class='timepicker' id='meetingEndTime'>
         </div>
 
-        <div>
+        <div class="my-5">
+            <label for='meetingDescription'>Meeting Description</label>
             <textarea 
                 maxlength=1000 
                 required=true
                 class='w-100'
                 id='meetingDescription'
-                placeholder='A short description of what happened at the meeting.'></textarea>
+                placeholder='(Optional) A short description of what happened at the meeting.'></textarea>
         </div>
 
-        <div id='uniqname-buttons'>
+        <div class="my-5">
             <label for='uniqname'>Enter uniqnames of people at meeting. Hit enter to add person.</label>
             <br/>
             <input type='text' id='uniqname'>
             <br/>
+            <div id='uniqname-buttons'>
+
+            </div>
         </div>
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#confirmMeeting" id="confirm">Confirm And Submit</button>
+        <button type="button" class="btn btn-primary my-3" data-toggle="modal" data-target="#confirmMeeting" id="confirm">Confirm And Submit</button>
     </form>
             
     <!-- Modal -->
@@ -60,6 +66,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </button>
         </div>
         <div class="modal-body">
+            <div id="modalError" style="color:red"></div>
             <h2>Meeting Details</h2>
             <p id="modalMeetingType">Meeting Type: </p>
             <p id="modalStartTime">Start Time: </p>
@@ -71,8 +78,8 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </div>
         </div>
         <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" id="submit">Create Meeting</button>
+            <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary submit-meeting" id="submit" data-dismiss="modal">Create Meeting</button>
         </div>
         </div>
     </div>
@@ -83,7 +90,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include scripts.html %}
     <script src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js'></script>
     <script>
-        convertMeetingTime = (time) => {
+        let convertMeetingTime = (time) => {
             if(time.includes('AM') || time.includes('12')) {
                 return time.slice(0, 5);
             } else {
@@ -91,6 +98,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 return `${(hour + 12)}:${time.slice(2, 4)}`;
             }
         }
+
+        let validateTime = (start, end) =>{
+            return parseInt(start.replace(':', '')) < parseInt(end.replace(':', ''));
+        } 
+
         $(() => {
             fetch('http://backend.famnm.club/meeting_type')
             .then( (response) =>{
@@ -139,7 +151,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     headers: {'Content-Type': 'application/json'},
                     method: 'POST',
                     body: JSON.stringify({
-                        meetingType: $('#meetingType').children("option:selected").val(),
+                        meetingType: $('#meetingType').children('option:selected').val(),
                         meetingDay: new Date().getTime(),
                         startTime: convertMeetingTime($('#meetingStartTime').val()),
                         endTime: convertMeetingTime($('#meetingEndTime').val()),
@@ -150,9 +162,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     return response.json();
                 }).then( (data) => {
                     const meeting_id = data[0].meeting_id;
-                    const uniqname_buttons = $('.uniqname-btn');
+                    const uniqname_buttons = $('.uniqname-submit');
                     const uniqnames = uniqname_buttons.map((i, elt) => $(elt).text());
                     uniqnames.toArray().forEach((uniqname) => {
+                        console.log(`adding attendance for ${uniqname}`);
                         fetch('http://backend.famnm.club/attendance', {
                             headers: {'Content-Type': 'application/json'},
                             method: 'POST',
@@ -162,13 +175,49 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                             })
                         }).catch(console.log);
                     });
-                }).catch(console.log);
+                }).then(() => {
+                    $('.attendance-form').trigger('reset');
+                    $('#uniqname-buttons').empty();
+                    $('#modalError').empty();
+                    $('.submit-meeting').attr('disabled', false);
+                })
+                .catch(console.log);
             }
 
             $('#submit').click(submitMeeting);
 
+            $('#closeModal').click(() => {
+                $('#modalError').empty();
+                $('.submit-meeting').attr('disabled', false);
+            })
+
+            const disableSubmit = (message) => {
+                $('#modalError').append($(`<p>${message}</p>`));
+                $('.submit-meeting').attr('disabled', true);
+            }
+
             $('#confirm').click(() => {
-                $('#modalMeetingType').text(`Meeting Type: ${$('#meetingType').children("option:selected").val()}`)
+                const meetingType = $('#meetingType').children('option:selected').val();
+                const startTime = convertMeetingTime($('#meetingStartTime').val());
+                const endTime = convertMeetingTime($('#meetingEndTime').val());
+                const attendees = $('.uniqname-btn').map((i, elt) => $(elt).text());
+                if (meetingType === '------')
+                {
+                    disableSubmit('Invalid Meeting Type');
+                }
+                if (!validateTime(startTime, endTime))
+                {
+                    disableSubmit('Start Time must be before End Time');
+                }
+                if (attendees.length === 0)
+                {
+                    disableSubmit('At least one person (you) must attend the meeting');
+                }
+                if ( new Set(attendees).size !== attendees.length)
+                {
+                    disableSubmit('You have duplicate attendees');
+                }
+                $('#modalMeetingType').text(`Meeting Type: ${meetingType}`)
                 $('#modalStartTime').text(`Start Time: ${$('#meetingStartTime').val()}`)
                 $('#modalEndTime').text(`Start Time: ${$('#meetingEndTime').val()}`)
                 $('#modalDescription').text(`Meeting Description: ${$('#meetingDescription').val()}`)
@@ -176,6 +225,8 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 const uniqname_buttons = $('.uniqname-btn');
                 uniqname_buttons.toArray().forEach(uniqname => {
                     const new_button = $(uniqname).clone();
+                    new_button.removeClass('uniqname-btn');
+                    new_button.addClass('uniqname-submit');
                     new_button.attr('disabled', true);
                     $('#modalAttendees').append(new_button);
                 });
