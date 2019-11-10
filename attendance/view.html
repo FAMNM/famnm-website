@@ -1,0 +1,73 @@
+---
+title: FIRST® Alumni &amp; Mentors Network at Michigan
+---
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    {% include title-styles.html %}
+    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css'>
+</head>
+<body>
+    {% include header.html %}
+
+    
+    <form class='w-50 mx-auto attendance-form'>
+        <h1>FAMNM Attendance Viewer</h1>
+        <div class='form-group my-5'>
+            <label for='meetingType'>What type of meeting?</label>
+            <select class='form-control' id='meetingType'>
+                <option>
+                    ------
+                </option>
+            </select>
+        </div>
+    </form>
+            
+    <!-- Modal -->
+    <div class="modal fade" id="confirmMeeting" tabindex="-1" role="dialog" aria-labelledby="confirmMeetingTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="confirmMeetingTitle">Confirm Submission</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div id="modalError" style="color:red"></div>
+            <h2>Meeting Details</h2>
+            <p id="modalMeetingType">Meeting Type: </p>
+            <p id="modalStartTime">Start Time: </p>
+            <p id="modalEndTime">End Time: </p>
+            <p id="modalDescription">Description: </p>
+            <h2>Meeting Attendees</h2>
+            <div id="modalAttendees">
+
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary submit-meeting" id="submit" data-dismiss="modal">Create Meeting</button>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    
+    {% include footer.html %}
+    {% include scripts.html %}
+    <script src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js'></script>
+    <script>
+        $(() => {
+            console.log("wow!");
+            fetch("http://backend.famnm.club/meeting")
+            .then( (response) =>{
+                if (!response.ok) throw Error(response.statusText);
+                return response.json();
+            })
+            .then(console.log)
+            .catch(console.log)
+        });
+    </script>
+</body>
+</html>
