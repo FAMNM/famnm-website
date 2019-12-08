@@ -1,4 +1,4 @@
-var getTime =  (hour, minute) => new Date (2019,0,5,hour,minute,0,0,0);
+var getTime = (hour, minute) => new Date(2020, 0, 4, hour, minute, 0, 0, 0);
 
 var bNs = {
     getTimeString: (time) => {
@@ -30,7 +30,7 @@ var bNs = {
             if (loc.code === false) return;
 
             var nestedCreate = function () {
-                var nodeList = [ arguments[0] ];
+                var nodeList = [arguments[0]];
 
                 for (var i = 1; i < arguments.length; ++i) {
                     nodeList.push($(document.createElement(arguments[i])));
@@ -74,16 +74,16 @@ var bNs = {
 
                 var pos = new google.maps.LatLng(marker[1], marker[2]);
                 bNs.map.activeMarker = new google.maps.Marker({
-                   position: pos,
-                   map: bNs.map.map,
-                   icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                   title: loc.name
+                    position: pos,
+                    map: bNs.map.map,
+                    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                    title: loc.name
                 });
                 bNs.map.map.setCenter(pos);
                 bNs.map.map.setZoom(18);
 
-                bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function(mrk) {
-                    return function() {
+                bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function (mrk) {
+                    return function () {
                         bNs.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
                         bNs.map.infoWindow.open(map, mrk);
                     }
@@ -163,74 +163,74 @@ var bNs = {
         }
 
         if (loc === false) {
-            return {code:false, name:"N/A"};
+            return { code: false, name: "N/A" };
         }
 
-        var locObj = {code:loc, name:loc};
+        var locObj = { code: loc, name: loc };
 
-        bNs.locations.forEach(function(lMapping) {
+        bNs.locations.forEach(function (lMapping) {
             locObj.name = locObj.name.replace(lMapping[0], lMapping[1]);
         });
 
         return locObj;
     },
     getMarker: code => {
-      for (var i = 0; i < bNs.markers.length; ++i) {
-          if (code === bNs.markers[i][0]) return bNs.markers[i];
-      }
+        for (var i = 0; i < bNs.markers.length; ++i) {
+            if (code === bNs.markers[i][0]) return bNs.markers[i];
+        }
 
-      return [];
+        return [];
     },
-    activeTeam:{},
-    schedule:[
-       {
-           event:"Team Check-In",
-           start:getTime(8,0),
-           end:getTime(10,0),
-           location:"PIER"
-       },
-       {
-           event:"Breakout Rooms Open",
-           start:getTime(8,0),
-           end:getTime(10,0),
-           location:"t:breakout"
-       },
-       /*{
-           event:"North Campus Tours",
-           start:getTime(8,15),
-           end:getTime(9,15),
-           location:"PIER"
-       },*/
-       {
-           event:"UM Fair",
-           start:getTime(8,30),
-           end:getTime(10,0),
-           location:"DUDE CON"
-       },
-       {
-           event:"Opening Ceremonies and Broadcast",
-           start:getTime(10,0),
-           end:getTime(11,30),
-           location:"t:broadcast"
-       },
-       {
-           event:"Kit Distribution",
-           start:getTime(11,30),
-           end:getTime(15,0),
-           location:"CHRYS 133"
-       },
-       {
-           event:"Virtual Game Field Open",
-           start:getTime(11,45),
-           end:getTime(15,0),
-           location:"DUDE GAL"
-       },
-       {
-           event:"Breakout Rooms Open",
-           start:getTime(11,30),
-           end:getTime(18,0),
-           location:"t:breakout"
-       }
+    activeTeam: {},
+    schedule: [
+        {
+            event: "Team Check-In",
+            start: getTime(8, 0),
+            end: getTime(10, 0),
+            location: "DUDE CON"
+        },
+        {
+            event: "Breakout Rooms Open",
+            start: getTime(8, 0),
+            end: getTime(10, 0),
+            location: "t:breakout"
+        },
+        /*{
+            event:"North Campus Tours",
+            start:getTime(8,15),
+            end:getTime(9,15),
+            location:"PIER"
+        },*/
+        {
+            event: "UM Fair",
+            start: getTime(8, 30),
+            end: getTime(10, 0),
+            location: "DUDE CON"
+        },
+        {
+            event: "Opening Ceremonies and Broadcast",
+            start: getTime(10, 0),
+            end: getTime(11, 30),
+            location: "t:broadcast"
+        },
+        {
+            event: "Kit Distribution",
+            start: getTime(11, 30),
+            end: getTime(15, 0),
+            location: "CHRYS 133"
+        },
+        {
+            event: "Virtual Game Field Open",
+            start: getTime(11, 45),
+            end: getTime(15, 0),
+            location: "DOW 1010"
+        },
+        {
+            event: "Breakout Rooms Open",
+            start: getTime(11, 30),
+            end: getTime(18, 0),
+            location: "t:breakout"
+        }
     ],
     map: {
         toggleParking: show => {
@@ -294,20 +294,20 @@ var bNs = {
         parkingShown: false,
         parkingMarkers: []
     },
-    locations:[
-        ["220","- Chesebrough Auditorium (Room 220)"],
-        ["GAL","Gallery"],
-        ["CON","Connector"],
-        ["DUDE","Duderstadt"],
-        ["CHRYS","Chrysler"],
-        ["GGBL","GG Brown"],
-        ["EECS","EECS Building"],
-        ["BBB","Bob and Betty Beyster Building"],
-        ["DOW","Dow Building"],
-        ["PIER","Pierpont Commons"],
-        ["FXB","Fran\u00e7ois-Xavier Bagnoud Building"]
+    locations: [
+        ["220", "- Chesebrough Auditorium (Room 220)"],
+        ["GAL", "Gallery"],
+        ["CON", "Connector"],
+        ["DUDE", "Duderstadt"],
+        ["CHRYS", "Chrysler"],
+        ["GGBL", "GG Brown"],
+        ["EECS", "EECS Building"],
+        ["BBB", "Bob and Betty Beyster Building"],
+        ["DOW", "Dow Building"],
+        ["PIER", "Pierpont Commons"],
+        ["FXB", "Fran\u00e7ois-Xavier Bagnoud Building"]
     ],
-    parking:[
+    parking: [
         { lot: "NC5", lat: 42.288055, lng: -83.714438 },
         { lot: "NC8", lat: 42.287934, lng: -83.713655 },
         { lot: "NC10", lat: 42.289723, lng: -83.721736 },
@@ -316,7 +316,7 @@ var bNs = {
         { lot: "NC48", lat: 42.293288, lng: -83.717167 },
         { lot: "NC60", lat: 42.290550, lng: -83.712640 }
     ],
-    markers:[
+    markers: [
         ["PIER", 42.291384, -83.717490],
         ["DUDE CON", 42.291225, -83.716470],
         ["DUDE GAL", 42.291166, -83.716745],
@@ -343,9 +343,9 @@ var bNs = {
     ]
 };
 
-function initMap () {
+function initMap() {
     bNs.map.map = new google.maps.Map($("#map").get(0), {
-        center: new google.maps.LatLng(42.291964,-83.715810),
+        center: new google.maps.LatLng(42.291964, -83.715810),
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         gestureHandling: "greedy"
@@ -380,8 +380,8 @@ function initMap () {
     google.maps.event.addListener(bNs.map.map, "maptypeid_changed", () => {
         var mapType = bNs.map.map.getMapTypeId();
         var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
-                                ? "../img/kickoff/icons/parking-white.png"
-                                : "../img/kickoff/icons/parking.png");
+            ? "../img/kickoff/icons/parking-white.png"
+            : "../img/kickoff/icons/parking.png");
 
         bNs.map.parkingMarkers.forEach(function (mkr) {
             mkr.setIcon(newParkingIcon);
@@ -416,8 +416,8 @@ $(document).ready(function () {
 
     //Initialize countdown clock
     var computeDiff = () => {
-        var diff = (getTime(10,0).getTime() - (new Date()).getTime());
-        var d,h,m,s;
+        var diff = (getTime(10, 30).getTime() - (new Date()).getTime());
+        var d, h, m, s;
 
         var clockParts = $(".countdown-clock").children();
 
