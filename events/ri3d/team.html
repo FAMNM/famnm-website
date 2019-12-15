@@ -1,11 +1,126 @@
 ---
 title: FAMNM Core Team | FIRST® Alumni &amp; Mentors Network at Michigan
 redirect_from: "/events/ri3d"
+people:
+    - 0:
+        name: "Austin Barkey"
+        standing: "Senior"
+        major: "Mechanical Engineering"
+        quote: "Give me the go ahead. I will make it happen."
+        image: "/img/core/projects.jpg"
+    - 0:
+        name: "Anuraag Bharadwaj"
+        standing: "Grad Student"
+        major: "Computer Science"
+        quote: "Have the fruit snacks arrived yet?"
+        image: "/img/ri3d/team/anuraag.jpg"
+    - 0:
+        name: "Luke Bilby"
+        standing: "Junior"
+        major: "Mechanical Engineering"
+        quote: "Do what it takes"
+        image: "/img/ri3d/team/luke.jpg"
+    - 0:
+        name: "Colin Bott"
+        standing: "Senior"
+        major: "Mechanical Engineering"
+        quote: "I like robots"
+        image: "/img/ri3d/team/colin.jpg"
+    - 0:
+        name: "Jonathan Brandell"
+        standing: "Freshman"
+        major: "Biomedical Engineering"
+        quote: "If climate change isn't real, why is Tim so hot?"
+        image: "/img/ri3d/team/jon.jpg"
+    - 0:
+        name: "Tyler Brandt"
+        standing: "Freshman"
+        major: "Computer Science"
+        quote: "Just gimme 5 more minutes"
+        image: "/img/ri3d/team/tyler.jpg"
+    - 0:
+        name: "Chandra Desai"
+        standing: "Sophomore"
+        major: "Computer Science"
+        quote: "Not afraid of godlike opponents, only afraid of pig-like teammates ..."
+        image: "/img/ri3d/team/chan.jpg"
+    - 0:
+        name: "Jade Ebels"
+        standing: "Sophomore"
+        major: "Engineering Physics"
+        quote: "I don't build robots but I'm the reason you know they got built"
+        image: "/img/ri3d/team/jade.jpg"
+    - 0:
+        name: "Marshall Gaunt"
+        standing: "Junior"
+        major: "Industrial Operations Engineering"
+        quote: "Alumnus and Mentor for FRC 1684"
+        image: "/img/ri3d/team/marshall.jpg"
+    - 0:
+        name: "Carmen Giger"
+        standing: "Sophomore"
+        major: ""
+        quote: "Silence."
+        image: "/img/ri3d/team/carmen.jpg"
+    - 0:
+        name: "Travis Gurlik"
+        standing: "Junior"
+        major: "Computer Science"
+        quote: "Robots? Robots."
+        image: "/img/ri3d/team/travis.jpg"
+    - 0:
+        name: "Rebecca Jean"
+        standing: "Freshman"
+        major: ""
+        quote: "Same soup, just reheated"
+        image: "/img/ri3d/team/rebeccaj.jpg"
+    - 0:
+        name: "Amanda Kline"
+        standing: "Senior"
+        major: "Computer Science"
+        quote: "I've built my robots, but spreadsheets? I love me some spreadsheets. "
+        image: "/img/ri3d/team/amanda.jpg"		  
+    - 0:
+        name: "Rebecca Kowalczyk"
+        standing: "Freshman"
+        major: "Mechanical Engineering"
+        quote: "This is why we can't have nice things"
+        image: "/img/ri3d/team/rebeccak.jpg"
+    - 0:
+        name: "Leo Liang"
+        standing: "Freshman"
+        major: "Computer Science"
+        quote: "Robotics. Eat it. Is good for you. "
+        image: "/img/ri3d/team/leo.jpg"
+    - 0:
+        name: "Alex Shaw"
+        standing: "Junior"
+        major: "Materials Science Engineering"
+        quote: "This quote was written using 100% recycled words."
+        image: "/img/ri3d/team/alex.jpg"
+    - 0:
+        name: "Timothy Taubitz"
+        standing: "Freshman"
+        major: "Electrical Engineering"
+        quote: "Gimme guac or take a walk"
+        image: "/img/ri3d/team/tim.jpg"
+    - 0:
+        name: "Michelle Wang"
+        standing: "Senior"
+        major: "Mechanical Engineering"
+        quote: "I'll burn that bridge when I get to it "
+        image: "/img/ri3d/team/michelle.jpg"
+    - 0:
+        name: "Keyen Yockey"
+        standing: "Junior"
+        major: "Mechanical Engineering"
+        quote: "I just eyeballed it"
+        image: "/img/ri3d/team/keyen.png"
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    {% include title-styles.html %}
+	{% include title-styles.html %}
 </head>
 <body>
     {% include header.html %}
@@ -17,272 +132,24 @@ redirect_from: "/events/ri3d"
 
 			<div class="row">
 			
-  			  <div class="col-md-6 col-lg-4">
+			  {% for person in page.people %}
+			  <div class="col-md-6 col-lg-4">
 			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/core/projects.jpg" />
+			      <img alt="Card image cap" class="card-img-top img-fluid" src="{{ person[0].image }}" />
 			      <div class="card-block">
-			        <h4 class="card-title">Austin Barkey</h4>
-			
+			        <h4 class="card-title">{{ person[0].name }}</h4>
 			        <p class="card-text">
-			        	<b>Senior: </b> Mechanical Engineering <br/>
-			        	<i>Give me the go ahead. I will make it happen.</i>
+						{% if person[0].major == "" %}
+						<b>{{ person[0].standing }}</b><br/>
+						{% else %}
+			        	<b>{{ person[0].standing }}: </b> {{ person[0].major }} <br/>
+						{% endif %}
+			        	<i>{{ person[0].quote }}</i>
 		        	</p>
 			      </div>
 			    </div>
 			  </div>
-			
-  			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/anuraag.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Anuraag Bharadwaj</h4>
-			
-			        <p class="card-text">
-			        	<b>Grad Student: </b> Computer Science <br/>
-			        	<i>Have the fruit snacks arrived yet?</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-   			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/luke.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Luke Bilby</h4>
-			
-			        <p class="card-text">
-			        	<b>Junior: </b> Mechanical Engineering<br/>
-			        	<i>Do what it takes</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/colin.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Colin Bott</h4>
-			
-			        <p class="card-text">
-			        	<b>Senior: </b> Mechanical Engineering <br/>
-			        	<i>I like robots</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-  			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/jon.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Jonathan Brandell</h4>
-			
-			        <p class="card-text">
-			        	<b>Freshman: </b> Biomedical Engineering <br/>
-			        	<i>If climate change isn't real, why is Tim so hot?</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-  			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/tyler.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Tyler Brandt</h4>
-			
-			        <p class="card-text">
-			        	<b>Freshman: </b> Computer Science <br/>
-			        	<i>Just gimme 5 more minutes</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-  			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/chan.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Chandra Desai</h4>
-			
-			        <p class="card-text">
-			        	<b>Sophomore: </b>  <br/>
-			        	<i>Not afraid of godlike opponents, only afraid of pig-like teammates ...</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/jade.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Jade Ebels</h4>
-			
-     			    <p class="card-text">
-			        	<b>Sophomore: </b> Engineering Physics <br/>
-			        	<i>I don't build robots but I'm the reason you know they got built</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-  			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/marshall.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Marshall Gaunt</h4>
-			
-			        <p class="card-text">
-			        	<b>Junior: </b> Industrial Operations Engineering <br/>
-			        	<i>Alumnus and Mentor for FRC 1684</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/carmen.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Carmen Giger</h4>
-			
-     			    <p class="card-text">
-			        	<b>Sophomore: </b>  <br/>
-			        	<i>Silence.</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/travis.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Travis Gurlik</h4>
-			
-     			    <p class="card-text">
-			        	<b>Junior: </b> Computer Science <br/>
-			        	<i>Robots? Robots.</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/rebeccaj.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Rebecca Jean</h4>
-			
-     			    <p class="card-text">
-			        	<b>Freshman: </b>  <br/>
-			        	<i>Same soup, just reheated</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/amanda.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Amanda Kline</h4>
-			
-     			    <p class="card-text">
-			        	<b>Senior: </b> Computer Science <br/>
-			        	<i>I've built my robots, but spreadsheets? I love me some spreadsheets. </i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/rebeccak.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Rebecca Kowalczyk</h4>
-			
-     			    <p class="card-text">
-			        	<b>Freshman: </b> Mechanical Engineering <br/>
-			        	<i>This is why we can't have nice things</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/leo.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Leo Liang</h4>
-			
-     			    <p class="card-text">
-			        	<b>Freshman: </b> Computer Science <br/>
-			        	<i>Robotics. Eat it. Is good for you. </i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/alex.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Alex Shaw</h4>
-			
-     			    <p class="card-text">
-			        	<b>Junior: </b> Materials Science Engineering <br/>
-			        	<i>This quote was written using 100% recycled words.</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/tim.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Timothy Taubitz</h4>
-			
-     			    <p class="card-text">
-			        	<b>Freshman: </b> Electrical Engineering <br/>
-			        	<i>Gimme guac or take a walk</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/michelle.jpg" />
-			      <div class="card-block">
-			        <h4 class="card-title">Michelle Wang</h4>
-			
-     			    <p class="card-text">
-			        	<b>Senior: </b> Mechanical Engineering <br/>
-			        	<i>I'll burn that bridge when I get to it </i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="../../img/ri3d/team/keyen.png" />
-			      <div class="card-block">
-			        <h4 class="card-title">Keyen Yockey</h4>
-			
-     			    <p class="card-text">
-			        	<b>Junior: </b> Mechanical Engineering <br/>
-			        	<i>I just eyeballed it</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  
+			  {% endfor %}
          	</div>
     </div><!-- /.container -->
 
@@ -310,6 +177,10 @@ redirect_from: "/events/ri3d"
 		
 		.card {
 			margin-top:1.5vw
+		}
+
+		.card-block {
+			padding: 1.5vw;
 		}
         
     </style>
