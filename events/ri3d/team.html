@@ -167,11 +167,22 @@ people:
 		    color:#e9cc06;
 		    padding:0.375vw 0.75vw;
 		    font-size:1.5vw;
-		}
+        }
+        
+        @media (max-width: 800px) {
+            .card-img-top {
+                height: 100%;
+            }
+        }
+
+        @media (min-width: 801px) {
+            .card-img-top {
+                height: 25vw;
+            }
+        }
 		
 		.card-img-top {
 		    width: 100%;
-		    height: 25vw;
 		    object-fit: cover;
 		}
 		
