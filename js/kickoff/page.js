@@ -106,22 +106,29 @@ var bNs = {
             else cell.parent().addClass("table-warning");
         });
     },
-    teamNumAccepted: event => {
+    teamNumAccepted: (event, isEvent) => {
         var num;
         var emptyDiv = $(".team-empty");
         var errDiv = $(".team-error");
         var dispDiv = $(".team-disp");
         var teamNumName = $("#team-num-name");
         var teamSchool = $("#team-school");
-        var target = $(event.currentTarget);
+        
+        if (isEvent) {
+            var target = $(event.currentTarget);
 
 
-        if (target.prop("type") === "text") {
-            if (event.key !== "Enter") return;
-            num = parseInt(target.val(), 10);
-        } else if (target.prop("type") === "button") {
-            num = parseInt(target.parent().prev().val(), 10);
-        } else return;
+            if (target.prop("type") === "text") {
+                if (event.key !== "Enter") return;
+                num = parseInt(target.val(), 10);
+            } else if (target.prop("type") === "button") {
+                num = parseInt(target.parent().prev().val(), 10);
+            } else return;
+
+        } else {
+            console.log("event is" + event)
+            num = event;
+        }
 
         if (bNs.activeTeam.intervalId !== undefined)
             clearInterval(bNs.activeTeam.intervalId);
@@ -131,8 +138,13 @@ var bNs = {
             bNs.loadSchedules();
             bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
 
-            teamNumName.text(num + ": " + bNs.activeTeam.name);
-            teamSchool.text(bNs.activeTeam.school);
+            if (num !== 0) {
+                teamNumName.text(num + ": " + bNs.activeTeam.name);
+                teamSchool.text(bNs.activeTeam.school);
+            } else {
+                teamNumName.text("SCHEDULE FOR ALL TEAMS")
+                teamSchool.text(bNs.activeTeam.school);
+            }
 
             errDiv.css("display", "none");
             dispDiv.css("display", "block");
@@ -148,6 +160,8 @@ var bNs = {
         for (var i = 0; i < bNs.teams.length; ++i) {
             if (bNs.teams[i].number === num) {
                 bNs.activeTeam = bNs.teams[i];
+                console.log("set active team");
+                console.log(bNs.activeTeam);
                 return bNs.teams[i].number;
             }
         }
@@ -404,14 +418,16 @@ $(document).ready(function () {
     }).done(teams => {
         bNs.teams = teams;
 
-        //Load the current team
-        var team = localStorage.getItem("team");
+        // //Load the current team
+        // var team = localStorage.getItem("team");
 
-        if (team.length > 0) {
-            var teamInput = $($(".input-group").children().get(0));
-            teamInput.val(team);
-            teamInput.next().trigger("click");
-        }
+        // if (team.length > 0) {
+        //     var teamInput = $($(".input-group").children().get(0));
+        //     teamInput.val(team);
+        //     teamInput.next().trigger("click");
+        // }
+
+        bNs.teamNumAccepted(0, false)
     });
 
     //Initialize countdown clock
