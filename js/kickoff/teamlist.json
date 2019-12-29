@@ -1,5 +1,12 @@
 [
 	{
+		"number": 0,
+		"name": "ALL",
+		"school": "University of Michigan North Campus",
+		"broadcast": "TBA - Per Team",
+		"breakout": "TBA - Per Team"
+	},
+	{
 		"number": 66,
 		"name": "Grizzly Robotics",
 		"school": "Ypsilanti STEMM Middle College",

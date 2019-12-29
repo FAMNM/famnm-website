@@ -141,7 +141,8 @@ title: 2020 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
             <!-- <p class="text-par">If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
                 If you wish to order a pizza lunch for your team, that link may also be found below.</p> -->
             <ul style="list-style-type: none; padding-left: 0;">
-                <!-- <li><a href="#sched">Schedule</a></li> -->
+                <li><a href="#event-map">Event Map</a></li>
+                <li><a href="#sched">Schedule</a></li>
                 <li><a href="#recharge"><span class="italic">FIRST</span>&reg; INFINITE RECHARGE&#8480;</a>
                 </li>
                 <!-- <li><a href="#um-fair">UM Fair</a></li> -->
@@ -157,25 +158,26 @@ title: 2020 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                 Event Map:
             </h1>
             <iframe src="https://www.google.com/maps/d/embed?mid=1NgNVk45VFsOPxiIu1bgk4Rt2SbIVJoYI" width="640"
-                height="480"></iframe>
+                height="480" id="event-map"></iframe>
             <p class="text-par"><span class="font-weight-bold">FAMNM is excited to be hosting our fifth annual FRC
                     Kickoff!</span> Details will be posted to this page as they become available.</p>
             <p class="text-par">FRC teams from the local area come to U-M for the reveal of the 2020 FIRST Robotics
                 Competition game. The kickoff will feature a University of Michigan student organization fair,
                 pre-broadcast speakers, breakout rooms for teams to discuss the game after the reveal, and a
                 kit-of-parts distribution.</p>
-            <!-- <h2 id="sched">Schedule</h2>
-            <div class="input-group">
+            <h2 id="sched">Schedule</h2>
+            <!-- <div class="input-group">
                 <input type="text" class="form-control" placeholder="Team number"
-                    onkeypress="bNs.teamNumAccepted(event)" />
+                    onkeypress="bNs.teamNumAccepted(event, true)" />
                 <span class="input-group-append">
-                    <button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event)">View</button>
+                    <button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event, true)">View</button>
                 </span>
             </div>
             <p class="team-empty">Enter your team number above to see your team's schedule, find broadcast and breakout
                 rooms, and view additional kickoff information.</p>
             <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br /> We're sorry, we don't
-                have a schedule for that team.<br />
+                have a schedule for that team.<br /> -->
+            <p>
                 If your team is just picking up your Kit of Parts, you can pick it up at <a href="#" data-toggle="modal"
                     data-target="#mapModal" onclick="bNs.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.</p>
             <div class="team-disp">
@@ -193,7 +195,7 @@ title: 2020 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                     <tbody id="schedule">
                     </tbody>
                 </table>
-            </div> -->
+            </div>
             <img id="recharge"
                 src="https://www.firstinspires.org/sites/default/files/uploads/rightimage/infinite-recharge-web-promo_0.png"
                 style="max-height: 150px;" />
@@ -349,8 +351,6 @@ title: 2020 FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
         <ul class="sponsor-display">
             <li><a href="http://esg.engin.umich.edu/" target="_blank"><img class="center"
                         src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
-            <li><a href="https://ginsberg.umich.edu/" target="_blank"><img class="center"
-                        src="../../img/kickoff/sponsor/ginsberg.png" alt="Edward Ginsberg Center" /></a></li>
             <li><a href="https://engin.umich.edu" target="_blank"><img class="center" src="../../img/sponsor/coe.png"
                         alt="University of Michigan College of Engineering" /></a></li>
         </ul>
