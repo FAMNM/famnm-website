@@ -84,12 +84,11 @@ body > * {
 
 /** Footer formatting **/
 .footer {
-	background-color: #000e33;
+	background-color: #343a40;
 	color: #ffffff;
 	clear: both;
 	margin: 1em -30px -30px -30px;
 	font-size: 1.25em;
-	box-shadow: inset 0px 10px 8px 0px #00071a;
 	flex-grow: 1;
 }
 
