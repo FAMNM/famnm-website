@@ -90,6 +90,7 @@ body > * {
 	margin: 1em -30px -30px -30px;
 	font-size: 1.25em;
 	flex-grow: 1;
+	box-shadow: inset 0px 10px 8px 0px #00071a;
 }
 
 .footer #copyright-text {
