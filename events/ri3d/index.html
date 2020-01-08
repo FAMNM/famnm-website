@@ -17,26 +17,82 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
 			font-size: 40px;
 			font-weight: bold;
 		}
-                .lead-card {
-                    padding: 1.5em;
-                    background-color: #eeeeee;
-                }
-                @media (min-width: 768px) {
-                    .desc-row:not(:first-child) {
-                        margin-top: 1em;
-                    }
-                }
-                @media (max-width: 767px) {
-                    .img-contain ~ .desc {
-                        margin-top: 1em;
-                    }
-                    .desc-row {
-                        padding: 1em 0;
-                    }
-                    .desc-row:not(:last-child) {
-                        border-bottom: 1px solid #777777;
-                    }
-                }
+        .lead-card {
+            padding: 1.5em;
+            background-color: #eeeeee;
+        }
+        @media (min-width: 768px) {
+            .desc-row:not(:first-child) {
+                margin-top: 1em;
+            }
+        }
+        @media (max-width: 767px) {
+            .img-contain ~ .desc {
+                margin-top: 1em;
+            }
+            .desc-row {
+                padding: 1em 0;
+            }
+            .desc-row:not(:last-child) {
+                border-bottom: 1px solid #777777;
+            }
+        }
+        /** Sponsor display list **/
+
+        ul.sponsor-display {
+            padding: 0;
+            vertical-align: middle;
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            ul.sponsor-display>li {
+                list-style-type: none;
+                vertical-align: middle;
+            }
+
+            ul.silver-sponsor>li img {
+                width: 60%;
+            }
+            ul.gold-sponsor>li img {
+                width: 100%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            ul.sponsor-display>li {
+                list-style-type: none;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            ul.silver-sponsor>li img {
+                width: 250px;
+            }
+            ul.gold-sponsor>li img {
+                width: 450px;
+            }
+        }
+
+        ul.sponsor-display>li:hover {
+            background-color: #cccccc;
+        }
+
+        ul.sponsor-display>li>a {
+            display: block;
+            padding: 10px;
+        }
+
+        ul.gold-sponsor {
+            border: solid gold 4px;
+        }
+
+        ul.silver-sponsor {
+            border: solid silver 4px;
+            margin-top: 10px;
+        }
+
 	</style>
 	</head>
 	<body>
@@ -80,7 +136,7 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                                     <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.
                              </div>
                          </div>
-			 <div class="row desc-row text-left">
+			            <div class="row desc-row text-left">
                               <div class="col-md-6 desc">
                                   <h2 id="overview">What is Ri3D?</h2>
                                   <p>Robot in 3 Days is a challenge in which collegiate teams rush to build a robot capable of playing the current FRC game in only three days.
@@ -92,7 +148,7 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                               <div class="col-md-6 img-contain">
                                   <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-winners.jpg"/>
                               </div>
-			 </div>
+			            </div>
                          <div class="row desc-row text-left">
                              <div class="col-md-6 img-contain">
                                  <img class="mx-auto" src="{{site.url}}/img/ri3d/andrew-can-use-rivets.png"/>
@@ -105,6 +161,23 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                                  <p>FAMNM Ri3D also provides an avenue for University of Michigan students to combine what they learned through FIRST and throughout their college career
                                     and apply it to building an FRC robot.</p>
                              </div>
+                         </div>
+                         <div>
+                            <br/>
+                            <h3 style="text-align: center;">Our Ri3D Sponsors</h3>
+                            <ul class="sponsor-display gold-sponsor">
+                                <li><a href="https://engin.umich.edu" target="_blank"><img class="center" src="../../img/sponsor/coe.png"
+                                    alt="University of Michigan College of Engineering" /></a></li>
+                                <li><a href="https://robotics.umich.edu/" target="_blank"><img class="center" src="../../img/sponsor/robotics-institute.png"
+                                    alt="University of Michigan Robotics Institute" /></a></li>
+                            </ul>
+                            <ul class="sponsor-display silver-sponsor">
+                                <li><a href="https://www.netscout.com/" target="_blank"><img class="center" src="../../img/sponsor/netscout.png" alt="NETSCOUT"/></a></li>
+                                <li><a href="https://me.engin.umich.edu/" target="_blank"><img class="center" src="../../img/sponsor/CoE-ME-vert.png"
+                                    alt="University of Michigan Department of Mechanical Engineering" /></a></li>
+                                <li><a href="http://esg.engin.umich.edu/" target="_blank"><img class="center"
+                                            src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
+                            </ul>
                          </div>
                          <div class="card lead-card text-left">
                              <h2>2019 FAMNM Ri3D</h2>
