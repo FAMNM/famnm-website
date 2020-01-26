@@ -147,12 +147,14 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             });
 
             const submitMeeting = () => {
+                const meetingDay = new Date();
+                meetingDay.setHours(0,0,0,0);
                 fetch('http://backend.famnm.club/meeting', {
                     headers: {'Content-Type': 'application/json'},
                     method: 'POST',
                     body: JSON.stringify({
                         meetingType: $('#meetingType').children('option:selected').val(),
-                        meetingDay: new Date().getTime(),
+                        meetingDay: meetingDay.getTime(),
                         startTime: convertMeetingTime($('#meetingStartTime').val()),
                         endTime: convertMeetingTime($('#meetingEndTime').val()),
                         description: $('#meetingDescription').val()
