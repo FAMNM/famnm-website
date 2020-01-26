@@ -5,11 +5,15 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <html lang='en'>
 <head>
     {% include title-styles.html %}
-    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css'>
+    <link rel=-'stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css'>
 </head>
 <body>
     {% include header.html %}
-
+<!-- 
+    - lookup by uniqname
+    - export to csv
+    - click button to see who do 4 meetings
+ -->
     <!-- <form class='w-50 mx-auto attendance-form'>
         <h1>FAMNM Attendance Viewer</h1>
         <div class='form-group my-5'>
@@ -53,35 +57,32 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             })
             .then(data => {
                 data.sort((a,b) => {
-                    const ad = new Date(a.day);
-                    const bd = new Date(b.day);
-
-                    if (ad.getTime() === bd.getTime()) {
-                        return parseInt(a.start_time.substring(0,2)) < parseInt(b.start_time.substring(0,2));
-                    }
-
-                    return ad.getTime() < bd.getTime();
-                })
+                    return a.meeting_id < b.meeting_id;
+                });
+                return data;
+            })
+            .then(data => {
+                
                 console.log(data);
                 data.forEach(meeting => {
+                    let meetDay = new Date(meeting.day);
 
+                    $('#meeting-body').append($(`
+                    <tr id="meeting-${meeting.meeting_id}">
+                        <th>${monthIdxToString[meetDay.getUTCMonth()]} ${meetDay.getUTCDate()} ${meetDay.getUTCFullYear()}</th>
+                        <td>${meeting.type}</td>
+                        <td>${meeting.meeting_id}</td>
+                        <td id="attendees-${meeting.meeting_id}">Loading...</td>
+                    </tr>`));  
+                })
+                data.forEach(meeting => {
                     fetch(`http://backend.famnm.club/attendance/meeting/${meeting.meeting_id}`)
                     .then(res => {
                         if (!res.ok) throw Error(res.statusText);
                         return res.json();
                     }).then(attendees => {
-                        let meetDay = new Date(meeting.day);
-                        let newRow = $(`
-                        <tr>
-                            <th>${monthIdxToString[meetDay.getUTCMonth()]} ${meetDay.getUTCDate()} ${meetDay.getUTCFullYear()}</th>
-                            <td>${meeting.type}</td>
-                            <td>${meeting.description}</td>
-                            <td>${attendees.map(a => a.uniqname).join(", ")}</td>
-                        </tr>`);
-
-                    $('#meeting-body').append(newRow);
-                    })
-                    
+                        $(`#attendees-${meeting.meeting_id}`).text(attendees.map(a => a.uniqname).join(", "));
+                    });
                 })
             })
             .catch(console.log)
