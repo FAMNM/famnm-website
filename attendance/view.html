@@ -10,22 +10,29 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <body>
     {% include header.html %}
 <!-- 
-    - lookup by uniqname
     - export to csv
-    - click button to see who do 4 meetings
- -->
-    <!-- <form class='w-50 mx-auto attendance-form'>
-        <h1>FAMNM Attendance Viewer</h1>
-        <div class='form-group my-5'>
-            <label for='meetingType'>What type of meeting?</label>
-            <select class='form-control' id='meetingType'>
-                <option>
-                    ------
-                </option>
-            </select>
-        </div>
-    </form> -->
-    <div style="overflow-x: auto;" class="mx-5">
+    - click button to see who do 4 meetings: "SELECT uniqname, COUNT(*) FROM attendance GROUP BY uniqname HAVING COUNT(*) > 3;"
+-->
+    <div class='w-50 mx-auto uniqname-search d-flex justify-content-center'>
+        <input id='uniqname' type='text' placeholder='uniqname'/>
+        <button type="button" class="btn btn-primary" data-toggle="modal" id="sendUniqname">Submit</button>
+    </div>
+
+    <div class="mx-auto w-50 d-flex justify-content-center">
+        <table class="table" id="uniqname-meetings">
+            <thead>
+                <tr>
+                    <th scope="col">Meeting Date</th>
+                    <th scope="col">Type</th>
+                </tr>
+            </thead>
+            <tbody id="uniqname-meeting-body">
+
+            </tbody>
+        </table>
+    </div>
+
+    <div style="overflow-x: scroll;" class="w-75 mx-auto">
         <table class="table all-meetings">
             <thead>
                 <tr>
@@ -40,7 +47,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </tbody>
         </table>
     </div>
-    
+
     {% include footer.html %}
     {% include scripts.html %}
     <script>
@@ -49,21 +56,25 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             4: "May", 5: "June", 6: "July", 7: "Aug",
             8: "Sep", 9: "Oct", 10: "Nov", 11: "Dec"
         }
+        let sortMeetings = (meetings) => {
+            meetings.sort((a,b) => {
+                return a.meeting_id < b.meeting_id;
+            });
+            return meetings;
+        };
+
         $(() => {
+            $('#uniqname-meetings').hide();
+
             fetch("http://backend.famnm.club/meeting")
             .then( (res) => {
                 if (!res.ok) throw Error(res.statusText);
                 return res.json();
             })
-            .then(data => {
-                data.sort((a,b) => {
-                    return a.meeting_id < b.meeting_id;
-                });
-                return data;
-            })
+            .then(sortMeetings)
             .then(data => {
                 
-                console.log(data);
+                // console.log(data);
                 data.forEach(meeting => {
                     let meetDay = new Date(meeting.day);
 
@@ -73,7 +84,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                         <td>${meeting.type}</td>
                         <td>${meeting.description}</td>
                         <td id="attendees-${meeting.meeting_id}">Loading...</td>
-                    </tr>`));  
+                    </tr>`));
                 })
                 data.forEach(meeting => {
                     fetch(`http://backend.famnm.club/attendance/meeting/${meeting.meeting_id}`)
@@ -85,7 +96,51 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     });
                 })
             })
-            .catch(console.log)
+            .catch(console.log);
+
+            let populateUniqname = () => {
+                $('#uniqname-meetings').show();
+                const uniqname = $('#uniqname').val();
+                $('#uniqname').val('');
+                $('#uniqname-meeting-body').empty();
+
+                fetch(`http://backend.famnm.club/attendance/uniqname/${uniqname}`)
+                .then( (res) => {
+                    if (!res.ok) throw Error(res.statusText);
+                    return res.json();
+                })
+                .then(sortMeetings)
+                .then((meetings) => {
+                    meetings.forEach(meeting => {
+                        $('#uniqname-meeting-body').append($(`
+                        <tr id="uniqname-meeting-${meeting.meeting_id}">
+                            <th id="date-uniqname-meeting-${meeting.meeting_id}">Loading...</th>
+                            <td id="type-uniqname-meeting-${meeting.meeting_id}">Loading...</td>
+                        </tr>`));
+                    });
+
+                    meetings.forEach(meeting => {
+                        fetch(`http://backend.famnm.club/meeting/${meeting.meeting_id}`)
+                        .then(res => {
+                            if (!res.ok) throw Error(res.statusText);
+                            return res.json();
+                        })
+                        .then(fullMeeting => {
+                            // console.log(fullMeeting);
+                            let meetDay = new Date(fullMeeting[0].day);
+                            $(`#type-uniqname-meeting-${meeting.meeting_id}`).text(fullMeeting[0].type);
+                            $(`#date-uniqname-meeting-${meeting.meeting_id}`).text(`${monthIdxToString[meetDay.getUTCMonth()]} ${meetDay.getUTCDate()} ${meetDay.getUTCFullYear()}`);
+                        });
+                    })
+                })
+                .catch(console.log);
+            }
+
+            $('#uniqname').keypress((e) => {
+                if (e.keyCode == 13){populateUniqname();}
+            });
+
+            $('#sendUniqname').click(populateUniqname);
         });
     </script>
 </body>
