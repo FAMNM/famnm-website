@@ -11,9 +11,17 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include header.html %}
 <!-- 
     - export to csv
-    - click button to see who do 4 meetings: "SELECT uniqname, COUNT(*) FROM attendance GROUP BY uniqname HAVING COUNT(*) > 3;"
 -->
-    <div class='w-50 mx-auto uniqname-search d-flex justify-content-center'>
+    <div class='w-50 mx-auto d-flex justify-content-center'>
+        <a class="btn btn-success mx-3 my-3" id="csv-button" href="http://backend.famnm.club/export">Get Attendance Data as CSV</a>
+        <button class="btn btn-info mx-3 my-3" id="active-memb-button">Get Active Members</button>
+    </div>
+    <div class="mx-auto w-50 justify-content-center" id="active-memb">
+        <h2>Active FAMNM Members</h2>
+        <ol id="active-memb-list">
+        </ol>
+    </div>
+    <div class='w-50 mx-auto uniqname-search d-flex justify-content-center mb-3'>
         <input id='uniqname' type='text' placeholder='uniqname'/>
         <button type="button" class="btn btn-primary" data-toggle="modal" id="sendUniqname">Submit</button>
     </div>
@@ -65,6 +73,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         $(() => {
             $('#uniqname-meetings').hide();
+            $('#active-memb').hide();
 
             fetch("http://backend.famnm.club/meeting")
             .then( (res) => {
@@ -141,6 +150,23 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             });
 
             $('#sendUniqname').click(populateUniqname);
+
+            $('#active-memb-button').click(() => {
+                fetch("http://backend.famnm.club/attendance/active")
+                .then( (res) => {
+                    if (!res.ok) throw Error(res.statusText);
+                    return res.json();
+                })
+                .then( rows => {
+                    rows.forEach(row => {
+                        $('#active-memb-list').append(`
+                        <li>${row.uniqname}</li>
+                        `);
+                    });
+                });
+                $('#active-memb').show();
+            })
+
         });
     </script>
 </body>
