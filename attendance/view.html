@@ -6,12 +6,18 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <head>
     {% include title-styles.html %}
     <link rel=-'stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css'>
+    <style>
+        #toggle-all-meetings {
+            font-size: x-large;
+            margin-bottom: 1vh;
+        }
+    </style>
 </head>
 <body>
     {% include header.html %}
-<!-- 
-    - export to csv
--->
+
+    <h1 class="w-50 mx-auto">FAMNM Attendance Viewer</h1>
+
     <div class='w-50 mx-auto d-flex justify-content-center'>
         <a class="btn btn-success mx-3 my-3" id="csv-button" href="http://backend.famnm.club/export">Get Attendance Data as CSV</a>
         <button class="btn btn-info mx-3 my-3" id="active-memb-button">Get Active Members</button>
@@ -24,9 +30,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     <div class='w-50 mx-auto uniqname-search d-flex justify-content-center mb-3'>
         <input id='uniqname' type='text' placeholder='uniqname'/>
         <button type="button" class="btn btn-primary" data-toggle="modal" id="sendUniqname">Submit</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" id="hideUniqnameTable">Clear</button>
     </div>
 
-    <div class="mx-auto w-50 d-flex justify-content-center">
+    <div class="mx-auto w-50 d-flex justify-content-center flex-column" id="uniqname-meeting-all">
+        <h3 id="uniqname-meeting-header"></h3>
         <table class="table" id="uniqname-meetings">
             <thead>
                 <tr>
@@ -40,6 +48,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         </table>
     </div>
 
+    <div class="w-75 mx-auto d-flex justify-content-center">
+        <a href="" id="toggle-all-meetings" class="btn btn-primary">ALL MEETINGS (click to hide/show)</a>
+    </div>
     <div style="overflow-x: scroll;" class="w-75 mx-auto">
         <table class="table all-meetings">
             <thead>
@@ -73,7 +84,14 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         $(() => {
             $('#uniqname-meetings').hide();
+            $('#uniqname-meeting-header').hide();
             $('#active-memb').hide();
+            $('.all-meetings').hide();
+
+            $('#toggle-all-meetings').click((e) => {
+                e.preventDefault();
+                $('.all-meetings').toggle();
+            })
 
             fetch("http://backend.famnm.club/meeting")
             .then( (res) => {
@@ -109,7 +127,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
             let populateUniqname = () => {
                 $('#uniqname-meetings').show();
+                $('#uniqname-meeting-header').show();
                 const uniqname = $('#uniqname').val();
+                $('#uniqname-meeting-header').text(uniqname);
                 $('#uniqname').val('');
                 $('#uniqname-meeting-body').empty();
 
@@ -151,20 +171,34 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
             $('#sendUniqname').click(populateUniqname);
 
+            $('#hideUniqnameTable').click((e) => {
+                e.preventDefault();
+                $('#uniqname-meeting-header').hide();
+                $('#uniqname-meetings').hide();
+            });
+
             $('#active-memb-button').click(() => {
-                fetch("http://backend.famnm.club/attendance/active")
-                .then( (res) => {
-                    if (!res.ok) throw Error(res.statusText);
-                    return res.json();
-                })
-                .then( rows => {
-                    rows.forEach(row => {
-                        $('#active-memb-list').append(`
-                        <li>${row.uniqname}</li>
-                        `);
+                $('#active-memb-list').empty();
+
+                if ($('#active-memb').is(":hidden")) {
+                    fetch("http://backend.famnm.club/attendance/active")
+                    .then( (res) => {
+                        if (!res.ok) throw Error(res.statusText);
+                        return res.json();
+                    })
+                    .then( rows => {
+                        rows.forEach(row => {
+                            $('#active-memb-list').append(`
+                            <li>${row.uniqname}</li>
+                            `);
+                        });
                     });
-                });
-                $('#active-memb').show();
+                    $('#active-memb').show();
+                } else {
+                    $('#active-memb').hide();
+                }
+
+                
             })
 
         });
