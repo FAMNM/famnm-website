@@ -101,7 +101,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             .then(sortMeetings)
             .then(data => {
                 
-                // console.log(data);
                 data.forEach(meeting => {
                     let meetDay = new Date(meeting.day);
 
@@ -155,7 +154,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                             return res.json();
                         })
                         .then(fullMeeting => {
-                            // console.log(fullMeeting);
                             let meetDay = new Date(fullMeeting[0].day);
                             $(`#type-uniqname-meeting-${meeting.meeting_id}`).text(fullMeeting[0].type);
                             $(`#date-uniqname-meeting-${meeting.meeting_id}`).text(`${monthIdxToString[meetDay.getUTCMonth()]} ${meetDay.getUTCDate()} ${meetDay.getUTCFullYear()}`);

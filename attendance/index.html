@@ -167,7 +167,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     const uniqname_buttons = $('.uniqname-submit');
                     const uniqnames = uniqname_buttons.map((i, elt) => $(elt).text());
                     uniqnames.toArray().forEach((uniqname) => {
-                        console.log(`adding attendance for ${uniqname}`);
                         fetch('http://backend.famnm.club/attendance', {
                             headers: {'Content-Type': 'application/json'},
                             method: 'POST',
