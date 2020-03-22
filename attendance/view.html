@@ -24,8 +24,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     </div>
     <div class="mx-auto w-50 justify-content-center" id="active-memb">
         <h2>Active FAMNM Members</h2>
-        <ol id="active-memb-list">
-        </ol>
+        <ol id="active-memb-list"/>
     </div>
     <div class='w-50 mx-auto uniqname-search d-flex justify-content-center mb-3'>
         <input id='uniqname' type='text' placeholder='uniqname'/>
@@ -43,7 +42,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 </tr>
             </thead>
             <tbody id="uniqname-meeting-body">
-
             </tbody>
         </table>
     </div>
@@ -70,12 +68,12 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include footer.html %}
     {% include scripts.html %}
     <script>
-        let monthIdxToString = {
+        const monthIdxToString = {
             0: "Jan", 1: "Feb", 2: "Mar", 3: "Apr",
             4: "May", 5: "June", 6: "July", 7: "Aug",
             8: "Sep", 9: "Oct", 10: "Nov", 11: "Dec"
         }
-        let sortMeetings = (meetings) => {
+        const sortMeetings = (meetings) => {
             meetings.sort((a,b) => {
                 return a.meeting_id < b.meeting_id;
             });
@@ -100,10 +98,8 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             })
             .then(sortMeetings)
             .then(data => {
-                
                 data.forEach(meeting => {
                     let meetDay = new Date(meeting.day);
-
                     $('#meeting-body').append($(`
                     <tr id="meeting-${meeting.meeting_id}">
                         <th>${monthIdxToString[meetDay.getUTCMonth()]} ${meetDay.getUTCDate()} ${meetDay.getUTCFullYear()}</th>
@@ -124,7 +120,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             })
             .catch(console.log);
 
-            let populateUniqname = () => {
+            const populateUniqname = () => {
                 $('#uniqname-meetings').show();
                 $('#uniqname-meeting-header').show();
                 const uniqname = $('#uniqname').val();
@@ -177,7 +173,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
             $('#active-memb-button').click(() => {
                 $('#active-memb-list').empty();
-
                 if ($('#active-memb').is(":hidden")) {
                     fetch("http://backend.famnm.club/attendance/active")
                     .then( (res) => {
@@ -195,10 +190,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 } else {
                     $('#active-memb').hide();
                 }
-
-                
-            })
-
+            });
         });
     </script>
 </body>

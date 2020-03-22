@@ -23,7 +23,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         </div>
         <div class="my-5">
             <label for='meetingDate'>Today's Date</label>
-            <input type='date' id='meetingDate'>
+            <input type='date' id='meetingDate' />
         </div>
         <div>
             <label for='meetingStartTime'>Start Time</label>
@@ -57,32 +57,32 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             
     <!-- Modal -->
     <div class="modal fade" id="confirmMeeting" tabindex="-1" role="dialog" aria-labelledby="confirmMeetingTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="confirmMeetingTitle">Confirm Submission</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-            <div id="modalError" style="color:red"></div>
-            <h2>Meeting Details</h2>
-            <p id="modalMeetingType">Meeting Type: </p>
-            <p id="modalStartTime">Start Time: </p>
-            <p id="modalEndTime">End Time: </p>
-            <p id="modalDescription">Description: </p>
-            <h2>Meeting Attendees</h2>
-            <div id="modalAttendees">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="confirmMeetingTitle">Confirm Submission</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="modalError" style="color:red"></div>
+                    <h2>Meeting Details</h2>
+                    <p id="modalMeetingType">Meeting Type: </p>
+                    <p id="modalStartTime">Start Time: </p>
+                    <p id="modalEndTime">End Time: </p>
+                    <p id="modalDescription">Description: </p>
+                    <h2>Meeting Attendees</h2>
+                    <div id="modalAttendees">
 
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary submit-meeting" id="submit" data-dismiss="modal">Create Meeting</button>
+                </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary submit-meeting" id="submit" data-dismiss="modal">Create Meeting</button>
-        </div>
-        </div>
-    </div>
     </div>
 
     
@@ -90,7 +90,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include scripts.html %}
     <script src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js'></script>
     <script>
-        let convertMeetingTime = (time) => {
+        const convertMeetingTime = (time) => {
             if(time.includes('AM') || time.includes('12')) {
                 return time.slice(0, 5);
             } else {
@@ -99,7 +99,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             }
         }
 
-        let validateTime = (start, end) =>{
+        const validateTime = (start, end) =>{
             return parseInt(start.replace(':', '')) < parseInt(end.replace(':', ''));
         } 
 
@@ -134,11 +134,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 {
                     let newButton = $('<button></button>');
                     newButton.attr('type', 'button');
-                    newButton.addClass('btn');
-                    newButton.addClass('btn-outline-secondary');
-                    newButton.addClass('mx-3');
-                    newButton.addClass('my-3');
-                    newButton.addClass('uniqname-btn');
+                    newButton.addClass('btn')
+                             .addClass('btn-outline-secondary')
+                             .addClass('mx-3')
+                             .addClass('my-3')
+                             .addClass('uniqname-btn');
                     newButton.text($('#uniqname').val());
                     newButton.click(() => { newButton.remove(); });
                     $('#uniqname-buttons').append(newButton);
@@ -231,9 +231,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     new_button.attr('disabled', true);
                     $('#modalAttendees').append(new_button);
                 });
-            })
-
-
+            });
         });
     </script>
 </body>
