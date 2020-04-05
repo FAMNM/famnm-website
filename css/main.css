@@ -75,22 +75,26 @@ body > * {
 
 .navbar-brand > img {
 	max-height: 22px;
-	opacity: 0.5;
+	opacity: 0.7;
 }
 
 .navbar-brand:hover > img {
 	opacity: 1;
 }
 
+.nav-link {
+	color: rgba(255, 255, 255, .7)
+}
+
 /** Footer formatting **/
 .footer {
-	background-color: #000e33;
+	background-color: #003368;
 	color: #ffffff;
 	clear: both;
 	margin: 1em -30px -30px -30px;
 	font-size: 1.25em;
 	flex-grow: 1;
-	box-shadow: inset 0px 10px 8px 0px #00071a;
+	/* box-shadow: inset 0px 10px 8px 0px #00071a; */
 }
 
 .footer #copyright-text {
@@ -370,4 +374,24 @@ div.loading {
 @keyframes spin {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg);}
+}
+
+
+.btn-famnm {
+	background-color: #ffd536;
+	color: black;
+}
+
+.btn-famnm:hover {
+	background-color: #ffe582;
+}
+
+.btn-famnm-secondary {
+	background-color: #3b8ac3;
+	color: white;
+}
+
+.btn-famnm-secondary:hover {
+	background-color: #59a9e3;
+	color: white;
 }
