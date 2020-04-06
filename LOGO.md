@@ -9,6 +9,7 @@
 * Twitch
 * LinkedIn
 * MaizePages
+* GitHub
 
 ## Navbar
 
