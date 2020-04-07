@@ -414,3 +414,8 @@ input[type=email] {
 .bg-famnm-blue {
 	background-color: #003368;
 }
+
+.bg-famnm-blue:hover {
+	background-color: #003368;
+	opacity: 1;
+}
