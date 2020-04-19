@@ -3,13 +3,14 @@ html {
 }
 
 body {
-	 min-height: 100%;
-     padding: 30px;
-     padding-top: 70px;
-     font-family: 'Roboto', sans-serif;
-     display: flex;
-	 flex-direction: column;
-	 font-size-adjust: inherit;
+	min-height: 100%;
+	padding-left: 30px;
+	padding-right: 30px;
+    padding-top: 70px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+	flex-direction: column;
+	font-size-adjust: inherit;
 }
 
 body > * {
@@ -28,7 +29,8 @@ body > * {
 }
 
 .text-par {
-    text-align: justify;
+	text-align: justify;
+	font-size: larger;
 }
 
 .membership {
@@ -69,7 +71,7 @@ body > * {
 
 @media (max-width: 767px) {
     .navbar {
-        padding: 8px 27.5px;
+		padding: 8px 27.5px;
     }
 }
 
@@ -286,72 +288,6 @@ iframe {
     ul.nav ul.dropdown-menu {
         top: 90%;
     }
-}
-
-/** Carousel **/
-
-div.carousel-inner {
-	background-color: #333;
-}
-
-div.carousel-inner > .item > img {
-	width: 100%;
-	overflow: hidden;
-	object-fit: cover;
-	margin: auto;
-	vertical-align: middle;
-	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-}
-
-@media (max-width: 767px)
-{
-	div.carousel-inner {
-		height: 300px;
-	}
-
-	div.carousel {
-		min-width: 60%;
-		max-width: 80%;
-		margin: 0 auto;
-	}
-
-	div.carousel-inner > .item {
-		height: 100%;
-	}
-
-	div.carousel-inner div.carousel-caption {
-		display: none;
-	}
-	ol.carousel-indicators {
-		background-color: rgba(0,0,0,0.5);
-	}
-}
-@media (min-width: 768px)
-{
-	div.carousel-inner > .item {
-		height: 400px;
-	}
-
-	div.carousel {
-		margin: 0 auto;
-		max-width: 80%;
-	}
-}
-@media (min-width: 1200px)
-{
-	div.carousel {
-		margin: 0 auto;
-	}
-
-	div.carousel-inner > .item {
-		height: 500px;
-	}
-}
-
-div.carousel-caption {
-	background-color: rgba(0,0,0,0.5);
 }
 
 div.loading {
