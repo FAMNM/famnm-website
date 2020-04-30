@@ -4,9 +4,9 @@ html {
 
 body {
 	min-height: 100%;
-    padding-top: 70px;
-    font-family: 'Roboto', sans-serif;
-    display: flex;
+	padding-top: 70px;
+	font-family: 'Roboto', sans-serif;
+	display: flex;
 	flex-direction: column;
 	font-size-adjust: inherit;
 }
