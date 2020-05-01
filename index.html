@@ -10,92 +10,55 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <body>
     {% include header.html %}
 
-    <div class="frontpage-container">
-        <div class="frontpage-media">
-            <div id="frontpage-carousel" class="carousel slide" data-ride="carousel">              
-                <ol class="carousel-indicators">
-                </ol>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-tmp"><img class="carousel-loading" src="img/mgear.gif" alt="Loading..."/></div>
-                </div>
-                <a class="carousel-control-prev" href="#frontpage-carousel" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Last</span>
-                </a>
-                <a class="carousel-control-next" href="#frontpage-carousel" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a> 
-            </div>
+    <div id="frontpage-carousel" class="carousel slide mx-0 w-100 px-0" data-ride="carousel">              
+        <ol class="carousel-indicators">
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <div class="carousel-tmp"><img class="carousel-loading" src="img/mgear.gif" alt="Loading..."/></div>
         </div>
+        <a class="carousel-control-prev" href="#frontpage-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Last</span>
+        </a>
+        <a class="carousel-control-next" href="#frontpage-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a> 
+    </div>
+    <div><img id="frontpage-logo" class="center img-fluid" src="img/logo.png" alt="FIRST Alumni and Mentors Network at Michigan"/></div>
 
-        <div class="frontpage-feed">
-            <div><img id="frontpage-logo" class="center img-fluid" src="img/logo.png" alt="FIRST Alumni and Mentors Network at Michigan"/></div>
-            <p class="text-par">FAMNM is a University of Michigan student
-                organization devoted to organizing student and departmental
-                efforts to support the <span class="italic">FIRST<sup>&reg;</sup></span>
-                program locally and throughout the state of Michigan. FAMNM
-                offers college students the opportunity to volunteer in the
-                various <span class="italic">FIRST<sup>&reg;</sup></span>
-                programs and events, provides funding for teams, and acts as a
-                liaison between teams and various university departments.</p>            
-            <div class="frontpage-twitter-timeline">
-                <a class="twitter-timeline" data-height="500" data-width="560" data-dnt="true" href="https://twitter.com/TheFAMNM?ref_src=twsrc%5Etfw">Tweets by TheFAMNM</a>
-            </div>
-        </div>
+    <div class="mx-10">
+        <h2 style="text-align: center;">What is FAMNM?</h2>
+        <p class="text-par">
+            FAMNM is a University of Michigan student
+            organization devoted to organizing student and departmental
+            efforts to support the <span class="italic">FIRST<sup>&reg;</sup></span>
+            program locally and throughout the state of Michigan. FAMNM
+            offers college students the opportunity to volunteer in the
+            various <span class="italic">FIRST<sup>&reg;</sup></span>
+            programs and events, provides funding for teams, and acts as a
+            liaison between teams and various university departments.
+        </p>
+    </div>
 
-        <div style="clear: both;"></div>
-    </div><!-- /.container -->
-    
     {% include footer.html %}
     {% include scripts.html %}
-    <!-- Page JavaSript -->
     <script async src="js/carousel.js"></script>
-    <script async src="js/web-encapsulation.js"></script>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-    
-    <!-- Page-specific styles -->
+
     <style>
-        /** Main page layout **/
-        .frontpage-container {
-            margin-bottom: 1.5em;
-        }
-
-        .frontpage-container:after {
-            clear: both;
-        }
-
-        .frontpage-container h2 {
-            text-align: center;
+        body {
+            /* padding: 0!important; */
+            width: 100%;
         }
 
         #frontpage-logo {
-            max-height: 10em;
+            max-height: 17em;
             margin-bottom: 1em;
         }
-            
-        .frontpage-twitter-timeline {
-            margin: 1em auto;
-            max-width: 560px;
-        }
 
-        @media (max-width: 991px) {
-            .frontpage-media {
-                margin-bottom: 1em;
-            }
-        }
-
-        @media (min-width: 992px) {
-            .frontpage-media {
-                /*margin-top: 6em;  TODO: remove after mass meetings*/
-                float: right;
-                width: 65%;
-            }
-            
-            .frontpage-feed {
-                float: left;
-                width: 35%;
-            }
+        .mx-10 {
+            margin-left: 8rem!important;
+            margin-right: 8rem!important;
         }
 
         /** Carousel **/
@@ -131,6 +94,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         @media (max-width: 767px)
         {
+            .mx-10 {
+                margin-left: 3rem!important;
+                margin-right: 3rem!important;
+            }
             div.carousel-inner {
                 height: 300px;
             }
@@ -160,9 +127,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         
         @media (min-width: 768px)
         {
-            div.carousel {
-                width: 80%;
-            }
             
             div.carousel-inner > .carousel-item {
                 height: 400px;
@@ -202,16 +166,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 width: 100%;
                 padding: 1.5em;
                 background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8));
-        }
-
-        @-webkit-keyframes spin {
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg);}
         }
     </style>
 </body>
