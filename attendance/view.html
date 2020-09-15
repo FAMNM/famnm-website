@@ -19,7 +19,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     <h1 class="w-50 mx-auto">FAMNM Attendance Viewer</h1>
 
     <div class='w-50 mx-auto d-flex justify-content-center'>
-        <a class="btn famnm-btn mx-3 my-3" id="csv-button" href="http://backend.famnm.club/export">Get Attendance Data as CSV</a>
+        <a class="btn famnm-btn mx-3 my-3" id="csv-button" href="https://famnm-website-backend.herokuapp.com/export">Get Attendance Data as CSV</a>
         <button class="btn famnm-btn mx-3 my-3" id="active-memb-button">Get Active Members</button>
     </div>
     <div class="mx-auto w-50 justify-content-center" id="active-memb">
@@ -68,6 +68,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include footer.html %}
     {% include scripts.html %}
     <script>
+        const backend_url = 'https://famnm-website-backend.herokuapp.com/'
         const monthIdxToString = {
             0: "Jan", 1: "Feb", 2: "Mar", 3: "Apr",
             4: "May", 5: "June", 6: "July", 7: "Aug",
@@ -91,7 +92,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 $('.all-meetings').toggle();
             })
 
-            fetch("http://backend.famnm.club/meeting")
+            fetch(backend_url + "meeting")
             .then( (res) => {
                 if (!res.ok) throw Error(res.statusText);
                 return res.json();
@@ -109,7 +110,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     </tr>`));
                 })
                 data.forEach(meeting => {
-                    fetch(`http://backend.famnm.club/attendance/meeting/${meeting.meeting_id}`)
+                    fetch(`${backend_url}attendance/meeting/${meeting.meeting_id}`)
                     .then(res => {
                         if (!res.ok) throw Error(res.statusText);
                         return res.json();
@@ -128,7 +129,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 $('#uniqname').val('');
                 $('#uniqname-meeting-body').empty();
 
-                fetch(`http://backend.famnm.club/attendance/uniqname/${uniqname}`)
+                fetch(`${backend_url}attendance/uniqname/${uniqname}`)
                 .then( (res) => {
                     if (!res.ok) throw Error(res.statusText);
                     return res.json();
@@ -144,7 +145,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     });
 
                     meetings.forEach(meeting => {
-                        fetch(`http://backend.famnm.club/meeting/${meeting.meeting_id}`)
+                        fetch(`${backend_url}meeting/${meeting.meeting_id}`)
                         .then(res => {
                             if (!res.ok) throw Error(res.statusText);
                             return res.json();
@@ -174,7 +175,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             $('#active-memb-button').click(() => {
                 $('#active-memb-list').empty();
                 if ($('#active-memb').is(":hidden")) {
-                    fetch("http://backend.famnm.club/attendance/active")
+                    fetch(backend_url + "attendance/active")
                     .then( (res) => {
                         if (!res.ok) throw Error(res.statusText);
                         return res.json();
