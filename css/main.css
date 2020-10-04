@@ -99,18 +99,10 @@ body > * {
 .footer #copyright-text {
 	font-size: 0.75em;
 	margin-top: 1em;
-	text-align: center;
-}
-
-.footer .footer-col:first-child {
-	margin-top: 2em;
 }
 
 .footer .footer-col {
-	margin-bottom: 1em;
-}
-
-.footer .footer-col:last-child {
+	margin-top: 2em;
 	margin-bottom: 2em;
 }
 
@@ -133,29 +125,21 @@ body > * {
 	min-width: 100px;
 }
 
-.footer .social-icons {
-        text-align: center;
-        font-size: 25px;
+.footer #social-icons {
+	font-size: 25px;
 }
 
-.footer .social-icons a {
-        text-decoration: none;
+.footer #social-icons a {
+	text-decoration: none;
 }
 
-.footer .social-icons a svg {
-        margin: 0 5px;
+.footer #social-icons a svg {
+	margin: 0 5px;
 }
 
 @media all and (max-width: 991px) {
 	.footer {
 		text-align: center;
-	}
-}
-
-@media all and (min-width: 992px) {
-	.footer .footer-col {
-		margin-top: 2em;
-		margin-bottom: 2em;
 	}
 }
 
