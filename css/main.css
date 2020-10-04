@@ -82,7 +82,7 @@ body > * {
 	opacity: 1;
 }
 
-.nav-link {
+.navbar .nav-link {
 	color: #FFFFFFB3;
 }
 
@@ -352,4 +352,11 @@ input[type=email] {
 .bg-famnm-blue:hover {
 	background-color: #003368;
 	opacity: 1;
+}
+
+.alert-primary {
+	color: #efefef;
+	background-color: #3b8ac3;
+	border-color: #115b90;
+	margin: 2em;
 }
