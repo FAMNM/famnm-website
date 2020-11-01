@@ -358,12 +358,5 @@ input[type=email] {
 	color: #efefef;
 	background-color: #3b8ac3;
 	border-color: #115b90;
-	margin: 0 2em .5em;
-}
-
-#alert-halloween {
-	color: #efefef;
-	background-color: #FAA23C;;
-	border-color: #F28834;
-	margin: 0 2em .5em;
+	margin: 2em;
 }
