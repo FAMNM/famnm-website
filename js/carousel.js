@@ -1,9 +1,10 @@
 ---
 ---
-$(document).ready(() => {
+let carouselLoad = (src) => {
     //Find list source and carousel element
-    var listSource = "{{site.url}}/img/carousel/list.json";
-    var carousel = $(".carousel:first");
+
+    let listSource = "{{site.url}}/" + src + "list.json"
+    let carousel = $(".carousel:first");
 
     $("meta").each(function () {
         switch ($(this).attr("name")) {
@@ -48,7 +49,7 @@ $(document).ready(() => {
             if (i === 0) slideDiv.addClass("active");
 
             //Initialize slide imagery
-            slideBackImg.attr("src", ("img/carousel/" + item.img));
+            slideBackImg.attr("src", (src + item.img));
             slideBackImg.addClass("carousel-back-image");
 
             slideImg.attr("src", slideBackImg.attr("src"));
@@ -71,4 +72,4 @@ $(document).ready(() => {
         }).fail((xhr, textStatus, thrownError) => {
             console.log(textStatus, thrownError);
         });;
-});
+};

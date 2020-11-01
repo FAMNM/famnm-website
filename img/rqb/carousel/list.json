@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Completed Chassis",
+        "description": "One team finishes the construction of their KOP chassis.",
+        "img": "kitbot.jpg"
+    },
+    {
+        "title": "Programming",
+        "description": "A FAMNM member helps one team get started with coding their robot.",
+        "img": "programming.jpg"
+    },
+    {
+        "title": "Electrical",
+        "description": "No RQB robot is complete without an electrical board!",
+        "img": "electrical.jpg"
+    }
+]
