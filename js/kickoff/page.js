@@ -1,4 +1,4 @@
-var getTime = (hour, minute) => new Date(2020, 0, 4, hour, minute, 0, 0, 0);
+var getTime = (hour, minute) => new Date(2021, 0, 4, hour, minute, 0, 0, 0);
 
 var bNs = {
     getTimeString: (time) => {
