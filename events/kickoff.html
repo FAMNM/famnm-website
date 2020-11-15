@@ -32,11 +32,6 @@ orgs:
 <head>
     {% include title-styles.html %}
     <style>
-        html,
-        body {
-            height: 100%;
-        }
-
         .table th {
             text-align: center;
         }
@@ -169,37 +164,37 @@ orgs:
                 as we begin to plan!
             </p>
             <!-- <p class="text-par">If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
-                If you wish to order a pizza lunch for your team, that link may also be found below.</p> -->
-            <!-- <ul style="list-style-type: none; padding-left: 0;">
+                If you wish to order a pizza lunch for your team, that link may also be found below.</p>
+            <ul class="list-unstyled">
                 <li><a href="#event-map">Event Map</a></li>
                 <li><a href="#sched">Schedule</a></li>
                 <li><a href="#recharge"><span class="italic">FIRST</span>&reg; INFINITE RECHARGE&#8480;</a></li>
                 <li><a href="#um-fair">UM Fair</a></li>
-            </ul> -->
-            <!-- <p class="text-par font">FAMNM would like to thank all teams who helped make our 
+            </ul>
+            <p class="text-par font">FAMNM would like to thank all teams who helped make our 
                 fifth annual FRC Kickoff a success! If you have the chance, please take the time to fill out the 
                 <a class="font-weight-bold" href="https://forms.gle/XDSMYVo2WScg79we6" target="_blank" rel="noopener noreferrer">feedback form</a>
                 linked below to help make next year's kickoff even better!</p>
             <p class="text-par">Good luck this season with INFINITE RECHARGE!</p>
             <img id="recharge"
                 src="https://www.firstinspires.org/sites/default/files/uploads/rightimage/infinite-recharge-web-promo_0.png"
-                style="max-height: 150px;" /> -->
-            <!-- <p class="text-par">FRC teams from the local area come to U-M for the reveal of the 2020 FIRST Robotics
+                style="max-height: 150px;" />
+            <p class="text-par">FRC teams from the local area come to U-M for the reveal of the 2020 FIRST Robotics
                 Competition game. The kickoff will feature a University of Michigan student organization fair,
                 pre-broadcast speakers, breakout rooms for teams to discuss the game after the reveal, and a
-                kit-of-parts distribution.</p> -->
-            <!-- <p id="quick-links">
+                kit-of-parts distribution.</p>
+            <p id="quick-links">
                 <p class="font-weight-bold">Quick links:</p>
                 <p><a class="btn famnm-btn-secondary" href="https://forms.gle/XDSMYVo2WScg79we6" target="_blank" rel="noopener noreferrer">Feedback Form</a></p>
                 <p class="font-weight-bold">(Game Manual Password: R!$E2geTHeR#2020)</p>
                 <a class="btn btn-warning" href="https://firstfrc.blob.core.windows.net/frc2020/Manual/2020FRCGameSeasonManual.pdf" target="_blank" rel="noopener noreferrer">Game Manual Link</a>
-            </p> -->
-            <!-- <h1>
+            </p>
+            <h1>
                 Event Map:
             </h1>
             <iframe src="https://www.google.com/maps/d/embed?mid=1NgNVk45VFsOPxiIu1bgk4Rt2SbIVJoYI" width="640"
-                height="480" id="event-map"></iframe> -->
-            <!-- <h2 id="sched">Schedule</h2>
+                height="480" id="event-map"></iframe>
+            <h2 id="sched">Schedule</h2>
             <p>Enter your team number below to see your team's schedule, find broadcast and breakout
                 rooms, and view additional kickoff information.</p>
             <div class="input-group">
@@ -229,24 +224,15 @@ orgs:
                     <tbody id="schedule">
                     </tbody>
                 </table>
-            </div> -->
-            <!-- <h4>Countdown</h4>
+            </div>
+            <h4>Countdown</h4>
             <div class="countdown-clock">
                 <span class="days time-part">0</span>
                 <span class="hours time-part">0</span>
                 <span class="minutes time-part">0</span>
                 <span class="seconds time-part">0</span>
-            </div> -->
-            <!-- <h4>Manuals and resources</h4>
-            <ul style="list-style-type: none; padding-left: 0;">
-                <li><a href="https://firstfrc.blob.core.windows.net/frc2019/Manual/2019FRCGameSeasonManual.pdf"
-                        target="_blank" rel="noopener noreferrer">Encrypted game manual</a> (Password: <span
-                        class="font-weight-bold">$Robots&amp;in#SPACE!!</span>)</li>
-                <li><a href="https://www.firstinspires.org/robotics/frc/playing-field" target="_blank" rel="noopener noreferrer">Playing field
-                        (VR, 3D models, etc.)</a></li>
-                <li><a href="https://www.youtube.com/watch?v=GMvdt-XovZY&list=PLZT9pIgNOV6bbr6hfD2K0WZgvQT_B6JVX"
-                        target="_blank" rel="noopener noreferrer">Field tour videos</a></li>
-            </ul> -->
+            </div>
+            <h4>Manuals and resources</h4>
             <h3 id="um-fair">UM Fair</h3>
             <p>The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved
                 with. Expand any of the panels below to learn more about an organization!</p>
@@ -261,31 +247,16 @@ orgs:
                     </div>
                 </div>
                 {% endfor %}
-            </div>
+            </div> -->
+            <h3 class="text-center">Sponsors</h3>
+            <ul class="sponsor-display">
+                <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center"
+                            src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
+                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png"
+                            alt="University of Michigan College of Engineering" /></a></li>
+            </ul>
         </div>
-        <h3 style="text-align: center;">Sponsors</h3>
-        <ul class="sponsor-display">
-            <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center"
-                        src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
-            <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png"
-                        alt="University of Michigan College of Engineering" /></a></li>
-        </ul>
-        <h3 style="text-align: center;">Connect with FAMNM!</h3>
-        <ul style="list-style-type: none; padding-left: 0; text-align: center;">
-            <li><span class="fab fa-facebook-f"></span>&nbsp;Facebook: <a href="https://www.facebook.com/theFAMNM"
-                    target="_blank" rel="noopener noreferrer">theFAMNM</a></li>
-            <li><span class="fab fa-instagram"></span>&nbsp;Instagram: <a href="https://instagram.com/theFAMNM"
-                    target="_blank" rel="noopener noreferrer">theFAMNM</a></li>
-            <li><span class="fab fa-twitter-square"></span>&nbsp;Twitter: <a href="https://twitter.com/TheFAMNM"
-                    target="_blank" rel="noopener noreferrer">@TheFAMNM</a></li>
-            <li><span class="far fa-envelope"></span>&nbsp;Email: <a href="mailto:famnm@umich.edu">famnm@umich.edu</a>
-            </li>
-        </ul>
-        <ul style="list-style-type: none; padding-left: 0; margin-top: 1em; text-align: center;">
-            <li>#UMICHKickoff</li>
-            <li>#FAMNMKickoff</li>
-            <li>#UMICHFRC</li>
-        </ul>
+        
     </div>
     <!-- /.container -->
 

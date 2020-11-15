@@ -134,9 +134,9 @@ people:
 			
 			  {% for person in page.people %}
 			  <div class="col-md-6 col-lg-4">
-			    <div class="card">
-			      <img alt="Card image cap" class="card-img-top img-fluid" src="{{ person[0].image }}" />
-			      <div class="card-block">
+			    <div class="card mt-4">
+			      <img alt="Picture of {{ person[0].name }}" class="card-img-top img-fluid w-100" src="{{ person[0].image }}" />
+			      <div class="card-block p-4">
 			        <h4 class="card-title">{{ person[0].name }}</h4>
 			        <p class="card-text">
 						{% if person[0].major == "" %}
@@ -157,19 +157,7 @@ people:
     {% include footer.html %}
     {% include scripts.html %}
     <!-- Page styles -->
-    <style>
-		.notify-badge{
-		    position: absolute;
-		    right:-1.5vw;
-		    top:-1.5vw;
-		    background:#353942;
-		    text-align: center;
-		    border-radius: 30px 30px 30px 30px;
-		    color:#e9cc06;
-		    padding:0.375vw 0.75vw;
-		    font-size:1.5vw;
-        }
-        
+    <style>        
         @media (max-width: 800px) {
             .card-img-top {
                 height: 100%;
@@ -183,16 +171,7 @@ people:
         }
 		
 		.card-img-top {
-		    width: 100%;
 		    object-fit: cover;
-		}
-		
-		.card {
-			margin-top:1.5vw
-		}
-
-		.card-block {
-			padding: 1.5vw;
 		}
         
     </style>

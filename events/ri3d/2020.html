@@ -3,106 +3,98 @@ title: 2020 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at M
 ---
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		{% include title-styles.html %}
-            <style>
-                dd {
-                    padding-left: 50px;
-                }
-                .caption {
-                    font-style: italic;
-                    margin: 1em 0;
-                }
-                .robot-img {
-                    margin-top: 1em;
-                }
-            </style>
-	</head>
-	<body>
-		{% include header.html %}
-		<div class="container content">
-            <h1>FAMNM Robot in 3 Days - 2020 Documentation</h1>
-            <a href="index.html">&larr; FAMNM Ri3D Overview</a>
-            <img class="mx-auto w-75 robot-img" src="{{site.url}}/img/ri3d/fancy-robot.jpg"/>
-            <div class="caption">2020 FAMNM Ri3D Robot: name TBD</div>
-            <h2 id="tech-docs">Technical Documentation</h2>
-                <a class="mx-auto btn famnm-btn-secondary" href="http://bit.ly/MRi3D-2020Drive">
-                    Google Drive
-                </a>
-                <a class="mx-auto btn famnm-btn-secondary" href="https://github.com/FAMNM/ri3d-2020">
-                    GitHub
-                </a>
-            <h2 id="videos">Videos</h2>
-                <h4>Daily Updates</h4>
-                <div class="row">
-                    <div class="col">
-                        <iframe width="420" height="320" 
-                            src="https://www.youtube.com/embed/KuTZvi9fEfM" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="col">
-                        <iframe width="420" height="320" 
-                            src="https://www.youtube.com/embed/_RTVrUvHmI4" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="col">
-                        <iframe width="420" height="320" 
-                            src="https://www.youtube.com/embed/1hxCZ0YvBPA" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                 </div>
-                 <h4>2020 How-Tos</h4>
-                 <div class="row">
-                    <div class="col">
-                        <iframe width="420" height="320" 
-                            src="https://www.youtube.com/embed/Nis5KBcncSw" 
-                            frameborder="0" 
-                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                 </div>
-            <h2 id="faq">Frequently Asked Questions</h2>
-                <dl class="text-left">
-                    <dt>How do I get my question posted here?</dt>
-                    <dd>Reach out to us on Chief Delphi or at <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a></dd>
-                    <dt>Will you be releasing full robot CAD?</dt>
-                    <dd>No, we aim to inspire teams and not for our design to be copied. There's
-                        much that can be improved upon in our design. If CAD for a specific 
-                        component would be useful in your design process, reach out to us
-                        on Chief Delphi or at <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>
-                    </dd>
-                    <dt> Did you bend an aluminum sheet to form the conveyor base? 
-                         How is your intake handling friction/stickiness with the power cells?
-                    </dt>
-                    <dd>
-                        We did use a bent aluminum sheet for the conveyor base - 
-                        it took us a few iterations to get the angles and depth just right 
-                        but the entire conveyor system is currently handling the balls very 
-                        well. The most major problem we've seen is slippage between the 
-                        surgical tubing and the rollers, which has been resolved with 
-                        3D printed collars on the roller according to our latest testing.
-                    </dd>
-                    <dt> What motor and gearbox combination did you use in the winch for your climbing system? </dt>
-                    <dd> We used a CIM with a 70:1 Versa Planetary gearbox </dd>
-                    <dt>Where can I find more Michigan Ri3D?</dt>
-                    <dd>We have all sorts of content from the 2020 Ri3D season on our 
-                        <a href="https://www.youtube.com/famnm">YouTube</a> and 
-                        <a href="https://www.twitch.tv/famnm">Twitch</a> accounts.
-                    </dd>
-                
-                </dl>
-		</div><!-- /.container -->
-	</body>
-	{% include footer.html %}
-    {% include scripts.html %}
+<head>
+{% include title-styles.html %}
+</head>
+<body>
+    {% include header.html %}
+    <div class="container content">
+        <h1>FAMNM Robot in 3 Days - 2020 Documentation</h1>
+        <a href="index.html">&larr; FAMNM Ri3D Overview</a>
+        <img class="mx-auto w-75 mt-3" src="{{site.url}}/img/ri3d/fancy-robot.jpg"/>
+        <div class="my-3 font-italic">2020 FAMNM Ri3D Robot: name TBD</div>
+        <h2 id="tech-docs">Technical Documentation</h2>
+            <a class="mx-auto btn famnm-btn-secondary" href="http://bit.ly/MRi3D-2020Drive">
+                Google Drive
+            </a>
+            <a class="mx-auto btn famnm-btn-secondary" href="https://github.com/FAMNM/ri3d-2020">
+                GitHub
+            </a>
+        <h2 id="videos">Videos</h2>
+            <h3>Daily Updates</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <iframe width="420" height="320" 
+                        src="https://www.youtube.com/embed/KuTZvi9fEfM" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <iframe width="420" height="320" 
+                        src="https://www.youtube.com/embed/_RTVrUvHmI4" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mx-auto">
+                    <iframe width="420" height="320" 
+                        src="https://www.youtube.com/embed/1hxCZ0YvBPA" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+            <h3 class="mt-5">2020 How-Tos</h3>
+            <div class="row">
+                <div class="col">
+                    <iframe width="420" height="320" 
+                        src="https://www.youtube.com/embed/Nis5KBcncSw" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        <h2 id="faq">Frequently Asked Questions</h2>
+            <dl class="text-left text-par">
+                <dt>How do I get my question posted here?</dt>
+                <dd>Reach out to us on Chief Delphi or at <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a></dd>
+                <br/>
+                <dt>Will you be releasing full robot CAD?</dt>
+                <dd>No, we aim to inspire teams and not for our design to be copied. There's
+                    much that can be improved upon in our design. If CAD for a specific 
+                    component would be useful in your design process, reach out to us
+                    on Chief Delphi or at <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>
+                </dd>
+                <br/>
+                <dt> Did you bend an aluminum sheet to form the conveyor base? 
+                        How is your intake handling friction/stickiness with the power cells?
+                </dt>
+                <dd>
+                    We did use a bent aluminum sheet for the conveyor base - 
+                    it took us a few iterations to get the angles and depth just right 
+                    but the entire conveyor system is currently handling the balls very 
+                    well. The most major problem we've seen is slippage between the 
+                    surgical tubing and the rollers, which has been resolved with 
+                    3D printed collars on the roller according to our latest testing.
+                </dd>
+                <br/>
+                <dt> What motor and gearbox combination did you use in the winch for your climbing system? </dt>
+                <dd> We used a CIM with a 70:1 Versa Planetary gearbox </dd>
+                <br/>
+                <dt>Where can I find more Michigan Ri3D?</dt>
+                <dd>We have all sorts of content from the 2020 Ri3D season on our 
+                    <a href="https://www.youtube.com/famnm">YouTube</a> and 
+                    <a href="https://www.twitch.tv/famnm">Twitch</a> accounts.
+                </dd>
+            
+            </dl>
+    </div><!-- /.container -->
+</body>
+{% include footer.html %}
+{% include scripts.html %}
 </html>

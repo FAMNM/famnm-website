@@ -1,0 +1,22 @@
+[
+    {
+        "title": "SKYSTONE Game Field",
+        "description": "FAMNM assembled a SKYSTONE game field for teams to view after the reveal.",
+        "img": "field.jpg"
+    },
+    {
+        "title": "Engineering Notebook Workshop",
+        "description": "FAMNM Kickoff organizer Travis Gurlik gives teams tips on making their Engineering Notebooks the best they can be.",
+        "img": "notebook.jpg"
+    },
+    {
+        "title": "Game Reveal",
+        "description": "Teams gather in Stamps Auditorium to watch the game reveal for SKYSTONE.",
+        "img": "reveal.jpg"
+    },
+    {
+        "title": "Pre-reveal workshops",
+        "description": "Students listen to a pre-reveal workshop about how to improve their judging presentations for the competition season.",
+        "img": "students.jpg"
+    }
+]
