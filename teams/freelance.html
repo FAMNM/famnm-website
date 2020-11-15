@@ -7,17 +7,6 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
 <html lang="en">
 <head>
     {% include title-styles.html %}
-    <style>
-        #freelance-img {
-            max-width: 500px; 
-            margin-bottom: 10px;
-        } 
-        @media(max-width: 767px) {
-            #freelance-img {
-                max-width: 100%;
-            }
-        }
-    </style>
 </head>
 <body>
     {% include header.html %}
@@ -42,11 +31,13 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
                 <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu​</a>, or
                 <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu​</a>.
             </p>
-            <img class="img center" 
+            <div class="row">
+            <img class="img-fluid col-md-8 col-xs-12" 
                  id="freelance-img" 
                  src="../img/teams/fr_mentor1.jpg" 
-                 alt="FAMNM Freelance Mentoring"/>
-            <p class="bold">Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for {{ FIRST }} Power Up!</p>
+                 alt="FAMNM Freelance Mentoring"/>      
+            </div>
+            <b>Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for {{ FIRST }} Power Up!</b>
         </div>
     </div>
     {% include footer.html %}

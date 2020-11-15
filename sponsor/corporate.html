@@ -7,13 +7,6 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
 <html lang="en">
 <head>
     {% include title-styles.html %}
-    <style>
-        @media (min-width: 769px) {
-            .img-fluid {
-                max-width: 50%
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -21,11 +14,12 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
     {% include header.html %}
 
     <div class="container">
-
         <div class="content">
             
             <h1>Supporting FAMNM as a Corporation</h1>
-            <img src="{{site.url}}/img/sponsor/corporation.jpg" class="img-fluid"/>
+            <div class="row">
+                <img src="{{site.url}}/img/sponsor/corporation.jpg" class="mx-auto col-md-8 col-xs-12"/>
+            </div>
             <p class="text-par">
                 Are you a {{ FIRST }} supporter looking to connect to {{ FIRST }}
                 Alumni on campus? Often, {{ FIRST }} supporters invest a lot into

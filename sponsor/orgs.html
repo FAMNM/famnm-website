@@ -1,5 +1,48 @@
 ---
 title: Partner With Us | FIRST® Alumni & Mentors Network at Michigan
+events:
+    - 0:
+        time: "August"
+        name: "FRC Offseason"
+        location: "Area high school"
+        grades: "6-12"
+        training: "None"
+        commitment: "1 or 2 days"
+    - 0:
+        time: "Early September"
+        name: "FTC Kickoff"
+        location: "North Campus"
+        grades: "6-8"
+        training: "<a href='https://childrenoncampus.umich.edu' target='_blank' rel='noopener noreferrer'>Children on Campus</a>"
+        commitment: "½ day"
+    - 0:
+        time: "Early January"
+        name: "FRC Kickoff"
+        location: "North Campus"
+        grades: "9-12"
+        training: "<a href='https://childrenoncampus.umich.edu' target='_blank' rel='noopener noreferrer'>Children on Campus</a>"
+        commitment: "1 day"
+    - 0:
+        time: "Early January"
+        name: "FRC Quickbuild"
+        location: "North Campus"
+        grades: "9-12"
+        training: "<a href='https://childrenoncampus.umich.edu' target='_blank' rel='noopener noreferrer'>Children on Campus</a>. Some FIRST, robotics, mechanical, electrical, or CS background is advised"
+        commitment: "1 day"
+    - 0:
+        time: "January - April"
+        name: "FRC Mentoring"
+        location: "Area High Schools"
+        grades: "9-12"
+        training: "FAMNM Mentor Training. Some FIRST, robotics, mechanical, electrical, or CS background is advised."
+        commitment: "Minimum 8 hours a week for the winter semester"
+    - 0:
+        time: "March - April"
+        name: "FRC Volunteering"
+        location: "Michigan highschools and colleges"
+        grades: "9-12"
+        training: "None, though some roles require FIRST certification"
+        commitment: "All Day Friday & Saturday"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -7,24 +50,6 @@ title: Partner With Us | FIRST® Alumni & Mentors Network at Michigan
 <head>
     {% include title-styles.html %}
     <title>{{page.title}}</title>
-    <style>
-        .table-wrap {
-            width: 100%;
-            overflow: auto;
-            border: 1px solid #cdcdcd;
-            border-radius: 7px;
-            padding: 2vh;
-            margin: 2vh;
-        }
-
-        tr {
-            border: 1px solid #cdcdcd;
-        }
-
-        td {
-            padding: 1vh;
-        }
-    </style>
 </head>
 
 <body>
@@ -44,86 +69,29 @@ title: Partner With Us | FIRST® Alumni & Mentors Network at Michigan
                 that all volunteers at FAMNM events are required to have completed
                 a university background check and the minors on campus training.
             </p>
-            <div class="table-wrap">
+            <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">Time</th>
                             <th scope="col">Event</th>
                             <th scope="col">Location</th>
-                            <th scope="col" style="min-width: auto;">Grade Level</th>
+                            <!-- <th scope="col">Grade Level</th> -->
                             <th scope="col">Training Level</th>
-                            <th scope="col">Commitment</th>
+                            <th scope="col">Estimated Commitment</th>
                         </tr>
                     </thead>
                     <tbody>
+                        {% for event in page.events %}
                         <tr>
-                            <td style="margin-right: 3vw; margin-left: 3vw;">August</td>
-                            <td>FRC Offseason</td>
-                            <td>Area high school</td>
-                            <td>6-12</td>
-                            <td>None</td>
-                            <td>1 or 2 days</td>
+                            <td>{{ event[0].time }}</td>
+                            <td>{{ event[0].name }}</td>
+                            <td>{{ event[0].location }}</td>
+                            <!-- <td>{{ event[0].grades }}</td> -->
+                            <td>{{ event[0].training }}</td>
+                            <td>{{ event[0].commitment }}</td>
                         </tr>
-
-                        <tr>
-                            <td>Early September</td>
-                            <td>FTC Kickoff</td>
-                            <td>North Campus</td>
-                            <td>6-8</td>
-                            <td>Minors on Campus</td>
-                            <td>½ day</td>
-                        </tr>
-
-                        <tr>
-                            <td>Late October - Early November</td>
-                            <td>FAMNM Robotics Day</td>
-                            <td>North Campus</td>
-                            <td>6-12</td>
-                            <td>Minors on Campus</td>
-                            <td>½ day</td>
-                        </tr>
-
-                        <tr>
-                            <td>Early January</td>
-                            <td>FRC Kickoff</td>
-                            <td>North Campus</td>
-                            <td>9-12</td>
-                            <td>Minors on Campus</td>
-                            <td>1 day</td>
-                        </tr>
-
-                        <tr>
-                            <td>Early January</td>
-                            <td>FRC Quickbuild</td>
-                            <td>North Campus</td>
-                            <td>9-12</td>
-                            <td>
-                                Minors on Campus. Some FIRST, robotics, mechanical, electrical, or CS background is
-                                advised
-                            </td>
-                            <td>1 day
-                            </td>
-                        </tr>
-
-                        <tr>
-                            <td>January - April</td>
-                            <td>FRC Mentoring</td>
-                            <td>Area High Schools</td>
-                            <td>9-12</td>
-                            <td>FAMNM Mentor Training. Some FIRST, robotics, mechanical, electrical, or CS background is
-                                advised.</td>
-                            <td>Minimum 8 hours a week for the winter semester</td>
-                        </tr>
-
-                        <tr>
-                            <td>March - April</td>
-                            <td>FRC Volunteering</td>
-                            <td>Michigan highschools and colleges</td>
-                            <td>9-12</td>
-                            <td>None, though some roles require FIRST certification</td>
-                            <td>All Day Friday & Saturday</td>
-                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
