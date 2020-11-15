@@ -6,50 +6,6 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
 
 <head>
     {% include title-styles.html %}
-    <style>
-        @media all and (min-width: 992px) {
-            #upcoming {
-                width: 80%;
-                margin: 10px auto;
-                text-align: center;
-            }
-        }
-
-        #upcoming>.btn {
-            margin: 10px auto;
-        }
-
-        ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        table.kickoff-agenda {
-            text-align: center;
-            margin: 0 auto;
-        }
-
-        table.kickoff-agenda td {
-            border: 2px solid #f1c232;
-            padding: 3px;
-            width: 33%;
-        }
-
-        .kickoff-agenda td:first-child {
-            font-weight: bold;
-        }
-
-        .kickoff-agenda td:last-child {
-            font-style: italic;
-        }
-
-        .carousel-caption {
-            left: 0;
-            right: 0;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
 </head>
 
 <body>
@@ -58,8 +14,8 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
 
     <div class="container">
         <div class="content">
-            <h1 class="page-header">FAMNM <i>FIRST®</i> Tech Challenge Kickoff</h1>
-            <div id="upcoming" class="well">
+            <h1>FAMNM <i>FIRST®</i> Tech Challenge Kickoff</h1>
+            <div>
                 <!-- <p class="font-weight-bold">Thank you to the teams who attended our 2019 FTC Kickoff! All the best for
                     <i>SKYSTONE</i>, presented by Qualcomm..</p>
                 <p>
@@ -73,16 +29,6 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                    this fall. We hope to see you back on campus for FTC Kickoff 2021!
                 </p>
             </div>
-            <p class="text-par">
-                The <i>FIRST®</i> Tech Challenge (FTC) is the middle school level in the <i>FIRST®</i> progression of
-                programs.
-                In 2017, FAMNM launched its FTC Kickoff event, in which we invited local teams to view the reveal of the
-                new
-                year's challenge in early September. The event came complete with FRC Demos, inspiring speeches, and the
-                chance
-                to see an official FTC game field!
-            </p>
-
             <div id="carousel-ftc" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carousel-ftc" data-slide-to="0" class="active"></li>
@@ -91,37 +37,8 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                     <li data-target="#carousel-ftc" data-slide-to="3"></li>
                     <li data-target="#carousel-ftc" data-slide-to="4"></li>
                 </ol>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="../img/ftc/2019/field.jpg" />
-                        <div class="carousel-caption">
-                            <h3>SKYSTONE Game Field</h3>
-                            <p>FAMNM assembled a SKYSTONE game field for teams to view after the reveal.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../img/ftc/2019/notebook.jpg" />
-                        <div class="carousel-caption">
-                            <h3>Engineering Notebook Workshop</h3>
-                            <p>FAMNM Kickoff organizer Travis Gurlik gives teams tips on making their Engineering
-                                Notebooks the best they can be.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../img/ftc/2019/reveal.jpg" />
-                        <div class="carousel-caption">
-                            <h3>Game Reveal</h3>
-                            <p>Teams gather in Stamps Auditorium to watch the game reveal for SKYSTONE.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../img/ftc/2019/students.jpg" />
-                        <div class="carousel-caption">
-                            <h3>Pre-reveal workshops</h3>
-                            <p>Students listen to a pre-reveal workshop about how to improve their judging presentations
-                                for the competition season.</p>
-                        </div>
-                    </div>
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-tmp"><img class="carousel-loading" src="/img/mgear.gif" alt="Loading..."/></div>
                 </div>
                 <a class="carousel-control-prev" href="#carousel-ftc" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -132,6 +49,14 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                     <span class="sr-only">Next</span>
                 </a>
             </div>
+            
+            <p class="text-par">
+                The FIRST Tech Challenge (FTC) is the middle school level in the FIRST progression of programs.
+                In 2017, FAMNM launched its FTC Kickoff event, in which we invited local teams to view the reveal of the new
+                year's challenge in early September. The event came complete with FRC Demos, inspiring speeches, and the chance
+                to see an official FTC game field!
+            </p>
+
         </div>
     </div>
     <!-- /.container -->
@@ -139,7 +64,10 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
     {% include footer.html %}
     {% include scripts.html %}
     <script src="../js/web-encapsulation.js"></script>
-
+    <script src="/js/carousel.js"></script>
+    <script>
+        $(document).ready(carouselLoad("/img/ftc/2019/"));
+    </script>
 </body>
 
 </html>

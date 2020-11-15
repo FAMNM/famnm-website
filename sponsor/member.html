@@ -1,6 +1,6 @@
 ---
 title: Become a Member | FIRST® Alumni & Mentors Network at Michigan
-FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
+FIRST: <i>FIRST<sup>&reg;</sup></i>
 ---
 {% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 
     <div class="container">
         <div class="content">
-            <div class="page-header"> <h1>Joining FAMNM</h1> </div>
+            <h1>Joining FAMNM</h1>
             <p class="text-par">
                 FAMNM is open to all University of Michigan students. Our members
                 come from many different backgrounds, colleges, and majors, and some
@@ -26,14 +26,15 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
                 and we'll get in touch.
             </p>
 
-            <p class="text-par">If you have any questions, feel free to send
-                them to <a
-                href="mailto:famnm.admin@umich.edu">famnm.admin@umich.edu</a></p>
+            <p class="text-par">
+                If you have any questions, feel free to send
+                them to <a href="mailto:famnm.admin@umich.edu">famnm.admin@umich.edu</a>
+            </p>
 
             <ul class="nav nav-tabs nav-justified">
                 <li class="nav-item">
                     <a class="nav-link active" data-toggle="tab"
-                        href="#members">General Members</a>
+                       href="#members">General Members</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" data-toggle="tab"
@@ -44,11 +45,9 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
                        href="#volunteers">Volunteers</a>
                 </li>
             </ul>
-            <div class="tab-content">
+            <div class="tab-content text-par img-fluid mx-auto">
                 <div id="members" class="tab-pane fade in active show">
-                    <div class="mx-auto my-3">
-                        <img class="img-fluid" src="../img/sponsor/general.jpg"/>
-                    </div>
+                    <img class="my-3" src="../img/sponsor/general.jpg"/>
                     General members assist FAMNM operationally. 
                     We encourage members to attend our biweekly
                     General Body Meetings to stay updated about 
@@ -57,9 +56,7 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
                     several) of our committees!
                 </div>
                 <div id="mentors" class="tab-pane fade">
-                    <div class="mx-auto my-3">
-                        <img class="img-fluid" src="../img/sponsor/mentor.jpg"/>
-                    </div>
+                    <img class="my-3" src="../img/sponsor/mentor.jpg"/>
                     FAMNM helps match local teams and
                     potential mentors. You can choose 
                     to help a team full time, or 
@@ -67,11 +64,9 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
                     assistance to teams on an as needed basis only.
                 </div>
                 <div id="volunteers" class="tab-pane fade">
-                    <div class="mx-auto my-3">
-                        <img class="img-fluid" src="../img/sponsor/volunteer.jpg"/>
-                    </div>
+                    <img class="my-3" src="../img/sponsor/volunteer.jpg"/>
                     Every year, FAMNM sends volunteers
-                    to {{ FIRST }} events across the state of
+                    to FIRST events across the state of
                     Michigan and beyond! We'll do our best to 
                     make sure you can get to all the events of
                     your choosing. Volunteers serving in key 
@@ -84,10 +79,5 @@ FIRST: <span class="font-italic">FIRST<sup>&reg;</sup></span>
 
     {% include footer.html %}
     {% include scripts.html %}
-    <style>
-        .tab-content {
-            text-align: left;
-        }
-    </style>
 </body>
 </html>
