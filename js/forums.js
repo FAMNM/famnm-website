@@ -17,7 +17,6 @@ function initMap () {
         // { name: "Parking (STAMPS Auditorium)", icon: "parking", lat: 42.292242, lon: -83.717560 }
     ];
     
-    
     var icons = {
         checkin: "../img/kickoff/icons/star.png",
         parking: "../img/kickoff/icons/parking.png",
