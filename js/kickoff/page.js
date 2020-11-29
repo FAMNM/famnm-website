@@ -1,21 +1,8 @@
-var getTime = (hour, minute) => new Date(2021, 0, 4, hour, minute, 0, 0, 0);
+var getTime = (hour, minute) => new Date(2021, 0, 9, hour, minute, 0, 0, 0);
 
 var bNs = {
     getTimeString: (time) => {
-        var hour = time.getHours();
-        var minute = time.getMinutes();
-        var ampm = "AM";
-        var pad = function (num) {
-            var numStr = num.toString();
-            return (numStr.length > 1) ? numStr : ("0" + numStr);
-        };
-        
-        if (hour >= 12) {
-            ampm = "PM";
-            hour -= (hour > 12) ? 12 : 0;
-        } else if (hour == 0) hour = 12;
-        
-        return hour.toString() + ":" + pad(minute) + " " + ampm;
+        return time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: '2-digit'});
     },
     loadSchedules: time => {
         time = (time === undefined ? new Date() : time);
