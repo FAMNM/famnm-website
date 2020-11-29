@@ -88,10 +88,7 @@ people:
                 {% for person in page.people %}
                 <div class="col-mb-4 mx-3 my-3">
                     <div class="card"><a href="mailto:{{ person[0].email }}@umich.edu">
-                        <img src="../img/core/{{ person[0].img }}"
-                             class="card-img-top headshot"
-                             alt="Picture of {{ person[0].name }}, the {{ person[0].role }} of FAMNM." 
-                             title="{{ person[0].name }}"/>
+                        <img src="../img/core/{{ person[0].img }}" class="card-img-top headshot" alt="Picture of {{ person[0].name }}, the {{ person[0].role }} of FAMNM." title="{{ person[0].name }}"/>
                         <div class="card-body px-1">
                             <h5 class="card-title mb-0">{{ person[0].role }}</h5>
                             <p class="card-text mb-0">{{ person[0].name }}</p>
