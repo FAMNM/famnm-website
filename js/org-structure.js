@@ -265,10 +265,10 @@ orgData = [
 
 $(window).on("load", () => {
     var map = $("#org-pic");
-
+    
     orgData.forEach(component => {
         var area = map.find(component.id);
-
+        
         component.container = $(".content").get(0);
         component.trigger = ($(window).width() < 768) ? "click" : "hover";
         if ($(window).width() < 768) component.placement = "top";

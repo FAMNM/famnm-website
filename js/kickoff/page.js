@@ -9,46 +9,46 @@ var bNs = {
             var numStr = num.toString();
             return (numStr.length > 1) ? numStr : ("0" + numStr);
         };
-
+        
         if (hour >= 12) {
             ampm = "PM";
             hour -= (hour > 12) ? 12 : 0;
         } else if (hour == 0) hour = 12;
-
+        
         return hour.toString() + ":" + pad(minute) + " " + ampm;
     },
     loadSchedules: time => {
         time = (time === undefined ? new Date() : time);
-
+        
         var mainSchedule = $("#schedule");
         mainSchedule.empty();
-
+        
         //Fill main schedule
         bNs.schedule.forEach(evt => {
             var loc = bNs.resolveLocation(evt.location);
-
+            
             if (loc.code === false) return;
-
+            
             var nestedCreate = function () {
                 var nodeList = [arguments[0]];
-
+                
                 for (var i = 1; i < arguments.length; ++i) {
                     nodeList.push($(document.createElement(arguments[i])));
                     nodeList[i].appendTo(nodeList[i - 1]);
                 }
-
+                
                 return nodeList[nodeList.length - 1];
             };
-
+            
             var cell = nestedCreate(mainSchedule, "tr", "td");
             var timeDiv = nestedCreate(cell, "div");
             var titleDiv = nestedCreate(cell, "div");
             var locLnk = nestedCreate(cell, "div", "a");
-
+            
             cell.css("textAlign", "center");
             timeDiv.css("fontWeight", "bold");
             timeDiv.text(bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end));
-
+            
             titleDiv.text(evt.event);
             locLnk.addClass("map-jump");
             locLnk.text(loc.name);
@@ -56,22 +56,22 @@ var bNs = {
             locLnk.attr("data-target", "#mapModal");
             locLnk.click(event => {
                 var marker = bNs.getMarker(loc.code);
-
+                
                 bNs.map.modalTitle.text(loc.name);
-
+                
                 if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
                 if (bNs.map.winListener) {
                     google.maps.event.removeListener(bNs.map.winListener);
                     bNs.winListener = undefined;
                     bNs.map.infoWindow.setContent("");
                 }
-
+                
                 if (marker.length === 0) {
                     event.preventDefault();
                     bNs.activeMarker = undefined;
                     return;
                 }
-
+                
                 var pos = new google.maps.LatLng(marker[1], marker[2]);
                 bNs.map.activeMarker = new google.maps.Marker({
                     position: pos,
@@ -81,25 +81,25 @@ var bNs = {
                 });
                 bNs.map.map.setCenter(pos);
                 bNs.map.map.setZoom(18);
-
+                
                 bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function (mrk) {
                     return function () {
                         bNs.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
                         bNs.map.infoWindow.open(map, mrk);
                     }
                 })(bNs.map.activeMarker));
-
+                
                 setTimeout(function () {
                     google.maps.event.trigger(bNs.map.activeMarker, "click");
                     google.maps.event.trigger(bNs.map.map, "resize");
                 }, 500);
-
+                
                 /* When the user clicks on two locations that are far away from
                  * one another, some of the tiles don't load. I'm not sure why;
                  * none of the solutions I've found seem to fix it (yet).
                  */
             });
-
+            
             //"active" applies a gray background, "info" applies a blue background
             if (time >= evt.end) cell.parent().addClass("table-active");
             else if (time >= evt.start) cell.parent().addClass("table-info");
@@ -116,28 +116,28 @@ var bNs = {
         
         if (isEvent) {
             var target = $(event.currentTarget);
-
-
+            
+            
             if (target.prop("type") === "text") {
                 if (event.key !== "Enter") return;
                 num = parseInt(target.val(), 10);
             } else if (target.prop("type") === "button") {
                 num = parseInt(target.parent().prev().val(), 10);
             } else return;
-
+            
         } else {
             console.log("event is" + event)
             num = event;
         }
-
+        
         if (bNs.activeTeam.intervalId !== undefined)
             clearInterval(bNs.activeTeam.intervalId);
-
+        
         emptyDiv.css("display", "none");
         if (bNs.setTeam(num) >= 0) {
             bNs.loadSchedules();
             bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
-
+            
             if (num !== 0) {
                 teamNumName.text(num + ": " + bNs.activeTeam.name);
                 teamSchool.text(bNs.activeTeam.school);
@@ -145,10 +145,10 @@ var bNs = {
                 teamNumName.text("SCHEDULE FOR ALL TEAMS")
                 teamSchool.text(bNs.activeTeam.school);
             }
-
+            
             errDiv.css("display", "none");
             dispDiv.css("display", "block");
-
+            
             //Make the team number persist across refreshes
             localStorage.setItem("team", bNs.activeTeam.number);
         } else {
@@ -165,34 +165,34 @@ var bNs = {
                 return bNs.teams[i].number;
             }
         }
-
+        
         bNs.activeTeam = {};
         return -1;
     },
     resolveLocation: loc => {
         if (loc[0] === 't') {
             if (bNs.activeTeam.number === undefined)
-                throw new Error("Team number not set");
+            throw new Error("Team number not set");
             loc = bNs.activeTeam[loc.split(':')[1]];
         }
-
+        
         if (loc === false) {
             return { code: false, name: "N/A" };
         }
-
+        
         var locObj = { code: loc, name: loc };
-
+        
         bNs.locations.forEach(function (lMapping) {
             locObj.name = locObj.name.replace(lMapping[0], lMapping[1]);
         });
-
+        
         return locObj;
     },
     getMarker: code => {
         for (var i = 0; i < bNs.markers.length; ++i) {
             if (code === bNs.markers[i][0]) return bNs.markers[i];
         }
-
+        
         return [];
     },
     activeTeam: {},
@@ -249,13 +249,13 @@ var bNs = {
     map: {
         toggleParking: show => {
             show = (show === undefined ? !bNs.map.parkingShown : show);
-
+            
             if (show === bNs.map.parkingShown) return;
-
+            
             bNs.map.parkingMarkers.forEach(function (mkr) {
                 mkr.setMap(show ? bNs.map.map : null);
             });
-
+            
             if (show) {
                 if ($(bNs.map.map.getDiv()).width() === 0) {
                     google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
@@ -265,23 +265,23 @@ var bNs = {
                     bNs.map.map.fitBounds(bNs.map.parkingBounds);
                 }
             }
-
+            
             bNs.map.parkingShown = show;
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
         },
         showKOP: () => {
             var loc = bNs.resolveLocation(bNs.schedule[4].location);
             var mkr = bNs.getMarker(loc.code)
-
+            
             bNs.map.modalTitle.text("KOP Pick Up");
-
+            
             if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
             if (bNs.map.winListener) {
                 google.maps.event.removeListener(bNs.map.winListener);
                 bNs.winListener = undefined;
                 bNs.map.infoWindow.setContent("");
             }
-
+            
             var pos = new google.maps.LatLng(mkr[1], mkr[2]);
             bNs.map.activeMarker = new google.maps.Marker({
                 position: pos,
@@ -289,12 +289,12 @@ var bNs = {
                 icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
                 title: "KOP Pickup"
             });
-
+            
             bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", function () {
                 bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
                 bNs.map.infoWindow.open(map, bNs.map.activeMarker);
             });
-
+            
             if ($(bNs.map.map.getDiv()).width() === 0) {
                 google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
                     bNs.map.map.setCenter(pos);
@@ -364,13 +364,13 @@ function initMap() {
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         gestureHandling: "greedy"
     });
-
+    
     bNs.map.map.setTilt(45);
     bNs.map.infoWindow = new google.maps.InfoWindow();
     bNs.map.modalTitle = $("#map-active-loc");
-
+    
     bNs.map.parkingBounds = new google.maps.LatLngBounds();
-
+    
     //Initialize parking markers
     bNs.parking.forEach(lot => {
         var mkr = new google.maps.Marker({
@@ -379,29 +379,29 @@ function initMap() {
             title: lot.lot + " Parking Lot",
             icon: "../img/kickoff/icons/parking.png"
         });
-
+        
         google.maps.event.addListener(mkr, "click", (mkr => {
             return () => {
                 bNs.map.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
                 bNs.map.infoWindow.open(map, mkr);
             }
         })(mkr));
-
+        
         bNs.map.parkingMarkers.push(mkr);
         bNs.map.parkingBounds.extend(lot);
     });
-
+    
     google.maps.event.addListener(bNs.map.map, "maptypeid_changed", () => {
         var mapType = bNs.map.map.getMapTypeId();
         var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
             ? "../img/kickoff/icons/parking-white.png"
             : "../img/kickoff/icons/parking.png");
-
+        
         bNs.map.parkingMarkers.forEach(function (mkr) {
             mkr.setIcon(newParkingIcon);
         });
     });
-
+    
     $(".maps-btn").removeAttr("disabled");
 }
 
@@ -410,56 +410,56 @@ $(document).ready(function () {
     var script = $(document.createElement('script'));
     script.attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap");
     $(document.body).append(script);
-
+    
     //Load team information
     $.ajax({
         url: "../../js/kickoff/teamlist.json",
         dataType: "json"
     }).done(teams => {
         bNs.teams = teams;
-
+        
         // //Load the current team
         // var team = localStorage.getItem("team");
-
+        
         // if (team.length > 0) {
         //     var teamInput = $($(".input-group").children().get(0));
         //     teamInput.val(team);
         //     teamInput.next().trigger("click");
         // }
-
+        
         bNs.teamNumAccepted(0, false)
     });
-
+    
     //Initialize countdown clock
     var computeDiff = () => {
         var diff = (getTime(10, 30).getTime() - (new Date()).getTime());
         var d, h, m, s;
-
+        
         var clockParts = $(".countdown-clock").children();
-
+        
         if (diff < 0) diff = 0;
-
+        
         //Knock off milliseconds
         diff = Math.floor(diff / 1e3);
         s = diff % 60;
-
+        
         //Knock off seconds
         diff = Math.floor(diff / 60);
         m = diff % 60;
-
+        
         //Knock off minutes
         diff = Math.floor(diff / 60);
         h = diff % 24;
-
+        
         //Knock off hours
         d = Math.floor(diff / 24);
-
+        
         var times = [d, h, m, s];
-
+        
         for (var i = 0; i < clockParts.length; ++i)
             clockParts.eq(i).text(times[i]);
     };
-
+    
     computeDiff();
     setInterval(computeDiff, 1000);
 });

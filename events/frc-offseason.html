@@ -144,8 +144,8 @@ schedule:
                     </tr>
                     {% else %}
                     <tr {% if item[0].type == "setup" %}class="setup"{% endif %}>
-                    <td>{{ item[0].time }}</td>
-                    <td>{{ item[0].description }}</td>
+                        <td>{{ item[0].time }}</td>
+                        <td>{{ item[0].description }}</td>
                     </tr>
                     {% endif %}
                     {% endfor %}

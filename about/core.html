@@ -79,7 +79,7 @@ people:
 </head>
 <body>
     {% include header.html %}
-
+    
     <div class="container">
         <div class="content">
             <h1>FAMNM Core Team 2019-2020</h1>
@@ -87,23 +87,23 @@ people:
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 d-flex justify-content-center">
                 {% for person in page.people %}
                 <div class="col-mb-4 mx-3 my-3">
-                <div class="card"><a href="mailto:{{ person[0].email }}@umich.edu">
-                    <img src="../img/core/{{ person[0].img }}"
-                         class="card-img-top headshot"
-                         alt="Picture of {{ person[0].name }}, the {{ person[0].role }} of FAMNM." 
-                         title="{{ person[0].name }}"/>
-                    <div class="card-body px-1">
-                        <h5 class="card-title mb-0">{{ person[0].role }}</h5>
-                        <p class="card-text mb-0">{{ person[0].name }}</p>
-                        <p class="card-text">{{ person[0].email }}@umich.edu</p>
-                    </div>
+                    <div class="card"><a href="mailto:{{ person[0].email }}@umich.edu">
+                        <img src="../img/core/{{ person[0].img }}"
+                             class="card-img-top headshot"
+                             alt="Picture of {{ person[0].name }}, the {{ person[0].role }} of FAMNM." 
+                             title="{{ person[0].name }}"/>
+                        <div class="card-body px-1">
+                            <h5 class="card-title mb-0">{{ person[0].role }}</h5>
+                            <p class="card-text mb-0">{{ person[0].name }}</p>
+                            <p class="card-text">{{ person[0].email }}@umich.edu</p>
+                        </div>
+                    </div></a>
                 </div>
-                </a></div>
                 {% endfor %}
             </div>
-         </div>
+        </div>
     </div><!-- /.container -->
-
+    
     {% include footer.html %}
     {% include scripts.html %}
     <!-- Page styles -->
@@ -114,20 +114,20 @@ people:
             height: 325px;
             width: 250px;
         }
-
+        
         .card {
             width: 250px;
             height: 100%;
         }
-
+        
         .card > a {
             color: #3b8ac3;
         }
-
+        
         .card > a:hover {
             text-decoration: none;
             color: #003368;
         }
     </style>
-  </body>
+</body>
 </html>

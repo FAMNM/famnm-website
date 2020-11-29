@@ -35,61 +35,61 @@ orgs:
         .table th {
             text-align: center;
         }
-
+        
         .table td {
             text-align: center;
         }
-
+        
         a.map-jump {
             color: #007bff !important;
             text-decoration: none;
         }
-
+        
         a.map-jump:hover {
             text-decoration: underline !important;
             cursor: pointer;
         }
-
+        
         .countdown-clock {
             font-size: 3em;
             font-weight: bold;
         }
-
+        
         .countdown-clock>.time-part:after {
             font-size: 0.5em;
         }
-
+        
         .countdown-clock>.days:after {
             content: "d";
         }
-
+        
         .countdown-clock>.hours:after {
             content: "h";
         }
-
+        
         .countdown-clock>.minutes:after {
             content: "m";
         }
-
+        
         .countdown-clock>.seconds:after {
             content: "s";
         }
-
+        
         .team-empty {
             margin-top: 1em;
         }
-
+        
         .team-error,
         .team-disp {
             display: none;
         }
-
+        
         #schedule .active>td {
             color: #999999;
         }
-
+        
         /** Sponsor display list **/
-
+        
         ul.sponsor-display {
             padding: 0;
             vertical-align: middle;
@@ -97,51 +97,51 @@ orgs:
             margin: 0 auto;
             text-align: center;
         }
-
+        
         @media (max-width: 768px) {
             ul.sponsor-display>li {
                 list-style-type: none;
                 vertical-align: middle;
             }
-
+            
             ul.sponsor-display>li img {
                 max-width: 100%;
             }
-
+            
             #quick-links>.btn {
                 margin: 5px auto;
             }
-
+            
             #map {
                 height: 400px;
             }
         }
-
+        
         @media (min-width: 768px) {
             ul.sponsor-display>li {
                 list-style-type: none;
                 display: inline-block;
                 vertical-align: middle;
             }
-
+            
             ul.sponsor-display>li img {
                 max-width: 250px;
             }
-
+            
             #map {
                 height: 600px;
             }
         }
-
+        
         ul.sponsor-display>li:hover {
             background-color: #cccccc;
         }
-
+        
         ul.sponsor-display>li>a {
             display: block;
             padding: 10px;
         }
-
+        
         ul.sponsor-display>li img {
             max-height: 180px;
         }
@@ -149,10 +149,10 @@ orgs:
 </head>
 
 <body>
-
+    
     {% include header.html %}
-
-
+    
+    
     <div class="container">
         <div class="content">
             <div>
@@ -163,26 +163,32 @@ orgs:
                 virtual experience for teams. Stay tuned for more information
                 as we begin to plan!
             </p>
-            <!-- <p class="text-par">If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
-                If you wish to order a pizza lunch for your team, that link may also be found below.</p>
+            <!-- <p class="text-par">
+                If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
+                If you wish to order a pizza lunch for your team, that link may also be found below.
+            </p>
             <ul class="list-unstyled">
                 <li><a href="#event-map">Event Map</a></li>
                 <li><a href="#sched">Schedule</a></li>
                 <li><a href="#recharge"><span class="italic">FIRST</span>&reg; INFINITE RECHARGE&#8480;</a></li>
                 <li><a href="#um-fair">UM Fair</a></li>
             </ul>
-            <p class="text-par font">FAMNM would like to thank all teams who helped make our 
+            <p class="text-par font">
+                FAMNM would like to thank all teams who helped make our 
                 fifth annual FRC Kickoff a success! If you have the chance, please take the time to fill out the 
                 <a class="font-weight-bold" href="https://forms.gle/XDSMYVo2WScg79we6" target="_blank" rel="noopener noreferrer">feedback form</a>
-                linked below to help make next year's kickoff even better!</p>
+                linked below to help make next year's kickoff even better!
+            </p>
             <p class="text-par">Good luck this season with INFINITE RECHARGE!</p>
             <img id="recharge"
-                src="https://www.firstinspires.org/sites/default/files/uploads/rightimage/infinite-recharge-web-promo_0.png"
-                style="max-height: 150px;" />
-            <p class="text-par">FRC teams from the local area come to U-M for the reveal of the 2020 FIRST Robotics
+            src="https://www.firstinspires.org/sites/default/files/uploads/rightimage/infinite-recharge-web-promo_0.png"
+            style="max-height: 150px;" />
+            <p class="text-par">
+                FRC teams from the local area come to U-M for the reveal of the 2020 FIRST Robotics
                 Competition game. The kickoff will feature a University of Michigan student organization fair,
                 pre-broadcast speakers, breakout rooms for teams to discuss the game after the reveal, and a
-                kit-of-parts distribution.</p>
+                kit-of-parts distribution.
+            </p>
             <p id="quick-links">
                 <p class="font-weight-bold">Quick links:</p>
                 <p><a class="btn famnm-btn-secondary" href="https://forms.gle/XDSMYVo2WScg79we6" target="_blank" rel="noopener noreferrer">Feedback Form</a></p>
@@ -193,22 +199,27 @@ orgs:
                 Event Map:
             </h1>
             <iframe src="https://www.google.com/maps/d/embed?mid=1NgNVk45VFsOPxiIu1bgk4Rt2SbIVJoYI" width="640"
-                height="480" id="event-map"></iframe>
+            height="480" id="event-map"></iframe>
             <h2 id="sched">Schedule</h2>
-            <p>Enter your team number below to see your team's schedule, find broadcast and breakout
-                rooms, and view additional kickoff information.</p>
+            <p>
+                Enter your team number below to see your team's schedule, find broadcast and breakout
+                rooms, and view additional kickoff information.
+            </p>
             <div class="input-group">
                 <input type="text" class="form-control" placeholder="Team number"
-                    onkeypress="bNs.teamNumAccepted(event, true)" />
+                onkeypress="bNs.teamNumAccepted(event, true)" />
                 <span class="input-group-append">
                     <button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event, true)">View</button>
                 </span>
             </div>
-            <p class="team-error"><span style="font-size: 3em; font-weight: bold;">:/</span><br /> We're sorry, we don't
+            <p class="team-error">
+                <span style="font-size: 3em; font-weight: bold;">:/</span><br /> We're sorry, we don't
                 have a schedule for that team.<br />
+            </p>
             <p>
                 If your team is just picking up your Kit of Parts, you can pick it up at <a href="#" data-toggle="modal"
-                    data-target="#mapModal" onclick="bNs.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.</p>
+                data-target="#mapModal" onclick="bNs.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.
+            </p>
             <div class="team-disp">
                 <p class="italic">Click on or touch a location to view it on a map</p>
                 <table id="sched-table" class="table table-bordered">
@@ -234,8 +245,10 @@ orgs:
             </div>
             <h4>Manuals and resources</h4>
             <h3 id="um-fair">UM Fair</h3>
-            <p>The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved
-                with. Expand any of the panels below to learn more about an organization!</p>
+            <p>
+                The U of M Fair hosts a variety of groups that students at the University of Michigan can become involved
+                with. Expand any of the panels below to learn more about an organization!
+            </p>
             <div class="panel-group">
                 {% for org in page.orgs %}
                 <div class="card">
@@ -250,18 +263,15 @@ orgs:
             </div> -->
             <h3 class="text-center">Sponsors</h3>
             <ul class="sponsor-display">
-                <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center"
-                            src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
-                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png"
-                            alt="University of Michigan College of Engineering" /></a></li>
+                <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
+                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png" alt="University of Michigan College of Engineering" /></a></li>
             </ul>
         </div>
         
     </div>
     <!-- /.container -->
-
-    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModal-title"
-        aria-hidden="true">
+    
+    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModal-title" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
@@ -276,13 +286,13 @@ orgs:
                 <div class="modal-footer">
                     <span>All parking is free for the duration of the event.</span>
                     <button id="map-parking-toggle" type="button" class="btn btn-primary"
-                        onclick="bNs.map.toggleParking()">Show parking</button>
+                    onclick="bNs.map.toggleParking()">Show parking</button>
                     <button type="button" class="btn famnm-btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
+    
     {% include footer.html %}
     {% include scripts.html %}
     <script src="{{site.url}}/js/kickoff/page.js"></script>

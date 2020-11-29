@@ -120,40 +120,40 @@ people:
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	{% include title-styles.html %}
+    {% include title-styles.html %}
 </head>
 <body>
     {% include header.html %}
-
+    
     <div class="container">
         <div class="content">
             <h1>2020 Ri3D Team</h1>
             <h3> Meet FAMNM's 2020 Ri3D Team:</h3>
-
-			<div class="row">
-			
-			  {% for person in page.people %}
-			  <div class="col-md-6 col-lg-4">
-			    <div class="card mt-4">
-			      <img alt="Picture of {{ person[0].name }}" class="card-img-top img-fluid w-100" src="{{ person[0].image }}" />
-			      <div class="card-block p-4">
-			        <h4 class="card-title">{{ person[0].name }}</h4>
-			        <p class="card-text">
-						{% if person[0].major == "" %}
-						<b>{{ person[0].standing }}</b><br/>
-						{% else %}
-			        	<b>{{ person[0].standing }}: </b> {{ person[0].major }} <br/>
-						{% endif %}
-			        	<i>{{ person[0].quote }}</i>
-		        	</p>
-			      </div>
-			    </div>
-			  </div>
-			  {% endfor %}
-             </div>
+            
+            <div class="row">
+                
+                {% for person in page.people %}
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mt-4">
+                        <img alt="Picture of {{ person[0].name }}" class="card-img-top img-fluid w-100" src="{{ person[0].image }}" />
+                        <div class="card-block p-4">
+                            <h4 class="card-title">{{ person[0].name }}</h4>
+                            <p class="card-text">
+                                {% if person[0].major == "" %}
+                                <b>{{ person[0].standing }}</b><br/>
+                                {% else %}
+                                <b>{{ person[0].standing }}: </b> {{ person[0].major }} <br/>
+                                {% endif %}
+                                <i>{{ person[0].quote }}</i>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div><!-- /.container -->
-
+    
     {% include footer.html %}
     {% include scripts.html %}
     <!-- Page styles -->
@@ -163,17 +163,17 @@ people:
                 height: 100%;
             }
         }
-
+        
         @media (min-width: 801px) {
             .card-img-top {
                 height: 25vw;
             }
         }
-		
-		.card-img-top {
-		    object-fit: cover;
-		}
+        
+        .card-img-top {
+            object-fit: cover;
+        }
         
     </style>
-  </body>
+</body>
 </html>
