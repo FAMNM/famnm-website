@@ -1,23 +1,23 @@
 html {
-	height: 100%;
+    height: 100%;
 }
 
 body {
-	min-height: 100%;
-	padding-top: 70px;
-	font-family: 'Roboto', sans-serif;
-	display: flex;
-	flex-direction: column;
-	font-size-adjust: inherit;
+    min-height: 100%;
+    padding-top: 70px;
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    flex-direction: column;
+    font-size-adjust: inherit;
 }
 
 body > * {
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 @media (min-width: 768px) {
-	p a {
-		white-space: nowrap;
-	}
+    p a {
+        white-space: nowrap;
+    }
 }
 
 /** Basic style formatting **/
@@ -27,13 +27,13 @@ body > * {
 }
 
 .text-par {
-	text-align: justify;
-	font-size: larger;
+    text-align: justify;
+    font-size: larger;
 }
 
 .membership {
-	margin-top: 10px;
-	padding-bottom: 10px;
+    margin-top: 10px;
+    padding-bottom: 10px;
 }
 
 @media all and (max-width: 767px) {
@@ -46,10 +46,10 @@ body > * {
 }
 
 @media all and (min-width: 992px) {
-  .text-par {
-    width: 80%;
-    margin: 10px auto;
-  }
+    .text-par {
+        width: 80%;
+        margin: 10px auto;
+    }
 }
 
 .card-header > a {
@@ -58,59 +58,59 @@ body > * {
 
 /** Navbar formatting **/
 #navbar-logo{
-	opacity: 0.7;
+    opacity: 0.7;
 }
 
 #navbar-logo:hover {
-	opacity: 1;
+    opacity: 1;
 }
 
 .navbar .nav-link {
-	color: #FFFFFFB3;
+    color: #FFFFFFB3;
 }
 
 /** Footer formatting **/
 .footer {
-	background-color: #003368;
-	color: #ffffff;
-	clear: both;
-	font-size: 1.25em;
-	flex-grow: 1;
+    background-color: #003368;
+    color: #ffffff;
+    clear: both;
+    font-size: 1.25em;
+    flex-grow: 1;
 }
 
 .footer #copyright-text {
-	font-size: 0.75em;
+    font-size: 0.75em;
 }
 
 .footer #footer-logo {
-	max-width: 75%;
+    max-width: 75%;
 }
 
 .footer ul {
-	padding-left: 0;
-	list-style-type: none;
+    padding-left: 0;
+    list-style-type: none;
 }
 
 .footer ul > li {
-	margin: 0.5em 0;
+    margin: 0.5em 0;
 }
 
 .footer a {
-	color: #d7d7d7;
-	text-decoration: underline;
-	min-width: 100px;
+    color: #d7d7d7;
+    text-decoration: underline;
+    min-width: 100px;
 }
 
 .footer #social-icons {
-	font-size: 25px;
+    font-size: 25px;
 }
 
 .footer #social-icons a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 .footer #social-icons a svg {
-	margin: 0 5px;
+    margin: 0 5px;
 }
 
 /** Image formatting **/
@@ -124,93 +124,93 @@ img {
 /** Carousel **/
 
 div.carousel-item > img {
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 
 .carousel-back-image {
-	min-width: 100%;
-	min-height: 100%;
-	object-fit: cover;
-	object-position: center;
-	filter: blur(7px);
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(7px);
 }
 
 /* Add a black gradient behind the captions to increase legibility by a lot. */
 div.carousel-caption {
-	background-color: rgba(0,0,0,0.5);
-	bottom: 0;
-	left: 0;
-	right: 0;
-	width: 100%;
-	padding: 1.5em;
-	background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8));
+    background-color: rgba(0,0,0,0.5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1.5em;
+    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8));
 }
 
 /* Custom viewport-size based image sizing */
 @media (max-width: 767px)
 {
-	div.carousel-inner {
-		height: 300px;
-	}
-	
-	div.carousel-inner > .carousel-item {
-		height: 100%;
-	}
-	
-	div.carousel-inner img.loading {
-		height: 30%;
-	}
-	
-	div.carousel-inner > div.carousel-tmp {
-		padding: 100px;
-		height: 300px;
-		max-height: 300px;
-	}
-
-	div.carousel-inner div.carousel-caption {
-		display: none;
-	}
-	
-	ol.carousel-indicators {
-		background-color: rgba(0,0,0,0.5);
-	}
+    div.carousel-inner {
+        height: 300px;
+    }
+    
+    div.carousel-inner > .carousel-item {
+        height: 100%;
+    }
+    
+    div.carousel-inner img.loading {
+        height: 30%;
+    }
+    
+    div.carousel-inner > div.carousel-tmp {
+        padding: 100px;
+        height: 300px;
+        max-height: 300px;
+    }
+    
+    div.carousel-inner div.carousel-caption {
+        display: none;
+    }
+    
+    ol.carousel-indicators {
+        background-color: rgba(0,0,0,0.5);
+    }
 }
 
 @media (min-width: 768px)
 {
-	
-	div.carousel-inner > .carousel-item {
-		height: 400px;
-	}
-
-	div.carousel-inner img.loading {
-		height: 50%;
-	}
-	
-	div.carousel-inner > div.carousel-tmp {
-		padding: 150px;
-		height: 400px;
-	}
+    
+    div.carousel-inner > .carousel-item {
+        height: 400px;
+    }
+    
+    div.carousel-inner img.loading {
+        height: 50%;
+    }
+    
+    div.carousel-inner > div.carousel-tmp {
+        padding: 150px;
+        height: 400px;
+    }
 }
 
 @media (min-width: 1200px)
 {
-	div.carousel-inner > .carousel-item {
-		height: 500px;
-	}
-	
-	div.carousel-inner img.loading {
-		height: 75%;
-	}
-	
-	div.carousel-inner > div.carousel-tmp {
-		padding: 200px;
-		height: 500px;
-	}
+    div.carousel-inner > .carousel-item {
+        height: 500px;
+    }
+    
+    div.carousel-inner img.loading {
+        height: 75%;
+    }
+    
+    div.carousel-inner > div.carousel-tmp {
+        padding: 200px;
+        height: 500px;
+    }
 }
 
 iframe {
@@ -232,52 +232,52 @@ iframe {
 }
 
 .famnm-btn {
-	background-color: #ffd536;
-	color: black;
+    background-color: #ffd536;
+    color: black;
 }
 
 .famnm-btn:hover {
-	background-color: #ffe582;
+    background-color: #ffe582;
 }
 
 .famnm-btn-secondary {
-	background-color: #3b8ac3;
-	color: #f3f3f3;
+    background-color: #3b8ac3;
+    color: #f3f3f3;
 }
 
 .famnm-btn-secondary:hover {
-	background-color: #59a9e3;
-	color: #f3f3f3;
+    background-color: #59a9e3;
+    color: #f3f3f3;
 }
 
 input[type=text] {
-	border-radius: 3.5px;
-	border-style: solid;
-	border-width: .5px;
-	border-color: #7f7f7f;
-	padding-left: 5px;
+    border-radius: 3.5px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #7f7f7f;
+    padding-left: 5px;
 }
 
 input[type=email] {
-	border-radius: 3.5px;
-	border-style: solid;
-	border-width: .5px;
-	border-color: #7f7f7f;
-	padding-left: 5px;
+    border-radius: 3.5px;
+    border-style: solid;
+    border-width: .5px;
+    border-color: #7f7f7f;
+    padding-left: 5px;
 }
 
 .bg-famnm-blue {
-	background-color: #003368;
+    background-color: #003368;
 }
 
 .bg-famnm-blue:hover {
-	background-color: #003368;
-	opacity: 1;
+    background-color: #003368;
+    opacity: 1;
 }
 
 .alert-primary {
-	color: #efefef;
-	background-color: #3b8ac3;
-	border-color: #115b90;
-	margin: 2em;
+    color: #efefef;
+    background-color: #3b8ac3;
+    border-color: #115b90;
+    margin: 2em;
 }

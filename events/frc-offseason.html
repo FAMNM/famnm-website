@@ -57,18 +57,22 @@ schedule:
         dt {
             font-weight: bold;
         }
+        
         dd {
             margin-left: 1em;
         }
+        
         table.schedule {
             max-width: 700px;
         }
+        
         table.schedule tr.day {
             margin-top: 1em;
             background-color: #212529;
             color: white;
             font-weight: bold;
         }
+        
         table.schedule tr.setup {
             background-color: #cde;
         }
@@ -76,6 +80,7 @@ schedule:
 </head>
 <body>
     {% include header.html %}
+    
     <div class="container">
         <div class="content">
             <h1>Washtenaw Robotics Competition: FRC Offseason Event</h1>
@@ -144,8 +149,8 @@ schedule:
                     </tr>
                     {% else %}
                     <tr {% if item[0].type == "setup" %}class="setup"{% endif %}>
-                    <td>{{ item[0].time }}</td>
-                    <td>{{ item[0].description }}</td>
+                        <td>{{ item[0].time }}</td>
+                        <td>{{ item[0].description }}</td>
                     </tr>
                     {% endif %}
                     {% endfor %}
@@ -157,6 +162,7 @@ schedule:
         </div>
     </div>
     <!-- /.container -->
+    
     {% include footer.html %}
     {% include scripts.html %}
 </body>
