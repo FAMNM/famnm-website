@@ -3,29 +3,28 @@ title: Organizational Structure | FIRST® Alumni & Mentors Network at Michigan
 ---
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     {% include title-styles.html %}
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
 </head>
-
 <body>
-
     {% include header.html %}
-
+    
     <div class="container">
         <div class="content">
             <h1>FAMNM Organizational Structure</h1>
-            <p class="text-par">Below is a chart of FAMNM's organizational
+            <p class="text-par">
+                Below is a chart of FAMNM's organizational
                 structure. Executive Board members and Core Team members
                 constitute FAMNM's leadership structure, the FAMNM Core.
                 Dashed lines indicate collaborative relationships between
                 committees and Core Team members. Hover over or tap any of the
-                boxes to learn more!</p>
+                boxes to learn more!
+            </p>
             <div id="org-pic-contain">{% include org-structure.svg %}</div>
         </div>
     </div><!-- /.container -->
-
+    
     {% include footer.html %}
     {% include scripts.html %}
     <script src="{{site.url}}/js/org-structure.js"></script>
@@ -35,19 +34,19 @@ title: Organizational Structure | FIRST® Alumni & Mentors Network at Michigan
             user-select: none;
             overflow-x: auto;
         }
-
+        
         @media(min-width: 768px) {
             #org-pic {
                 width: 100%;
             }
         }
-
+        
         @media(max-width: 767px) {
             #org-pic {
                 width: 250%;
             }
         }
-
+        
         @media(max-width: 399px) {
             #org-pic {
                 width: 500%;
@@ -55,5 +54,4 @@ title: Organizational Structure | FIRST® Alumni & Mentors Network at Michigan
         }
     </style>
 </body>
-
 </html>

@@ -15,9 +15,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 </head>
 <body>
     {% include header.html %}
-
+    
     <h1 class="w-50 mx-auto">FAMNM Attendance Viewer</h1>
-
+    
     <div class='w-50 mx-auto d-flex justify-content-center'>
         <a class="btn famnm-btn mx-3 my-3" id="csv-button" href="https://famnm-website-backend.herokuapp.com/export">Get Attendance Data as CSV</a>
         <button class="btn famnm-btn mx-3 my-3" id="active-memb-button">Get Active Members</button>
@@ -31,7 +31,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         <button type="button" class="btn famnm-btn-secondary ml-1" data-toggle="modal" id="sendUniqname">Submit</button>
         <button type="button" class="btn btn-secondary ml-1" data-toggle="modal" id="hideUniqnameTable">Clear</button>
     </div>
-
+    
     <div class="mx-auto w-50 d-flex justify-content-center flex-column" id="uniqname-meeting-all">
         <h3 id="uniqname-meeting-header"></h3>
         <table class="table" id="uniqname-meetings">
@@ -45,7 +45,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </tbody>
         </table>
     </div>
-
+    
     <div class="w-75 mx-auto d-flex justify-content-center">
         <a href="" id="toggle-all-meetings" class="btn famnm-btn-secondary">ALL MEETINGS (click to hide/show)</a>
     </div>
@@ -60,11 +60,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 </tr>
             </thead>
             <tbody id="meeting-body">
-
+                
             </tbody>
         </table>
     </div>
-
+    
     {% include footer.html %}
     {% include scripts.html %}
     <script>
@@ -75,12 +75,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             8: "Sep", 9: "Oct", 10: "Nov", 11: "Dec"
         }
         const sortMeetings = (meetings) => {
-            meetings.sort((a,b) => {
-                return a.meeting_id < b.meeting_id;
+            return meetings.sort((a,b) => {
+                return a.meeting_id - b.meeting_id;
             });
-            return meetings;
         };
-
+        
         $(() => {
             $('#uniqname-meetings').hide();
             $('#uniqname-meeting-header').hide();
@@ -91,13 +90,17 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 e.preventDefault();
                 $('.all-meetings').toggle();
             })
-
+            
             fetch(backend_url + "meeting")
             .then( (res) => {
                 if (!res.ok) throw Error(res.statusText);
                 return res.json();
             })
             .then(sortMeetings)
+            .then(data => {
+                console.log(data);
+                return data;
+            })
             .then(data => {
                 data.forEach(meeting => {
                     let meetDay = new Date(meeting.day);
@@ -120,7 +123,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 })
             })
             .catch(console.log);
-
+            
             const populateUniqname = () => {
                 $('#uniqname-meetings').show();
                 $('#uniqname-meeting-header').show();
@@ -128,7 +131,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 $('#uniqname-meeting-header').text(uniqname);
                 $('#uniqname').val('');
                 $('#uniqname-meeting-body').empty();
-
+                
                 fetch(`${backend_url}attendance/uniqname/${uniqname}`)
                 .then( (res) => {
                     if (!res.ok) throw Error(res.statusText);
@@ -143,7 +146,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                             <td id="type-uniqname-meeting-${meeting.meeting_id}">Loading...</td>
                         </tr>`));
                     });
-
+                    
                     meetings.forEach(meeting => {
                         fetch(`${backend_url}meeting/${meeting.meeting_id}`)
                         .then(res => {
@@ -159,19 +162,19 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 })
                 .catch(console.log);
             }
-
+            
             $('#uniqname').keypress((e) => {
                 if (e.keyCode == 13){populateUniqname();}
             });
-
+            
             $('#sendUniqname').click(populateUniqname);
-
+            
             $('#hideUniqnameTable').click((e) => {
                 e.preventDefault();
                 $('#uniqname-meeting-header').hide();
                 $('#uniqname-meetings').hide();
             });
-
+            
             $('#active-memb-button').click(() => {
                 $('#active-memb-list').empty();
                 if ($('#active-memb').is(":hidden")) {

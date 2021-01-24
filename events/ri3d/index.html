@@ -3,29 +3,32 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
 ---
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		{% include title-styles.html %}
-	<style>
-		.champs{
-			background: red;
-			background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
-			background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
-			background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
-			background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-			-webkit-background-clip: text;
-			-webkit-text-fill-color: transparent;
-			font-size: 40px;
-			font-weight: bold;
-		}
+<head>
+    {% include title-styles.html %}
+    <style>
+        .champs{
+            background: red;
+            background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
+            background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+            background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet);
+            background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        
         .lead-card {
             padding: 1.5em;
             background-color: #eeeeee;
         }
+        
         @media (min-width: 768px) {
             .desc-row:not(:first-child) {
                 margin-top: 1em;
             }
         }
+        
         @media (max-width: 767px) {
             .img-contain ~ .desc {
                 margin-top: 1em;
@@ -38,7 +41,7 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
             }
         }
         /** Sponsor display list **/
-
+        
         ul.sponsor-display {
             padding: 0;
             vertical-align: middle;
@@ -46,13 +49,13 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
             margin: 0 auto;
             text-align: center;
         }
-
+        
         @media (max-width: 768px) {
             ul.sponsor-display>li {
                 list-style-type: none;
                 vertical-align: middle;
             }
-
+            
             ul.silver-sponsor>li img {
                 width: 60%;
             }
@@ -60,7 +63,7 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                 width: 100%;
             }
         }
-
+        
         @media (min-width: 768px) {
             ul.sponsor-display>li {
                 list-style-type: none;
@@ -74,119 +77,127 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                 width: 450px;
             }
         }
-
+        
         ul.sponsor-display>li:hover {
             background-color: #cccccc;
         }
-
+        
         ul.sponsor-display>li>a {
             display: block;
             padding: 10px;
         }
-
+        
         ul.gold-sponsor {
             border: solid gold 4px;
         }
-
+        
         ul.silver-sponsor {
             border: solid silver 4px;
             margin-top: 10px;
         }
-
-	</style>
-	</head>
-	<body>
-		{% include header.html %}
-		<div class="container content">
-            <h1>FAMNM Robot in 3 Days</h1>
-            <div class="card lead-card text-left">
-                <h2>2020 FAMNM Ri3D</h2>
-                <p>Our Ri3D team is getting ready to build our robot for the 2020 FRC game, <span class="font-italic">Infinite Recharge</span>!
-                If your team is looking for insight for their build process, or you're just curious to see what we did, check out our documentation page!</p>
-                <p class="mx-auto">
-                    <a class="mx-auto btn famnm-btn-secondary" href="team.html">2020 Ri3D Team</a>
-                    <a class="mx-auto btn famnm-btn-secondary" href="2020.html">2020 Build Documentation</a>
-                </p>
-            </div>
-            <div class="row desc-row text-left">
-                <div class="col-md-6 desc">
-                    <h2 id="student-involvement">How do I get involved with Ri3D?</h2>
-                    <p>All interested University of Michigan students are able to be a part of the FAMNM Ri3D team, provided they<p>
-                    <ul>
-                    <li>Join the team by filling out the interest form, attending the Ri3D informational meeting, 
-                    or contacting <a href="mailto:famnm.ri3d@umich.edu">the Ri3D coordinator</a></li>
+        
+    </style>
+</head>
+<body>
+    {% include header.html %}
+    
+    <div class="container content">
+        <h1>FAMNM Robot in 3 Days</h1>
+        <div class="card lead-card text-left">
+            <h2>2020 FAMNM Ri3D</h2>
+            <p>
+                Our Ri3D team is getting ready to build our robot for the 2020 FRC game, <span class="font-italic">Infinite Recharge</span>!
+                If your team is looking for insight for their build process, or you're just curious to see what we did, check out our documentation page!
+            </p>
+            <p class="mx-auto">
+                <a class="mx-auto btn famnm-btn-secondary" href="team.html">2020 Ri3D Team</a>
+                <a class="mx-auto btn famnm-btn-secondary" href="2020.html">2020 Build Documentation</a>
+            </p>
+        </div>
+        <div class="row desc-row text-left">
+            <div class="col-md-6 desc">
+                <h2 id="student-involvement">How do I get involved with Ri3D?</h2>
+                <p>All interested University of Michigan students are able to be a part of the FAMNM Ri3D team, provided they</p>
+                <ul>
+                    <li>Join the team by filling out the interest form, attending the Ri3D informational meeting, or contacting <a href="mailto:famnm.ri3d@umich.edu">the Ri3D coordinator</a></li>
                     <li>Attend 4 required planning meetings</li>
                     <li>Get Wilson center training by the training deadline, which will be dependent on the year (usually early December)</li>
                     <li>Commit to attend all 3 days of build</li>
                     <li>Commit to attend at least one auxiliary event (bumpers, live streams, competition)</li>   
-                    </ul>
-                    <p>If you have further questions, please email <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
-                </div>
-                <div class="col-md-6 img-contain">
-                    <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-team-conf-room.png"/>
-                </div>
+                </ul>
+                <p>If you have further questions, please email <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
             </div>
-            <div class="row desc-row text-left">
-                <div class="col-md-6 img-contain">
-                    <img class="mx-auto" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
-                </div>
-                <div class="col-md-6 desc">
-                    <h2 id="sponsor">How do I sponsor the FAMNM Ri3D team?</h2>
-                    <p>The FAMNM Ri3D team is currently looking for sponsors! If you would like to sponsor us, please contact our coordinator at
-                    <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.
-                </div>
+            <div class="col-md-6 img-contain">
+                <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-team-conf-room.png"/>
             </div>
-            <div class="row desc-row text-left">
-                    <div class="col-md-6 desc">
-                        <h2 id="overview">What is Ri3D?</h2>
-                        <p>Robot in 3 Days is a challenge in which collegiate teams rush to build a robot capable of playing the current FRC game in only three days.
-                            Teams begin their build at the end of the game reveal during the kickoff broadcast and must complete their robot in no more than 72 hours.</p>
-                        <p>FAMNM estabilshed its Ri3D team in 2019, and built a robot to compete in the first-ever FIRST Alumni Collegiate Competition, an Ri3D competition hosted
-                            at Kettering's FIRST Robotics Community Center. Competing alongside other Ri3D teams from Michigan State University, Ferris State University,
-                            Grand Valley State University, and Kettering University, the FAMNM Ri3D team managed to wrest their way to victory and claim the <span class="font-weight-bold">first-ever FACC Ri3D trophy!</span></p>
-                    </div>
-                    <div class="col-md-6 img-contain">
-                        <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-winners.jpg"/>
-                    </div>
+        </div>
+        <div class="row desc-row text-left">
+            <div class="col-md-6 img-contain">
+                <img class="mx-auto" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
             </div>
-            <div class="row desc-row text-left">
-                <div class="col-md-6 img-contain">
-                    <img class="mx-auto" src="{{site.url}}/img/ri3d/andrew-can-use-rivets.png"/>
-                </div>
-                <div class="col-md-6 desc">
-                    <h2 id="purpose">Why does FAMNM have an Ri3D team?</h2>
-                    <p>Our primary goal is to show new FRC teams the process behind designing and building a robot from the ground up to compete in an FRC competition.
+            <div class="col-md-6 desc">
+                <h2 id="sponsor">How do I sponsor the FAMNM Ri3D team?</h2>
+                <p>The FAMNM Ri3D team is currently looking for sponsors! If you would like to sponsor us, please contact our coordinator at<a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
+            </div>
+        </div>
+        <div class="row desc-row text-left">
+            <div class="col-md-6 desc">
+                <h2 id="overview">What is Ri3D?</h2>
+                <p>
+                    Robot in 3 Days is a challenge in which collegiate teams rush to build a robot capable of playing the current FRC game in only three days.
+                    Teams begin their build at the end of the game reveal during the kickoff broadcast and must complete their robot in no more than 72 hours.
+                </p>
+                <p>
+                    FAMNM estabilshed its Ri3D team in 2019, and built a robot to compete in the first-ever FIRST Alumni Collegiate Competition, an Ri3D competition hosted
+                    at Kettering's FIRST Robotics Community Center. Competing alongside other Ri3D teams from Michigan State University, Ferris State University,
+                    Grand Valley State University, and Kettering University, the FAMNM Ri3D team managed to wrest their way to victory and claim the <span class="font-weight-bold">first-ever FACC Ri3D trophy!</span>
+                </p>
+            </div>
+            <div class="col-md-6 img-contain">
+                <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-winners.jpg"/>
+            </div>
+        </div>
+        <div class="row desc-row text-left">
+            <div class="col-md-6 img-contain">
+                <img class="mx-auto" src="{{site.url}}/img/ri3d/andrew-can-use-rivets.png"/>
+            </div>
+            <div class="col-md-6 desc">
+                <h2 id="purpose">Why does FAMNM have an Ri3D team?</h2>
+                <p>
+                    Our primary goal is to show new FRC teams the process behind designing and building a robot from the ground up to compete in an FRC competition.
                     To this end, we aim to extensively document our design and build processes through extensive videotaping and publishing our source code and CAD
-                    files online for teams to view.</p>
-                    <p>FAMNM Ri3D also provides an avenue for University of Michigan students to combine what they learned through FIRST and throughout their college career
-                    and apply it to building an FRC robot.</p>
-                </div>
+                    files online for teams to view.
+                </p>
+                <p>
+                    FAMNM Ri3D also provides an avenue for University of Michigan students to combine what they learned through FIRST and throughout their college career
+                    and apply it to building an FRC robot.
+                </p>
             </div>
-            <div>
+        </div>
+        <div>
             <br/>
             <h3 class="text-center">Our Ri3D Sponsors</h3>
             <ul class="sponsor-display gold-sponsor">
-                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png"
-                    alt="University of Michigan College of Engineering" /></a></li>
-                <li><a href="https://robotics.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/robotics-institute.png"
-                    alt="University of Michigan Robotics Institute" /></a></li>
+                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png" alt="University of Michigan College of Engineering" /></a></li>
+                <li><a href="https://robotics.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/robotics-institute.png" alt="University of Michigan Robotics Institute" /></a></li>
             </ul>
             <ul class="sponsor-display silver-sponsor">
                 <li><a href="https://www.netscout.com/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/netscout.png" alt="NETSCOUT"/></a></li>
-                <li><a href="https://me.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/CoE-ME-vert.png"
-                    alt="University of Michigan Department of Mechanical Engineering" /></a></li>
-                <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center"
-                            src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
+                <li><a href="https://me.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/CoE-ME-vert.png" alt="University of Michigan Department of Mechanical Engineering" /></a></li>
+                <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
             </ul>
-            </div>
-            <div class="card lead-card text-left">
-                <h2>2019 FAMNM Ri3D</h2>
-                <p>Our Ri3D team had a blast building our robot for the 2019 FRC game, <span class="font-italic">Destination: Deep Space Presented By The Boeing Company</span>!
-                If your team is looking for insight for their build process, or you're just curious to see what we did, check out our documentation page!</p>
-                <a class="mx-auto btn famnm-btn-secondary" href="2019.html">2019 Build Documentation</a>
-            </div>
-		</div><!-- /.container -->
-	</body>
-	{% include footer.html %}
+        </div>
+        <div class="card lead-card text-left">
+            <h2>2019 FAMNM Ri3D</h2>
+            <p>
+                Our Ri3D team had a blast building our robot for the 2019 FRC game, <span class="font-italic">Destination: Deep Space Presented By The Boeing Company</span>!
+                If your team is looking for insight for their build process, or you're just curious to see what we did, check out our documentation page!
+            </p>
+            <a class="mx-auto btn famnm-btn-secondary" href="2019.html">2019 Build Documentation</a>
+        </div>
+    </div><!-- /.container -->
+    
+    {% include footer.html %}
     {% include scripts.html %}
+</body>
 </html>

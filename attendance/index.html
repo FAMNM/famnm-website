@@ -9,9 +9,14 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 </head>
 <body>
     {% include header.html %}
-
     
     <form class='w-50 mx-auto attendance-form'>
+        <div class="alert alert-success" role="alert" id="meetingSuccessAlert">
+            Meeting Submitted Successfully!
+        </div>
+        <div class="alert alert-danger" role="alert" id="meetingFailAlert">
+            Error submitting meeting. Please contact the webmaster for help.
+        </div>
         <h1>FAMNM Attendance Form</h1>
         <div class='form-group my-5'>
             <label for='meetingType'>What type of meeting?</label>
@@ -31,30 +36,25 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <label for='meetingEndTime'>End Time</label>
             <input class='timepicker' id='meetingEndTime'>
         </div>
-
+        
         <div class="my-5">
             <label for='meetingDescription'>Meeting Description</label>
-            <textarea 
-                maxlength=1000 
-                required=true
-                class='w-100'
-                id='meetingDescription'
-                placeholder='(Optional) A short description of what happened at the meeting.'></textarea>
+            <textarea maxlength=1000 required=true class='w-100' id='meetingDescription' placeholder='(Optional) A short description of what happened at the meeting.'></textarea>
         </div>
-
+        
         <div class="my-5">
             <label for='uniqname'>Enter uniqnames of people at meeting. Hit enter to add person.</label>
             <br/>
             <input type='text' id='uniqname'>
             <br/>
             <div id='uniqname-buttons'>
-
+                
             </div>
         </div>
-
+        
         <button type="button" class="btn famnm-btn my-3" data-toggle="modal" data-target="#confirmMeeting" id="confirm">Confirm And Submit</button>
     </form>
-            
+    
     <!-- Modal -->
     <div class="modal fade" id="confirmMeeting" tabindex="-1" role="dialog" aria-labelledby="confirmMeetingTitle" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -62,7 +62,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 <div class="modal-header">
                     <h5 class="modal-title" id="confirmMeetingTitle">Confirm Submission</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                        <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
@@ -74,7 +74,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     <p id="modalDescription">Description: </p>
                     <h2>Meeting Attendees</h2>
                     <div id="modalAttendees">
-
+                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -84,7 +84,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </div>
         </div>
     </div>
-
     
     {% include footer.html %}
     {% include scripts.html %}
@@ -99,11 +98,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 return `${(hour + 12)}:${time.slice(2, 4)}`;
             }
         }
-
+        
         const validateTime = (start, end) =>{
             return parseInt(start.replace(':', '')) < parseInt(end.replace(':', ''));
         } 
-
+        
         $(() => {
             fetch(backend_url + 'meeting_type')
             .then( (response) =>{
@@ -116,9 +115,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     $('#meetingType').append(meetingType);
                 })
             })
-
+            
             $('#meetingDate').attr('value', new Date().toISOString().slice(0,10));
             $('#meetingDate').prop('disabled', true);
+            $('#meetingSuccessAlert').hide();
+            $('#meetingFailAlert').hide();
             
             $('input.timepicker').timepicker({ 
                 timeFormat: 'h:mm p',
@@ -146,7 +147,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     $('#uniqname').val('');
                 }
             });
-
+            
             const submitMeeting = () => {
                 const meetingDay = new Date();
                 meetingDay.setHours(0,0,0,0);
@@ -175,29 +176,37 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                                 uniqname: uniqname,
                                 meetingId: meeting_id
                             })
-                        }).catch(console.log);
+                        }).catch(err => {
+                            console.log(err);
+                            $('#meetingFailAlert').show();
+                        });
                     });
                 }).then(() => {
                     $('.attendance-form').trigger('reset');
                     $('#uniqname-buttons').empty();
                     $('#modalError').empty();
                     $('.submit-meeting').attr('disabled', false);
+                    $('#meetingSuccessAlert').show();
+                    // setTimeout(() => {$('#meetingSuccessAlert').hide();}, 5000);
                 })
-                .catch(console.log);
+                .catch(err => {
+                    console.log(err);
+                    $('#meetingFailAlert').show();
+                });
             }
-
+            
             $('#submit').click(submitMeeting);
-
+            
             $('#closeModal').click(() => {
                 $('#modalError').empty();
                 $('.submit-meeting').attr('disabled', false);
             })
-
+            
             const disableSubmit = (message) => {
                 $('#modalError').append($(`<p>${message}</p>`));
                 $('.submit-meeting').attr('disabled', true);
             }
-
+            
             $('#confirm').click(() => {
                 const meetingType = $('#meetingType').children('option:selected').val();
                 const startTime = convertMeetingTime($('#meetingStartTime').val());
