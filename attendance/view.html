@@ -75,10 +75,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             8: "Sep", 9: "Oct", 10: "Nov", 11: "Dec"
         }
         const sortMeetings = (meetings) => {
-            meetings.sort((a,b) => {
-                return a.meeting_id < b.meeting_id;
+            return meetings.sort((a,b) => {
+                return a.meeting_id - b.meeting_id;
             });
-            return meetings;
         };
 
         $(() => {
@@ -98,6 +97,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 return res.json();
             })
             .then(sortMeetings)
+            .then(data => {
+                console.log(data);
+                return data;
+            })
             .then(data => {
                 data.forEach(meeting => {
                     let meetDay = new Date(meeting.day);
