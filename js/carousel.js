@@ -3,7 +3,7 @@
 let carouselLoad = (src) => {
     //Find list source and carousel element
 
-    let listSource = "{{site.url}}/" + src + "list.json"
+    let listSource = src + "list.json"
     let carousel = $(".carousel:first");
 
     $("meta").each(function () {
