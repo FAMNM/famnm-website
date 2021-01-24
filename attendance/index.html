@@ -12,6 +12,12 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
     
     <form class='w-50 mx-auto attendance-form'>
+        <div class="alert alert-success" role="alert" id="meetingSuccessAlert">
+            Meeting Submitted Successfully!
+        </div>
+        <div class="alert alert-danger" role="alert" id="meetingFailAlert">
+            Error submitting meeting. Please contact the webmaster for help.
+        </div>
         <h1>FAMNM Attendance Form</h1>
         <div class='form-group my-5'>
             <label for='meetingType'>What type of meeting?</label>
@@ -119,6 +125,8 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
             $('#meetingDate').attr('value', new Date().toISOString().slice(0,10));
             $('#meetingDate').prop('disabled', true);
+            $('#meetingSuccessAlert').hide();
+            $('#meetingFailAlert').hide();
             
             $('input.timepicker').timepicker({ 
                 timeFormat: 'h:mm p',
@@ -175,15 +183,23 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                                 uniqname: uniqname,
                                 meetingId: meeting_id
                             })
-                        }).catch(console.log);
+                        }).catch(err => {
+                            console.log(err);
+                            $('#meetingFailAlert').show();
+                        });
                     });
                 }).then(() => {
                     $('.attendance-form').trigger('reset');
                     $('#uniqname-buttons').empty();
                     $('#modalError').empty();
                     $('.submit-meeting').attr('disabled', false);
+                    $('#meetingSuccessAlert').show();
+                    // setTimeout(() => {$('#meetingSuccessAlert').hide();}, 5000);
                 })
-                .catch(console.log);
+                .catch(err => {
+                    console.log(err);
+                    $('#meetingFailAlert').show();
+                });
             }
 
             $('#submit').click(submitMeeting);
