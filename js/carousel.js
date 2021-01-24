@@ -2,13 +2,7 @@
 ---
 let carouselLoad = (src) => {
     //Find list source and carousel element
-<<<<<<< HEAD
-
     let listSource = src + "list.json"
-=======
-    
-    let listSource = "{{site.url}}/" + src + "list.json"
->>>>>>> 058e86f... Fix indentation such that it adheres to the code style guide
     let carousel = $(".carousel:first");
     
     $("meta").each(function () {
