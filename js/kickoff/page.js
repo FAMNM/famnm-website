@@ -1,6 +1,6 @@
-var getTime = (hour, minute) => new Date(2021, 0, 9, hour, minute, 0, 0, 0);
+const getTime = (hour, minute) => new Date(2021, 0, 9, hour, minute, 0, 0, 0);
 
-var bNs = {
+const kickoffUtils = {
     getTimeString: (time) => {
         return time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: '2-digit'});
     },
@@ -11,8 +11,8 @@ var bNs = {
         mainSchedule.empty();
         
         //Fill main schedule
-        bNs.schedule.forEach(evt => {
-            var loc = bNs.resolveLocation(evt.location);
+        kickoffUtils.schedule.forEach(evt => {
+            var loc = kickoffUtils.resolveLocation(evt.location);
             
             if (loc.code === false) return;
             
@@ -34,7 +34,7 @@ var bNs = {
             
             cell.css("textAlign", "center");
             timeDiv.css("fontWeight", "bold");
-            timeDiv.text(bNs.getTimeString(evt.start) + " - " + bNs.getTimeString(evt.end));
+            timeDiv.text(kickoffUtils.getTimeString(evt.start) + " - " + kickoffUtils.getTimeString(evt.end));
             
             titleDiv.text(evt.event);
             locLnk.addClass("map-jump");
@@ -42,43 +42,43 @@ var bNs = {
             locLnk.attr("data-toggle", "modal");
             locLnk.attr("data-target", "#mapModal");
             locLnk.click(event => {
-                var marker = bNs.getMarker(loc.code);
+                var marker = kickoffUtils.getMarker(loc.code);
                 
-                bNs.map.modalTitle.text(loc.name);
+                kickoffUtils.map.modalTitle.text(loc.name);
                 
-                if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
-                if (bNs.map.winListener) {
-                    google.maps.event.removeListener(bNs.map.winListener);
-                    bNs.winListener = undefined;
-                    bNs.map.infoWindow.setContent("");
+                if (kickoffUtils.map.activeMarker) kickoffUtils.map.activeMarker.setMap(null);
+                if (kickoffUtils.map.winListener) {
+                    google.maps.event.removeListener(kickoffUtils.map.winListener);
+                    kickoffUtils.winListener = undefined;
+                    kickoffUtils.map.infoWindow.setContent("");
                 }
                 
                 if (marker.length === 0) {
                     event.preventDefault();
-                    bNs.activeMarker = undefined;
+                    kickoffUtils.activeMarker = undefined;
                     return;
                 }
                 
                 var pos = new google.maps.LatLng(marker[1], marker[2]);
-                bNs.map.activeMarker = new google.maps.Marker({
+                kickoffUtils.map.activeMarker = new google.maps.Marker({
                     position: pos,
-                    map: bNs.map.map,
+                    map: kickoffUtils.map.map,
                     icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
                     title: loc.name
                 });
-                bNs.map.map.setCenter(pos);
-                bNs.map.map.setZoom(18);
+                kickoffUtils.map.map.setCenter(pos);
+                kickoffUtils.map.map.setZoom(18);
                 
-                bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", (function (mrk) {
+                kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", (function (mrk) {
                     return function () {
-                        bNs.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
-                        bNs.map.infoWindow.open(map, mrk);
+                        kickoffUtils.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
+                        kickoffUtils.map.infoWindow.open(map, mrk);
                     }
-                })(bNs.map.activeMarker));
+                })(kickoffUtils.map.activeMarker));
                 
                 setTimeout(function () {
-                    google.maps.event.trigger(bNs.map.activeMarker, "click");
-                    google.maps.event.trigger(bNs.map.map, "resize");
+                    google.maps.event.trigger(kickoffUtils.map.activeMarker, "click");
+                    google.maps.event.trigger(kickoffUtils.map.map, "resize");
                 }, 500);
                 
                 /* When the user clicks on two locations that are far away from
@@ -94,73 +94,60 @@ var bNs = {
         });
     },
     teamNumAccepted: (event, isEvent) => {
-        var num;
-        var emptyDiv = $(".team-empty");
-        var errDiv = $(".team-error");
-        var dispDiv = $(".team-disp");
-        var teamNumName = $("#team-num-name");
-        var teamSchool = $("#team-school");
+        let num;
+        const errDiv = $("#team-error");
+        const dispDiv = $("#team-disp");
+        const teamNumName = $("#team-num-name");
+        const teamSchool = $("#team-school");
         
         if (isEvent) {
-            var target = $(event.currentTarget);
-            
-            
-            if (target.prop("type") === "text") {
-                if (event.key !== "Enter") return;
-                num = parseInt(target.val(), 10);
-            } else if (target.prop("type") === "button") {
-                num = parseInt(target.parent().prev().val(), 10);
-            } else return;
-            
+            // where was the function called from?
+            if ($(event.currentTarget).prop("type") === "text" && event.key !== "Enter")
+                return;
+            num = parseInt($("#teamNumInput").val());
         } else {
             console.log("event is" + event)
             num = event;
         }
-        
-        if (bNs.activeTeam.intervalId !== undefined)
-            clearInterval(bNs.activeTeam.intervalId);
-        
-        emptyDiv.css("display", "none");
-        if (bNs.setTeam(num) >= 0) {
-            bNs.loadSchedules();
-            bNs.activeTeam.intervalId = setInterval(bNs.loadSchedules, 900000);
-            
-            if (num !== 0) {
-                teamNumName.text(num + ": " + bNs.activeTeam.name);
-                teamSchool.text(bNs.activeTeam.school);
-            } else {
-                teamNumName.text("SCHEDULE FOR ALL TEAMS")
-                teamSchool.text(bNs.activeTeam.school);
-            }
-            
-            errDiv.css("display", "none");
-            dispDiv.css("display", "block");
-            
-            //Make the team number persist across refreshes
-            localStorage.setItem("team", bNs.activeTeam.number);
-        } else {
+
+        try {
+            kickoffUtils.setTeam(num);
+        } catch (e) {
+            console.log("Team not found :(");
             errDiv.css("display", "block");
             dispDiv.css("display", "none");
+            return;
         }
+
+        kickoffUtils.loadSchedules();
+        
+        if (num !== 0) {
+            teamNumName.text(num + ": " + kickoffUtils.activeTeam.name);
+        } else {
+            teamNumName.text("SCHEDULE FOR ALL TEAMS")
+        }
+
+        teamSchool.text(kickoffUtils.activeTeam.school);
+        
+        errDiv.css("display", "none");
+        dispDiv.css("display", "block");
+        
+        //Make the team number persist across refreshes
+        localStorage.setItem("team", kickoffUtils.activeTeam.number);
     },
     setTeam: num => {
-        for (var i = 0; i < bNs.teams.length; ++i) {
-            if (bNs.teams[i].number === num) {
-                bNs.activeTeam = bNs.teams[i];
-                console.log("set active team");
-                console.log(bNs.activeTeam);
-                return bNs.teams[i].number;
-            }
+        kickoffUtils.activeTeam = kickoffUtils.teams[num.toString()];
+        if (typeof kickoffUtils.activeTeam == 'undefined') {
+            kickoffUtils.activeTeam = {};
+            throw Error('Team not found!');
         }
-        
-        bNs.activeTeam = {};
-        return -1;
+        kickoffUtils.activeTeam.number = num;
     },
     resolveLocation: loc => {
         if (loc[0] === 't') {
-            if (bNs.activeTeam.number === undefined)
+            if (kickoffUtils.activeTeam.number === undefined)
             throw new Error("Team number not set");
-            loc = bNs.activeTeam[loc.split(':')[1]];
+            loc = kickoffUtils.activeTeam[loc.split(':')[1]];
         }
         
         if (loc === false) {
@@ -169,15 +156,15 @@ var bNs = {
         
         var locObj = { code: loc, name: loc };
         
-        bNs.locations.forEach(function (lMapping) {
+        kickoffUtils.locations.forEach(function (lMapping) {
             locObj.name = locObj.name.replace(lMapping[0], lMapping[1]);
         });
         
         return locObj;
     },
     getMarker: code => {
-        for (var i = 0; i < bNs.markers.length; ++i) {
-            if (code === bNs.markers[i][0]) return bNs.markers[i];
+        for (var i = 0; i < kickoffUtils.markers.length; ++i) {
+            if (code === kickoffUtils.markers[i][0]) return kickoffUtils.markers[i];
         }
         
         return [];
@@ -235,61 +222,61 @@ var bNs = {
     ],
     map: {
         toggleParking: show => {
-            show = (show === undefined ? !bNs.map.parkingShown : show);
+            show = (show === undefined ? !kickoffUtils.map.parkingShown : show);
             
-            if (show === bNs.map.parkingShown) return;
+            if (show === kickoffUtils.map.parkingShown) return;
             
-            bNs.map.parkingMarkers.forEach(function (mkr) {
-                mkr.setMap(show ? bNs.map.map : null);
+            kickoffUtils.map.parkingMarkers.forEach(function (mkr) {
+                mkr.setMap(show ? kickoffUtils.map.map : null);
             });
             
             if (show) {
-                if ($(bNs.map.map.getDiv()).width() === 0) {
-                    google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
-                        bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                if ($(kickoffUtils.map.map.getDiv()).width() === 0) {
+                    google.maps.event.addListenerOnce(kickoffUtils.map.map, "resize", function () {
+                        kickoffUtils.map.map.fitBounds(kickoffUtils.map.parkingBounds);
                     });
                 } else {
-                    bNs.map.map.fitBounds(bNs.map.parkingBounds);
+                    kickoffUtils.map.map.fitBounds(kickoffUtils.map.parkingBounds);
                 }
             }
             
-            bNs.map.parkingShown = show;
+            kickoffUtils.map.parkingShown = show;
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
         },
         showKOP: () => {
-            var loc = bNs.resolveLocation(bNs.schedule[4].location);
-            var mkr = bNs.getMarker(loc.code)
+            var loc = kickoffUtils.resolveLocation(kickoffUtils.schedule[4].location);
+            var mkr = kickoffUtils.getMarker(loc.code)
             
-            bNs.map.modalTitle.text("KOP Pick Up");
+            kickoffUtils.map.modalTitle.text("KOP Pick Up");
             
-            if (bNs.map.activeMarker) bNs.map.activeMarker.setMap(null);
-            if (bNs.map.winListener) {
-                google.maps.event.removeListener(bNs.map.winListener);
-                bNs.winListener = undefined;
-                bNs.map.infoWindow.setContent("");
+            if (kickoffUtils.map.activeMarker) kickoffUtils.map.activeMarker.setMap(null);
+            if (kickoffUtils.map.winListener) {
+                google.maps.event.removeListener(kickoffUtils.map.winListener);
+                kickoffUtils.winListener = undefined;
+                kickoffUtils.map.infoWindow.setContent("");
             }
             
             var pos = new google.maps.LatLng(mkr[1], mkr[2]);
-            bNs.map.activeMarker = new google.maps.Marker({
+            kickoffUtils.map.activeMarker = new google.maps.Marker({
                 position: pos,
-                map: bNs.map.map,
+                map: kickoffUtils.map.map,
                 icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
                 title: "KOP Pickup"
             });
             
-            bNs.map.winListener = google.maps.event.addListener(bNs.map.activeMarker, "click", function () {
-                bNs.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
-                bNs.map.infoWindow.open(map, bNs.map.activeMarker);
+            kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", function () {
+                kickoffUtils.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
+                kickoffUtils.map.infoWindow.open(map, kickoffUtils.map.activeMarker);
             });
             
-            if ($(bNs.map.map.getDiv()).width() === 0) {
-                google.maps.event.addListenerOnce(bNs.map.map, "resize", function () {
-                    bNs.map.map.setCenter(pos);
-                    bNs.map.map.setZoom(18);
+            if ($(kickoffUtils.map.map.getDiv()).width() === 0) {
+                google.maps.event.addListenerOnce(kickoffUtils.map.map, "resize", function () {
+                    kickoffUtils.map.map.setCenter(pos);
+                    kickoffUtils.map.map.setZoom(18);
                 });
             } else {
-                bNs.map.map.setCenter(pos);
-                bNs.map.map.setZoom(18);
+                kickoffUtils.map.map.setCenter(pos);
+                kickoffUtils.map.map.setZoom(18);
             }
         },
         parkingShown: false,
@@ -345,21 +332,21 @@ var bNs = {
 };
 
 function initMap() {
-    bNs.map.map = new google.maps.Map($("#map").get(0), {
+    kickoffUtils.map.map = new google.maps.Map($("#map").get(0), {
         center: new google.maps.LatLng(42.291964, -83.715810),
         zoom: 16,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         gestureHandling: "greedy"
     });
     
-    bNs.map.map.setTilt(45);
-    bNs.map.infoWindow = new google.maps.InfoWindow();
-    bNs.map.modalTitle = $("#map-active-loc");
+    kickoffUtils.map.map.setTilt(45);
+    kickoffUtils.map.infoWindow = new google.maps.InfoWindow();
+    kickoffUtils.map.modalTitle = $("#map-active-loc");
     
-    bNs.map.parkingBounds = new google.maps.LatLngBounds();
+    kickoffUtils.map.parkingBounds = new google.maps.LatLngBounds();
     
     //Initialize parking markers
-    bNs.parking.forEach(lot => {
+    kickoffUtils.parking.forEach(lot => {
         var mkr = new google.maps.Marker({
             position: lot,
             map: null,
@@ -369,22 +356,22 @@ function initMap() {
         
         google.maps.event.addListener(mkr, "click", (mkr => {
             return () => {
-                bNs.map.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
-                bNs.map.infoWindow.open(map, mkr);
+                kickoffUtils.map.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
+                kickoffUtils.map.infoWindow.open(map, mkr);
             }
         })(mkr));
         
-        bNs.map.parkingMarkers.push(mkr);
-        bNs.map.parkingBounds.extend(lot);
+        kickoffUtils.map.parkingMarkers.push(mkr);
+        kickoffUtils.map.parkingBounds.extend(lot);
     });
     
-    google.maps.event.addListener(bNs.map.map, "maptypeid_changed", () => {
-        var mapType = bNs.map.map.getMapTypeId();
+    google.maps.event.addListener(kickoffUtils.map.map, "maptypeid_changed", () => {
+        var mapType = kickoffUtils.map.map.getMapTypeId();
         var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
             ? "../img/kickoff/icons/parking-white.png"
             : "../img/kickoff/icons/parking.png");
         
-        bNs.map.parkingMarkers.forEach(function (mkr) {
+        kickoffUtils.map.parkingMarkers.forEach(function (mkr) {
             mkr.setIcon(newParkingIcon);
         });
     });
@@ -399,23 +386,22 @@ $(document).ready(function () {
     $(document.body).append(script);
     
     //Load team information
-    $.ajax({
-        url: "../../js/kickoff/teamlist.json",
-        dataType: "json"
-    }).done(teams => {
-        bNs.teams = teams;
+    fetch("../../js/kickoff/teamlist.json")
+    .then( (response) =>{
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+    }).then(teams => {
+        kickoffUtils.teams = teams;
         
-        // //Load the current team
-        // var team = localStorage.getItem("team");
-        
-        // if (team.length > 0) {
-        //     var teamInput = $($(".input-group").children().get(0));
-        //     teamInput.val(team);
-        //     teamInput.next().trigger("click");
-        // }
-        
-        bNs.teamNumAccepted(0, false)
-    });
+        const teamNum = localStorage.getItem("team")
+
+        if (teamNum !== null) {
+            $("#teamNumInput").val(teamNum);
+            kickoffUtils.teamNumAccepted(parseInt(teamNum), false);
+        } else {
+            kickoffUtils.teamNumAccepted(0, false)
+        }
+    }).catch(console.log);
     
     //Initialize countdown clock
     var computeDiff = () => {

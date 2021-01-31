@@ -73,13 +73,8 @@ orgs:
         .countdown-clock>.seconds:after {
             content: "s";
         }
-        
-        .team-empty {
-            margin-top: 1em;
-        }
-        
-        .team-error,
-        .team-disp {
+        #team-error,
+        #team-disp {
             display: none;
         }
         
@@ -159,7 +154,7 @@ orgs:
                 virtual experience for teams. Stay tuned for more information
                 as we begin to plan!
             </p>
-            <!-- <p class="text-par">
+            <p class="text-par">
                 If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
                 If you wish to order a pizza lunch for your team, that link may also be found below.
             </p>
@@ -202,21 +197,21 @@ orgs:
                 rooms, and view additional kickoff information.
             </p>
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Team number"
-                onkeypress="bNs.teamNumAccepted(event, true)" />
+                <input type="text" class="form-control" placeholder="Team number" id="teamNumInput"
+                onkeypress="kickoffUtils.teamNumAccepted(event, true)" />
                 <span class="input-group-append">
-                    <button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event, true)">View</button>
+                    <button class="btn btn-primary" type="button" onclick="kickoffUtils.teamNumAccepted(event, true)">View</button>
                 </span>
             </div>
-            <p class="team-error">
+            <p id="team-error">
                 <span style="font-size: 3em; font-weight: bold;">:/</span><br /> We're sorry, we don't
                 have a schedule for that team.<br />
             </p>
             <p>
                 If your team is just picking up your Kit of Parts, you can pick it up at <a href="#" data-toggle="modal"
-                data-target="#mapModal" onclick="bNs.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.
+                data-target="#mapModal" onclick="kickoffUtils.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.
             </p>
-            <div class="team-disp">
+            <div id="team-disp">
                 <p class="italic">Click on or touch a location to view it on a map</p>
                 <table id="sched-table" class="table table-bordered">
                     <thead>
@@ -256,7 +251,7 @@ orgs:
                     </div>
                 </div>
                 {% endfor %}
-            </div> -->
+            </div>
             <h3 class="text-center">Sponsors</h3>
             <ul class="sponsor-display">
                 <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
@@ -282,7 +277,7 @@ orgs:
                 <div class="modal-footer">
                     <span>All parking is free for the duration of the event.</span>
                     <button id="map-parking-toggle" type="button" class="btn btn-primary"
-                    onclick="bNs.map.toggleParking()">Show parking</button>
+                    onclick="kickoffUtils.map.toggleParking()">Show parking</button>
                     <button type="button" class="btn famnm-btn-secondary" data-dismiss="modal">Close</button>
                 </div>
             </div>
