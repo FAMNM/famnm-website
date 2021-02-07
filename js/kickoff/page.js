@@ -1,97 +1,8 @@
-const getTime = (hour, minute) => new Date(2021, 0, 9, hour, minute, 0, 0, 0);
+const getTime = (hour, minute) => new Date(2021, 0, 7, hour, minute, 0, 0, 0);
 
 const kickoffUtils = {
     getTimeString: (time) => {
         return time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: '2-digit'});
-    },
-    loadSchedules: time => {
-        time = (time === undefined ? new Date() : time);
-        
-        var mainSchedule = $("#schedule");
-        mainSchedule.empty();
-        
-        //Fill main schedule
-        kickoffUtils.schedule.forEach(evt => {
-            var loc = kickoffUtils.resolveLocation(evt.location);
-            
-            if (loc.code === false) return;
-            
-            var nestedCreate = function () {
-                var nodeList = [arguments[0]];
-                
-                for (var i = 1; i < arguments.length; ++i) {
-                    nodeList.push($(document.createElement(arguments[i])));
-                    nodeList[i].appendTo(nodeList[i - 1]);
-                }
-                
-                return nodeList[nodeList.length - 1];
-            };
-            
-            var cell = nestedCreate(mainSchedule, "tr", "td");
-            var timeDiv = nestedCreate(cell, "div");
-            var titleDiv = nestedCreate(cell, "div");
-            var locLnk = nestedCreate(cell, "div", "a");
-            
-            cell.css("textAlign", "center");
-            timeDiv.css("fontWeight", "bold");
-            timeDiv.text(kickoffUtils.getTimeString(evt.start) + " - " + kickoffUtils.getTimeString(evt.end));
-            
-            titleDiv.text(evt.event);
-            locLnk.addClass("map-jump");
-            locLnk.text(loc.name);
-            locLnk.attr("data-toggle", "modal");
-            locLnk.attr("data-target", "#mapModal");
-            locLnk.click(event => {
-                var marker = kickoffUtils.getMarker(loc.code);
-                
-                kickoffUtils.map.modalTitle.text(loc.name);
-                
-                if (kickoffUtils.map.activeMarker) kickoffUtils.map.activeMarker.setMap(null);
-                if (kickoffUtils.map.winListener) {
-                    google.maps.event.removeListener(kickoffUtils.map.winListener);
-                    kickoffUtils.winListener = undefined;
-                    kickoffUtils.map.infoWindow.setContent("");
-                }
-                
-                if (marker.length === 0) {
-                    event.preventDefault();
-                    kickoffUtils.activeMarker = undefined;
-                    return;
-                }
-                
-                var pos = new google.maps.LatLng(marker[1], marker[2]);
-                kickoffUtils.map.activeMarker = new google.maps.Marker({
-                    position: pos,
-                    map: kickoffUtils.map.map,
-                    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                    title: loc.name
-                });
-                kickoffUtils.map.map.setCenter(pos);
-                kickoffUtils.map.map.setZoom(18);
-                
-                kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", (function (mrk) {
-                    return function () {
-                        kickoffUtils.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
-                        kickoffUtils.map.infoWindow.open(map, mrk);
-                    }
-                })(kickoffUtils.map.activeMarker));
-                
-                setTimeout(function () {
-                    google.maps.event.trigger(kickoffUtils.map.activeMarker, "click");
-                    google.maps.event.trigger(kickoffUtils.map.map, "resize");
-                }, 500);
-                
-                /* When the user clicks on two locations that are far away from
-                 * one another, some of the tiles don't load. I'm not sure why;
-                 * none of the solutions I've found seem to fix it (yet).
-                 */
-            });
-            
-            //"active" applies a gray background, "info" applies a blue background
-            if (time >= evt.end) cell.parent().addClass("table-active");
-            else if (time >= evt.start) cell.parent().addClass("table-info");
-            else cell.parent().addClass("table-warning");
-        });
     },
     teamNumAccepted: (event, isEvent) => {
         let num;
@@ -143,24 +54,100 @@ const kickoffUtils = {
         }
         kickoffUtils.activeTeam.number = num;
     },
+    loadSchedules: () => {
+        const time = new Date();
+        
+        const mainSchedule = $("#schedule");
+        mainSchedule.empty();
+        
+        //Fill main schedule
+        kickoffUtils.schedule.forEach(evt => {
+            const loc = kickoffUtils.resolveLocation(evt.location);
+            
+            // if this team doesn't have a location assignment for this schedule item
+            // return and do not add it to the team's schedule
+            if (loc.code === false) return;
+            
+            let eventColorClass = "";
+            if (time >= evt.end) eventColorClass = "table-active";
+            else if (time >= evt.start) eventColorClass = "table-info";
+            else eventColorClass = "table-warning";
+
+            let locDivId = `${loc.code.replace(/\s/g, '')}-link`;
+            
+            let eventHTMLString = `
+            <tr class=${eventColorClass}>
+                <td class="text-center">
+                    <div class="font-weight-bold">${kickoffUtils.getTimeString(evt.start)} - ${kickoffUtils.getTimeString(evt.end)}</div>
+                    <div>${evt.event}</div>
+                    <div id="${locDivId}"><a class="map-jump" data-toggle="modal" data-target="#mapModal">${loc.name}</a></div>
+                </td>
+            </tr>`;
+
+            let eventHTML = $.parseHTML(eventHTMLString);
+            mainSchedule.append(eventHTML);
+
+            $(locDivId).click(event => {
+                var marker = kickoffUtils.getMarker(loc.code);
+                
+                kickoffUtils.map.modalTitle.text(loc.name);
+                
+                if (kickoffUtils.map.activeMarker) kickoffUtils.map.activeMarker.setMap(null);
+                if (kickoffUtils.map.winListener) {
+                    google.maps.event.removeListener(kickoffUtils.map.winListener);
+                    kickoffUtils.winListener = undefined;
+                    kickoffUtils.map.infoWindow.setContent("");
+                }
+                
+                if (marker.length === 0) {
+                    event.preventDefault();
+                    kickoffUtils.activeMarker = undefined;
+                    return;
+                }
+                
+                var pos = new google.maps.LatLng(marker[1], marker[2]);
+                kickoffUtils.map.activeMarker = new google.maps.Marker({
+                    position: pos,
+                    map: kickoffUtils.map.map,
+                    icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                    title: loc.name
+                });
+                kickoffUtils.map.map.setCenter(pos);
+                kickoffUtils.map.map.setZoom(18);
+                
+                kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", (function (mrk) {
+                    return function () {
+                        kickoffUtils.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
+                        kickoffUtils.map.infoWindow.open(map, mrk);
+                    }
+                })(kickoffUtils.map.activeMarker));
+                
+                setTimeout(function () {
+                    google.maps.event.trigger(kickoffUtils.map.activeMarker, "click");
+                    google.maps.event.trigger(kickoffUtils.map.map, "resize");
+                }, 500);
+            });
+        });
+    },
     resolveLocation: loc => {
-        if (loc[0] === 't') {
+        if (loc.custom) {
             if (kickoffUtils.activeTeam.number === undefined)
-            throw new Error("Team number not set");
-            loc = kickoffUtils.activeTeam[loc.split(':')[1]];
+                throw new Error("Team number not set");
+            loc.name = kickoffUtils.activeTeam[loc.name];
         }
+
+        loc.code = loc.name;
         
-        if (loc === false) {
-            return { code: false, name: "N/A" };
-        }
-        
-        var locObj = { code: loc, name: loc };
-        
-        kickoffUtils.locations.forEach(function (lMapping) {
-            locObj.name = locObj.name.replace(lMapping[0], lMapping[1]);
+        // if this team does not have a location for this schedule item, don't do the name replacement
+        if (loc.name === false)
+            return loc;
+
+        // turn abbreviated names into full names
+        kickoffUtils.locations.forEach((namePair) => {
+            loc.name = loc.name.replace(namePair.abbr, namePair.full);
         });
         
-        return locObj;
+        return loc;
     },
     getMarker: code => {
         for (var i = 0; i < kickoffUtils.markers.length; ++i) {
@@ -175,13 +162,13 @@ const kickoffUtils = {
             event: "Team Check-In",
             start: getTime(8, 0),
             end: getTime(10, 0),
-            location: "DUDE CON"
+            location: {name: "DUDE CON", custom: false},
         },
         {
             event: "Breakout Rooms Open",
             start: getTime(8, 0),
             end: getTime(10, 0),
-            location: "t:breakout"
+            location: {name: "breakout", custom: true},
         },
         /*{
             event:"North Campus Tours",
@@ -193,31 +180,31 @@ const kickoffUtils = {
             event: "UM Fair",
             start: getTime(8, 30),
             end: getTime(10, 0),
-            location: "DUDE CON"
+            location: {name: "DUDE CON", custom: false},
         },
         {
             event: "Opening Ceremonies and Broadcast",
             start: getTime(10, 0),
             end: getTime(11, 30),
-            location: "t:broadcast"
+            location: {name: "broadcast", custom: true},
         },
         {
             event: "Kit Distribution",
             start: getTime(11, 30),
             end: getTime(15, 0),
-            location: "CHRYS 133"
+            location: {name: "CHRYS 133", custom: false},
         },
         {
             event: "Virtual Game Field Open",
             start: getTime(11, 45),
             end: getTime(15, 0),
-            location: "DOW 1010"
+            location: {name: "DOW 1010", custom: false},
         },
         {
             event: "Breakout Rooms Open",
             start: getTime(11, 30),
             end: getTime(18, 0),
-            location: "t:breakout"
+            location: {name: "breakout", custom: true},
         }
     ],
     map: {
@@ -283,17 +270,17 @@ const kickoffUtils = {
         parkingMarkers: []
     },
     locations: [
-        ["220", "- Chesebrough Auditorium (Room 220)"],
-        ["GAL", "Gallery"],
-        ["CON", "Connector"],
-        ["DUDE", "Duderstadt"],
-        ["CHRYS", "Chrysler"],
-        ["GGBL", "GG Brown"],
-        ["EECS", "EECS Building"],
-        ["BBB", "Bob and Betty Beyster Building"],
-        ["DOW", "Dow Building"],
-        ["PIER", "Pierpont Commons"],
-        ["FXB", "Fran\u00e7ois-Xavier Bagnoud Building"]
+        { abbr: "220", full: "- Chesebrough Auditorium (Room 220)"},
+        { abbr: "GAL", full: "Gallery"},
+        { abbr: "CON", full: "Connector"},
+        { abbr: "DUDE", full: "Duderstadt"},
+        { abbr: "CHRYS", full: "Chrysler"},
+        { abbr: "GGBL", full: "GG Brown"},
+        { abbr: "EECS", full: "EECS Building"},
+        { abbr: "BBB", full: "Bob and Betty Beyster Building"},
+        { abbr: "DOW", full: "Dow Building"},
+        { abbr: "PIER", full: "Pierpont Commons"},
+        { abbr: "FXB", full: "Fran\u00e7ois-Xavier Bagnoud Building"},
     ],
     parking: [
         { lot: "NC5", lat: 42.288055, lng: -83.714438 },
