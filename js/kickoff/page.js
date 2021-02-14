@@ -17,7 +17,6 @@ const kickoffUtils = {
                 return;
             num = parseInt($("#teamNumInput").val());
         } else {
-            console.log("event is" + event)
             num = event;
         }
 
@@ -61,8 +60,8 @@ const kickoffUtils = {
         mainSchedule.empty();
         
         //Fill main schedule
-        kickoffUtils.schedule.forEach(evt => {
-            const loc = kickoffUtils.resolveLocation(evt.location);
+        kickoffUtils.schedule.forEach((evt, index) => {
+            const loc = kickoffUtils.resolveLocation(Object.assign({}, evt.location));
             
             // if this team doesn't have a location assignment for this schedule item
             // return and do not add it to the team's schedule
@@ -73,7 +72,7 @@ const kickoffUtils = {
             else if (time >= evt.start) eventColorClass = "table-info";
             else eventColorClass = "table-warning";
 
-            let locDivId = `${loc.code.replace(/\s/g, '')}-link`;
+            let locDivId = `maplink-${index}`;
             
             let eventHTMLString = `
             <tr class=${eventColorClass}>
@@ -83,49 +82,61 @@ const kickoffUtils = {
                     <div id="${locDivId}"><a class="map-jump" data-toggle="modal" data-target="#mapModal">${loc.name}</a></div>
                 </td>
             </tr>`;
-
             let eventHTML = $.parseHTML(eventHTMLString);
             mainSchedule.append(eventHTML);
 
-            $(locDivId).click(event => {
-                var marker = kickoffUtils.getMarker(loc.code);
+            $(`#${locDivId}`).click(event => {
+                let marker = {};
+                try {
+                    marker = kickoffUtils.getMarker(loc.code);
+                } catch (err) {
+                    console.log(err.message);
+                    event.preventDefault();
+                    kickoffUtils.activeMarker = undefined;
+                    return;
+                }
                 
                 kickoffUtils.map.modalTitle.text(loc.name);
                 
-                if (kickoffUtils.map.activeMarker) kickoffUtils.map.activeMarker.setMap(null);
+                // if there's an active marker on the map, remove it from the map.
+                if (kickoffUtils.map.activeMarker) 
+                    kickoffUtils.map.activeMarker.setMap(null);
+                
+                // if there's an onclick listener on the marker, remove it/make it undefined.
                 if (kickoffUtils.map.winListener) {
                     google.maps.event.removeListener(kickoffUtils.map.winListener);
                     kickoffUtils.winListener = undefined;
                     kickoffUtils.map.infoWindow.setContent("");
                 }
                 
-                if (marker.length === 0) {
-                    event.preventDefault();
-                    kickoffUtils.activeMarker = undefined;
-                    return;
-                }
-                
-                var pos = new google.maps.LatLng(marker[1], marker[2]);
+                // now that we've cleaned up old marker, let's make a new one
+
+                // convert our lat/lon into a LatLng object
+                const pos = new google.maps.LatLng(marker);
+
+                // create the marker to put on the map
                 kickoffUtils.map.activeMarker = new google.maps.Marker({
                     position: pos,
                     map: kickoffUtils.map.map,
                     icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
                     title: loc.name
                 });
+
+                // focus the map on our new marker
                 kickoffUtils.map.map.setCenter(pos);
+                // empirically verified to be a good zoom value
                 kickoffUtils.map.map.setZoom(18);
+
+                // set the popup text
+                kickoffUtils.map.infoWindow.setContent(`<h5>${loc.name}</h5>`);
+
+                // create the click event to show the text popup
+                kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", ((mrk) =>
+                    () => kickoffUtils.map.infoWindow.open(map, mrk)
+                )(kickoffUtils.map.activeMarker));
                 
-                kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", (function (mrk) {
-                    return function () {
-                        kickoffUtils.map.infoWindow.setContent("<h5>" + loc.name + "</h5>");
-                        kickoffUtils.map.infoWindow.open(map, mrk);
-                    }
-                })(kickoffUtils.map.activeMarker));
-                
-                setTimeout(function () {
-                    google.maps.event.trigger(kickoffUtils.map.activeMarker, "click");
-                    google.maps.event.trigger(kickoffUtils.map.map, "resize");
-                }, 500);
+                // after .5 seconds, trigger the click event and 
+                setTimeout(() => google.maps.event.trigger(kickoffUtils.map.activeMarker, "click"), 500);
             });
         });
     },
@@ -150,11 +161,10 @@ const kickoffUtils = {
         return loc;
     },
     getMarker: code => {
-        for (var i = 0; i < kickoffUtils.markers.length; ++i) {
-            if (code === kickoffUtils.markers[i][0]) return kickoffUtils.markers[i];
-        }
+        if (kickoffUtils.markers[code] == undefined)
+            throw Error("Location marker not found");
         
-        return [];
+        return kickoffUtils.markers[code];
     },
     activeTeam: {},
     schedule: [
@@ -291,31 +301,32 @@ const kickoffUtils = {
         { lot: "NC48", lat: 42.293288, lng: -83.717167 },
         { lot: "NC60", lat: 42.290550, lng: -83.712640 }
     ],
-    markers: [
-        ["PIER", 42.291384, -83.717490],
-        ["DUDE CON", 42.291225, -83.716470],
-        ["DUDE GAL", 42.291166, -83.716745],
-        ["CHRYS 133", 42.290646, -83.716900],
-        ["CHRYS 220", 42.290877, -83.716737],
-        ["BBB 1670", 42.292868, -83.716273],
-        ["BBB 1690", 42.292870, -83.716463],
-        ["DOW 1005", 42.292721, -83.715589],
-        ["DOW 1006", 42.292919, -83.715597],
-        ["DOW 1010", 42.292937, -83.715503],
-        ["DOW 1013", 42.292728, -83.715412],
-        ["DOW 1014", 42.292945, -83.715350],
-        ["DOW 1017", 42.292745, -83.715261],
-        ["DOW 1018", 42.292880, -83.715223],
-        ["GGBL 1571", 42.293140, -83.714917],
-        ["EECS 1003", 42.292653, -83.714466],
-        ["EECS 1005", 42.292653, -83.714466],
-        ["EECS 1012", 42.292653, -83.714466],
-        ["EECS 1200", 42.292548, -83.714585],
-        ["EECS 1303", 42.292502, -83.714353],
-        ["EECS 1311", 42.292323, -83.714417],
-        ["EECS 1500", 42.292271, -83.714581],
-        ["FXB 1109", 42.293502, -83.711731]
-    ]
+    markers: {
+        "PIER": { lat: 42.291384, lng: -83.717490},
+        "DUDE CON": { lat: 42.291225, lng: -83.716470},
+        "DUDE GAL": { lat: 42.291166, lng: -83.716745},
+        "CHRYS 133": { lat: 42.290646, lng: -83.716900},
+        "CHRYS 220": { lat: 42.290877, lng: -83.716737},
+        "BBB 1670": { lat: 42.292868, lng: -83.716273},
+        "BBB 1690": { lat: 42.292870, lng: -83.716463},
+        "DOW 1005": { lat: 42.292721, lng: -83.715589},
+        "DOW 1006": { lat: 42.292919, lng: -83.715597},
+        "DOW 1010": { lat: 42.292937, lng: -83.715503},
+        "DOW 1013": { lat: 42.292728, lng: -83.715412},
+        "DOW 1014": { lat: 42.292945, lng: -83.715350},
+        "DOW 1017": { lat: 42.292745, lng: -83.715261},
+        "DOW 1018": { lat: 42.292880, lng: -83.715223},
+        "GGBL 1571": { lat: 42.293140, lng: -83.714917},
+        "EECS 1003": { lat: 42.292653, lng: -83.714466},
+        "EECS 1005": { lat: 42.292653, lng: -83.714466},
+        "EECS 1012": { lat: 42.292653, lng: -83.714466},
+        "EECS 1200": { lat: 42.292548, lng: -83.714585},
+        "EECS 1303": { lat: 42.292502, lng: -83.714353},
+        "EECS 1311": { lat: 42.292323, lng: -83.714417},
+        "EECS 1500": { lat: 42.292271, lng: -83.714581},
+        "FXB 1109": { lat: 42.293502, lng: -83.711731},
+        "IOE 1610": { lat: 42.291245, lng: -83.713716}
+    }
 };
 
 function initMap() {
