@@ -2,8 +2,8 @@
     "0": {
         "name": "ALL",
         "school": "University of Michigan North Campus",
-        "broadcast": "Enter Team Number for more info",
-        "breakout": "Enter Team Number for more info"
+        "broadcast": "Enter Team Number above for Location",
+        "breakout": "Enter Team Number above for Location"
     },
     "66": {
         "name": "Grizzly Robotics",

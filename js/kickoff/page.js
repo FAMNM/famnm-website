@@ -73,13 +73,14 @@ const kickoffUtils = {
             else eventColorClass = "table-warning";
 
             let mapLinkId = `maplink-${index}`;
+            let mapLink = (kickoffUtils.activeTeam.number == 0 && loc.custom) ? `` : `: <a class="map-jump" id="${mapLinkId}" data-toggle="modal" data-target="#mapModal">View on Map</a>`;
             
             let eventHTMLString = `
             <tr class=${eventColorClass}>
                 <td class="text-center">
                     <div class="font-weight-bold">${kickoffUtils.getTimeString(evt.start)} - ${kickoffUtils.getTimeString(evt.end)}</div>
                     <div>${evt.event}</div>
-                    <div>${loc.name}: <a class="map-jump" id="${mapLinkId}" data-toggle="modal" data-target="#mapModal">View on Map</a></div>
+                    <div>${loc.name}${mapLink}</div>
                 </td>
             </tr>`;
             let eventHTML = $.parseHTML(eventHTMLString);
