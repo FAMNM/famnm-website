@@ -72,20 +72,20 @@ const kickoffUtils = {
             else if (time >= evt.start) eventColorClass = "table-info";
             else eventColorClass = "table-warning";
 
-            let locDivId = `maplink-${index}`;
+            let mapLinkId = `maplink-${index}`;
             
             let eventHTMLString = `
             <tr class=${eventColorClass}>
                 <td class="text-center">
                     <div class="font-weight-bold">${kickoffUtils.getTimeString(evt.start)} - ${kickoffUtils.getTimeString(evt.end)}</div>
                     <div>${evt.event}</div>
-                    <div id="${locDivId}"><a class="map-jump" data-toggle="modal" data-target="#mapModal">${loc.name}</a></div>
+                    <div>${loc.name}: <a class="map-jump" id="${mapLinkId}" data-toggle="modal" data-target="#mapModal">View on Map</a></div>
                 </td>
             </tr>`;
             let eventHTML = $.parseHTML(eventHTMLString);
             mainSchedule.append(eventHTML);
 
-            $(`#${locDivId}`).click(event => {
+            $(`#${mapLinkId}`).click(event => {
                 let marker = {};
                 try {
                     marker = kickoffUtils.getMarker(loc.code);
