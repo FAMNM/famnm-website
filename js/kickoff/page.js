@@ -74,7 +74,7 @@ const kickoffUtils = {
 
             let mapLinkId = `maplink-${index}`;
             let mapLink = (kickoffUtils.activeTeam.number == 0 && loc.custom) ? `` : `: <a class="map-jump" id="${mapLinkId}" data-toggle="modal" data-target="#mapModal">View on Map</a>`;
-            
+
             let eventHTMLString = `
             <tr class=${eventColorClass}>
                 <td class="text-center">
@@ -98,19 +98,6 @@ const kickoffUtils = {
                 }
                 
                 kickoffUtils.map.modalTitle.text(loc.name);
-                
-                // if there's an active marker on the map, remove it from the map.
-                if (kickoffUtils.map.activeMarker) 
-                    kickoffUtils.map.activeMarker.setMap(null);
-                
-                // if there's an onclick listener on the marker, remove it/make it undefined.
-                if (kickoffUtils.map.winListener) {
-                    google.maps.event.removeListener(kickoffUtils.map.winListener);
-                    kickoffUtils.winListener = undefined;
-                    kickoffUtils.map.infoWindow.setContent("");
-                }
-                
-                // now that we've cleaned up old marker, let's make a new one
 
                 // convert our lat/lon into a LatLng object
                 const pos = new google.maps.LatLng(marker);
@@ -240,6 +227,19 @@ const kickoffUtils = {
             
             kickoffUtils.map.parkingShown = show;
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
+        },
+        clearMap: _ => {
+            kickoffUtils.map.modalTitle.text("");
+            // if there's an active marker on the map, remove it from the map.
+            if (kickoffUtils.map.activeMarker) 
+                kickoffUtils.map.activeMarker.setMap(null);
+
+            // if there's an onclick listener on the marker, remove it/make it undefined.
+            if (kickoffUtils.map.winListener) {
+                google.maps.event.removeListener(kickoffUtils.map.winListener);
+                kickoffUtils.winListener = undefined;
+                kickoffUtils.map.infoWindow.setContent("");
+            }
         },
         parkingShown: false,
         parkingMarkers: []
