@@ -206,27 +206,18 @@ const kickoffUtils = {
         }
     ],
     map: {
-        toggleParking: show => {
-            show = (show === undefined ? !kickoffUtils.map.parkingShown : show);
-            
-            if (show === kickoffUtils.map.parkingShown) return;
+        toggleParking: _ => {
+            kickoffUtils.map.parkingShown = !kickoffUtils.map.parkingShown;
             
             kickoffUtils.map.parkingMarkers.forEach(function (mkr) {
-                mkr.setMap(show ? kickoffUtils.map.map : null);
+                mkr.setMap(kickoffUtils.map.parkingShown ? kickoffUtils.map.map : null);
             });
             
-            if (show) {
-                if ($(kickoffUtils.map.map.getDiv()).width() === 0) {
-                    google.maps.event.addListenerOnce(kickoffUtils.map.map, "resize", function () {
-                        kickoffUtils.map.map.fitBounds(kickoffUtils.map.parkingBounds);
-                    });
-                } else {
-                    kickoffUtils.map.map.fitBounds(kickoffUtils.map.parkingBounds);
-                }
+            if (kickoffUtils.map.parkingShown) {
+                kickoffUtils.map.map.fitBounds(kickoffUtils.map.parkingBounds);
             }
             
-            kickoffUtils.map.parkingShown = show;
-            $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
+            $("#map-parking-toggle").text(kickoffUtils.map.parkingShown ? "Hide parking" : "Show parking");
         },
         clearMap: _ => {
             kickoffUtils.map.modalTitle.text("");
