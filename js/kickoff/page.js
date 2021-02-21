@@ -200,7 +200,7 @@ const kickoffUtils = {
             location: {name: "broadcast", custom: true},
         },
         {
-            event: "Kit Distribution",
+            event: "Kit of Parts Distribution",
             start: getTime(11, 30),
             end: getTime(15, 0),
             location: {name: "CHRYS 133", custom: false},
@@ -240,42 +240,6 @@ const kickoffUtils = {
             
             kickoffUtils.map.parkingShown = show;
             $("#map-parking-toggle").text(show ? "Hide parking" : "Show parking");
-        },
-        showKOP: () => {
-            var loc = kickoffUtils.resolveLocation(kickoffUtils.schedule[4].location);
-            var mkr = kickoffUtils.getMarker(loc.code)
-            
-            kickoffUtils.map.modalTitle.text("KOP Pick Up");
-            
-            if (kickoffUtils.map.activeMarker) kickoffUtils.map.activeMarker.setMap(null);
-            if (kickoffUtils.map.winListener) {
-                google.maps.event.removeListener(kickoffUtils.map.winListener);
-                kickoffUtils.winListener = undefined;
-                kickoffUtils.map.infoWindow.setContent("");
-            }
-            
-            var pos = new google.maps.LatLng(mkr[1], mkr[2]);
-            kickoffUtils.map.activeMarker = new google.maps.Marker({
-                position: pos,
-                map: kickoffUtils.map.map,
-                icon: "https://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                title: "KOP Pickup"
-            });
-            
-            kickoffUtils.map.winListener = google.maps.event.addListener(kickoffUtils.map.activeMarker, "click", function () {
-                kickoffUtils.map.infoWindow.setContent("<h5>KOP Pick Up</h5><br/>" + loc.name);
-                kickoffUtils.map.infoWindow.open(map, kickoffUtils.map.activeMarker);
-            });
-            
-            if ($(kickoffUtils.map.map.getDiv()).width() === 0) {
-                google.maps.event.addListenerOnce(kickoffUtils.map.map, "resize", function () {
-                    kickoffUtils.map.map.setCenter(pos);
-                    kickoffUtils.map.map.setZoom(18);
-                });
-            } else {
-                kickoffUtils.map.map.setCenter(pos);
-                kickoffUtils.map.map.setZoom(18);
-            }
         },
         parkingShown: false,
         parkingMarkers: []

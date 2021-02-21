@@ -196,7 +196,7 @@ orgs:
                 Enter your team number below to see your team's schedule, find broadcast and breakout
                 rooms, and view additional kickoff information.
             </p>
-            <div class="input-group">
+            <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Team number" id="teamNumInput"
                 onkeypress="kickoffUtils.teamNumAccepted(event, true)" />
                 <span class="input-group-append">
@@ -206,10 +206,6 @@ orgs:
             <p id="team-error">
                 <span style="font-size: 3em; font-weight: bold;">:/</span><br /> We're sorry, we don't
                 have a schedule for that team.<br />
-            </p>
-            <p>
-                If your team is just picking up your Kit of Parts, you can pick it up at <a href="#" data-toggle="modal"
-                data-target="#mapModal" onclick="kickoffUtils.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.
             </p>
             <div id="team-disp">
                 <table id="sched-table" class="table table-bordered">
