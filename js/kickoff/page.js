@@ -1,4 +1,4 @@
-const getTime = (hour, minute) => new Date(2021, 0, 7, hour, minute, 0, 0, 0);
+const getTime = (hour, minute) => new Date(2022, 0, 8, hour, minute, 0, 0, 0);
 
 const getTimeString = (time) => {
     return time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: '2-digit'});
@@ -117,13 +117,14 @@ const loadSchedules = () => {
             // empirically verified to be a good zoom value
             mapUtils.map.setZoom(18);
 
-            // set the popup text
-            mapUtils.infoWindow.setContent(`<h5>${loc.name}</h5>`);
+            
 
             // create the click event to show the text popup
-            mapUtils.winListener = google.maps.event.addListener(mapUtils.activeMarker, "click", ((mrk) =>
-                () => mapUtils.infoWindow.open(mapUtils, mrk)
-            )(mapUtils.activeMarker));
+            mapUtils.winListener = google.maps.event.addListener(mapUtils.activeMarker, "click", ((mkr) =>
+                () => {
+                    mapUtils.infoWindow.setContent(`<h5>${loc.name}</h5>`);
+                    mapUtils.infoWindow.open(mapUtils, mkr);
+                })(mapUtils.activeMarker));
             
             // after .5 seconds, trigger the click event and 
             setTimeout(() => google.maps.event.trigger(mapUtils.activeMarker, "click"), 500);
@@ -298,7 +299,6 @@ function initMap(){
         gestureHandling: "greedy"
     });
     
-    mapUtils.map.setTilt(45);
     mapUtils.infoWindow = new google.maps.InfoWindow();
     mapUtils.modalTitle = $("#map-active-loc");
     
@@ -306,41 +306,27 @@ function initMap(){
     
     //Initialize parking markers
     parking.forEach(lot => {
-        var mkr = new google.maps.Marker({
+        let mkr = new google.maps.Marker({
             position: lot,
             map: null,
             title: lot.lot + " Parking Lot",
             icon: "../img/kickoff/icons/parking.png"
         });
         
-        google.maps.event.addListener(mkr, "click", (mkr => {
-            return () => {
-                mapUtils.infoWindow.setContent("<h5>" + mkr.getTitle() + "</h5>");
+        google.maps.event.addListener(mkr, "click", ((mkr) =>
+            () => {
+                mapUtils.infoWindow.setContent(`<h5>${mkr.getTitle()}</h5>`);
                 mapUtils.infoWindow.open(mapUtils, mkr);
-            }
-        })(mkr));
+            })(mkr));
         
         mapUtils.parkingMarkers.push(mkr);
         mapUtils.parkingBounds.extend(lot);
     });
-    
-    google.maps.event.addListener(mapUtils.map, "maptypeid_changed", () => {
-        var mapType = mapUtils.map.getMapTypeId();
-        var newParkingIcon = ((mapType === google.maps.MapTypeId.SATELLITE || mapType == google.maps.MapTypeId.HYBRID)
-            ? "../img/kickoff/icons/parking-white.png"
-            : "../img/kickoff/icons/parking.png");
-        
-        mapUtils.parkingMarkers.forEach(function (mkr) {
-            mkr.setIcon(newParkingIcon);
-        });
-    });
-    
-    $(".maps-btn").removeAttr("disabled");
 };
 
 $(document).ready(() => {
     // Asynchronously Load the map API
-    var script = $(document.createElement('script'));
+    const script = $(document.createElement('script'));
     script.attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap");
     $(document.body).append(script);
     
@@ -363,33 +349,38 @@ $(document).ready(() => {
     }).catch(console.log);
     
     //Initialize countdown clock
-    var computeDiff = () => {
-        var diff = (getTime(10, 30).getTime() - (new Date()).getTime());
-        var d, h, m, s;
+    const computeDiff = () => {
+        let diff = (getTime(10, 30).getTime() - (new Date()).getTime());
+        let d, h, m, s;
+
+        const clockDiv = $(".countdown-clock");
         
-        var clockParts = $(".countdown-clock").children();
+        if (diff <= 0) {
+            diff = (getTime(18, 00).getTime() - (new Date()).getTime());
+            if (diff <= 0) {
+                clockDiv.text("We hope you enjoyed kickoff! Good luck this season!")
+            } else {
+                clockDiv.text("It's kickoff time!");
+            }
+        } else {
+            //Knock off milliseconds
+            diff = Math.floor(diff / 1e3);
+            s = diff % 60;
+
+            //Knock off seconds
+            diff = Math.floor(diff / 60);
+            m = diff % 60;
+
+            //Knock off minutes
+            diff = Math.floor(diff / 60);
+            h = diff % 24;
+
+            //Knock off hours
+            d = Math.floor(diff / 24);
+
+            clockDiv.text(`${d}d ${h}h ${m}m ${s}s`);
+        }
         
-        if (diff < 0) diff = 0;
-        
-        //Knock off milliseconds
-        diff = Math.floor(diff / 1e3);
-        s = diff % 60;
-        
-        //Knock off seconds
-        diff = Math.floor(diff / 60);
-        m = diff % 60;
-        
-        //Knock off minutes
-        diff = Math.floor(diff / 60);
-        h = diff % 24;
-        
-        //Knock off hours
-        d = Math.floor(diff / 24);
-        
-        var times = [d, h, m, s];
-        
-        for (var i = 0; i < clockParts.length; ++i)
-            clockParts.eq(i).text(times[i]);
     };
     
     computeDiff();
