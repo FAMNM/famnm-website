@@ -54,32 +54,8 @@ orgs:
             font-weight: bold;
         }
         
-        .countdown-clock>.time-part:after {
-            font-size: 0.5em;
-        }
-        
-        .countdown-clock>.days:after {
-            content: "d";
-        }
-        
-        .countdown-clock>.hours:after {
-            content: "h";
-        }
-        
-        .countdown-clock>.minutes:after {
-            content: "m";
-        }
-        
-        .countdown-clock>.seconds:after {
-            content: "s";
-        }
-        
-        .team-empty {
-            margin-top: 1em;
-        }
-        
-        .team-error,
-        .team-disp {
+        #team-error,
+        #team-disp {
             display: none;
         }
         
@@ -152,12 +128,10 @@ orgs:
     <div class="container">
         <div class="content">
             <div>
-                <h1>2021 FAMNM FRC Kickoff</h1>
+                <h1>FAMNM FRC Kickoff</h1>
             </div>
             <p class="text-par font-weight-bold">
-                FAMNM is planning to try and make FRC Kickoff 2021 a helpful
-                virtual experience for teams. Stay tuned for more information
-                as we begin to plan!
+                We hope teams are safe and healthy. FAMNM hopes to return to an in-person kickoff in 2022!
             </p>
             <!-- <p class="text-par">
                 If your team has filled out the FIRST registration form but has not filled out the FAMNM registration form yet, please register at the link below.
@@ -201,23 +175,18 @@ orgs:
                 Enter your team number below to see your team's schedule, find broadcast and breakout
                 rooms, and view additional kickoff information.
             </p>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Team number"
-                onkeypress="bNs.teamNumAccepted(event, true)" />
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Team number" id="teamNumInput"
+                onkeypress="teamNumAccepted(event, true)" />
                 <span class="input-group-append">
-                    <button class="btn btn-primary" type="button" onclick="bNs.teamNumAccepted(event, true)">View</button>
+                    <button class="btn btn-primary" type="button" onclick="teamNumAccepted(event, true)">View</button>
                 </span>
             </div>
-            <p class="team-error">
+            <p id="team-error">
                 <span style="font-size: 3em; font-weight: bold;">:/</span><br /> We're sorry, we don't
                 have a schedule for that team.<br />
             </p>
-            <p>
-                If your team is just picking up your Kit of Parts, you can pick it up at <a href="#" data-toggle="modal"
-                data-target="#mapModal" onclick="bNs.map.showKOP()">Chrysler 133</a> from 11:30 AM to 3:00 PM.
-            </p>
-            <div class="team-disp">
-                <p class="italic">Click on or touch a location to view it on a map</p>
+            <div id="team-disp">
                 <table id="sched-table" class="table table-bordered">
                     <thead>
                         <tr>
@@ -234,10 +203,6 @@ orgs:
             </div>
             <h4>Countdown</h4>
             <div class="countdown-clock">
-                <span class="days time-part">0</span>
-                <span class="hours time-part">0</span>
-                <span class="minutes time-part">0</span>
-                <span class="seconds time-part">0</span>
             </div>
             <h4>Manuals and resources</h4>
             <h3 id="um-fair">UM Fair</h3>
@@ -282,8 +247,8 @@ orgs:
                 <div class="modal-footer">
                     <span>All parking is free for the duration of the event.</span>
                     <button id="map-parking-toggle" type="button" class="btn btn-primary"
-                    onclick="bNs.map.toggleParking()">Show parking</button>
-                    <button type="button" class="btn famnm-btn-secondary" data-dismiss="modal">Close</button>
+                    onclick="mapUtils.toggleParking()">Show parking</button>
+                    <button type="button" class="btn famnm-btn-secondary" data-dismiss="modal" onclick="mapUtils.clearMap()">Close</button>
                 </div>
             </div>
         </div>
@@ -292,6 +257,5 @@ orgs:
     {% include footer.html %}
     {% include scripts.html %}
     <script src="{{site.url}}/js/kickoff/page.js"></script>
-    <script src="{{site.url}}/js/web-encapsulation.js"></script>
 </body>
 </html>

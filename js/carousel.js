@@ -4,71 +4,64 @@ let carouselLoad = (src) => {
     //Find list source and carousel element
     let listSource = src + "list.json"
     let carousel = $(".carousel:first");
-    
-    $("meta").each(function () {
-        switch ($(this).attr("name")) {
-        case "list-src":
-            listSource = $(this).attr("content");
-            break;
-        case "carousel":
-            carousel = $($(this).attr("content"));
-            break;
-        }
-    });
-    
-    //Run AJAX call
-    $.ajax({
-        url: listSource,
-        dataType: "json"
-    }).done(contents => {
-        var slideContainer = carousel.children(".carousel-inner:first");
-        
+
+    //Run fetch call
+    fetch(listSource)
+    .then( (response) =>{
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+    }).then(carouselItems => {
+        const slideContainer = carousel.children(".carousel-inner:first");
+
         slideContainer.empty();
-        
-        contents.forEach(function (item, i) {
-            var indicator = $(document.createElement("li"));
-            var slideDiv = $(document.createElement("div"));
-            var slideBackImg = $(document.createElement("img"));
-            var slideImg = $(document.createElement("img"));
-            var slideCaption = $(document.createElement("div"));
-            var slideTitle = $(document.createElement("h3"));
-            var slideDesc = $(document.createElement("p"));
+
+        carouselItems.forEach((carouselItem, i) => {
             
             //Add slide indicator
+            const indicator = $(document.createElement("li"));
+            
             indicator.attr("data-target", '#' + carousel.attr("id"));
             indicator.attr("data-slide-to", i);
-            
             if (i === 0) indicator.addClass("active");
             
             carousel.children("ol:first").append(indicator);
             
             //Initialize slide wrapper
-            slideDiv.addClass("carousel-item");
             
-            if (i === 0) slideDiv.addClass("active");
+            const outerDiv = $(document.createElement("div"));
             
+            outerDiv.addClass("carousel-item");
+            if (i === 0) outerDiv.addClass("active");
+
             //Initialize slide imagery
-            slideBackImg.attr("src", (src + item.img));
-            slideBackImg.addClass("carousel-back-image");
-            
-            slideImg.attr("src", slideBackImg.attr("src"));
-            slideImg.attr("alt", item.title);
-            
-            slideDiv.append(slideBackImg);
-            slideDiv.append(slideImg);
+
+            const mainImage = $(document.createElement("img"));
+            const blurredImage = $(document.createElement("img"));
+
+            blurredImage.attr("src", (src + carouselItem.img));
+            blurredImage.addClass("carousel-back-image");
+
+            mainImage.attr("src", blurredImage.attr("src"));
+            mainImage.attr("alt", carouselItem.title);
+
+            outerDiv.append(blurredImage);
+            outerDiv.append(mainImage);
             
             //Initialize slide caption
-            slideCaption.addClass("carousel-caption");
-            slideTitle.text(item.title);
-            slideDesc.text(item.description);
-            
-            slideCaption.append(slideTitle);
-            slideCaption.append(slideDesc);
-            slideDiv.append(slideCaption);
-            
-            slideContainer.append(slideDiv);
+
+            const captionContainer = $(document.createElement("div"));
+            const captionTitle = $(document.createElement("h3"));
+            const captionDesc = $(document.createElement("p"));
+
+            captionContainer.addClass("carousel-caption");
+            captionTitle.text(carouselItem.title);
+            captionDesc.text(carouselItem.description);
+
+            captionContainer.append(captionTitle);
+            captionContainer.append(captionDesc);
+            outerDiv.append(captionContainer);
+
+            slideContainer.append(outerDiv);
         });
-    }).fail((xhr, textStatus, thrownError) => {
-        console.log(textStatus, thrownError);
-    });;
+    }).catch(console.log);
 };

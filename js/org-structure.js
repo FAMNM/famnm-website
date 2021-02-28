@@ -264,14 +264,22 @@ orgData = [
 ];
 
 $(window).on("load", () => {
-    var map = $("#org-pic");
-    
+    let isMobile = /Mobi|Android/i.test(navigator.userAgent);
+    // store the SVG as a jquery variable
+    let map = $("#org-pic");
+
+    // for each element of the array above
     orgData.forEach(component => {
-        var area = map.find(component.id);
-        
+        // find that component in the SVG
+        let area = map.find(component.id);
+
+        // set the popup's 'container' to be the text
         component.container = $(".content").get(0);
-        component.trigger = ($(window).width() < 768) ? "click" : "hover";
-        if ($(window).width() < 768) component.placement = "top";
+        // either show the popup on click or hover depending on the size of the screen
+        component.trigger = isMobile ? "click" : "hover";
+        // if on a smaller screen, don't popup to the left or right.
+        if (isMobile) component.placement = "top";
+        // add the component as a popover
         area.popover(component);
     });
 });
