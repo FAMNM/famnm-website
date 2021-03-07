@@ -9,6 +9,15 @@ body {
     display: flex;
     flex-direction: column;
     font-size-adjust: inherit;
+    
+    /** April Fools 2021 **/
+    top: 0px;
+    left: 0px;
+    position: absolute;
+    -moz-transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
 body > * {
