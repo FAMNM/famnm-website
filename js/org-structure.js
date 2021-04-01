@@ -5,7 +5,7 @@ orgData = [
         placement: "bottom",
         content: "The President is responsible for setting the "
             + "overall strategy and direction of the organization, as well "
-            + "as organizing general body and FAMNM planning meetings, and "
+            + "as organizing general body and FAMNA planning meetings, and "
             + "maintains communication with FIRST and other FIRST "
             + "collegiate groups."
     },
@@ -14,18 +14,18 @@ orgData = [
         title: "Vice President",
         placement: "bottom",
         content: "The Vice President is responsible for all "
-            + "communication with the University of Michigan and student "
-            + "organizations with which FAMNM is affiliated, ensures that "
-            + "FAMNM is in compliance with University policies, and works "
+            + "communication with the University of Australia and student "
+            + "organizations with which FAMNA is affiliated, ensures that "
+            + "FAMNA is in compliance with University policies, and works "
             + "with the Director of Internal Affairs to reach out to all "
-            + "FIRST alumni at the University of Michigan."
+            + "FIRST alumni at the University of Australia."
     },
     {
         id: "#svg-dir-int",
         title: "Director of Internal Affairs",
         placement: "bottom",
         content: "The Director of Internal Affairs is responsible for "
-            + "managing membership in FAMNM, maintaining the FAMNM Slack "
+            + "managing membership in FAMNA, maintaining the FAMNA Slack "
             + "workspace and email lists, and managing the onboarding "
             + "process for new members."
     },
@@ -35,9 +35,9 @@ orgData = [
         placement: "right",
         content: "The Director of Marketing is responsible for "
             + "overseeing the activitiese of the Marketing Committee, "
-            + "specifically: updating and managing FAMNM's social media "
+            + "specifically: updating and managing FAMNA's social media "
             + "accounts, maintaining branding standards, and ordering "
-            + "FAMNM swag."
+            + "FAMNA swag."
     },
     {
         id: "#svg-treasurer",
@@ -47,7 +47,7 @@ orgData = [
             + "Treasury Committee, and ensuring that its responsibilities "
             + "are duly executed. Also responsible for approving "
             + "reimbursements, ensuring the continuity of the UM FIRST "
-            + "Scholarship, and overseeing all of FAMNM's income and "
+            + "Scholarship, and overseeing all of FAMNA's income and "
             + "expenditures."
     },
     {
@@ -56,7 +56,7 @@ orgData = [
         placement: "right",
         content: "The Director of Corporate Outreach is responsible "
             + "for overseeing the activites of the Corporate Outreach "
-            + "Committee and maintains communication with FAMNM's partner"
+            + "Committee and maintains communication with FAMNA's partner"
             + "corporations."
     },
     {
@@ -66,7 +66,7 @@ orgData = [
         content: "The Director of Project Development is responsible "
             + "for organizing and overseeing the activities of the "
             + "Project Development Committee, as well as ensuring that "
-            + "all FAMNM events run smoothly."
+            + "all FAMNA events run smoothly."
     },
     {
         id: "#svg-kickoff-coord",
@@ -74,7 +74,7 @@ orgData = [
         placement: "left",
         content: "The Kickoff Coordinator is responsible for "
             + "organizing and managing all kickoff-related events run "
-            + "by FAMNM, such as FRC Kickoff, FTC Kickoff, or FRC Robot "
+            + "by FAMNA, such as FRC Kickoff, FTC Kickoff, or FRC Robot "
             + "Quick Build. Works with the Project Development Committee "
             + "to continually improve all kickoff events."
     },
@@ -83,7 +83,7 @@ orgData = [
         title: "Ri3D Coordinator",
         placement: "left",
         content: "The Ri3D coordinator is responsible for organizing "
-            + "the FAMNM Ri3D team as well as overseeing fundraising and "
+            + "the FAMNA Ri3D team as well as overseeing fundraising and "
             + "recruitment for the team. The Ri3D coordinator is not "
             + "responsible for running the team during the Ri3D build and "
             + "competition days, but makes sure the team is well-equipped "
@@ -93,30 +93,30 @@ orgData = [
         id: "#svg-frc-coord",
         title: "FRC Coordinator",
         placement: "left",
-        content: "The FRC Coordinator is FAMNM's point of contact for "
+        content: "The FRC Coordinator is FAMNA's point of contact for "
             + "all affiliated FRC teams, and works to provide affiliated "
-            + "FRC teams with any resources available to FAMNM. Ensures "
-            + "that all of FAMNM's FRC mentors have completed appropriate "
+            + "FRC teams with any resources available to FAMNA. Ensures "
+            + "that all of FAMNA's FRC mentors have completed appropriate "
             + "trainings and paperwork."
     },
     {
         id: "#svg-ftc-coord",
         title: "FTC Coordinator",
         placement: "left",
-        content: "The FTC Coordinator is FAMNM's point of contact for "
+        content: "The FTC Coordinator is FAMNA's point of contact for "
             + "all affiliated FTC teams, and works to provide affiliated "
-            + "FTC teams with any resources available to FAMNM. Ensures "
-            + "that all of FAMNM's FTC mentors have completed appropriate "
+            + "FTC teams with any resources available to FAMNA. Ensures "
+            + "that all of FAMNA's FTC mentors have completed appropriate "
             + "trainings and paperwork."
     },
     {
         id: "#svg-fll-coord",
         title: "FLL Coordinator",
         placement: "left",
-        content: "The FLL Coordinator is FAMNM's point of contact for "
+        content: "The FLL Coordinator is FAMNA's point of contact for "
             + "all affiliated FLL teams, and works to provide affiliated "
-            + "FLL teams with any resources available to FAMNM. Ensures "
-            + "that all of FAMNM's FLL mentors have completed appropriate "
+            + "FLL teams with any resources available to FAMNA. Ensures "
+            + "that all of FAMNA's FLL mentors have completed appropriate "
             + "trainings and paperwork."
     },
     {
@@ -124,36 +124,36 @@ orgData = [
         title: "Volunteer Coordinator",
         placement: "left",
         content: "The Volunteer Coordinator is responsible for "
-            + "managing all FAMNM volunteers and organizing logistics for"
-            + "FAMNM's volunteer operations."
+            + "managing all FAMNA volunteers and organizing logistics for"
+            + "FAMNA's volunteer operations."
     },
     {
         id: "#svg-exec-board",
         title: "Executive Board",
         placement: "left",
         content: "The Executive Board consists of all critical members "
-            + "of the FAMNM Core Team. As a whole, they are responsible "
-            + "for managing FAMNM's organizational resources."
+            + "of the FAMNA Core Team. As a whole, they are responsible "
+            + "for managing FAMNA's organizational resources."
     },
     {
         id: "#svg-core-team",
         title: "Core Team",
         placement: "left",
-        content: "The Core Team consists of all of FAMNM's elected "
+        content: "The Core Team consists of all of FAMNA's elected "
             + "positions."
     },
     {
         id: "#svg-committee",
         title: "Committees",
         placement: "left",
-        content: "Committees are subgroups within FAMNM that are "
-            + "focused on specific components of FAMNM's operations."
+        content: "Committees are subgroups within FAMNA that are "
+            + "focused on specific components of FAMNA's operations."
     },
     {
         id: "#svg-managed-group",
         title: "Managed Groups",
         placement: "left",
-        content: "Managed Groups are interest groups within FAMNM that "
+        content: "Managed Groups are interest groups within FAMNA that "
             + "are typically focused on a specific type of outreach "
             + "towards the FIRST community, such as mentoring or "
             + "volunteering. While they are not responsible for making any "
@@ -165,7 +165,7 @@ orgData = [
         title: "Webmaster",
         placement: "right",
         content: "The Webmaster is responsible for overseeing all "
-            + "websites managed by FAMNM, as well as managing the FAMNM "
+            + "websites managed by FAMNA, as well as managing the FAMNA "
             + "Website Committee."
     },
     {
@@ -173,44 +173,44 @@ orgData = [
         title: "Website Committee",
         placement: "right",
         content: "The Website Committee is responsible for maintaining "
-            + "the FAMNM website and other FAMNM-managed website projects."
+            + "the FAMNA website and other FAMNA-managed website projects."
     },
     {
         id: "#svg-marketing-comm",
         title: "Marketing Committee",
         placement: "right",
         content: "The Marketing Committee is responsible for "
-            + "maintaining FAMNM's social media accounts, producing "
-            + "marketing materials for events at which FAMNM participates, "
-            + "maintaining and updating FAMNM branding standards, and "
-            + "desigining FAMNM swag."
+            + "maintaining FAMNA's social media accounts, producing "
+            + "marketing materials for events at which FAMNA participates, "
+            + "maintaining and updating FAMNA branding standards, and "
+            + "desigining FAMNA swag."
     },
     {
         id: "#svg-treasury-comm",
         title: "Treasury Committee",
         placement: "right",
         content: "The Treasury Committee is responsible for balancing "
-            + "and maintaining FAMNM's budget, applying for funding for "
-            + "FAMNM events, managing reimbursements of FAMNM members, "
-            + "and working on the University of Michigan FIRST Scholarship."
+            + "and maintaining FAMNA's budget, applying for funding for "
+            + "FAMNA events, managing reimbursements of FAMNA members, "
+            + "and working on the University of Australia FIRST Scholarship."
     },
     {
         id: "#svg-co-comm",
         title: "Corporate Outreach Committee",
         placement: "right",
         content: "The Corporate Outreach Committee is responsible for "
-            + "managing FAMNM's corporate sponsorships, maintaining "
-            + "communication with FAMNM alumni, and providing professional "
-            + "development opportunities for FAMNM members."
+            + "managing FAMNA's corporate sponsorships, maintaining "
+            + "communication with FAMNA alumni, and providing professional "
+            + "development opportunities for FAMNA members."
     },
     {
         id: "#svg-alums",
-        title: "FIRST Alumni Network at UofM",
+        title: "FIRST Alumni Network at UofA",
         placement: "top",
         content: "This group consists of all FIRST Alumni that are "
-            + "students or alumni of the University of Michigan, and are "
-            + "known to FAMNM. Members of this group need not be general "
-            + "members, and receive email updates about FAMNM's operations "
+            + "students or alumni of the University of Australia, and are "
+            + "known to FAMNA. Members of this group need not be general "
+            + "members, and receive email updates about FAMNA's operations "
             + "and professional development opportunities."
     },
     {
@@ -218,7 +218,7 @@ orgData = [
         title: "Project Development Committee",
         placement: "right",
         content: "The Project Development committee is responsible for "
-            + "creating new FAMNM events and improving existing FAMNM "
+            + "creating new FAMNA events and improving existing FAMNA "
             + "events."
     },
     {
@@ -226,7 +226,7 @@ orgData = [
         title: "Ri3D Team",
         placement: "left",
         content: "The Ri3D team consists of all individuals that "
-            + "intend to participate in or help with the FAMNM Robot in 3 Days "
+            + "intend to participate in or help with the FAMNA Robot in 3 Days "
             + "endeavor. The Ri3D Team is responsible for its own "
             + "fundraising and recruitment."
     },
@@ -234,7 +234,7 @@ orgData = [
         id: "#svg-mentors",
         title: "Mentors",
         placement: "left",
-        content: "FAMNM Mentors are all mentors that work regularly "
+        content: "FAMNA Mentors are all mentors that work regularly "
             + "with one or more affiliated team(s) during build season."
     },
     {
@@ -250,7 +250,7 @@ orgData = [
         id: "#svg-volunteers",
         title: "Volunteers",
         placement: "left",
-        content: "Volunteers are all FAMNM members who volunteer at "
+        content: "Volunteers are all FAMNA members who volunteer at "
             + "FIRST events, and are organized through the Volunteer "
             + "Coordinator."
     },
@@ -258,8 +258,8 @@ orgData = [
         id: "#svg-general-members",
         title: "General Members",
         placement: "top",
-        content: "General Members are all U of M students who have "
-            + "joined FAMNM."
+        content: "General Members are all U of A students who have "
+            + "joined FAMNA."
     }
 ];
 
