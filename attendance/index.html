@@ -5,7 +5,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 <html lang='en'>
 <head>
     {% include title-styles.html %}
-    <link rel='stylesheet' href='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css'>
 </head>
 <body>
     {% include header.html %}
@@ -18,6 +17,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             Error submitting meeting. Please contact the webmaster for help.
         </div>
         <h1>FAMNM Attendance Form</h1>
+        <p>
+            <a href="view.html" class="btn famnm-btn-secondary">Click here for Attendance Viewer!</a>
+        </p>
         <div class='form-group my-5'>
             <label for='meetingType'>What type of meeting?</label>
             <select class='form-control' id='meetingType'>
@@ -32,14 +34,14 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         </div>
         <div>
             <label for='meetingStartTime'>Start Time</label>
-            <input class='timepicker' id='meetingStartTime'>
+            <input type='time' id='meetingStartTime'>
             <label for='meetingEndTime'>End Time</label>
-            <input class='timepicker' id='meetingEndTime'>
+            <input type='time' id='meetingEndTime'>
         </div>
         
         <div class="my-5">
             <label for='meetingDescription'>Meeting Description</label>
-            <textarea maxlength=1000 required=true class='w-100' id='meetingDescription' placeholder='(Optional) A short description of what happened at the meeting.'></textarea>
+            <textarea maxlength=1000 class='w-100' id='meetingDescription' placeholder='(Optional) A short description of what happened at the meeting.'></textarea>
         </div>
         
         <div class="my-5">
@@ -74,7 +76,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     <p id="modalDescription">Description: </p>
                     <h2>Meeting Attendees</h2>
                     <div id="modalAttendees">
-                        
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -87,7 +88,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     
     {% include footer.html %}
     {% include scripts.html %}
-    <script src='//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js'></script>
     <script>
         const backend_url = 'https://famnm-website-backend.herokuapp.com/'
         const convertMeetingTime = (time) => {
@@ -117,23 +117,13 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             })
             
             $('#meetingDate').attr('value', new Date().toISOString().slice(0,10));
-            $('#meetingDate').prop('disabled', true);
             $('#meetingSuccessAlert').hide();
             $('#meetingFailAlert').hide();
-            
-            $('input.timepicker').timepicker({ 
-                timeFormat: 'h:mm p',
-                minTime: '10:00',
-                maxTime: '22:00',
-                startTime: '10:00',
-                defaultTime: '10:00',
-                dropdown: true,
-                interval: 30
-            });
             
             $('#uniqname').keypress((e) => {
                 if (e.keyCode == 13)
                 {
+                    e.preventDefault();
                     let newButton = $('<button></button>');
                     newButton.attr('type', 'button');
                     newButton.addClass('btn')
