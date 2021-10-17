@@ -1,12 +1,27 @@
 [
     {
         "title": "MFly Presentation",
-        "description": "MFly presents its competition and past aircraft to teams.",
+        "description": "MFly presents its competition and past aircraft to teams in the Ford Robotics Building atrium.",
         "img": "mfly-presentation.jpg"
     },
     {
+        "title": "Field Reveal",
+        "description": "Teams examine the new competition field for Freight Frenzy.",
+        "img": "field.jpg"
+    },
+    {
         "title": "Drone Presentation",
-        "description": "FAMNM Volunteer coordinator, Jiawei Chen, gives teams an overview of the current drone projects at the new Ford Robotics Building.",
+        "description": "FAMNM Volunteer coordinator, Jiawei Chen, showcases current drone projects at the new Ford Robotics Building.",
         "img": "drone-presentation.jpg"
+    },
+    {
+        "title": "Digit, the Humanoid",
+        "description": "In the Ford Robotics Building, Oluwami showcases Digit, a humanoid robot from Agility Robotics.",
+        "img": "oluwami-digit.jpg"
+    },
+    {
+        "title": "Pre-Reveal Activities",
+        "description": "Teams play Kahoot and view FAMNM's 2019 FRC Ri3D robot at the Stamps Auditorium prior to the game reveal.",
+        "img": "stamps.jpg"
     }
 ]
