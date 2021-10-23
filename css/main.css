@@ -4,7 +4,7 @@ html {
 
 body {
     min-height: 100%;
-    padding-top: 70px;
+    padding-top: 56px;
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
