@@ -34,7 +34,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         </div>
         
         <div class="my-5">
-            <label for='uniqname'>Enter uniqnames of people at meeting. Hit enter to add person.</label>
+            <label for='uniqname'>Attendees</label>
             <br/>
             <input type='text' id='uniqname'>
             <button type='button' class='btn btn-primary' id='addUniqname'>+</button>
@@ -61,9 +61,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     <div id="modalError" style="color:red"></div>
                     <h2>Meeting Details</h2>
                     <p id="modalMeetingType">Meeting Type: </p>
-                    <p id="modalStartTime">Start Time: </p>
-                    <p id="modalEndTime">End Time: </p>
-                    <p id="modalDescription">Description: </p>
+                    <p id="modalDate">Date: </p>
                     <h2>Meeting Attendees</h2>
                     <div id="modalAttendees">
                     </div>
@@ -79,7 +77,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include footer.html %}
     {% include scripts.html %}
     <script>
-        const backend_url = 'https://famnm-website-backend.herokuapp.com/'
+        let attendees = []
+
+        const backend_url = 'https://famnm-website-backend.herokuapp.com/api/v2'
 
         const convertMeetingTime = (time) => {
             if(time.includes('AM') || time.includes('12')) {
@@ -119,14 +119,14 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         }
         
         $(() => {
-            fetch(backend_url + 'meeting_type')
-            .then( (response) =>{
+            fetch(backend_url + '/meeting/types')
+            .then(response => {
                 if (!response.ok) throw Error(response.statusText);
                 return response.json();
-            }).then( (data) => {
-                data.map(type => {
+            }).then(data => {
+                data.forEach(type => {
                     let meetingType = $('<option></option>');
-                    meetingType.text(type.type);
+                    meetingType.text(type);
                     $('#meetingType').append(meetingType);
                 })
             })
@@ -145,7 +145,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             const submitMeeting = () => {
                 const meetingDay = new Date();
                 meetingDay.setHours(0,0,0,0);
-                fetch(backend_url + 'meeting', {
+                fetch(backend_url + '/meeting', {
                     headers: {'Content-Type': 'application/json'},
                     method: 'POST',
                     body: JSON.stringify({
@@ -180,8 +180,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     $('.submit-meeting').attr('disabled', false);
                     $('#meetingSuccessAlert').show();
                     // setTimeout(() => {$('#meetingSuccessAlert').hide();}, 5000);
-                })
-                .catch(err => {
+                }).catch(err => {
                     console.log(err);
                     $('#meetingFailAlert').show();
                 });
@@ -200,39 +199,60 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             }
             
             $('#confirm').click(() => {
+                enterUniqname();
+
                 const meetingType = $('#meetingType').children('option:selected').val();
-                const startTime = convertMeetingTime($('#meetingStartTime').val());
-                const endTime = convertMeetingTime($('#meetingEndTime').val());
-                const attendees = $('.uniqname-btn').map((i, elt) => $(elt).text());
-                if (meetingType === '------')
-                {
-                    disableSubmit('Invalid Meeting Type');
+                const meetingDate = $('#meetingDate').val();
+                const attendees = $('.uniqname-btn').map((i, elt) => $(elt).text()).toArray();
+
+                if (meetingType === '------') {
+                    disableSubmit('Meeting type not selected');
                 }
-                if (!validateTime(startTime, endTime))
-                {
-                    disableSubmit('Start Time must be before End Time');
+
+                if (attendees.length === 0) {
+                    disableSubmit('No attendees');
                 }
-                if (attendees.length === 0)
-                {
-                    disableSubmit('At least one person (you) must attend the meeting');
+
+                if ( new Set(attendees).size !== attendees.length) {
+                    disableSubmit('Duplicate attendees');
                 }
-                if ( new Set(attendees).size !== attendees.length)
-                {
-                    disableSubmit('You have duplicate attendees');
-                }
+
                 $('#modalMeetingType').text(`Meeting Type: ${meetingType}`)
-                $('#modalStartTime').text(`Start Time: ${$('#meetingStartTime').val()}`)
-                $('#modalEndTime').text(`End Time: ${$('#meetingEndTime').val()}`)
-                $('#modalDescription').text(`Meeting Description: ${$('#meetingDescription').val()}`)
+                $('#modalDate').text(`Date: ${meetingDate}`)
                 $('#modalAttendees').empty();
-                const uniqname_buttons = $('.uniqname-btn');
-                uniqname_buttons.toArray().forEach(uniqname => {
-                    const new_button = $(uniqname).clone();
-                    new_button.removeClass('uniqname-btn');
-                    new_button.addClass('uniqname-submit');
-                    new_button.attr('disabled', true);
-                    $('#modalAttendees').append(new_button);
-                });
+
+                fetch(backend_url + '/meeting/validate', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        meeting_type: meetingType,
+                        meeting_date: meetingDate,
+                        attendees: attendees
+                    })
+                }).then(response => {
+                    if (!response.ok) throw Error(response.statusText);
+                    return response.json();
+                }).then(data => {
+                    if (data.already_exists) {
+                        disableSubmit(`A ${meetingType} meeting has already been recorded on ${meetingDate}`);
+                    }
+
+                    const uniqname_buttons = $('.uniqname-btn');
+    
+                    uniqname_buttons.toArray().forEach(uniqname => {
+                        const new_button = $(uniqname).clone();
+                        new_button.removeClass('uniqname-btn');
+                        new_button.addClass('uniqname-submit');
+                        new_button.attr('disabled', true);
+
+                        if (data.new_uniqnames.includes(new_button.text())) {
+                            new_button.removeClass('btn-outline-secondary');
+                            new_button.addClass('btn-outline-success');
+                        }
+
+                        $('#modalAttendees').append(new_button);
+                    });
+                })
             });
         });
     </script>
