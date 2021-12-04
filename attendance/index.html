@@ -95,9 +95,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         } 
 
         const enterUniqname = () => {
-            const uniqname = $('#uniqname').val()
+            const uniqname = $('#uniqname').val().toLowerCase().replace(/[^a-zA-Z]/g, '');
+            const uniqnameExists = $('.uniqname-btn').toArray().some(elem => elem.innerText.toLowerCase() === uniqname);
 
-            if (uniqname.length > 0) {
+            if (uniqname.length > 0 && !uniqnameExists) {
                 let newButton = $('<button></button>');
                 newButton.attr('type', 'button');
                 newButton.addClass('btn')
@@ -105,11 +106,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                         .addClass('mx-3')
                         .addClass('my-3')
                         .addClass('uniqname-btn');
-                newButton.text($('#uniqname').val());
+                newButton.text(uniqname);
                 newButton.click(() => { newButton.remove(); });
                 $('#uniqname-buttons').append(newButton);
-                $('#uniqname').val('');
             }
+            $('#uniqname').val('');
         }
 
         const currentLocalDate = () => {
@@ -211,10 +212,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
                 if (attendees.length === 0) {
                     disableSubmit('No attendees');
-                }
-
-                if ( new Set(attendees).size !== attendees.length) {
-                    disableSubmit('Duplicate attendees');
                 }
 
                 $('#modalMeetingType').text(`Meeting Type: ${meetingType}`)
