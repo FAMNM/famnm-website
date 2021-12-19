@@ -96,20 +96,30 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         const enterUniqname = () => {
             const uniqname = $('#uniqname').val().toLowerCase().replace(/[^a-zA-Z]/g, '');
-            const uniqnameExists = $('.uniqname-btn').toArray().some(elem => elem.innerText.toLowerCase() === uniqname);
+            const uniqnameExists = attendees.some(elem => elem === uniqname);
 
             if (uniqname.length > 0 && !uniqnameExists) {
-                let newButton = $('<button></button>');
-                newButton.attr('type', 'button');
-                newButton.addClass('btn')
-                        .addClass('btn-outline-secondary')
-                        .addClass('mx-3')
-                        .addClass('my-3')
-                        .addClass('uniqname-btn');
-                newButton.text(uniqname);
-                newButton.click(() => { newButton.remove(); });
-                $('#uniqname-buttons').append(newButton);
+                attendees.push(uniqname);
+
+                $('#uniqname-buttons').empty();
+                attendees.forEach(elem => {
+                    let newButton = $('<button></button>');
+                    newButton.attr('type', 'button');
+                    newButton.addClass('btn')
+                            .addClass('btn-outline-secondary')
+                            .addClass('mx-3')
+                            .addClass('my-3')
+                            .addClass('uniqname-btn');
+                    newButton.text(elem);
+                    newButton.click(() => {
+                        attendees = attendees.filter(elem => elem !== newButton.text());
+                        newButton.remove();
+                    });
+
+                    $('#uniqname-buttons').append(newButton);
+                });
             }
+
             $('#uniqname').val('');
         }
 
@@ -204,7 +214,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
                 const meetingType = $('#meetingType').children('option:selected').val();
                 const meetingDate = $('#meetingDate').val();
-                const attendees = $('.uniqname-btn').map((i, elt) => $(elt).text()).toArray();
 
                 if (meetingType === '------') {
                     disableSubmit('Meeting type not selected');
@@ -234,21 +243,19 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                         disableSubmit(`A ${meetingType} meeting has already been recorded on ${meetingDate}`);
                     }
 
-                    const uniqname_buttons = $('.uniqname-btn');
-    
-                    uniqname_buttons.toArray().forEach(uniqname => {
-                        const new_button = $(uniqname).clone();
-                        new_button.removeClass('uniqname-btn');
-                        new_button.addClass('uniqname-submit');
-                        new_button.attr('disabled', true);
+                    let uniqnameList = $('<ul></ul>');
+                    attendees.forEach(uniqname => {
+                        let uniqnameItem = $('<li></li>');
+                        uniqnameItem.text(uniqname);
 
-                        if (data.new_uniqnames.includes(new_button.text())) {
-                            new_button.removeClass('btn-outline-secondary');
-                            new_button.addClass('btn-outline-success');
+                        if (data.new_uniqnames.includes(uniqname)) {
+                            uniqnameItem.addClass('text-success');
                         }
 
-                        $('#modalAttendees').append(new_button);
+                        uniqnameList.append(uniqnameItem);
                     });
+
+                    $('#modalAttendees').append(uniqnameList);
                 })
             });
         });
