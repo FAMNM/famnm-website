@@ -10,8 +10,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include header.html %}
     
     <form class='w-50 mx-auto attendance-form'>
+        <br>
         <div class="alert alert-success" role="alert" id="meetingSuccessAlert" style="display: none;">
-            Meeting Submitted Successfully!
+            Meeting submitted successfully!
         </div>
         <div class="alert alert-danger" role="alert" id="meetingFailAlert" style="display: none;">
             Error submitting meeting. Please contact the webmaster for help.
@@ -21,7 +22,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <a href="view.html" class="btn famnm-btn-secondary">Click here for Attendance Viewer!</a>
         </p>
         <div class='form-group my-5'>
-            <label for='meetingType'>What type of meeting?</label>
+            <label for='meetingType'>Meeting Type</label>
             <select class='form-control' id='meetingType'>
                 <option>
                     ------
@@ -29,7 +30,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </select>
         </div>
         <div class="my-5">
-            <label for='meetingDate'>Today's Date</label>
+            <label for='meetingDate'>Date</label>
             <input type='date' id='meetingDate' />
         </div>
         
@@ -44,7 +45,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </div>
         </div>
         
-        <button type="button" class="btn famnm-btn my-3" data-toggle="modal" data-target="#confirmMeeting" id="confirm">Confirm And Submit</button>
+        <button type="button" class="btn famnm-btn my-3" data-toggle="modal" data-target="#confirmMeeting" id="confirm">Confirm</button>
     </form>
     
     <!-- Modal -->
@@ -59,16 +60,20 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 </div>
                 <div class="modal-body">
                     <div id="modalError" style="color:red"></div>
+
                     <h2>Meeting Details</h2>
                     <p id="modalMeetingType">Meeting Type: </p>
                     <p id="modalDate">Date: </p>
+
                     <h2>Meeting Attendees</h2>
-                    <div id="modalAttendees">
-                    </div>
+                    <div id="modalAttendees"></div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn famnm-btn-secondary" id="closeModal" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn famnm-btn submit-meeting" id="submit" data-dismiss="modal">Create Meeting</button>
+                <div class="modal-footer d-flex">
+                    <form class="mr-auto">
+                        <input type='password' id='passphrase' placeholder='Passphrase'>
+                        <small id="incorrectPassphrase" class="form-text text-muted" style="display: none;">Incorrect Passphrase</small>
+                    </form>
+                    <button type="button" class="btn famnm-btn submit-meeting" id="submit">Submit</button>
                 </div>
             </div>
         </div>
@@ -128,6 +133,118 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             
             return new Date(t - t.getTimezoneOffset() * 60 * 1000);
         }
+            
+        const disableSubmit = (message) => {
+            $('#modalError').append($(`<p>${message}</p>`));
+            $('.submit-meeting').attr('disabled', true);
+            $('#passphrase').attr('disabled', true);
+        }
+            
+        const resetModal = () => {
+            $('#modalError').empty();
+            $('#modalMeetingType').empty();
+            $('#modalDate').empty();
+            $('#modalAttendees').empty();
+            $('#passphrase').val('');
+            $('#passphrase').attr('disabled', false);
+            $('#incorrectPassphrase').hide();
+            $('.submit-meeting').attr('disabled', false);
+        }
+            
+        const confirmMeeting = () => {
+            resetModal();
+            enterUniqname();
+
+            const meetingType = $('#meetingType').children('option:selected').val();
+            const meetingDate = $('#meetingDate').val();
+
+            if (meetingType === '------') {
+                disableSubmit('Meeting type not selected');
+            }
+
+            if (attendees.length === 0) {
+                disableSubmit('No attendees');
+            }
+
+            $('#modalMeetingType').text(`Meeting Type: ${meetingType}`);
+            $('#modalDate').text(`Date: ${meetingDate}`);
+
+            fetch(backend_url + '/meeting/validate', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    meeting_type: meetingType,
+                    meeting_date: meetingDate,
+                    attendees: attendees
+                })
+            }).then(response => {
+                if (!response.ok) throw Error(response.statusText);
+                return response.json();
+            }).then(data => {
+                if (data.already_exists) {
+                    disableSubmit(`${meetingType} meeting already been recorded on ${meetingDate}`);
+                }
+
+                let uniqnameList = $('<ul></ul>');
+                attendees.forEach(uniqname => {
+                    let uniqnameItem = $('<li></li>');
+                    uniqnameItem.text(uniqname);
+
+                    if (data.new_uniqnames.includes(uniqname)) {
+                        uniqnameItem.addClass('text-success');
+                    }
+
+                    uniqnameList.append(uniqnameItem);
+                });
+
+                $('#modalAttendees').append(uniqnameList);
+            })
+        }
+
+        const submitMeeting = () => {
+            const meetingType = $('#meetingType').children('option:selected').val();
+            const meetingDate = $('#meetingDate').val();
+            const passphrase = $('#passphrase').val();
+
+            $('#passphrase').val('');
+
+            fetch(backend_url + '/meeting', {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Basic ${btoa(`famnm:${passphrase}`)}`
+                },
+                method: 'POST',
+                body: JSON.stringify({
+                    meeting_type: meetingType,
+                    meeting_date: meetingDate,
+                    attendees: attendees
+                })
+            }).then(response => {
+                if (response.ok) {
+                    attendees = [];
+
+                    $('.attendance-form').trigger('reset');
+                    $('#uniqname-buttons').empty();
+
+                    $('#meetingSuccessAlert').show();
+                    $('#meetingFailAlert').hide();
+
+                    $('#confirmMeeting').modal('hide');
+                    resetModal();
+                } else if (response.status === 401) {
+                    $('#incorrectPassphrase').show();
+                } else {
+                    throw Error(response.statusText);
+                }
+            }).catch(err => {
+                console.log(err);
+
+                $('#meetingSuccessAlert').hide();
+                $('#meetingFailAlert').show();
+
+                $('#confirmMeeting').modal('hide');
+            });
+        }
         
         $(() => {
             fetch(backend_url + '/meeting/types')
@@ -144,7 +261,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             
             $('#meetingDate').attr('value', currentLocalDate().toISOString().slice(0, 10));
             
-            $('#uniqname').keypress((e) => {
+            $('#uniqname').keypress(e => {
                 if (e.keyCode === 13) {
                     e.preventDefault();
                     enterUniqname();
@@ -153,111 +270,16 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
             $('#addUniqname').click(enterUniqname);
             
-            const submitMeeting = () => {
-                const meetingDay = new Date();
-                meetingDay.setHours(0,0,0,0);
-                fetch(backend_url + '/meeting', {
-                    headers: {'Content-Type': 'application/json'},
-                    method: 'POST',
-                    body: JSON.stringify({
-                        meetingType: $('#meetingType').children('option:selected').val(),
-                        meetingDay: $('#meetingDate').val(),
-                        description: $('#meetingDescription').val()
-                    })
-                }).then( (response) =>{
-                    if (!response.ok) throw Error(response.statusText);
-                    return response.json();
-                }).then( (data) => {
-                    const meeting_id = data[0].meeting_id;
-                    const uniqname_buttons = $('.uniqname-submit');
-                    const uniqnames = uniqname_buttons.map((i, elt) => $(elt).text());
-                    uniqnames.toArray().forEach((uniqname) => {
-                        fetch(backend_url + 'attendance', {
-                            headers: {'Content-Type': 'application/json'},
-                            method: 'POST',
-                            body: JSON.stringify({
-                                uniqname: uniqname,
-                                meetingId: meeting_id
-                            })
-                        }).catch(err => {
-                            console.log(err);
-                            $('#meetingFailAlert').show();
-                        });
-                    });
-                }).then(() => {
-                    $('.attendance-form').trigger('reset');
-                    $('#uniqname-buttons').empty();
-                    $('#modalError').empty();
-                    $('.submit-meeting').attr('disabled', false);
-                    $('#meetingSuccessAlert').show();
-                    // setTimeout(() => {$('#meetingSuccessAlert').hide();}, 5000);
-                }).catch(err => {
-                    console.log(err);
-                    $('#meetingFailAlert').show();
-                });
-            }
+            $('#confirm').click(confirmMeeting);
+            
+            $('#passphrase').keypress(e => {
+                if (e.keyCode === 13) {
+                    e.preventDefault();
+                    submitMeeting();
+                }
+            });
             
             $('#submit').click(submitMeeting);
-            
-            $('#closeModal').click(() => {
-                $('#modalError').empty();
-                $('.submit-meeting').attr('disabled', false);
-            })
-            
-            const disableSubmit = (message) => {
-                $('#modalError').append($(`<p>${message}</p>`));
-                $('.submit-meeting').attr('disabled', true);
-            }
-            
-            $('#confirm').click(() => {
-                enterUniqname();
-
-                const meetingType = $('#meetingType').children('option:selected').val();
-                const meetingDate = $('#meetingDate').val();
-
-                if (meetingType === '------') {
-                    disableSubmit('Meeting type not selected');
-                }
-
-                if (attendees.length === 0) {
-                    disableSubmit('No attendees');
-                }
-
-                $('#modalMeetingType').text(`Meeting Type: ${meetingType}`)
-                $('#modalDate').text(`Date: ${meetingDate}`)
-                $('#modalAttendees').empty();
-
-                fetch(backend_url + '/meeting/validate', {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body: JSON.stringify({
-                        meeting_type: meetingType,
-                        meeting_date: meetingDate,
-                        attendees: attendees
-                    })
-                }).then(response => {
-                    if (!response.ok) throw Error(response.statusText);
-                    return response.json();
-                }).then(data => {
-                    if (data.already_exists) {
-                        disableSubmit(`A ${meetingType} meeting has already been recorded on ${meetingDate}`);
-                    }
-
-                    let uniqnameList = $('<ul></ul>');
-                    attendees.forEach(uniqname => {
-                        let uniqnameItem = $('<li></li>');
-                        uniqnameItem.text(uniqname);
-
-                        if (data.new_uniqnames.includes(uniqname)) {
-                            uniqnameItem.addClass('text-success');
-                        }
-
-                        uniqnameList.append(uniqnameItem);
-                    });
-
-                    $('#modalAttendees').append(uniqnameList);
-                })
-            });
         });
     </script>
 </body>
