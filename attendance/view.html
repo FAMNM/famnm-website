@@ -2,24 +2,28 @@
 title: FIRST® Alumni &amp; Mentors Network at Michigan
 ---
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
     {% include title-styles.html %}
 </head>
 <body>
     {% include header.html %}
     
-    <div class="w-75 pt-5 mx-auto d-flex justify-content-evenly">
+    <div class="w-75 pt-5 mx-auto d-flex justify-content-between">
         <h1 class="col-10">FAMNM Attendance</h1>
-        <p class='col-10'>
+        <p class="col-2">
             <a href="index.html" class="btn famnm-btn-secondary">+</a>
         </p>
     </div>
     
     <div class="mt-5 w-75 mx-auto">
         <div class="d-flex justify-content-between">
-            <h2 class='col-10'>Members</h2>
-            <button type="button" class="col-2 btn famnm-btn-secondary mb-3" id="toggle-active"><!-- Filled by JavaScript --></button>
+            <h2 class="col-10">Members</h2>
+            <div class="col-2">
+                <button type="button" class="btn famnm-btn-secondary mb-3" id="toggle-active">
+                    <!-- Filled by JavaScript -->
+                </button>
+            </div>
         </div>
 
         <table class="table" id="members">
@@ -40,9 +44,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     
     <div class="mt-5 w-75 mx-auto">
         <div class="d-flex justify-content-between">
-            <h2 class='col-6'>Meetings</h2>
-            <div class='col-6 mx-auto uniqname-search d-flex justify-content-end mb-3'>
-                <input id='uniqname' type='text' placeholder='uniqname'/>
+            <h2 class="col-10">Meetings</h2>
+            <div class="col-2 mx-auto uniqname-search d-flex justify-content-end mb-3">
+                <input id="uniqname" type="text" placeholder="uniqname"/>
                 <button type="button" class="btn famnm-btn-secondary ml-1" data-toggle="modal" id="search">Search</button>
                 <button type="button" class="btn btn-secondary ml-1" data-toggle="modal" id="clear">Clear</button>
             </div>
@@ -65,21 +69,21 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include footer.html %}
     {% include scripts.html %}
     <script>
-        let onlyActiveMembers = false
-        
-        const backend_url = 'https://famnm-website-backend.herokuapp.com/api/v2'
+        let onlyActiveMembers = false;
 
-        const dateToString = (date) => {
+        const backendUrl = "https://famnm-website-backend.herokuapp.com/api/v2";
+
+        function dateToString(date) {
             const monthIdxToString = {
                 0: "Jan", 1: "Feb", 2: "Mar", 3: "Apr",
                 4: "May", 5: "June", 6: "July", 7: "Aug",
                 8: "Sep", 9: "Oct", 10: "Nov", 11: "Dec"
-            }
+            };
 
-            return `${monthIdxToString[date.getUTCMonth()]} ${date.getUTCDate()}, ${date.getUTCFullYear()}`
+            return `${monthIdxToString[date.getUTCMonth()]} ${date.getUTCDate()}, ${date.getUTCFullYear()}`;
         }
 
-        const populateMemberTable = (members) => {
+        function populateMemberTable(members) {
             members.sort((a, b) => {
                 if (a.active && !b.active) {
                     return -1;
@@ -98,27 +102,25 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 }
             });
 
-            $('#members-body').empty();
+            $("#members-body").empty();
 
             members.forEach(member => {
-                const newRow = $(`
+                $("#members-body").append($(`
                     <tr id="meeting-${member.uniqname}">
                         <th>${member.uniqname}</th>
-                        <td>${member.active ? '✅' : '🚫'}</td>
+                        <td>${member.active ? "✅" : "🚫"}</td>
                         <td>${member.this_semester}</td>
                         <td>${member.last_semester}</td>
-                        <td>${member.mentor !== null ? (member.mentor ? '✅' : '🚫') : '❓'}</td>
+                        <td>${member.mentor !== null ? (member.mentor ? "✅" : "🚫") : "❓"}</td>
                     </tr>
-                `);
-
-                $('#members-body').append(newRow);
+                `));
             });
         }
 
-        const populateMeetingTable = (meetings) => {
+        function populateMeetingTable(meetings) {
             meetings.sort((a, b) => new Date(b.meeting_date) - new Date(a.meeting_date));
 
-            $('#meeting-body').empty();
+            $("#meeting-body").empty();
 
             meetings.forEach(meeting => {
                 const meetingDate = new Date(meeting.meeting_date);
@@ -129,59 +131,55 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 });
                 attendeeString = attendeeString.slice(0, -2);
 
-                const newRow = $(`
+                $("#meeting-body").append($(`
                     <tr id="meeting-${meeting.id}">
                         <th>${dateToString(meetingDate)}</th>
                         <td>${meeting.meeting_type}</td>
                         <td>${attendeeString}</td>
                     </tr>
-                `);
-
-                $('#meeting-body').append(newRow);
+                `));
             });
         }
 
-        const getMembers = () => {
+        async function getMembers() {
             if (onlyActiveMembers) {
-                $('#toggle-active').text('Show Non-Active');
+                $("#toggle-active").text("Show Non-Active");
             } else {
-                $('#toggle-active').text('Hide Non-Active');
+                $("#toggle-active").text("Hide Non-Active");
             }
 
-            const url = backend_url + (onlyActiveMembers ? '/member/active' : '/member');
-
-            fetch(url)
-            .then(response => {
+            try {
+                const response = await fetch(`${backendUrl}${onlyActiveMembers ? "/member/active" : "/member"}`);
                 if (!response.ok) throw Error(response.statusText);
-                return response.json();
-            })
-            .then(populateMemberTable)
-            .catch(console.log);
+                populateMemberTable(await response.json());
+            } catch (error) {
+                console.log(error);
+            }
         }
 
-        const getAllMeetings = () => {
-            fetch(backend_url + "/meeting")
-            .then(response => {
+        async function getAllMeetings() {
+            try {
+                const response = await fetch(`${backendUrl}/meeting`);
                 if (!response.ok) throw Error(response.statusText);
-                return response.json();
-            })
-            .then(populateMeetingTable)
-            .catch(console.log);
+                populateMeetingTable(await response.json());
+            } catch (error) {
+                console.log(error);
+            }
         }
 
-        const getMeetingsByUniqname = () => {
-            const query = $('#uniqname').val().toLowerCase();
+        async function getMeetingsByUniqname() {
+            const query = $("#uniqname").val().toLowerCase();
 
             if (query === "") {
                 getAllMeetings();
             } else {
-                fetch(`${backend_url}/meeting/uniqname/${query}`)
-                .then(response => {
+                try {
+                    const response = await fetch(`${backendUrl}/meeting/uniqname/${query}`);
                     if (!response.ok) throw Error(response.statusText);
-                    return response.json();
-                })
-                .then(populateMeetingTable)
-                .catch(console.log);
+                    populateMeetingTable(await response.json());
+                } catch (error) {
+                    console.log(error);
+                }
             }
         }
         
@@ -189,23 +187,23 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             getMembers();
             getAllMeetings();
 
-            $('#toggle-active').click(() => {
+            $("#toggle-active").click(() => {
                 onlyActiveMembers = !onlyActiveMembers;
                 getMembers();
             });
             
-            $('#uniqname').keypress(e => {
+            $("#uniqname").keypress(e => {
                 if (e.keyCode == 13) {
                     e.preventDefault();
                     getMeetingsByUniqname();
                 }
             });
             
-            $('#search').click(getMeetingsByUniqname);
+            $("#search").click(getMeetingsByUniqname);
             
-            $('#clear').click(e => {
+            $("#clear").click(e => {
                 e.preventDefault();
-                $('#uniqname').val('');
+                $("#uniqname").val("");
                 getAllMeetings();
             });
         });

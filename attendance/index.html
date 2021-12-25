@@ -2,14 +2,14 @@
 title: FIRST® Alumni &amp; Mentors Network at Michigan
 ---
 <!DOCTYPE html>
-<html lang='en'>
+<html lang="en">
 <head>
     {% include title-styles.html %}
 </head>
 <body>
     {% include header.html %}
     
-    <form class='w-50 mx-auto attendance-form'>
+    <form class="w-50 mx-auto attendance-form">
         <br>
         <div class="alert alert-success" role="alert" id="meetingSuccessAlert" style="display: none;">
             Meeting submitted successfully!
@@ -17,31 +17,33 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         <div class="alert alert-danger" role="alert" id="meetingFailAlert" style="display: none;">
             Error submitting meeting. Please contact the webmaster for help.
         </div>
-        <h1>FAMNM Attendance Form</h1>
-        <p>
-            <a href="view.html" class="btn famnm-btn-secondary">Click here for Attendance Viewer!</a>
-        </p>
-        <div class='form-group my-5'>
-            <label for='meetingType'>Meeting Type</label>
-            <select class='form-control' id='meetingType'>
-                <option>
-                    ------
-                </option>
+
+        <div class="pt-4 mx-auto d-flex justify-content-between">
+            <h1 class="col-10">FAMNM Attendance Form</h1>
+            <p class="col-1">
+                <a href="view.html" class="btn famnm-btn-secondary">View</a>
+            </p>
+        </div>
+
+        <div class="form-group my-5">
+            <label for="meetingType">Meeting Type</label>
+            <select class="form-control" id="meetingType">
+                <!-- Filled by JavaScript -->
             </select>
         </div>
         <div class="my-5">
-            <label for='meetingDate'>Date</label>
-            <input type='date' id='meetingDate' />
+            <label for="meetingDate">Date</label>
+            <input type="date" id="meetingDate" />
         </div>
         
         <div class="my-5">
-            <label for='uniqname'>Attendees</label>
+            <label for="uniqname">Attendees</label>
             <br/>
-            <input type='text' id='uniqname'>
-            <button type='button' class='btn btn-primary' id='addUniqname'>+</button>
+            <input type="text" id="uniqname">
+            <button type="button" class="btn btn-primary" id="addUniqname">+</button>
             <br/>
-            <div id='uniqname-buttons'>
-                
+            <div id="uniqname-buttons">
+                <!-- Filled by JavaScript -->
             </div>
         </div>
         
@@ -59,18 +61,18 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div id="modalError" style="color:red"></div>
+                    <div id="modalError" style="color:red"><!-- Filled by JavaScript --></div>
 
                     <h2>Meeting Details</h2>
-                    <p id="modalMeetingType">Meeting Type: </p>
-                    <p id="modalDate">Date: </p>
+                    <p id="modalMeetingType">Meeting Type: <!-- Filled by JavaScript --></p>
+                    <p id="modalDate">Date: <!-- Filled by JavaScript --></p>
 
                     <h2>Meeting Attendees</h2>
-                    <div id="modalAttendees"></div>
+                    <div id="modalAttendees"><!-- Filled by JavaScript --></div>
                 </div>
                 <div class="modal-footer d-flex">
                     <form class="mr-auto">
-                        <input type='password' id='passphrase' placeholder='Passphrase'>
+                        <input type="password" id="passphrase" placeholder="Passphrase">
                         <small id="incorrectPassphrase" class="form-text text-muted" style="display: none;">Incorrect Passphrase</small>
                     </form>
                     <button type="button" class="btn famnm-btn submit-meeting" id="submit">Submit</button>
@@ -82,204 +84,198 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     {% include footer.html %}
     {% include scripts.html %}
     <script>
-        let attendees = []
+        let attendees = [];
 
-        const backend_url = 'https://famnm-website-backend.herokuapp.com/api/v2'
+        const backendUrl = "https://famnm-website-backend.herokuapp.com/api/v2";
+        const defaultMeetingType = "------";
 
-        const convertMeetingTime = (time) => {
-            if(time.includes('AM') || time.includes('12')) {
-                return time.slice(0, 5);
-            } else {
-                let hour = parseInt(time.slice(0, 3));
-                return `${(hour + 12)}:${time.slice(2, 4)}`;
-            }
-        }
-        
-        const validateTime = (start, end) =>{
-            return parseInt(start.replace(':', '')) < parseInt(end.replace(':', ''));
-        } 
-
-        const enterUniqname = () => {
-            const uniqname = $('#uniqname').val().toLowerCase().replace(/[^a-zA-Z]/g, '');
+        function enterUniqname() {
+            const uniqname = $("#uniqname").val().toLowerCase().replace(/[^a-zA-Z]/g, "");
             const uniqnameExists = attendees.some(elem => elem === uniqname);
 
             if (uniqname.length > 0 && !uniqnameExists) {
                 attendees.push(uniqname);
 
-                $('#uniqname-buttons').empty();
+                $("#uniqname-buttons").empty();
                 attendees.forEach(elem => {
-                    let newButton = $('<button></button>');
-                    newButton.attr('type', 'button');
-                    newButton.addClass('btn')
-                            .addClass('btn-outline-secondary')
-                            .addClass('mx-3')
-                            .addClass('my-3')
-                            .addClass('uniqname-btn');
+                    let newButton = $("<button></button>");
+                    newButton.attr("type", "button");
+                    newButton.addClass("btn")
+                            .addClass("btn-outline-secondary")
+                            .addClass("mx-3")
+                            .addClass("my-3")
+                            .addClass("uniqname-btn");
                     newButton.text(elem);
                     newButton.click(() => {
                         attendees = attendees.filter(elem => elem !== newButton.text());
                         newButton.remove();
                     });
 
-                    $('#uniqname-buttons').append(newButton);
+                    $("#uniqname-buttons").append(newButton);
                 });
             }
 
-            $('#uniqname').val('');
+            $("#uniqname").val("");
         }
 
-        const currentLocalDate = () => {
-            let t = new Date();
+        function currentLocalDate() {
+            const t = new Date();
             
             return new Date(t - t.getTimezoneOffset() * 60 * 1000);
         }
             
-        const disableSubmit = (message) => {
-            $('#modalError').append($(`<p>${message}</p>`));
-            $('.submit-meeting').attr('disabled', true);
-            $('#passphrase').attr('disabled', true);
+        function disableSubmit(message) {
+            $("#modalError").append($(`<p>${message}</p>`));
+            $(".submit-meeting").attr("disabled", true);
+            $("#passphrase").attr("disabled", true);
         }
             
-        const resetModal = () => {
-            $('#modalError').empty();
-            $('#modalMeetingType').empty();
-            $('#modalDate').empty();
-            $('#modalAttendees').empty();
-            $('#passphrase').val('');
-            $('#passphrase').attr('disabled', false);
-            $('#incorrectPassphrase').hide();
-            $('.submit-meeting').attr('disabled', false);
+        function resetModal() {
+            $("#modalError").empty();
+            $("#modalMeetingType").empty();
+            $("#modalDate").empty();
+            $("#modalAttendees").empty();
+            $("#passphrase").val("");
+            $("#passphrase").attr("disabled", false);
+            $("#incorrectPassphrase").hide();
+            $(".submit-meeting").attr("disabled", false);
+        }
+
+        async function getMeetingTypes() {
+            const response = await fetch(`${backendUrl}/meeting/types`);
+
+            if (!response.ok) throw Error(response.statusText);
+
+            (await response.json()).forEach(type => {
+                $("#meetingType").append($(`<option>${type}</option>`));
+            })
         }
             
-        const confirmMeeting = () => {
+        async function confirmMeeting() {
             resetModal();
             enterUniqname();
 
-            const meetingType = $('#meetingType').children('option:selected').val();
-            const meetingDate = $('#meetingDate').val();
+            const meetingType = $("#meetingType").children("option:selected").val();
+            const meetingDate = $("#meetingDate").val();
 
-            if (meetingType === '------') {
-                disableSubmit('Meeting type not selected');
+            if (meetingType === defaultMeetingType) {
+                disableSubmit("Meeting type not selected");
             }
 
             if (attendees.length === 0) {
-                disableSubmit('No attendees');
+                disableSubmit("No attendees");
             }
 
-            $('#modalMeetingType').text(`Meeting Type: ${meetingType}`);
-            $('#modalDate').text(`Date: ${meetingDate}`);
+            $("#modalMeetingType").text(`Meeting Type: ${meetingType}`);
+            $("#modalDate").text(`Date: ${meetingDate}`);
 
-            fetch(backend_url + '/meeting/validate', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({
-                    meeting_type: meetingType,
-                    meeting_date: meetingDate,
-                    attendees: attendees
-                })
-            }).then(response => {
+            try {
+                const response = await fetch(`${backendUrl}/meeting/validate`, {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({
+                        meeting_type: meetingType,
+                        meeting_date: meetingDate,
+                        attendees: attendees
+                    })
+                });
+
                 if (!response.ok) throw Error(response.statusText);
-                return response.json();
-            }).then(data => {
+                const data = await response.json();
+
                 if (data.already_exists) {
                     disableSubmit(`${meetingType} meeting already been recorded on ${meetingDate}`);
                 }
 
-                let uniqnameList = $('<ul></ul>');
+                let uniqnameList = $("<ul></ul>");
                 attendees.forEach(uniqname => {
-                    let uniqnameItem = $('<li></li>');
-                    uniqnameItem.text(uniqname);
+                    let uniqnameItem = $(`<li>${uniqname}</li>`);
 
                     if (data.new_uniqnames.includes(uniqname)) {
-                        uniqnameItem.addClass('text-success');
+                        uniqnameItem.addClass("text-success");
                     }
 
                     uniqnameList.append(uniqnameItem);
                 });
 
-                $('#modalAttendees').append(uniqnameList);
-            })
+                $("#modalAttendees").append(uniqnameList);
+            } catch (error) {
+                console.log(error);
+            }
         }
 
-        const submitMeeting = () => {
-            const meetingType = $('#meetingType').children('option:selected').val();
-            const meetingDate = $('#meetingDate').val();
-            const passphrase = $('#passphrase').val();
+        async function submitMeeting() {
+            const meetingType = $("#meetingType").children("option:selected").val();
+            const meetingDate = $("#meetingDate").val();
+            const passphrase = $("#passphrase").val();
 
-            $('#passphrase').val('');
+            $("#passphrase").val("");
 
-            fetch(backend_url + '/meeting', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Basic ${btoa(`famnm:${passphrase}`)}`
-                },
-                method: 'POST',
-                body: JSON.stringify({
-                    meeting_type: meetingType,
-                    meeting_date: meetingDate,
-                    attendees: attendees
-                })
-            }).then(response => {
+            try {
+                const response = await fetch(`${backendUrl}/meeting`, {
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Basic ${btoa(`famnm:${passphrase}`)}`
+                    },
+                    method: "POST",
+                    body: JSON.stringify({
+                        meeting_type: meetingType,
+                        meeting_date: meetingDate,
+                        attendees: attendees
+                    })
+                });
+
                 if (response.ok) {
                     attendees = [];
 
-                    $('.attendance-form').trigger('reset');
-                    $('#uniqname-buttons').empty();
+                    $(".attendance-form").trigger("reset");
+                    $("#uniqname-buttons").empty();
 
-                    $('#meetingSuccessAlert').show();
-                    $('#meetingFailAlert').hide();
+                    $("#meetingSuccessAlert").show();
+                    $("#meetingFailAlert").hide();
 
-                    $('#confirmMeeting').modal('hide');
+                    $("#confirmMeeting").modal("hide");
                     resetModal();
                 } else if (response.status === 401) {
-                    $('#incorrectPassphrase').show();
+                    $("#incorrectPassphrase").show();
                 } else {
                     throw Error(response.statusText);
                 }
-            }).catch(err => {
-                console.log(err);
+            } catch (error) {
+                console.log(error);
 
-                $('#meetingSuccessAlert').hide();
-                $('#meetingFailAlert').show();
+                $("#meetingSuccessAlert").hide();
+                $("#meetingFailAlert").show();
 
-                $('#confirmMeeting').modal('hide');
-            });
+                $("#confirmMeeting").modal("hide");
+            }
         }
         
         $(() => {
-            fetch(backend_url + '/meeting/types')
-            .then(response => {
-                if (!response.ok) throw Error(response.statusText);
-                return response.json();
-            }).then(data => {
-                data.forEach(type => {
-                    let meetingType = $('<option></option>');
-                    meetingType.text(type);
-                    $('#meetingType').append(meetingType);
-                })
-            })
+            $("#meetingType").append($(`<option>${defaultMeetingType}</option>`));
+            getMeetingTypes();
             
-            $('#meetingDate').attr('value', currentLocalDate().toISOString().slice(0, 10));
+            $("#meetingDate").attr("value", currentLocalDate().toISOString().slice(0, 10));
             
-            $('#uniqname').keypress(e => {
+            $("#uniqname").keypress(e => {
                 if (e.keyCode === 13) {
                     e.preventDefault();
                     enterUniqname();
                 }
             });
 
-            $('#addUniqname').click(enterUniqname);
+            $("#addUniqname").click(enterUniqname);
             
-            $('#confirm').click(confirmMeeting);
+            $("#confirm").click(confirmMeeting);
             
-            $('#passphrase').keypress(e => {
+            $("#passphrase").keypress(e => {
                 if (e.keyCode === 13) {
                     e.preventDefault();
                     submitMeeting();
                 }
             });
             
-            $('#submit').click(submitMeeting);
+            $("#submit").click(submitMeeting);
         });
     </script>
 </body>
