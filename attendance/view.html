@@ -85,17 +85,17 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         function populateMemberTable(members) {
             members.sort((a, b) => {
-                if (a.active && !b.active) {
-                    return -1;
-                } else if (!a.active && b.active) {
-                    return 1;
-                } else if (a.this_semester !== b.this_semester) {
+                if (a.this_semester !== b.this_semester) {
                     return b.this_semester - a.this_semester;
                 } else if (a.last_semester !== b.last_semester) {
                     return b.last_semester - a.last_semester;
                 } else if (a.mentor && !b.mentor) {
                     return -1;
                 } else if (!a.mentor && b.mentor) {
+                    return 1;
+                } else if (a.active && !b.active) {
+                    return -1;
+                } else if (!a.active && b.active) {
                     return 1;
                 } else {
                     return a.uniqname.localeCompare(b.uniqname);
