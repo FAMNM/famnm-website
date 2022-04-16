@@ -25,6 +25,15 @@ orgs:
         name: "University of Michigan Ross School of Business Undergraduate Admissions"
         id: "ross"
         description: "Michigan Ross is a top-ranked business school, dedicated to building a better world through business. In our BBA Program&#8212;ranked #4 in the country by U.S. News &amp; World Report&#8212;you will learn to help create a better world through the power of business. You'll develop critical thinking and core business skills from top business minds. And you'll integrate those skills with foreign languages, sciences and the rest of the liberal arts. You'll explore our unique vision for leadership, have opportunities for hands-on learning, and have a chance to study abroad. When you graduate, you'll be more than ready to create your own future."
+sponsors:
+    - 0:
+        link: "https://esg.engin.umich.edu"
+        image: "esg.png"
+        name: "Engineering Student Government"
+    - 0:
+        link: "https://engin.umich.edu"
+        image: "coe.png"
+        name: "University of Michigan College of Engineering"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -126,10 +135,8 @@ orgs:
     {% include header.html %}
     
     <div class="container">
-        <div class="content">
-            <div>
-                <h1>FAMNM FRC Kickoff</h1>
-            </div>
+        <main class="content">
+            <h1>FAMNM FRC Kickoff</h1>
             <div class="text-par font-weight-bold text-center">
                 FAMNM plans to hold an in-person kickoff in January 2022!
             </div>
@@ -229,10 +236,16 @@ orgs:
             </div> -->
             <h3 class="text-center pt-5">Sponsors</h3>
             <ul class="sponsor-display">
-                <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" /></a></li>
-                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img class="center" src="../../img/sponsor/coe.png" alt="University of Michigan College of Engineering" /></a></li>
+                {% for sponsor in page.sponsors %}
+                    <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer"><img class="center" src="/img/sponsor/{{ sponsor[0].image }}" alt="{{ sponsor[0].name }}" /></a></li>
+                {% endfor %}
             </ul>
-        </div>
+            <ul style="list-style-type: none">
+                {% for sponsor in page.sponsors %}
+                    <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer">{{ sponsor[0].name }}</a></li>
+                {% endfor %}
+            </ul>
+        </main>
         
     </div>
     <!-- /.container -->
