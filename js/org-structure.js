@@ -183,7 +183,7 @@ orgData = [
             + "maintaining FAMNM's social media accounts, producing "
             + "marketing materials for events at which FAMNM participates, "
             + "maintaining and updating FAMNM branding standards, and "
-            + "desigining FAMNM swag."
+            + "designing FAMNM swag."
     },
     {
         id: "#svg-treasury-comm",
@@ -281,5 +281,14 @@ $(window).on("load", () => {
         if (isMobile) component.placement = "top";
         // add the component as a popover
         area.popover(component);
+
+        $("#text-descriptions").append($(`
+            <h2 class="mt-5">
+                ${component.title}
+            </h2>
+            <p class="text-par">
+                ${component.content}
+            </p>
+        `));
     });
 });

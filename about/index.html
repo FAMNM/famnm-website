@@ -1,6 +1,27 @@
 ---
 title: About The FAMNM | FIRST Alumni &amp; Mentors Network at Michigan
 FIRST: <i>FIRST<sup>&reg;</sup></i>
+sponsors:
+    - 0:
+        link: "https://detroitcenter.umich.edu/projects/michigan-engineering-zone"
+        image: "mez.png"
+        name: "Michigan Engineering Zone"
+    - 0:
+        link: "https://engin.umich.edu"
+        image: "coe.png"
+        name: "University of Michigan College of Engineering"
+    - 0:
+        link: "https://esg.engin.umich.edu"
+        image: "esg.png"
+        name: "Engineering Student Government"
+    - 0:
+        link: "https://ginsberg.umich.edu"
+        image: "ginsberg.png"
+        name: "Edward Ginsberg Center"
+    - 0:
+        link: "https://spectrumcenter.umich.edu"
+        image: "spectrum.png"
+        name: "Spectrum Center"
 ---
 {% assign FIRST = page.FIRST %}
 <!DOCTYPE html>
@@ -12,7 +33,7 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
     {% include header.html %}
     
     <div class="container">
-        <div class="content">
+        <main class="content">
             <img class="center" src="{{site.url}}/img/logo.png"/>
             <h1>About</h1>
             <p class="text-par">
@@ -54,13 +75,16 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
             
             <h1>FAMNM Sponsors and Affiliates</h1>
             <ul id="sponsors">
-                <li><a href="https://detroitcenter.umich.edu/projects/michigan-engineering-zone" target="_blank" rel="noopener noreferrer"><img src="{{site.url}}/img/sponsor/mez.png" alt="Michigan Engineering Zone"/></a></li>
-                <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer"><img src="{{site.url}}/img/sponsor/coe.png" alt="University of Michigan College of Engineering"/></a></li>
-                <li><a href="https://esg.engin.umich.edu" target="_blank" rel="noopener noreferrer"><img src="{{site.url}}/img/sponsor/esg.png" alt="Engineering Student Government"/></a></li>
-                <li><a href="https://ginsberg.umich.edu" target="_blank" rel="noopener noreferrer"><img src="{{site.url}}/img/sponsor/ginsberg.png" alt="Edward Ginsberg Center"/></a></li>
-                <li><a href="https://spectrumcenter.umich.edu" target="_blank" rel="noopener noreferrer"><img src="{{site.url}}/img/sponsor/spectrum.png" alt="Spectrum Center"/></a></li>
+                {% for sponsor in page.sponsors %}
+                    <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer"><img src="{{ site.url }}/img/sponsor/{{ sponsor[0].image }}" alt="{{ sponsor[0].name }}"/></a></li>
+                {% endfor %}
             </ul>
-        </div>
+            <ul style="list-style-type: none;">
+                {% for sponsor in page.sponsors %}
+                    <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer">{{ sponsor[0].name }}</a></li>
+                {% endfor %}
+            </ul>
+        </main>
     </div><!-- /.container -->
     
     {% include footer.html %}
