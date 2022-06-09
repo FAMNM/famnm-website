@@ -1,5 +1,23 @@
 ---
 title: FIRST® Alumni &amp; Mentors Network at Michigan
+featured_announcements:
+ - title: Edison bots available
+   image: 
+   text:
+     <a href="https://meetedison.com" rel="noopener">Edison</a> is a programmable robot that makes
+     learning to code engaging and rewarding. Its programming platforms resemble those for FLL,
+     and it's compatible with <i>LEGO</i> build systems. We have Edison robots and kits available
+     for students, youth, and robotics groups in the Ann Arbor area. If you're interested in getting
+     one, please fill out the following form.
+   links:
+    - text: Get Edison
+      link: https://bing.com
+ - title: Michigan Engineering's new undergraduate program in Robotics has launched
+   text: On June 7, the new U-M Robotics Department announced that its undergraduate program in robotics
+         has been approved is available starting Fall 2022.
+   links:
+    - text: Program FAQ
+      link: https://robotics.umich.edu/academic-program/robotics-undergraduate-faq/
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -25,23 +43,60 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <span class="sr-only">Next</span>
         </a> 
     </div>
-        
     <main>
-        <img id="frontpage-logo" class="center img-fluid" src="img/logo.png" alt="Logo for FIRST Alumni and Mentors Network at Michigan"/>
-        
-        <div class="w-75 mx-auto">
-            <h2 class="text-center">What is FAMNM?</h2>
-            <p class="text-par">
-                FAMNM is a University of Michigan student
-                organization devoted to organizing student and departmental
-                efforts to support the <i>FIRST<sup>&reg;</sup></i>
-                program locally and throughout the state of Michigan. FAMNM
-                offers college students the opportunity to volunteer in the
-                various FIRST programs and events, provides funding for teams,
-                and acts as a liaison between teams and various university departments.
-            </p>
+        <div class="container-fluid p-4">
+            <div class="row align-items-center">
+                <div class="col-sm-12 col-lg-5 col-xl-4">
+                    <img id="frontpage-logo" class="center img-fluid" src="img/logo.png"
+                    alt="Logo for FIRST Alumni and Mentors Network at Michigan"/>
+                </div>
+                <div class="col-sm-12 col-md container">
+                    <p class="text-description">
+                        FAMNM is a University of Michigan student
+                        organization devoted to organizing student and departmental
+                        efforts to support the <i>FIRST<sup>&reg;</sup></i>
+                        program locally and throughout the state of Michigan. FAMNM
+                        offers college students the opportunity to volunteer in
+                        various <i>FIRST<sup>&reg;</sup></i> programs and events,
+                        hosts season kickoffs and Robot-in-3-Days (Ri3D), provides
+                        funding for teams, and acts as a liaison between teams and
+                        various university departments.
+                    </p>
+                </div>
+            </div>
         </div>
+        
+        <section id="home-announcements" class="container mb-4">
+            <div class="card-deck">
+                {% for ann in page.featured_announcements %}
+                    <!-- <div class="col-sm-12 col-md-6"> -->
+                        <div class="card bg-light">
+                            <div class="row no-gutters">
+                                {% if ann.image %}
+                                <div class="col-md-4">
+                                    <img src="{{ ann.image }}" alt="{{ ann.title }}">
+                                </div>
+                                <div class="col-md-8">
+                                    {% else %}
+                                <div class="col-12">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ ann.title }}</h5>
+                                        <p class="card-text">{{ ann.text }}</p>
+                                        {% for link in ann.links %}
+                                            <a href="{{ link.link }}" class="card-link" rel="noopener">{{ link.text }}</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    <!-- </div> -->
+                {% endfor %}
+            </div>
+        </section>
     </main>
+        
+    
     
     {% include footer.html %}
     {% include scripts.html %}
@@ -55,9 +110,13 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             width: 100%;
         }
         
+        .text-description {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
         #frontpage-logo {
             max-height: 17em;
-            margin-bottom: 1em;
         }
     </style>
 </body>
