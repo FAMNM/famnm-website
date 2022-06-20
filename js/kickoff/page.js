@@ -80,7 +80,7 @@ const loadSchedules = () => {
         let eventHTMLString = `
         <tr class=${eventColorClass}>
             <td class="text-center">
-                <div class="font-weight-bold">${getTimeString(evt.start)} - ${getTimeString(evt.end)}</div>
+                <div class="fw-bold">${getTimeString(evt.start)} - ${getTimeString(evt.end)}</div>
                 <div>${evt.event}</div>
                 <div>${loc.name}${mapLink}</div>
             </td>
