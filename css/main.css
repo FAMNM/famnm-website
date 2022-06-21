@@ -228,6 +228,7 @@ iframe {
         display: block;
     }
     ul.nav ul.dropdown-menu {
+        --bs-dropdown-spacer: 0;
         top: 90%;
     }
 }
