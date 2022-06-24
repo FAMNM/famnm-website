@@ -11,6 +11,11 @@ body {
     font-size-adjust: inherit;
 }
 
+/* Link style reset */
+a {
+    text-decoration: none;
+}
+
 body > * {
     flex-shrink: 0;
 }
@@ -63,10 +68,6 @@ body > * {
 
 #navbar-logo:hover {
     opacity: 1;
-}
-
-.navbar .nav-link {
-    color: #FFFFFFB3;
 }
 
 /** Footer formatting **/
@@ -227,6 +228,7 @@ iframe {
         display: block;
     }
     ul.nav ul.dropdown-menu {
+        --bs-dropdown-spacer: 0;
         top: 90%;
     }
 }
@@ -251,14 +253,6 @@ iframe {
 }
 
 input[type=text] {
-    border-radius: 3.5px;
-    border-style: solid;
-    border-width: .5px;
-    border-color: #7f7f7f;
-    padding-left: 5px;
-}
-
-input[type=email] {
     border-radius: 3.5px;
     border-style: solid;
     border-width: .5px;

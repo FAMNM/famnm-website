@@ -17,29 +17,29 @@ let carouselLoad = (src) => {
 
         carouselItems.forEach((carouselItem, i) => {
             
-            //Add slide indicator
-            const indicator = $(document.createElement("li"));
+            // Add slide indicator
+            const indicator = $(document.createElement("button"));
             
-            indicator.attr("data-target", '#' + carousel.attr("id"));
-            indicator.attr("data-slide-to", i);
+            indicator.attr("data-bs-target", '#' + carousel.attr("id"));
+            indicator.attr("data-bs-slide-to", i);
             if (i === 0) indicator.addClass("active");
             
-            carousel.children("ol:first").append(indicator);
+            carousel.children(".carousel-indicators").append(indicator);
             
-            //Initialize slide wrapper
-            
+            // Initialize slide wrapper
             const outerDiv = $(document.createElement("div"));
             
             outerDiv.addClass("carousel-item");
             if (i === 0) outerDiv.addClass("active");
 
             //Initialize slide imagery
-
             const mainImage = $(document.createElement("img"));
             const blurredImage = $(document.createElement("img"));
 
             blurredImage.attr("src", (src + carouselItem.img));
             blurredImage.addClass("carousel-back-image");
+            // Let screen readers and Reader Mode ignore the (duplicate) background image
+            blurredImage.attr("aria-hidden", true);
 
             mainImage.attr("src", blurredImage.attr("src"));
             mainImage.attr("alt", carouselItem.title);
