@@ -18,36 +18,45 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             Error submitting meeting. Please contact the webmaster for help.
         </div>
 
-        <div class="pt-4 mx-auto d-flex justify-content-between">
+        <div class="py-4 mx-auto d-flex justify-content-between">
             <h1 class="col-10">FAMNM Attendance Form</h1>
-            <p class="col-1">
-                <a href="view.html" class="btn famnm-btn-secondary">View</a>
-            </p>
+            <div class="col text-end">
+                <a href="view.html" class="btn famnm-btn-secondary">History</a>
+            </div>
         </div>
 
-        <div class="form-group my-5">
-            <label for="meetingType">Meeting Type</label>
-            <select class="form-control" id="meetingType">
-                <!-- Filled by JavaScript -->
-            </select>
+        <div class="row mb-3 align-items-center">
+            <div class="col-sm-3">
+                <label for="meetingType" class="col-form-label">Meeting Type</label>
+            </div>
+            <div class="col">
+                <select class="form-select" id="meetingType">
+                    <!-- Filled by JavaScript -->
+                </select>
+            </div>
         </div>
-        <div class="my-5">
-            <label for="meetingDate">Date</label>
-            <input type="date" id="meetingDate" />
+        <div class="row mb-3 align-items-center">
+            <div class="col-sm-3">
+                <label for="meetingDate" class="col-form-label">Date</label>
+            </div>
+            <div class="col">
+                <input type="date" id="meetingDate" class="form-control" />
+            </div>
         </div>
-        
-        <div class="my-5">
-            <label for="uniqname">Attendees</label>
-            <br/>
-            <input type="text" id="uniqname">
-            <button type="button" class="btn btn-primary" id="addUniqname">+</button>
-            <br/>
+        <div class="row mb-3 align-items-center">
+            <div class="col-sm-3">
+                <label for="uniqname" class="col-form-label">Attendees</label>
+            </div>
+            <div class="col input-group">
+                <input type="text" id="uniqname" class="form-control" placeholder="Uniqname...">
+                <button type="button" class="btn btn-primary" id="addUniqname">&plus;</button>
+            </div>
             <div id="uniqname-buttons">
                 <!-- Filled by JavaScript -->
             </div>
         </div>
         
-        <button type="button" class="btn famnm-btn my-3" data-toggle="modal" data-target="#confirmMeeting" id="confirm">Confirm</button>
+        <button type="button" class="btn famnm-btn my-3" data-bs-toggle="modal" data-bs-target="#confirmMeeting" id="confirm">Confirm</button>
     </form>
     
     <!-- Modal -->
@@ -56,8 +65,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="confirmMeetingTitle">Confirm Submission</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                     </button>
                 </div>
                 <div class="modal-body">
@@ -71,9 +79,9 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     <div id="modalAttendees"><!-- Filled by JavaScript --></div>
                 </div>
                 <div class="modal-footer d-flex">
-                    <form class="mr-auto">
+                    <form class="me-auto">
                         <input type="password" id="passphrase" placeholder="Passphrase">
-                        <small id="incorrectPassphrase" class="form-text text-muted" style="display: none;">Incorrect Passphrase</small>
+                        <small id="incorrectPassphrase" class="form-text text-muted" style="display: none !important;">Incorrect Passphrase</small>
                     </form>
                     <button type="button" class="btn famnm-btn submit-meeting" id="submit">Submit</button>
                 </div>
@@ -83,6 +91,12 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
     
     {% include footer.html %}
     {% include scripts.html %}
+    <style>
+        .form-text {
+            /* To replicate Bootstrap 4 behavior */
+            display: block;
+        }
+    </style>
     <script>
         let attendees = [];
 
@@ -91,6 +105,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         function enterUniqname() {
             const uniqname = $("#uniqname").val().toLowerCase().replace(/[^a-zA-Z]/g, "");
+            if (!/^[a-z]{3,8}$/.test(uniqname)) {
+                alert(`The uniqname ${uniqname} is not valid. All uniqnames consist of 3-8 letters.`);
+                $("#uniqname").val("");
+                return;
+            }
             const uniqnameExists = attendees.some(elem => elem === uniqname);
 
             if (uniqname.length > 0 && !uniqnameExists) {
@@ -205,6 +224,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         }
 
         async function submitMeeting() {
+            const confirmModal = new bootstrap.Modal(document.getElementById("confirmMeeting"), {focus: true});
             const meetingType = $("#meetingType").children("option:selected").val();
             const meetingDate = $("#meetingDate").val();
             const passphrase = $("#passphrase").val();
@@ -234,7 +254,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     $("#meetingSuccessAlert").show();
                     $("#meetingFailAlert").hide();
 
-                    $("#confirmMeeting").modal("hide");
+                    confirmModal.hide();
                     resetModal();
                 } else if (response.status === 401) {
                     $("#incorrectPassphrase").show();
@@ -247,7 +267,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 $("#meetingSuccessAlert").hide();
                 $("#meetingFailAlert").show();
 
-                $("#confirmMeeting").modal("hide");
+                confirmModal.hide();
             }
         }
         
