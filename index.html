@@ -84,12 +84,7 @@ featured_announcements:
                     <div class="col h-3 flex-grow-1">
                         <div class="row g-0">
                             {% if ann.image %}
-                            <!-- <div class="col-md-4"> -->
                                 <img src="{{ ann.image }}" class="rounded-4 feature-img" alt="{{ ann.alt }}">
-                            <!-- </div> -->
-                            <!-- <div class="col-md-8"> -->
-                                <!-- else  -->
-                            <!-- <div class="col-12"> -->
                             {% endif %}
                             <div class="mt-3">
                                 <h4>{{ ann.title }}</h4>
@@ -98,7 +93,6 @@ featured_announcements:
                                     <a href="{{ link.link }}" rel="noopener">{{ link.text }}</a>
                                 {% endfor %}
                             </div>
-                            <!-- </div> -->
                         </div>
                     </div>
                 {% endfor %}
