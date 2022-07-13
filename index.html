@@ -1,5 +1,35 @@
 ---
 title: FIRST® Alumni &amp; Mentors Network at Michigan
+featured_announcements:
+ - title: Edison bots available
+   image: img/index/edison.jpg
+   alt: A small, two-wheeled robot with three buttons and LEGO-compatible sockets on a mat with several barcodes
+   text:
+     <a href="https://meetedison.com" rel="noopener">Edison</a> is a programmable robot that makes
+     learning to code engaging and rewarding. Its programming platforms resemble those for FLL,
+     and it's compatible with <i>LEGO</i> build systems. We have Edison robots and kits available
+     for students, youth, and robotics groups in the Ann Arbor area. If you're interested in getting
+     one, please fill out the following form.
+   links:
+    - text: Get Edison
+      link: https://forms.gle/FtxgiYXnpmM3mu6P7
+ - title: Ri3D in the Spotlight
+   image: img/index/ri3d.jpg
+   alt: FAMNM Ri3D members surround their robot as they work on the climbing mechanism.
+   text: FAMNM's 2022 Robot in Three Days (Ri3D) team is featured in Michigan Engineering's
+         recent photo-essay and social media posts. Our bot's got game!
+   links:
+    - text: Article
+      link: https://www.engin.umich.edu/2022/06/this-bots-got-game/
+ - title: Michigan Engineering's new undergraduate program in Robotics has launched
+   image: img/index/robotics-program.png
+   alt: People demonstrate and observe humanoid and bipedal robots at the Ford Robotics Building
+   text: On June 7, the new U-M Robotics Department announced that its undergraduate program in robotics
+         has been approved is available starting Fall 2022.
+   links:
+    - text: Program FAQ
+      link: https://robotics.umich.edu/academic-program/robotics-undergraduate-faq/
+
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -25,23 +55,52 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             <span class="sr-only">Next</span>
         </button>
     </div>
-        
     <main>
-        <img id="frontpage-logo" class="center img-fluid" src="img/logo.png" alt="Logo for FIRST Alumni and Mentors Network at Michigan"/>
-        
-        <div class="w-75 mx-auto">
-            <h2 class="text-center">What is FAMNM?</h2>
-            <p class="text-par">
-                FAMNM is a University of Michigan student
-                organization devoted to organizing student and departmental
-                efforts to support the <i>FIRST<sup>&reg;</sup></i>
-                program locally and throughout the state of Michigan. FAMNM
-                offers college students the opportunity to volunteer in the
-                various FIRST programs and events, provides funding for teams,
-                and acts as a liaison between teams and various university departments.
-            </p>
+        <div class="container p-4">
+            <div class="row align-items-center">
+                <div class="col-sm-12">
+                    <img id="frontpage-logo" class="center img-fluid" src="img/logo.png"
+                    alt="Logo for FIRST Alumni and Mentors Network at Michigan"/>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <p class="text-description text-center">
+                        FAMNM is a University of Michigan student
+                        organization devoted to organizing student and departmental
+                        efforts to support the <i>FIRST<sup>&reg;</sup></i>
+                        program locally and throughout the state of Michigan. FAMNM
+                        offers college students the opportunity to volunteer in
+                        various <i>FIRST<sup>&reg;</sup></i> programs and events,
+                        hosts season kickoffs and Robot-in-3-Days (Ri3D), provides
+                        funding for teams, and acts as a liaison between teams and
+                        various university departments.
+                    </p>
+                </div>
+            </div>
         </div>
+        
+        <section id="home-announcements" class="container mb-4">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+                {% for ann in page.featured_announcements %}
+                    <div class="col h-3 flex-grow-1">
+                        <div class="row g-0">
+                            {% if ann.image %}
+                                <img src="{{ ann.image }}" class="rounded-4 feature-img" alt="{{ ann.alt }}">
+                            {% endif %}
+                            <div class="mt-3">
+                                <h4>{{ ann.title }}</h4>
+                                <p>{{ ann.text }}</p>
+                                {% for link in ann.links %}
+                                    <a href="{{ link.link }}" rel="noopener">{{ link.text }}</a>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
     </main>
+        
+    
     
     {% include footer.html %}
     {% include scripts.html %}
@@ -55,9 +114,18 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             width: 100%;
         }
         
+        .text-description {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
         #frontpage-logo {
-            max-height: 17em;
-            margin-bottom: 1em;
+            max-height: 16em;
+        }
+
+        .feature-img {
+            height: 300px;
+            object-fit: cover;
         }
     </style>
 </body>
