@@ -3,51 +3,79 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
 ---
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% include title-styles.html %}
 </head>
+
 <body>
     {% include header.html %}
-    
+
     <div class="container">
         <main class="content">
-            <div class="col col-10 col-md-6 mx-auto">
-                <img class="center w-100" src="/img/ftc/2021/freight-frenzy-season-logo.png" alt="Freight Frenzy, presented by Raytheon Technologies">
-            </div>
-            <h1 class="h2">FAMNM <i>FIRST&reg;</i> Tech Challenge Kickoff</h1>
-            <div>
-                <p class="fw-bold">
-                    The FTC Kickoff for <i>FREIGHT FRENZY</i> was hosted on Saturday, September 18th, 2021
-                    at the University of Michigan North Campus. Good luck, teams!
-                </p>
+            <div class="row justify-content-center pb-5">
+                <div class="col col-10 col-lg-6 mx-auto p-4 p-md-5">
+                    <img class="center w-100" src="/img/ftc/2022/season_logo.png"
+                        alt="Power Play, presented by Raytheon Technologies">
+                </div>
+                <div class="col col-12 mt-1 mt-md-2">
+                    <h1 class="display-5 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
+                    <div>
+                        <p class="lead mb-4">
+                            Watch the kickoff broadcast, tour U-M robotics labs, inspect the <i>POWER PLAY</i> game
+                            field in person, and more on
+                            <time datetime="2022-09-10" class="fw-bold">Saturday, September 10th, 2022</time>
+                            at the University of Michigan's
+                            <a href="https://goo.gl/maps/ZEzkFSfYNGKFVD5F9" target="_blank"
+                                rel="noreferrer noopener">North Campus</a>.
+                        </p>
+                        <div class="d-grid gap-2 d-sm-flex justify-content-center">
+                            <a class="btn btn-primary btn-lg"
+                                href="https://docs.google.com/forms/d/e/1FAIpQLSfK3SNzExP8Yl5430vpr1IR5phKmBUcuimie-0R-MWHPYMDNw/viewform"
+                                role="button" target="_blank" rel="noreferrer noopener">Register Team</a>
+                            <a class="btn btn-secondary btn-lg"
+                                href="http://umforms.tfaforms.net/2?CampId=7011R000001kfI8QAI" role="button"
+                                target="_blank" rel="noreferrer noopener" data-bs-toggle="tooltip"
+                                data-bs-placement="bottom"
+                                data-bs-title="Enter contact information for participating minors as required by university policy">Register
+                                Participant</a>
+                            <a href="#missing" class="btn btn-outline-dark btn-lg"
+                                target="_blank" rel="noreferrer noopener">Add to Calendar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div id="carousel-ftc" class="carousel slide p-2" data-ride="carousel">
                 <div class="carousel-indicators"></div>
                 <div class="carousel-inner" role="listbox">
-                    <div class="carousel-tmp"><img class="carousel-loading" src="/img/mgear.gif" alt="Loading..."/></div>
+                    <div class="carousel-tmp"><img class="carousel-loading" src="/img/mgear.gif" alt="Loading..." />
+                    </div>
                 </div>
-                <button class="carousel-control-prev" type="button" role="button" data-bs-target="#carousel-ftc" data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" role="button" data-bs-target="#carousel-ftc"
+                    data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">Last</span>
                 </button>
-                <button class="carousel-control-next" type="button" role="button" data-bs-target="#carousel-ftc" data-bs-slide="next">
+                <button class="carousel-control-next" type="button" role="button" data-bs-target="#carousel-ftc"
+                    data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">Next</span>
                 </button>
             </div>
-            
+
             <p class="text-par">
                 <a href="https://www.firstinspires.org/ftc" rel="noopener noreferrer">FIRST Tech Challenge</a>
                 (FTC) is the middle/high school level in the FIRST progression of programs.
-                In 2017, FAMNM launched its first FTC Kickoff event, where we invited local teams to view the reveal of the new
-                year's challenge in early September. The event came complete with FRC Demos, inspiring speeches, and a chance
+                In 2017, FAMNM launched its first FTC Kickoff event, where we invited local teams to view the reveal of
+                the new
+                year's challenge in early September. The event came complete with FRC Demos, inspiring speeches, and a
+                chance
                 to see an official FTC game field!
             </p>
-            
         </main>
     </div>
     <!-- /.container -->
-    
+
     {% include footer.html %}
     {% include scripts.html %}
     <script src="/js/carousel.js"></script>
@@ -55,4 +83,5 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
         $(document).ready(carouselLoad("/img/ftc/2021/"));
     </script>
 </body>
+
 </html>
