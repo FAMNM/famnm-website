@@ -22,14 +22,15 @@ featured_announcements:
    links:
     - text: Get Edison
       link: https://forms.gle/FtxgiYXnpmM3mu6P7
- - title: Michigan Engineering's new undergraduate program in Robotics has launched
-   image: img/index/robotics-program.png
-   alt: People demonstrate and observe humanoid and bipedal robots at the Ford Robotics Building
-   text: On June 7, the new U-M Robotics Department announced that its undergraduate program in robotics
-         has been approved is available starting Fall 2022.
+ - title: Interested in joining us?
+   image: img/index/festifall.jpg
+   alt: A crowd of people at the University of Michigan diag during Festifall
+   text:
+     Come to our mass meeting on <time datetime="2022-09-06 19:00"><strong>Tuesday, September 6th at 7 PM</strong></time> in <strong>EECS 1003</strong>,
+     and make sure to fill out the following interest form so that we can add you to our mailing list and Slack workspace.
    links:
-    - text: Program FAQ
-      link: https://robotics.umich.edu/academic-program/robotics-undergraduate-faq/
+    - text: Interest form
+      link: https://docs.google.com/forms/d/e/1FAIpQLScaC1cV7HNRN_nVcHs-N3s3EIwzal5BZlBXD-jee695ivl3iA/viewform
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +76,7 @@ featured_announcements:
                                 <h4>{{ ann.title }}</h4>
                                 <p>{{ ann.text }}</p>
                                 {% for link in ann.links %}
-                                    <a href="{{ link.link }}" rel="noopener">{{ link.text }}</a>
+                                    <a href="{{ link.link }}" target="_blank" rel="noreferrer noopener">{{ link.text }}</a>
                                 {% endfor %}
                             </div>
                         </div>
