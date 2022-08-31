@@ -76,7 +76,7 @@ featured_announcements:
                                 <h4>{{ ann.title }}</h4>
                                 <p>{{ ann.text }}</p>
                                 {% for link in ann.links %}
-                                    <a href="{{ link.link }}" rel="noopener">{{ link.text }}</a>
+                                    <a href="{{ link.link }}" target="_blank" rel="noreferrer noopener">{{ link.text }}</a>
                                 {% endfor %}
                             </div>
                         </div>
