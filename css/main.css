@@ -122,9 +122,15 @@ img {
     display: block;
 }
 
+picture {
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+}
+
 /** Carousel **/
 
-div.carousel-item > img {
+div.carousel-item > img, div.carousel-item > picture {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -132,7 +138,7 @@ div.carousel-item > img {
     right: 0;
 }
 
-.carousel-back-image {
+.carousel-back-image, .carousel-back-image > img {
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
@@ -149,6 +155,10 @@ div.carousel-caption {
     width: 100%;
     padding: 1.5em;
     background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8));
+}
+
+div.carousel-caption a {
+    color: #59a9e3;
 }
 
 /* Custom viewport-size based image sizing */

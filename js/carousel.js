@@ -1,16 +1,15 @@
 ---
 ---
-let carouselLoad = (src) => {
+async function carouselLoad(src) {
     //Find list source and carousel element
-    let listSource = src + "list.json"
-    let carousel = $(".carousel:first");
+    const listSource = src + "list.json";
+    const carousel = $(".carousel:first");
 
     //Run fetch call
-    fetch(listSource)
-    .then( (response) =>{
+    try {
+        const response = await fetch(listSource)
         if (!response.ok) throw Error(response.statusText);
-        return response.json();
-    }).then(carouselItems => {
+        const carouselItems = await response.json();
         const slideContainer = carousel.children(".carousel-inner:first");
 
         slideContainer.empty();
@@ -63,5 +62,7 @@ let carouselLoad = (src) => {
 
             slideContainer.append(outerDiv);
         });
-    }).catch(console.log);
+    } catch (e) {
+        console.error(e);
+    }
 };
