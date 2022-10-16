@@ -1,15 +1,16 @@
 ---
 title: FIRST® Alumni &amp; Mentors Network at Michigan
 featured_announcements:
- - title: Register for our FTC kickoff
-   image: img/ftc/2021/field-announcement.jpg
-   alt: FAMNM volunteers and FTC teams surround the newly revealed game field for Freight Frenzy in 2021
-   text: FAMNM will host a kickoff event for the 2022-2023 season of <i>FIRST</i> Tech Challenge,
-         <i>POWER PLAY</i>, on September 10th, 2022 at the University of Michigan's North Campus in Ann Arbor,
-         welcoming all local FTC teams.
+ - title: FRC Kickoff
+   image: img/kickoff/kickoff-2017-stamps.png
+   alt: FRC Kickoff in Stamps Auditorium
+   text:
+     FAMNM will host a kickoff event for the 2023 season of <i>FIRST</i> Robotics Competition,
+     <i>CHARGED UP</i>, on <time datetime="2023-01-07">January 7th, 2023</time> at the University of Michigan's North Campus in Ann Arbor.
+     The registration form will open soon.
    links:
     - text: Register your team
-      link: /events/ftc-kickoff
+      link: /events/kickoff
  - title: Edison bots available
    image: img/index/edison.jpg
    alt: A small, two-wheeled robot with three buttons and LEGO-compatible sockets on a mat with several barcodes
@@ -22,14 +23,16 @@ featured_announcements:
    links:
     - text: Get Edison
       link: https://forms.gle/FtxgiYXnpmM3mu6P7
- - title: Michigan Engineering's new undergraduate program in Robotics has launched
-   image: img/index/robotics-program.png
-   alt: People demonstrate and observe humanoid and bipedal robots at the Ford Robotics Building
-   text: On June 7, the new U-M Robotics Department announced that its undergraduate program in robotics
-         has been approved is available starting Fall 2022.
+ - title: Interested in joining FAMNM?
+   image: img/index/game-night-2018.jpg
+   alt: FAMNM game night
+   text:
+     Email FAMNM's Director of Internal Affairs at <a href="mailto:famnm.admin@umich.edu">famnm.admin@umich.edu</a>,
+     and they will set you up with everything you need to become a member. Also, come to our General Body and Planning Meetings on
+     <strong>Mondays at 8:30 PM</strong> in <strong>2147 GGBL</strong>.
    links:
-    - text: Program FAQ
-      link: https://robotics.umich.edu/academic-program/robotics-undergraduate-faq/
+    - text: Join FAMNM
+      link: mailto:famnm.admin@umich.edu
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +78,7 @@ featured_announcements:
                                 <h4>{{ ann.title }}</h4>
                                 <p>{{ ann.text }}</p>
                                 {% for link in ann.links %}
-                                    <a href="{{ link.link }}" rel="noopener">{{ link.text }}</a>
+                                    <a href="{{ link.link }}" target="_blank" rel="noreferrer noopener">{{ link.text }}</a>
                                 {% endfor %}
                             </div>
                         </div>
