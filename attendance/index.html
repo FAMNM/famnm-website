@@ -236,6 +236,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             $("#passphrase").val("");
 
             try {
+                if (meetingType === defaultMeetingType) {
+                    throw Error("meetingType === defaultMeetingType");
+                }
+
                 const response = await fetch(`${backendUrl}/meeting`, {
                     headers: {
                         "Content-Type": "application/json",
