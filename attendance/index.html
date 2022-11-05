@@ -77,6 +77,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
                     <h2>Meeting Attendees</h2>
                     <div id="modalAttendees"><!-- Filled by JavaScript --></div>
+                    <div id="newMembersWarning" class="text-success invisible">
+                        <!-- Made visible by JavaScript -->
+                        Green indicates new members (or typos)
+                    </div>
                 </div>
                 <div class="modal-footer d-flex">
                     <form class="me-auto">
@@ -105,33 +109,32 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
         function enterUniqname() {
             const uniqname = $("#uniqname").val().toLowerCase().replace(/[^a-zA-Z]/g, "");
-            if (!/^[a-z]{3,8}$/.test(uniqname)) {
-                alert(`The uniqname ${uniqname} is not valid. All uniqnames consist of 3-8 letters.`);
-                $("#uniqname").val("");
-                return;
-            }
             const uniqnameExists = attendees.some(elem => elem === uniqname);
 
             if (uniqname.length > 0 && !uniqnameExists) {
-                attendees.push(uniqname);
+                if (/^[a-z]{3,8}$/.test(uniqname)) {
+                    attendees.push(uniqname);
 
-                $("#uniqname-buttons").empty();
-                attendees.forEach(elem => {
-                    let newButton = $("<button></button>");
-                    newButton.attr("type", "button");
-                    newButton.addClass("btn")
-                            .addClass("btn-outline-secondary")
-                            .addClass("mx-3")
-                            .addClass("my-3")
-                            .addClass("uniqname-btn");
-                    newButton.text(elem);
-                    newButton.click(() => {
-                        attendees = attendees.filter(elem => elem !== newButton.text());
-                        newButton.remove();
+                    $("#uniqname-buttons").empty();
+                    attendees.forEach(elem => {
+                        let newButton = $("<button></button>");
+                        newButton.attr("type", "button");
+                        newButton.addClass("btn")
+                                .addClass("btn-outline-secondary")
+                                .addClass("mx-3")
+                                .addClass("my-3")
+                                .addClass("uniqname-btn");
+                        newButton.text(elem);
+                        newButton.click(() => {
+                            attendees = attendees.filter(elem => elem !== newButton.text());
+                            newButton.remove();
+                        });
+
+                        $("#uniqname-buttons").append(newButton);
                     });
-
-                    $("#uniqname-buttons").append(newButton);
-                });
+                } else {
+                    alert(`The uniqname ${uniqname} is not valid. All uniqnames consist of 3-8 letters.`);
+                }
             }
 
             $("#uniqname").val("");
@@ -154,6 +157,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             $("#modalMeetingType").empty();
             $("#modalDate").empty();
             $("#modalAttendees").empty();
+            $("#newMembersWarning").addClass("invisible");
             $("#passphrase").val("");
             $("#passphrase").attr("disabled", false);
             $("#incorrectPassphrase").hide();
@@ -212,6 +216,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
 
                     if (data.new_uniqnames.includes(uniqname)) {
                         uniqnameItem.addClass("text-success");
+                        $("#newMembersWarning").removeClass("invisible");
                     }
 
                     uniqnameList.append(uniqnameItem);
@@ -224,7 +229,6 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         }
 
         async function submitMeeting() {
-            const confirmModal = new bootstrap.Modal(document.getElementById("confirmMeeting"), {focus: true});
             const meetingType = $("#meetingType").children("option:selected").val();
             const meetingDate = $("#meetingDate").val();
             const passphrase = $("#passphrase").val();
@@ -232,6 +236,10 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             $("#passphrase").val("");
 
             try {
+                if (meetingType === defaultMeetingType) {
+                    throw Error("meetingType === defaultMeetingType");
+                }
+
                 const response = await fetch(`${backendUrl}/meeting`, {
                     headers: {
                         "Content-Type": "application/json",
@@ -254,7 +262,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                     $("#meetingSuccessAlert").show();
                     $("#meetingFailAlert").hide();
 
-                    confirmModal.hide();
+                    $("#confirmMeeting").modal("hide");
                     resetModal();
                 } else if (response.status === 401) {
                     $("#incorrectPassphrase").show();
@@ -267,7 +275,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
                 $("#meetingSuccessAlert").hide();
                 $("#meetingFailAlert").show();
 
-                confirmModal.hide();
+                $("#confirmMeeting").modal("hide");
             }
         }
         
