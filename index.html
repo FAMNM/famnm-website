@@ -10,6 +10,8 @@ featured_announcements:
    links:
     - text: Register your team
       link: /events/kickoff
+    - text: Sign-up to Volunteer
+      link: https://docs.google.com/spreadsheets/d/1ABdTMUGKLH1FMLiaiVpFzJC73pmI4UyIkRlFQL7S7lw/edit?usp=sharing
  - title: Edison bots available
    image: img/index/edison.jpg
    alt: A small, two-wheeled robot with three buttons and LEGO-compatible sockets on a mat with several barcodes
@@ -77,7 +79,7 @@ featured_announcements:
                                 <h4>{{ ann.title }}</h4>
                                 <p>{{ ann.text }}</p>
                                 {% for link in ann.links %}
-                                    <a href="{{ link.link }}" target="_blank" rel="noreferrer noopener">{{ link.text }}</a>
+                                    <p><a href="{{ link.link }}" target="_blank" rel="noreferrer noopener">{{ link.text }}</a></p>
                                 {% endfor %}
                             </div>
                         </div>
@@ -103,9 +105,17 @@ featured_announcements:
             <span class="sr-only">Next</span>
         </button>
     </div>
-    <div class="container p-4">
-        <div class="row align-items-center">
-            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTYX1ashgwoSHk25-jaeVgkJCMRbfhivtR28dMu_RcCyBI2XPUQCkTiRNgJu-PMHbrShhLwiV5xy9DX/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false" height="500"></iframe>
+
+    <div class="container p-5">
+        <h2 class="text-center">FRC Kickoff Volunteering</h2>
+        <div class="row align-items-center p-3">
+            <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTpgEJkdnZ1KXa-IJtcfLmCmq0SkN_8-EI0J8aqz3uQKwBuov_PRBS065Jwb3brLsl1HiDS4pzbwCxq/pubhtml?widget=true&amp;headers=false" height="500"></iframe>
+        </div>
+        <div class="text-center p-3">
+            <a href="https://docs.google.com/spreadsheets/d/1ABdTMUGKLH1FMLiaiVpFzJC73pmI4UyIkRlFQL7S7lw/edit?usp=sharing" target="_blank" rel="noreferrer noopener">
+                <button type="button" class="btn btn-primary">Sign-up to Volunteer for Kickoff</button>
+            </a>
+            <p class="p-2">Please put yourself under "Potential Volunteers" if you're unsure if/when you can make it</p>
         </div>
     </div>
     {% include footer.html %}
