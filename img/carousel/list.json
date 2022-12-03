@@ -5,6 +5,16 @@
         "img": "frc-kickoff-talk-2019.jpg"
     },
     {
+        "title": "At the Apple Orchard",
+        "description": "FAMNM on a social trip to Apple Charlie's Orchard in October 2022",
+        "img": "apple-orchard-2022.jpg"
+    },
+    {
+        "title": "FACC Winners!",
+        "description": "FAMNM's new Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
+        "img": "../ri3d/2019-winners.jpg"
+    },
+    {
         "title": "Volunteering",
         "description": "FAMNM wins the Volunteer Award at the 2018 East Jackson FTC Qualifier!",
         "img": "east-jackson-ftc.jpg"
@@ -13,16 +23,6 @@
         "title": "Kettering FLL Qualifier",
         "description": "FAMNM judges at the Kettering FLL event in November 2018",
         "img": "kettering-fll-2018.jpg"
-    },
-    {
-        "title": "At the Apple Orchard",
-        "description": "FAMNM on a social trip to Apple Charlies Orchard in October 2022",
-        "img": "apple-orchard-2022.jpg"
-    },
-    {
-        "title": "FACC Winners!",
-        "description": "FAMNM's new Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
-        "img": "../ri3d/2019-winners.jpg"
     },
     {
         "title": "FAMNM Game Night",
