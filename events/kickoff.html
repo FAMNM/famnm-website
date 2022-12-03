@@ -250,7 +250,7 @@ sponsors:
                 {% for org in page.orgs %}
                 <div class="card">
                     <div class="card-header">
-                        <a data-toggle="collapse" href="#{{ org[0].id }}">{{ org[0].name }}</a>
+                        <a data-bs-toggle="collapse" href="#{{ org[0].id }}">{{ org[0].name }}</a>
                     </div>
                     <div id="{{ org[0].id }}" class="card-body collapse">
                         <p>{{ org[0].description }}</p>
@@ -279,7 +279,7 @@ sponsors:
             <div class="modal-content">
                 <div class="modal-header">
                     <h4 class="modal-title" id="mapModal-title">North Campus Map: <span id="map-active-loc"></span></h4>
-                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -290,7 +290,7 @@ sponsors:
                     <span>All parking is free for the duration of the event.</span>
                     <button id="map-parking-toggle" type="button" class="btn btn-primary"
                     onclick="mapUtils.toggleParking()">Show parking</button>
-                    <button type="button" class="btn famnm-btn-secondary" data-dismiss="modal" onclick="mapUtils.clearMap()">Close</button>
+                    <button type="button" class="btn famnm-btn-secondary" data-bs-dismiss="modal" onclick="mapUtils.clearMap()">Close</button>
                 </div>
             </div>
         </div>

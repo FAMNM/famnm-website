@@ -75,7 +75,7 @@ const loadSchedules = () => {
         else eventColorClass = "table-warning";
 
         let mapLinkId = `maplink-${index}`;
-        let mapLink = (activeTeam.number == 0 && loc.custom) ? `` : `: <a class="map-jump" id="${mapLinkId}" data-toggle="modal" data-target="#mapModal">View on Map</a>`;
+        let mapLink = (activeTeam.number == 0 && loc.custom) ? `` : `: <a class="map-jump" id="${mapLinkId}" data-bs-toggle="modal" data-bs-target="#mapModal">View on Map</a>`;
 
         let eventHTMLString = `
         <tr class=${eventColorClass}>
