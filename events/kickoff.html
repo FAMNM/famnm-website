@@ -222,13 +222,6 @@ schedule:
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <ul class="list-unstyled">
-                    <li><a href="#event-map">Event Map</a></li>
-                    <li><a href="#sched">Schedule</a></li>
-                    <li><a href="#um-fair">Engineering Org Fair</a></li>
-                </ul>
-            </div>
             <div class="row pt-2">
                 <div class="col col-12 col-lg-6">
                     <h2 id="sched">Schedule</h2>
@@ -238,7 +231,7 @@ schedule:
                             <div class="schedule-time" style="grid-row:{{forloop.index}}">{{ time }}</div>
                         {% endfor %}
                         {% for event in page.schedule.events %}
-                            <div class="event" style="grid-row:{{event.start | plus: 1}}/{{event.end | plus: 1}};grid-column:{{event.indent | plus: 2}}/-1" aria-label="{{ event.title }} takes place at {{ event.location }} from {{ page.schedule.times[event.start] }} to {{ page.schedule.times[event.end] }}">
+                            <div class="event event-indent-{{event.indent}}" style="grid-row:{{event.start | plus: 1}}/{{event.end | plus: 1}};grid-column:{{event.indent | plus: 2}}/-{{event.indent | plus: 1}}" aria-label="{{ event.title | strip_html }} takes place at {{ event.location | strip_html }} from {{ page.schedule.times[event.start] | strip_html }} to {{ page.schedule.times[event.end] | strip_html }}">
                                 <span class="event-title">
                                     {{ event.title }}
                                     {% if event.location %}
@@ -306,9 +299,6 @@ schedule:
     {% include scripts.html %}
     <!-- <script src="{{site.url}}/js/kickoff/page.js"></script> -->
     <style>
-        #schedule-table th {
-        }
-        
         .schedule-time {
             text-align: right;
             line-height: 100%;
@@ -328,7 +318,7 @@ schedule:
 
         .schedule-time-border {
             border-top: 1px solid #888888;
-            margin-top: -1.5px;
+            margin-top: -2px;
             grid-column: 1/-1;
         }
 
@@ -342,30 +332,40 @@ schedule:
         #schedule-table {
             max-width: 42rem;
             display: grid;
-            gap: 2px;
-            grid-template-columns: 5.8rem repeat(5, 16px) 1fr 1fr;
+            gap: 4px;
+            grid-template-columns: 5.8rem repeat(5, 16px) 1fr 1fr repeat(5, 8px);
             grid-template-rows: repeat({{ page.schedule.times | size }}, 48px);
         }
 
         #schedule-table .event {
             font-size: 0.9rem;
             padding: 4px;
-            background-color: #cccccc;
-            border-left: 6px solid #888888;
-            border-top: 1px solid #888888;
-            border-right: 1px solid #888888;
-            border-bottom: 1px solid #888888;
+            background-color: var(--event-background);
+            border-left: 6px solid var(--event-color);
+            border-top: 1px solid var(--event-color);
+            border-right: 1px solid var(--event-color);
+            border-bottom: 1px solid var(--event-color);
             border-radius: 0.25rem;
             text-align: left;
             line-height: 115%;
             vertical-align: top;
             width: 100%;
             height: 100%;
-            transition: all 0.2s ease;
         }
 
-        #schedule-table .event:hover {
-            background-color: #d5d5d5;
+        .event-indent-0 {
+            --event-color: #003368;
+            --event-background: #9ab5d1;
+        }
+
+        .event-indent-1 {
+          --event-color: #005269;
+          --event-background: #9ec7d3;
+        }
+
+        .event-indent-2 {
+          --event-color: #006966;
+          --event-background: #a2dad8;
         }
     </style>
 </body>
