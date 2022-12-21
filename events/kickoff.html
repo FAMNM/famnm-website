@@ -231,7 +231,9 @@ schedule:
                             <div class="schedule-time" style="grid-row:{{forloop.index}}">{{ time }}</div>
                         {% endfor %}
                         {% for event in page.schedule.events %}
-                            <div class="event event-indent-{{event.indent}}" style="grid-row:{{event.start | plus: 1}}/{{event.end | plus: 1}};grid-column:{{event.indent | plus: 2}}/-{{event.indent | plus: 1}}" aria-details="{{ event.title | strip_html }} takes place at {{ event.location | strip_html }} from {{ page.schedule.times[event.start] | strip_html }} to {{ page.schedule.times[event.end] | strip_html }}">
+                            <div class="event event-indent-{{event.indent}}"
+                                    style="grid-row:{{ event.start | plus: 1 }}/{{ event.end | plus: 1 }};grid-column:{{ event.indent | plus: 2 }}/-{{ event.indent | plus: 1 }}"
+                                    aria-details="{{ event.title | strip_html }} takes place at {{ event.location | strip_html }} from {{ page.schedule.times[event.start] | strip_html }} to {{ page.schedule.times[event.end] | strip_html }}">
                                 <span class="event-title">
                                     {{ event.title }}
                                     {% if event.location %}
