@@ -36,8 +36,6 @@ sponsors:
         name: "University of Michigan College of Engineering"
 schedule:
     times:
-        - 08:00 AM
-        - 08:30 AM
         - 09:00 AM
         - 09:30 AM
         - 10:00 AM
@@ -51,6 +49,10 @@ schedule:
         - 02:00 PM
         - 02:30 PM
         - 03:00 PM
+        - 03:30 PM
+        - 04:00 PM
+        - 04:30 PM
+        - 05:00 PM
     events:
         - title: Check-in
           location: Pierpont Commons
@@ -62,29 +64,37 @@ schedule:
           start: 1
           end: 5
           indent: 1
-        - title: Undergraduate Robotics Program Information Session
+          right_indent: 0
+          half: left
+        - title: Undergraduate Robotics Program Q&A
           location: <i>TBD</i>
-          start: 2
-          end: 4
-          indent: 2
+          start: 1
+          end: 3
+          indent: 0
+          right_indent: 1
+          half: right
         - title: Guest Speakers
           location: Auditoriums
-          start: 4
-          end: 5
-          indent: 2
+          start: 5
+          end: 6
+          indent: 0
         - title: FIRST Broadcast
           location: Auditoriums
-          start: 5
+          start: 6
           end: 8
           indent: 0
-        - title: Game Reveal
-          start: 7
-          end: 8
-          indent: 1
-        - title: Breakout Rooms, Pizza pickup, Kit distribution
+        - title: Breakout Rooms, Pizza pickup
           start: 8
-          end: 14
+          end: 16
           indent: 0
+          half: left
+          right_indent: 0
+        - title: Kit distribution
+          start: 8
+          end: 15
+          indent: 0
+          half: right
+          right_indent: 0
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -231,8 +241,20 @@ schedule:
                             <div class="schedule-time" style="grid-row:{{forloop.index}}">{{ time }}</div>
                         {% endfor %}
                         {% for event in page.schedule.events %}
-                            <div class="event event-indent-{{event.indent}}"
-                                    style="grid-row:{{ event.start | plus: 1 }}/{{ event.end | plus: 1 }};grid-column:{{ event.indent | plus: 2 }}/-{{ event.indent | plus: 1 }}"
+                            
+                            {% assign grid_column_left = event.indent | plus: 2 %}
+                            {% assign grid_column_right = event.indent | times: -1 | minus: 1 %}
+                            {% assign indent = event.indent %}
+                            {% if event.half == "left" %}
+                                {% assign grid_column_right = event.right_indent | times: -1 | minus: 8 %}
+                            {% elsif event.half == "right" %}
+                                {% assign grid_column_left = event.indent | plus: 9 %}
+                                {% assign grid_column_right = event.right_indent | times: -1 | minus: 1 %}
+                                {% assign indent = event.right_indent %}
+                            {% endif %}
+
+                            <div class="event event-indent-{{ indent }}"
+                                    style="grid-row:{{ event.start | plus: 1 }}/{{ event.end | plus: 1 }};grid-column:{{ grid_column_left }}/{{ grid_column_right }}"
                                     aria-details="{{ event.title | strip_html }} takes place at {{ event.location | strip_html }} from {{ page.schedule.times[event.start] | strip_html }} to {{ page.schedule.times[event.end] | strip_html }}">
                                 <span class="event-title">
                                     {{ event.title }}
@@ -335,7 +357,7 @@ schedule:
             max-width: 42rem;
             display: grid;
             gap: 4px;
-            grid-template-columns: 5.8rem repeat(5, 16px) 1fr 1fr repeat(5, 8px);
+            grid-template-columns: 5.8rem repeat(3, 8px) 1fr repeat(3, 4px) repeat(3, 8px) 1fr repeat(3, 4px);
             grid-template-rows: repeat({{ page.schedule.times | size }}, 48px);
         }
 
@@ -353,21 +375,22 @@ schedule:
             vertical-align: top;
             width: 100%;
             height: 100%;
+            overflow: hidden;
         }
 
         .event-indent-0 {
             --event-color: #003368;
-            --event-background: #9ab5d1;
+            --event-background: #a3bdda;
         }
 
         .event-indent-1 {
-          --event-color: #005269;
-          --event-background: #9ec7d3;
+            --event-color: #005269;
+            --event-background: #9ec7d3;
         }
 
         .event-indent-2 {
-          --event-color: #006966;
-          --event-background: #a2dad8;
+            --event-color: #006966;
+            --event-background: #a2dad8;
         }
     </style>
 </body>
