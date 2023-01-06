@@ -205,6 +205,7 @@ const mapUtils = {
             google.maps.event.removeListener(mapUtils.winListener);
             mapUtils.winListener = undefined;
             mapUtils.infoWindow.setContent("");
+            mapUtils.infoWindow.close();
         }
     },
     navigate(name, markerId) {
@@ -252,13 +253,13 @@ const parking = [
 const markers = {
     "Pierpont Commons": { lat: 42.291384, lng: -83.717490},
     "DUDE CON": { lat: 42.291225, lng: -83.716470},
-    "Duderstadt Center": { lat: 42.291166, lng: -83.716745},
+    "Duderstadt Center": { lat: 42.291319, lng: -83.715847},
     "CHRYS 133": { lat: 42.290646, lng: -83.716900},
     "CHRYS 220": { lat: 42.290877, lng: -83.716737},
     "BBB 1670": { lat: 42.292868, lng: -83.716273},
     "BBB 1690": { lat: 42.292870, lng: -83.716463},
     "DOW 1005": { lat: 42.292721, lng: -83.715589},
-    "Outside DOW 1005": { lat: 42.292721, lng: -83.715589},
+    "Outside DOW 1005": { lat: 42.29277576370072, lng: -83.71571295536538},
     "DOW 1006": { lat: 42.292919, lng: -83.715597},
     "DOW 1010": { lat: 42.292937, lng: -83.715503},
     "DOW 1013": { lat: 42.292728, lng: -83.715412},
@@ -284,7 +285,7 @@ const markers = {
 window.initMap = function() {
     mapUtils.map = new window.google.maps.Map(document.getElementById('map'), {
         center: new window.google.maps.LatLng(42.291964, -83.715810),
-        zoom: 18,
+        zoom: 17,
         mapTypeId: window.google.maps.MapTypeId.ROADMAP,
         gestureHandling: "greedy"
     });
@@ -327,6 +328,11 @@ window.initMap = function() {
                 })(marker, event));
             mapUtils.locationMarkers[eventId] = marker;
         }
+    }
+
+    // If team exists and assignments exist, initialize team-specific location markers
+    if (store.team in assignments) {
+        populateTeamMarkers(store.team);
     }
 };
 
@@ -371,29 +377,33 @@ const ready = () => {
     setInterval(computeDiff, 1000);
 };
 
+function populateTeamMarkers(team) {
+    // Populate the team-specific markers as available
+    for (const [eventId, event] of Object.entries(schedule)) {
+        if (typeof event.location === 'function' && event.location(store.team)) {
+            const marker = new window.google.maps.Marker({
+                position: markers[event.location(team)],
+                map: mapUtils.map,
+                title: event.event,
+                icon: `../img/kickoff/icons/${event.icon}`
+            });
+            window.google.maps.event.addListener(marker, "click", ((marker, event) =>
+                () => {
+                    mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6><i>${event.location(store.team)}</i></h6>`);
+                    mapUtils.infoWindow.open(mapUtils, marker);
+                })(marker, event));
+            mapUtils.locationMarkers[eventId] = marker;
+        }
+    }
+}
+
 function onTeamChange(team) {
     if (team === '' || team in assignments) {
         localStorage.setItem('team', team);
         mapUtils.resetMap();
     }
     if (team in assignments) {
-        // Populate the team-specific markers as available
-        for (const [eventId, event] of Object.entries(schedule)) {
-            if (typeof event.location === 'function') {
-                const marker = new window.google.maps.Marker({
-                    position: markers[event.location(team)],
-                    map: mapUtils.map,
-                    title: event.event,
-                    icon: `../img/kickoff/icons/${event.icon}`
-                });
-                window.google.maps.event.addListener(marker, "click", ((marker, event) =>
-                    () => {
-                        mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6><i>${event.location(store.team)}</i></h6>`);
-                        mapUtils.infoWindow.open(mapUtils, marker);
-                    })(marker, event));
-                mapUtils.locationMarkers[eventId] = marker;
-            }
-        }
+        populateTeamMarkers(team);
     }
 }
 
