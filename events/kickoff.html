@@ -59,6 +59,7 @@ schedule:
           start: 0
           end: 5
           indent: 0
+          marker_id: checkin
         - title: Engineering Org Fair
           location: Duderstadt Center
           start: 1
@@ -66,6 +67,7 @@ schedule:
           indent: 1
           right_indent: 0
           half: left
+          marker_id: orgfair
         - title: Undergraduate Robotics Program Info Session
           location: GGBL 1571
           start: 1
@@ -73,18 +75,21 @@ schedule:
           indent: 0
           right_indent: 1
           half: right
+          marker_id: robinfo
         - title: Guest Speakers
           location: Auditoriums
           custom_key: auditorium
           start: 5
           end: 6
           indent: 0
+          marker_id: auditorium
         - title: FIRST Broadcast
           location: Auditoriums
           custom_key: auditorium
           start: 6
           end: 8
           indent: 0
+          marker_id: auditorium
         - title: Breakout Rooms
           custom_key: breakout
           start: 8
@@ -93,6 +98,7 @@ schedule:
           half: left
           right_indent: 0
           comment: Pizza pickup in the Duderstadt Center
+          marker_id: breakout
         - title: Kit distribution
           location: Outside DOW 1005
           start: 8
@@ -101,6 +107,7 @@ schedule:
           half: right
           right_indent: 0
           comment: Mentors picking up kits must be 18+ and show photo ID
+          marker_id: kitdist
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -213,28 +220,9 @@ schedule:
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
-                    <div>
-                        <p class="lead mb-4">
-                            FAMNM plans to hold a kickoff event in person for FRC's 2023 season game,
-                            <i>CHARGED UP</i>, on <time datetime="2023-01-07" class="fw-bold">Saturday, January 7th, 2023</time>
-                            at the University of Michigan's <a href="https://goo.gl/maps/SviBGJZca11mxoX19" rel="noopener noreferrer">North Campus</a>.
-                            If you are registered for this event with <i>FIRST</i>, please register each participating minor with Children on Campus, and fill out our participant survey.
-                        </p>
-                        <div class="d-grid gap-2 d-sm-flex justify-content-center">
-                            <a class="btn btn-primary btn-lg"
-                                href="https://docs.google.com/forms/d/1FrTpDKBeQXC_vBLErEbxIV3CYxKAFnZq7K64y_IIQbA/viewform"
-                                role="button" target="_blank" rel="noreferrer noopener">
-                                📃 Fill out FAMNM survey</a>
-                            <a class="btn btn-secondary btn-lg"
-                                href="http://umforms.tfaforms.net/2?CampId=7011R000001s0pkQAA" role="button"
-                                target="_blank" rel="noreferrer noopener" data-bs-toggle="tooltip"
-                                data-bs-placement="bottom"
-                                data-bs-title="Enter contact information for participating minors as required by university policy">
-                                🚸 Register participant</a>
-                            <a href="https://forms.gle/KetehqVLGgVnqy1R9" class="btn btn-secondary btn-lg" role="button"
-                                target="_blank" rel="noreferrer noopener">🍕 Order pizza lunch</a>
-                        </div>
-                    </div>
+                    <h3>
+                        0d 0h 0m 0s
+                    </h3>
                 </div>
             </div>
             <div class="row mt-2 mb-2">
@@ -250,7 +238,7 @@ schedule:
                     <input id="team-number" class="form-control form-control-lg flex-shrink-1" type="number"
                         v-scope v-model="store.team" placeholder="Team number..." min="1" max="9999" maxlength="4"
                         :class="{ 'is-valid': assignments[store.team], 'is-invalid': typeof store.team === 'number' && !(store.team in assignments) }">
-                    <span class="hidden" v-effect="if (store.team === '' || store.team in assignments) { localStorage.setItem('team', store.team); mapUtils.clearMap(); }"></span>
+                    <span class="hidden" v-effect="onTeamChange(store.team)"></span>
                 </div>
             </div>
             <div class="row mt-2">
@@ -288,11 +276,10 @@ schedule:
                                 <a class="text-location" 
                                 {% if event.custom_key %}
                                     :disabled="!(assignments[store.team]?.{{ event.custom_key }} in markers) && !('{{ event.location }}' in markers)"
-                                    @click="mapUtils.navigate('{{ event.title }}', '{{ event.location }}', '{{ event.custom_key }}')"
                                 {% else %}
                                     :disabled="!('{{ event.location }}' in markers)"
-                                    @click="mapUtils.navigate('{{ event.title }}', '{{ event.location }}')"
                                 {% endif %}
+                                    @click="mapUtils.navigate('{{ event.title }}', '{{ event.marker_id }}')"
                                     href="#event-map"
                                     v-cloak>
                                     {% if event.custom_key %}
@@ -316,8 +303,8 @@ schedule:
                     </div>
                 </div>
                 <div class="col col-12 col-lg-6 d-flex flex-column" style="min-height:500px" v-scope>
-                    <h2 id="event-map" v-cloak>
-                        Event Map<span v-if="store.location">: {% raw %}{{ store.location }}{% endraw %}</span>
+                    <h2 id="event-map">
+                        Event Map
                     </h2>
                     <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1q5jw_Bi0lDXJAXNHIrh-vLfEt4etEwg&ehbc=2E312F" class="w-100 flex-grow-1" title="FAMNM FRC Kickoff Map"></iframe> -->
                     <div id="map"></div>

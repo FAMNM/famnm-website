@@ -124,57 +124,52 @@ const getMarker = code => {
 
 let activeTeam = {};
 let allTeams = {};
-const schedule = [
-    {
+const schedule = {
+    checkin: {
         event: 'Check-In',
         start: getTime(9, 0),
         end: getTime(11, 30),
         location: 'Pierpont Commons',
         icon: 'checkin.png'
     },
-    {
+    orgfair: {
         event: 'Engineering Organization Fair',
         start: getTime(9, 30),
         end: getTime(11, 30),
         location: 'Duderstadt Center',
         icon: 'orgfair.png'
     },
-    {
+    robinfo: {
         event: 'Undergraduate Robotics Program Information Session',
         start: getTime(9, 30),
         end: getTime(10, 30),
         location: 'GGBL 1571',
         icon: 'robinfo.png'
     },
-    {
-        event: 'Guest Speakers',
+    // These items represent markers on the map
+    // Guest Speakers and FIRST Broadcast share one marker
+    auditorium: {
+        event: 'Auditorium',
         start: getTime(11, 30),
-        end: getTime(11, 45),
-        location: team => assignments[team]?.auditorium,
-        icon: 'auditorium.png'
-    },
-    {
-        event: 'FIRST Broadcast',
-        start: getTime(11, 45),
         end: getTime(13, 0),
         location: team => assignments[team]?.auditorium,
         icon: 'auditorium.png'
     },
-    {
+    breakout: {
         event: 'Breakout Rooms',
         start: getTime(13, 0),
         end: getTime(17, 0),
         location: team => assignments[team]?.breakout,
         icon: 'breakout.png'
     },
-    {
+    kitdist: {
         event: 'Kit distribution',
         start: getTime(13, 0),
         end: getTime(16, 30),
         location: 'Outside DOW 1005',
         icon: 'kitdist.png'
     }
-];
+};
 
 
 const store = reactive({
@@ -196,11 +191,14 @@ const mapUtils = {
         }
 
     },
-    clearMap: _ => {
+    resetMap: _ => {
         store.location = '';
-        // if there's an active marker on the map, remove it from the map.
-        if (mapUtils.activeMarker)
-            mapUtils.activeMarker.setMap(null);
+        // Remove all markers specific to a given team.
+        for (const [eventId, event] of Object.entries(schedule)) {
+            if (typeof event.location === 'function' && mapUtils.locationMarkers[eventId]) {
+                mapUtils.locationMarkers[eventId].setMap(null);
+            }
+        }
 
         // if there's an onclick listener on the marker, remove it/make it undefined.
         if (mapUtils.winListener) {
@@ -209,42 +207,27 @@ const mapUtils = {
             mapUtils.infoWindow.setContent("");
         }
     },
-    navigate(name, location, customKey) {
-        if (customKey !== undefined && assignments[store.team] && assignments[store.team][customKey] in markers) {
-            mapUtils.navigate(name, assignments[store.team][customKey]);
-        } else if (location in markers) {
-            mapUtils.clearMap();
-            let marker = markers[location];
-            store.location = location;
-
-            // convert our lat/lon into a LatLng object
-            const pos = new google.maps.LatLng(marker);
-
-            // create the marker to put on the map
-            mapUtils.activeMarker = new google.maps.Marker({
-                position: pos,
-                map: mapUtils.map,
-                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                title: location,
-            });
+    navigate(name, markerId) {
+        if (markerId in mapUtils.locationMarkers) {
+            const marker = mapUtils.locationMarkers[markerId];
 
             // focus the map on our new marker
-            mapUtils.map.setCenter(pos);
+            mapUtils.map.setCenter(marker.getPosition());
             // empirically verified to be a good zoom value
             mapUtils.map.setZoom(18);
 
             // create the click event to show the text popup
-            mapUtils.winListener = google.maps.event.addListener(mapUtils.activeMarker, "click", ((mkr) =>
+            mapUtils.winListener = google.maps.event.addListener(marker, "click", ((mkr, markerId, name) =>
                 () => {
-                    mapUtils.infoWindow.setContent(`<h5>${name}</h5><h6>${location}</h6>`);
+                    mapUtils.infoWindow.setContent(`<h5>${name}</h5><h6>${schedule[markerId].location}</h6>`);
                     mapUtils.infoWindow.open(mapUtils, mkr);
-                })(mapUtils.activeMarker));
+                })(marker, markerId, name));
 
             // after .5 seconds, trigger the click event and
-            setTimeout(() => google.maps.event.trigger(mapUtils.activeMarker, "click"), 50);
+            setTimeout(() => google.maps.event.trigger(marker, "click"), 50);
         }
     },
-    locationMarkers: [],
+    locationMarkers: {},
     parkingMarkers: []
 };
 const locations = [
@@ -329,7 +312,7 @@ window.initMap = function() {
     });
 
     // Initialize team-agnostic location markers
-    for (const event of schedule) {
+    for (const [eventId, event] of Object.entries(schedule)) {
         if (typeof event.location !== 'function') {
             const marker = new window.google.maps.Marker({
                 position: markers[event.location],
@@ -342,6 +325,7 @@ window.initMap = function() {
                     mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6>${event.location}</h6>`);
                     mapUtils.infoWindow.open(mapUtils, marker);
                 })(marker, event));
+            mapUtils.locationMarkers[eventId] = marker;
         }
     }
 };
@@ -387,7 +371,33 @@ const ready = () => {
     setInterval(computeDiff, 1000);
 };
 
+function onTeamChange(team) {
+    if (team === '' || team in assignments) {
+        localStorage.setItem('team', team);
+        mapUtils.resetMap();
+    }
+    if (team in assignments) {
+        // Populate the team-specific markers as available
+        for (const [eventId, event] of Object.entries(schedule)) {
+            if (typeof event.location === 'function') {
+                const marker = new window.google.maps.Marker({
+                    position: markers[event.location(team)],
+                    map: mapUtils.map,
+                    title: event.event,
+                    icon: `../img/kickoff/icons/${event.icon}`
+                });
+                window.google.maps.event.addListener(marker, "click", ((marker, event) =>
+                    () => {
+                        mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6><i>${event.location(store.team)}</i></h6>`);
+                        mapUtils.infoWindow.open(mapUtils, marker);
+                    })(marker, event));
+                mapUtils.locationMarkers[eventId] = marker;
+            }
+        }
+    }
+}
 
-createApp({store, assignments, mapUtils, markers}).mount()
+
+createApp({store, assignments, mapUtils, markers, onTeamChange}).mount()
 
 window.mapUtils = mapUtils;
