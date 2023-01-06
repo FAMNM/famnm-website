@@ -1,129 +1,8 @@
 import { createApp, reactive } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js'
 import assignments from './rooms.js'
 
-const getTime = (hour, minute) => new Date(2023, 0, 7, hour, minute, 0, 0, 0);
+const getTime = (hour, minute) => new Date(Date.UTC(2023, 0, 7, (hour + 5) % 24, minute))
 
-const getTimeString = (time) => {
-    return time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: '2-digit'});
-};
-
-const teamNumAccepted = (event, isEvent) => {
-    let num;
-    const errDiv = $("#team-error");
-    const dispDiv = $("#team-disp");
-    const teamNumName = $("#team-num-name");
-    const teamSchool = $("#team-school");
-
-    if (isEvent) {
-        // where was the function called from?
-        if ($(event.currentTarget).prop("type") === "text" && event.key !== "Enter")
-            return;
-        num = parseInt($("#teamNumInput").val());
-    } else {
-        num = event;
-    }
-
-    try {
-        setTeam(num);
-    } catch (e) {
-        console.log("Team not found :(");
-        errDiv.css("display", "block");
-        dispDiv.css("display", "none");
-        return;
-    }
-
-    loadSchedules();
-
-    if (num !== 0) {
-        teamNumName.text(num + ": " + activeTeam.name);
-    } else {
-        teamNumName.text("SCHEDULE FOR ALL TEAMS")
-    }
-
-    teamSchool.text(activeTeam.school);
-
-    errDiv.css("display", "none");
-    dispDiv.css("display", "block");
-
-    //Make the team number persist across refreshes
-    localStorage.setItem("team", activeTeam.number);
-};
-
-const setTeam = num => {
-    activeTeam = allTeams[num.toString()];
-    if (typeof activeTeam == 'undefined') {
-        activeTeam = {};
-        throw Error('Team not found!');
-    }
-    activeTeam.number = num;
-};
-
-const loadSchedules = () => {
-    const time = new Date();
-
-    const mainSchedule = $("#schedule");
-    mainSchedule.empty();
-
-    //Fill main schedule
-    schedule.forEach((evt, index) => {
-        const loc = resolveLocation(Object.assign({}, evt.location));
-
-        // if this team doesn't have a location assignment for this schedule item
-        // return and do not add it to the team's schedule
-        if (loc.code === false) return;
-
-        let eventColorClass = "";
-        if (time >= evt.end) eventColorClass = "table-active";
-        else if (time >= evt.start) eventColorClass = "table-info";
-        else eventColorClass = "table-warning";
-
-        let mapLinkId = `maplink-${index}`;
-        let mapLink = (activeTeam.number == 0 && loc.custom) ? `` : `: <a class="map-jump" id="${mapLinkId}" data-bs-toggle="modal" data-bs-target="#mapModal">View on Map</a>`;
-
-        let eventHTMLString = `
-        <tr class=${eventColorClass}>
-            <td class="text-center">
-                <div class="fw-bold">${getTimeString(evt.start)} - ${getTimeString(evt.end)}</div>
-                <div>${evt.event}</div>
-                <div>${loc.name}${mapLink}</div>
-            </td>
-        </tr>`;
-        let eventHTML = $.parseHTML(eventHTMLString);
-        mainSchedule.append(eventHTML);
-
-    });
-};
-
-const resolveLocation = loc => {
-    if (loc.custom) {
-        if (activeTeam.number === undefined)
-            throw new Error("Team number not set");
-        loc.name = activeTeam[loc.name];
-    }
-
-    loc.code = loc.name;
-
-    // if this team does not have a location for this schedule item, don't do the name replacement
-    if (loc.name === false)
-        return loc;
-
-    // turn abbreviated names into full names
-    locations.forEach((namePair) => {
-        loc.name = loc.name.replace(namePair.abbr, namePair.full);
-    });
-
-    return loc;
-};
-
-const getMarker = code => {
-    if (markers[code] == undefined)
-        throw Error("Location marker not found");
-
-    return markers[code];
-};
-
-let activeTeam = {};
-let allTeams = {};
 const schedule = {
     checkin: {
         event: 'Check-In',
@@ -176,6 +55,7 @@ const store = reactive({
     team: localStorage.getItem('team') ?? '',
     location: '',
     parkingShown: false,
+    now: new Date(),
 })
 
 const mapUtils = {
@@ -231,19 +111,7 @@ const mapUtils = {
     locationMarkers: {},
     parkingMarkers: []
 };
-const locations = [
-    { abbr: "220", full: "- Chesebrough Auditorium (Room 220)"},
-    { abbr: "GAL", full: "Gallery"},
-    { abbr: "CON", full: "Connector"},
-    { abbr: "DUDE", full: "Duderstadt"},
-    { abbr: "CHRYS", full: "Chrysler"},
-    { abbr: "GGBL", full: "GG Brown"},
-    { abbr: "EECS", full: "EECS Building"},
-    { abbr: "BBB", full: "Bob and Betty Beyster Building"},
-    { abbr: "DOW", full: "Dow Building"},
-    { abbr: "PIER", full: "Pierpont Commons"},
-    { abbr: "FXB", full: "Fran\u00e7ois-Xavier Bagnoud Building"},
-];
+
 const parking = [
     { lot: "Bonisteel", lat: 42.29042, lng: -83.71582 },
     { lot: "NC10", lat: 42.289723, lng: -83.721736 },
@@ -336,46 +204,41 @@ window.initMap = function() {
     }
 };
 
-const ready = () => {
+/**
+ * Countdown message
+ * @param {Date} now 
+ * @param {Date} kickoffTime 
+ */
+function countdown(now, kickoffTime) {
+    let diff = (kickoffTime.getTime() - now.getTime());
+    let d, h, m, s;
 
-    //Initialize countdown clock
-    const computeDiff = () => {
-        let diff = (getTime(10, 30).getTime() - (new Date()).getTime());
-        let d, h, m, s;
-
-        const clockDiv = $(".countdown-clock");
-
+    if (diff <= 0) {
+        diff = (kickoffDoneTime.getTime() - (new Date()).getTime());
         if (diff <= 0) {
-            diff = (getTime(18, 0).getTime() - (new Date()).getTime());
-            if (diff <= 0) {
-                clockDiv.text("We hope you enjoyed kickoff! Good luck this season!")
-            } else {
-                clockDiv.text("It's kickoff time!");
-            }
+            return "We hope you enjoyed kickoff! Good luck this season!"
         } else {
-            //Knock off milliseconds
-            diff = Math.floor(diff / 1e3);
-            s = diff % 60;
-
-            //Knock off seconds
-            diff = Math.floor(diff / 60);
-            m = diff % 60;
-
-            //Knock off minutes
-            diff = Math.floor(diff / 60);
-            h = diff % 24;
-
-            //Knock off hours
-            d = Math.floor(diff / 24);
-
-            clockDiv.text(`${d}d ${h}h ${m}m ${s}s`);
+            return "It's kickoff time!";
         }
+    } else {
+        //Knock off milliseconds
+        diff = Math.floor(diff / 1e3);
+        s = diff % 60;
 
-    };
+        //Knock off seconds
+        diff = Math.floor(diff / 60);
+        m = diff % 60;
 
-    computeDiff();
-    setInterval(computeDiff, 1000);
-};
+        //Knock off minutes
+        diff = Math.floor(diff / 60);
+        h = diff % 24;
+
+        //Knock off hours
+        d = Math.floor(diff / 24);
+
+        return `${d}d ${h}h ${m}m ${s}s`;
+    }
+}
 
 function populateTeamMarkers(team) {
     // Populate the team-specific markers as available
@@ -407,7 +270,19 @@ function onTeamChange(team) {
     }
 }
 
+const kickoffTime = new Date(Date.UTC(2023, 0, 7, 12 + 5))
+const kickoffDoneTime = new Date(kickoffTime.getTime() + 1000*60*60*5)
 
-createApp({store, assignments, mapUtils, markers, onTeamChange}).mount()
+createApp({store, assignments, mapUtils, markers,
+    onTeamChange,
+    kickoffTime,
+    countdown}).mount()
 
-window.mapUtils = mapUtils;
+window.mapUtils = mapUtils
+
+const timerUpdater = setInterval(() => {
+    store.now = new Date()
+    if (store.now.getTime() - kickoffTime.getTime() > 1000 * 60 * 60 * 12) {
+        clearInterval(timerUpdater)
+    }
+}, 1000);

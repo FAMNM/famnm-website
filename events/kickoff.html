@@ -220,8 +220,10 @@ schedule:
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
-                    <h3>
-                        0d 0h 0m 0s
+                    <h3 v-scope v-cloak>
+                        {% raw %}
+                        {{ countdown(store.now, kickoffTime) }}
+                        {% endraw %}
                     </h3>
                 </div>
             </div>
