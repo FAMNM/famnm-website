@@ -237,8 +237,8 @@ schedule:
                 </div>
             </div>
             <div class="row mt-2 mb-2">
-                <div class="col" v-scope>
-                    <p v-if="assignments[store.team]" v-cloak class="mb-1">
+                <div class="col" v-scope v-cloak>
+                    <p v-if="assignments[store.team]" class="mb-1">
                         {% raw %}
                             Welcome, {{ assignments[store.team]?.name }}!
                         {% endraw %}
