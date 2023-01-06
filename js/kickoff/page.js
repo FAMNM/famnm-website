@@ -91,45 +91,6 @@ const loadSchedules = () => {
         let eventHTML = $.parseHTML(eventHTMLString);
         mainSchedule.append(eventHTML);
 
-        $(`#${mapLinkId}`).click(event => {
-            let marker = {};
-            try {
-                marker = getMarker(loc.code);
-            } catch (err) {
-                console.log(err.message);
-                event.preventDefault();
-                activeMarker = undefined;
-                return;
-            }
-
-            // set the current location in vue
-
-            // convert our lat/lon into a LatLng object
-            const pos = new google.maps.LatLng(marker);
-
-            // create the marker to put on the map
-            mapUtils.activeMarker = new google.maps.Marker({
-                position: pos,
-                map: mapUtils.map,
-                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
-                title: loc.name
-            });
-
-            // focus the map on our new marker
-            mapUtils.map.setCenter(pos);
-            // empirically verified to be a good zoom value
-            mapUtils.map.setZoom(18);
-
-            // create the click event to show the text popup
-            mapUtils.winListener = google.maps.event.addListener(mapUtils.activeMarker, "click", ((mkr) =>
-                () => {
-                    mapUtils.infoWindow.setContent(`<h5>${loc.name}</h5>`);
-                    mapUtils.infoWindow.open(mapUtils, mkr);
-                })(mapUtils.activeMarker));
-
-            // after .5 seconds, trigger the click event and
-            setTimeout(() => google.maps.event.trigger(mapUtils.activeMarker, "click"), 500);
-        });
     });
 };
 
@@ -235,7 +196,7 @@ const mapUtils = {
 
     },
     clearMap: _ => {
-        // clear the current location in vue
+        store.location = '';
         // if there's an active marker on the map, remove it from the map.
         if (mapUtils.activeMarker)
             mapUtils.activeMarker.setMap(null);
@@ -243,10 +204,46 @@ const mapUtils = {
         // if there's an onclick listener on the marker, remove it/make it undefined.
         if (mapUtils.winListener) {
             google.maps.event.removeListener(mapUtils.winListener);
-            winListener = undefined;
+            mapUtils.winListener = undefined;
             mapUtils.infoWindow.setContent("");
         }
     },
+    navigate(name, location, customKey) {
+        if (customKey !== undefined && assignments[store.team] && assignments[store.team][customKey] in markers) {
+            mapUtils.navigate(name, assignments[store.team][customKey]);
+        } else if (location in markers) {
+            mapUtils.clearMap();
+            let marker = markers[location];
+            store.location = location;
+
+            // convert our lat/lon into a LatLng object
+            const pos = new google.maps.LatLng(marker);
+
+            // create the marker to put on the map
+            mapUtils.activeMarker = new google.maps.Marker({
+                position: pos,
+                map: mapUtils.map,
+                icon: "http://maps.google.com/mapfiles/ms/icons/red-dot.png",
+                title: location,
+            });
+
+            // focus the map on our new marker
+            mapUtils.map.setCenter(pos);
+            // empirically verified to be a good zoom value
+            mapUtils.map.setZoom(18);
+
+            // create the click event to show the text popup
+            mapUtils.winListener = google.maps.event.addListener(mapUtils.activeMarker, "click", ((mkr) =>
+                () => {
+                    mapUtils.infoWindow.setContent(`<h5>${name}</h5><h6>${location}</h6>`);
+                    mapUtils.infoWindow.open(mapUtils, mkr);
+                })(mapUtils.activeMarker));
+
+            // after .5 seconds, trigger the click event and
+            setTimeout(() => google.maps.event.trigger(mapUtils.activeMarker, "click"), 50);
+        }
+    },
+    locationMarkers: [],
     parkingMarkers: []
 };
 const locations = [
@@ -373,6 +370,6 @@ const ready = () => {
 };
 
 
-createApp({store, assignments, mapUtils}).mount()
+createApp({store, assignments, mapUtils, markers}).mount()
 
 window.mapUtils = mapUtils;

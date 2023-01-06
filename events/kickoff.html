@@ -250,17 +250,18 @@ schedule:
                     <input id="team-number" class="form-control form-control-lg flex-shrink-1" type="number"
                         v-scope v-model="store.team" placeholder="Team number..." min="1" max="9999" maxlength="4"
                         :class="{ 'is-valid': assignments[store.team], 'is-invalid': typeof store.team === 'number' && !(store.team in assignments) }">
-                    <span class="hidden" v-effect="if (store.team === '' || store.team in assignments) localStorage.setItem('team', store.team)"></span>
+                    <span class="hidden" v-effect="if (store.team === '' || store.team in assignments) { localStorage.setItem('team', store.team); mapUtils.clearMap(); }"></span>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col col-12 col-lg-6" v-scope>
-                    <h2 id="sched">Schedule
+                    <h2 id="sched" class="m-0">Schedule
                         <span v-if="assignments[store.team]" v-cloak>{% raw %}
                             for {{ store.team }}
                         {% endraw %}</span>
                     </h2>
-                    <div id="schedule-table" class="mt-3">
+                    <h6>Click on each location to highlight it on the map.</h6>
+                    <div id="schedule-table" class="mt-4">
                         {% for time in page.schedule.times %}
                             <span class="schedule-time-border" style="grid-row:{{forloop.index}}"></span>
                             <div class="schedule-time" style="grid-row:{{forloop.index}}">{{ time }}</div>
@@ -284,10 +285,19 @@ schedule:
                                 <p class="event-title m-0 text-dark">
                                     {{ event.title }}
                                 </p>
-                                <p class="text-location" v-cloak>
+                                <a class="text-location" 
+                                {% if event.custom_key %}
+                                    :class="{ disabled: !(assignments[store.team]?.{{ event.custom_key }} in markers) && !('{{ event.location }}' in markers) }"
+                                    @click="mapUtils.navigate('{{ event.title }}', '{{ event.location }}', '{{ event.custom_key }}')"
+                                {% else %}
+                                    :class="{ disabled: !('{{ event.location }}' in markers) }"
+                                    @click="mapUtils.navigate('{{ event.title }}', '{{ event.location }}')"
+                                {% endif %}
+                                    href="#event-map"
+                                    v-cloak>
                                     {% if event.custom_key %}
                                         <span v-if="assignments[store.team]?.{{ event.custom_key }}">
-                                            <i>{% raw %}{{{% endraw %}assignments[store.team]?.{{ event.custom_key}}{% raw %}}}{% endraw %}</i>
+                                            <i>{% raw %}{{{% endraw %}assignments[store.team]?.{{ event.custom_key }}{% raw %}}}{% endraw %}</i>
                                         </span>
                                         {% if event.location %}
                                             <span v-else>
@@ -297,7 +307,7 @@ schedule:
                                     {% elsif event.location %}
                                         {{ event.location }}
                                     {% endif %}
-                                </p>
+                                </a>
                                 {% if event.comment %}
                                     <p class="mt-1"><i>{{ event.comment }}</i></p>
                                 {% endif %}
@@ -305,13 +315,13 @@ schedule:
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col col-12 col-lg-6 d-flex flex-column" style="min-height:500px" v-scope>
+                <div class="col col-12 col-lg-6 d-flex flex-column gap-2" style="min-height:500px" v-scope>
                     <h2 id="event-map">
                         Event Map<span v-cloak v-if="store.location">: {% raw %}{{ store.location }}{% endraw %}</span>
                     </h2>
                     <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1q5jw_Bi0lDXJAXNHIrh-vLfEt4etEwg&ehbc=2E312F" class="w-100 flex-grow-1" title="FAMNM FRC Kickoff Map"></iframe> -->
                     <div id="map"></div>
-                    <button id="map-parking-toggle" type="button" class="btn famnm-btn-secondary"
+                    <button id="map-parking-toggle" type="button" class="btn btn-secondary"
                         @click="mapUtils.toggleParking()" v-cloak>
                         {% raw %}
                             {{ store.parkingShown ? 'Hide' : 'Show' }} parking
@@ -447,6 +457,10 @@ schedule:
 
         .text-location {
             color: #545454;
+        }
+
+        .text-location:not(.disabled):after {
+            content: "↗";
         }
     </style>
 </body>
