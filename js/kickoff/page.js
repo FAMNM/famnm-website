@@ -1,12 +1,6 @@
 import { createApp, reactive } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js'
 import assignments from './rooms.js'
 
-const store = reactive({
-    team: localStorage.getItem('team') ?? '',
-})
-
-createApp({store, assignments}).mount()
-
 const getTime = (hour, minute) => new Date(2023, 0, 7, hour, minute, 0, 0, 0);
 
 const getTimeString = (time) => {
@@ -19,7 +13,7 @@ const teamNumAccepted = (event, isEvent) => {
     const dispDiv = $("#team-disp");
     const teamNumName = $("#team-num-name");
     const teamSchool = $("#team-school");
-    
+
     if (isEvent) {
         // where was the function called from?
         if ($(event.currentTarget).prop("type") === "text" && event.key !== "Enter")
@@ -39,7 +33,7 @@ const teamNumAccepted = (event, isEvent) => {
     }
 
     loadSchedules();
-    
+
     if (num !== 0) {
         teamNumName.text(num + ": " + activeTeam.name);
     } else {
@@ -47,10 +41,10 @@ const teamNumAccepted = (event, isEvent) => {
     }
 
     teamSchool.text(activeTeam.school);
-    
+
     errDiv.css("display", "none");
     dispDiv.css("display", "block");
-    
+
     //Make the team number persist across refreshes
     localStorage.setItem("team", activeTeam.number);
 };
@@ -66,18 +60,18 @@ const setTeam = num => {
 
 const loadSchedules = () => {
     const time = new Date();
-    
+
     const mainSchedule = $("#schedule");
     mainSchedule.empty();
-    
+
     //Fill main schedule
     schedule.forEach((evt, index) => {
         const loc = resolveLocation(Object.assign({}, evt.location));
-        
+
         // if this team doesn't have a location assignment for this schedule item
         // return and do not add it to the team's schedule
         if (loc.code === false) return;
-        
+
         let eventColorClass = "";
         if (time >= evt.end) eventColorClass = "table-active";
         else if (time >= evt.start) eventColorClass = "table-info";
@@ -107,8 +101,8 @@ const loadSchedules = () => {
                 activeMarker = undefined;
                 return;
             }
-            
-            mapUtils.modalTitle.text(loc.name);
+
+            // set the current location in vue
 
             // convert our lat/lon into a LatLng object
             const pos = new google.maps.LatLng(marker);
@@ -126,16 +120,14 @@ const loadSchedules = () => {
             // empirically verified to be a good zoom value
             mapUtils.map.setZoom(18);
 
-            
-
             // create the click event to show the text popup
             mapUtils.winListener = google.maps.event.addListener(mapUtils.activeMarker, "click", ((mkr) =>
                 () => {
                     mapUtils.infoWindow.setContent(`<h5>${loc.name}</h5>`);
                     mapUtils.infoWindow.open(mapUtils, mkr);
                 })(mapUtils.activeMarker));
-            
-            // after .5 seconds, trigger the click event and 
+
+            // after .5 seconds, trigger the click event and
             setTimeout(() => google.maps.event.trigger(mapUtils.activeMarker, "click"), 500);
         });
     });
@@ -149,7 +141,7 @@ const resolveLocation = loc => {
     }
 
     loc.code = loc.name;
-    
+
     // if this team does not have a location for this schedule item, don't do the name replacement
     if (loc.name === false)
         return loc;
@@ -158,14 +150,14 @@ const resolveLocation = loc => {
     locations.forEach((namePair) => {
         loc.name = loc.name.replace(namePair.abbr, namePair.full);
     });
-    
+
     return loc;
 };
 
 const getMarker = code => {
     if (markers[code] == undefined)
         throw Error("Location marker not found");
-    
+
     return markers[code];
 };
 
@@ -221,24 +213,31 @@ const schedule = [
         location: {name: "breakout", custom: true},
     }
 ];
+
+
+const store = reactive({
+    team: localStorage.getItem('team') ?? '',
+    location: '',
+    parkingShown: false,
+})
+
 const mapUtils = {
     toggleParking: _ => {
-        mapUtils.parkingShown = !mapUtils.parkingShown;
-        
+        store.parkingShown = !store.parkingShown;
+
         mapUtils.parkingMarkers.forEach(function (mkr) {
-            mkr.setMap(mapUtils.parkingShown ? mapUtils.map : null);
+            mkr.setMap(store.parkingShown ? mapUtils.map : null);
         });
-        
-        if (mapUtils.parkingShown) {
+
+        if (store.parkingShown) {
             mapUtils.map.fitBounds(mapUtils.parkingBounds);
         }
-        
-        $("#map-parking-toggle").text(mapUtils.parkingShown ? "Hide parking" : "Show parking");
+
     },
     clearMap: _ => {
-        mapUtils.modalTitle.text("");
+        // clear the current location in vue
         // if there's an active marker on the map, remove it from the map.
-        if (mapUtils.activeMarker) 
+        if (mapUtils.activeMarker)
             mapUtils.activeMarker.setMap(null);
 
         // if there's an onclick listener on the marker, remove it/make it undefined.
@@ -248,7 +247,6 @@ const mapUtils = {
             mapUtils.infoWindow.setContent("");
         }
     },
-    parkingShown: false,
     parkingMarkers: []
 };
 const locations = [
@@ -265,105 +263,83 @@ const locations = [
     { abbr: "FXB", full: "Fran\u00e7ois-Xavier Bagnoud Building"},
 ];
 const parking = [
-    { lot: "NC5", lat: 42.288055, lng: -83.714438 },
-    { lot: "NC8", lat: 42.287934, lng: -83.713655 },
+    { lot: "Bonisteel", lat: 42.29042, lng: -83.71582 },
     { lot: "NC10", lat: 42.289723, lng: -83.721736 },
     { lot: "NC27", lat: 42.292254, lng: -83.718010 },
     { lot: "NC43", lat: 42.287924, lng: -83.717173 },
-    { lot: "NC48", lat: 42.293288, lng: -83.717167 },
-    { lot: "NC60", lat: 42.290550, lng: -83.712640 }
 ];
 const markers = {
-    "PIER": { lat: 42.291384, lng: -83.717490},
+    "Pierpont Commons": { lat: 42.291384, lng: -83.717490},
     "DUDE CON": { lat: 42.291225, lng: -83.716470},
-    "DUDE GAL": { lat: 42.291166, lng: -83.716745},
+    "Duderstadt Center": { lat: 42.291166, lng: -83.716745},
     "CHRYS 133": { lat: 42.290646, lng: -83.716900},
     "CHRYS 220": { lat: 42.290877, lng: -83.716737},
     "BBB 1670": { lat: 42.292868, lng: -83.716273},
     "BBB 1690": { lat: 42.292870, lng: -83.716463},
     "DOW 1005": { lat: 42.292721, lng: -83.715589},
+    "Outside DOW 1005": { lat: 42.292721, lng: -83.715589},
     "DOW 1006": { lat: 42.292919, lng: -83.715597},
     "DOW 1010": { lat: 42.292937, lng: -83.715503},
     "DOW 1013": { lat: 42.292728, lng: -83.715412},
     "DOW 1014": { lat: 42.292945, lng: -83.715350},
     "DOW 1017": { lat: 42.292745, lng: -83.715261},
     "DOW 1018": { lat: 42.292880, lng: -83.715223},
+    "DOW 2150": { lat: 42.292729, lng: -83.715241},
+    "DOW 2166": { lat: 42.292742, lng: -83.715623},
     "GGBL 1571": { lat: 42.293140, lng: -83.714917},
     "EECS 1003": { lat: 42.292653, lng: -83.714466},
     "EECS 1005": { lat: 42.292653, lng: -83.714466},
+    "EECS 1008": { lat: 42.292653, lng: -83.714466},
     "EECS 1012": { lat: 42.292653, lng: -83.714466},
     "EECS 1200": { lat: 42.292548, lng: -83.714585},
     "EECS 1303": { lat: 42.292502, lng: -83.714353},
     "EECS 1311": { lat: 42.292323, lng: -83.714417},
     "EECS 1500": { lat: 42.292271, lng: -83.714581},
+    "FXB 1008": { lat: 42.293756, lng: -83.711559},
     "FXB 1109": { lat: 42.293502, lng: -83.711731},
-    "IOE 1610": { lat: 42.291245, lng: -83.713716}
+    "IOE 1610": { lat: 42.291245, lng: -83.713716},
 };
 
-function initMap(){
-    mapUtils.map = new google.maps.Map(document.getElementById('map'), {
-        center: new google.maps.LatLng(42.291964, -83.715810),
+window.initMap = function() {
+    mapUtils.map = new window.google.maps.Map(document.getElementById('map'), {
+        center: new window.google.maps.LatLng(42.291964, -83.715810),
         zoom: 18,
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        mapTypeId: window.google.maps.MapTypeId.ROADMAP,
         gestureHandling: "greedy"
     });
-    
-    mapUtils.infoWindow = new google.maps.InfoWindow();
-    mapUtils.modalTitle = $("#map-active-loc");
-    
-    mapUtils.parkingBounds = new google.maps.LatLngBounds();
-    
+
+    mapUtils.infoWindow = new window.google.maps.InfoWindow();
+    mapUtils.parkingBounds = new window.google.maps.LatLngBounds();
+
     //Initialize parking markers
     parking.forEach(lot => {
-        let mkr = new google.maps.Marker({
+        let mkr = new window.google.maps.Marker({
             position: lot,
             map: null,
-            title: lot.lot + " Parking Lot",
+            title: lot.lot + " Parking",
             icon: "../img/kickoff/icons/parking.png"
         });
-        
-        google.maps.event.addListener(mkr, "click", ((mkr) =>
+
+        window.google.maps.event.addListener(mkr, "click", ((mkr) =>
             () => {
                 mapUtils.infoWindow.setContent(`<h5>${mkr.getTitle()}</h5>`);
                 mapUtils.infoWindow.open(mapUtils, mkr);
             })(mkr));
-        
+
         mapUtils.parkingMarkers.push(mkr);
         mapUtils.parkingBounds.extend(lot);
     });
 };
 
 const ready = () => {
-    // Asynchronously Load the map API
-    const script = $(document.createElement('script'));
-    script.attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap");
-    $(document.body).append(script);
-    
-    //Load team information
-    fetch("../../js/kickoff/teamlist.json")
-    .then( (response) =>{
-        if (!response.ok) throw Error(response.statusText);
-        return response.json();
-    }).then(teams => {
-        allTeams = teams;
-        
-        const teamNum = localStorage.getItem("team")
 
-        if (teamNum !== null) {
-            $("#teamNumInput").val(teamNum);
-            teamNumAccepted(parseInt(teamNum), false);
-        } else {
-            teamNumAccepted(0, false)
-        }
-    }).catch(console.log);
-    
     //Initialize countdown clock
     const computeDiff = () => {
         let diff = (getTime(10, 30).getTime() - (new Date()).getTime());
         let d, h, m, s;
 
         const clockDiv = $(".countdown-clock");
-        
+
         if (diff <= 0) {
             diff = (getTime(18, 0).getTime() - (new Date()).getTime());
             if (diff <= 0) {
@@ -389,9 +365,14 @@ const ready = () => {
 
             clockDiv.text(`${d}d ${h}h ${m}m ${s}s`);
         }
-        
+
     };
-    
+
     computeDiff();
     setInterval(computeDiff, 1000);
 };
+
+
+createApp({store, assignments, mapUtils}).mount()
+
+window.mapUtils = mapUtils;

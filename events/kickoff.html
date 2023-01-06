@@ -106,6 +106,7 @@ schedule:
 <html lang="en">
 <head>
     {% include title-styles.html %}
+    <script type="module" src="{{site.url}}/js/kickoff/page.js"></script>
     <style>
         .table th {
             text-align: center;
@@ -283,9 +284,9 @@ schedule:
                                 <p class="event-title m-0 text-dark">
                                     {{ event.title }}
                                 </p>
-                                <p class="text-location"> 
+                                <p class="text-location" v-cloak>
                                     {% if event.custom_key %}
-                                        <span v-if="assignments[store.team]?.{{ event.custom_key }}" v-cloak>
+                                        <span v-if="assignments[store.team]?.{{ event.custom_key }}">
                                             <i>{% raw %}{{{% endraw %}assignments[store.team]?.{{ event.custom_key}}{% raw %}}}{% endraw %}</i>
                                         </span>
                                         {% if event.location %}
@@ -304,9 +305,18 @@ schedule:
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col col-12 col-lg-6 d-flex flex-column" style="min-height:500px">
-                    <h2 id="event-map">Event Map</h2>
-                    <iframe src="https://www.google.com/maps/d/embed?mid=1q5jw_Bi0lDXJAXNHIrh-vLfEt4etEwg&ehbc=2E312F" class="w-100 flex-grow-1" title="FAMNM FRC Kickoff Map"></iframe>
+                <div class="col col-12 col-lg-6 d-flex flex-column" style="min-height:500px" v-scope>
+                    <h2 id="event-map">
+                        Event Map<span v-cloak v-if="store.location">: {% raw %}{{ store.location }}{% endraw %}</span>
+                    </h2>
+                    <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1q5jw_Bi0lDXJAXNHIrh-vLfEt4etEwg&ehbc=2E312F" class="w-100 flex-grow-1" title="FAMNM FRC Kickoff Map"></iframe> -->
+                    <div id="map"></div>
+                    <button id="map-parking-toggle" type="button" class="btn famnm-btn-secondary"
+                        @click="mapUtils.toggleParking()" v-cloak>
+                        {% raw %}
+                            {{ store.parkingShown ? 'Hide' : 'Show' }} parking
+                        {% endraw %}
+                    </button>
                 </div>
             </div>
             <div class="row pt-2">
@@ -359,7 +369,7 @@ schedule:
     
     {% include footer.html %}
     {% include scripts.html %}
-    <script type="module" src="{{site.url}}/js/kickoff/page.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap" defer></script>
     <style>
         .schedule-time {
             text-align: right;
