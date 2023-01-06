@@ -255,8 +255,8 @@ schedule:
             </div>
             <div class="row mt-2">
                 <div class="col col-12 col-lg-6" v-scope>
-                    <h2 id="sched" class="m-0">Schedule
-                        <span v-if="assignments[store.team]" v-cloak>{% raw %}
+                    <h2 id="sched" v-cloak>Schedule
+                        <span v-if="assignments[store.team]">{% raw %}
                             for {{ store.team }}
                         {% endraw %}</span>
                     </h2>
@@ -315,9 +315,9 @@ schedule:
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col col-12 col-lg-6 d-flex flex-column gap-2" style="min-height:500px" v-scope>
-                    <h2 id="event-map">
-                        Event Map<span v-cloak v-if="store.location">: {% raw %}{{ store.location }}{% endraw %}</span>
+                <div class="col col-12 col-lg-6 d-flex flex-column" style="min-height:500px" v-scope>
+                    <h2 id="event-map" v-cloak>
+                        Event Map<span v-if="store.location">: {% raw %}{{ store.location }}{% endraw %}</span>
                     </h2>
                     <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1q5jw_Bi0lDXJAXNHIrh-vLfEt4etEwg&ehbc=2E312F" class="w-100 flex-grow-1" title="FAMNM FRC Kickoff Map"></iframe> -->
                     <div id="map"></div>
@@ -352,30 +352,6 @@ schedule:
         </main>
         
     </div>
-    <!-- /.container -->
-    
-    <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="mapModal-title" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title" id="mapModal-title">North Campus Map: <span id="map-active-loc"></span></h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div id="map"></div>
-                </div>
-                <div class="modal-footer">
-                    <span>All parking is free for the duration of the event.</span>
-                    <button id="map-parking-toggle" type="button" class="btn btn-primary"
-                    onclick="mapUtils.toggleParking()">Show parking</button>
-                    <button type="button" class="btn famnm-btn-secondary" data-bs-dismiss="modal" onclick="mapUtils.clearMap()">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
     
     {% include footer.html %}
     {% include scripts.html %}

@@ -126,52 +126,53 @@ let activeTeam = {};
 let allTeams = {};
 const schedule = [
     {
-        event: "Team Check-In",
-        start: getTime(8, 0),
-        end: getTime(10, 0),
-        location: {name: "DUDE CON", custom: false},
-    },
-    {
-        event: "Breakout Rooms Open",
-        start: getTime(8, 0),
-        end: getTime(10, 0),
-        location: {name: "breakout", custom: true},
-    },
-    /*{
-        event:"North Campus Tours",
-        start:getTime(8,15),
-        end:getTime(9,15),
-        location:"PIER"
-    },*/
-    {
-        event: "UM Fair",
-        start: getTime(8, 30),
-        end: getTime(10, 0),
-        location: {name: "DUDE CON", custom: false},
-    },
-    {
-        event: "Opening Ceremonies and Broadcast",
-        start: getTime(10, 0),
+        event: 'Check-In',
+        start: getTime(9, 0),
         end: getTime(11, 30),
-        location: {name: "broadcast", custom: true},
+        location: 'Pierpont Commons',
+        icon: 'checkin.png'
     },
     {
-        event: "Kit of Parts Distribution",
+        event: 'Engineering Organization Fair',
+        start: getTime(9, 30),
+        end: getTime(11, 30),
+        location: 'Duderstadt Center',
+        icon: 'orgfair.png'
+    },
+    {
+        event: 'Undergraduate Robotics Program Information Session',
+        start: getTime(9, 30),
+        end: getTime(10, 30),
+        location: 'GGBL 1571',
+        icon: 'robinfo.png'
+    },
+    {
+        event: 'Guest Speakers',
         start: getTime(11, 30),
-        end: getTime(15, 0),
-        location: {name: "CHRYS 133", custom: false},
+        end: getTime(11, 45),
+        location: team => assignments[team]?.auditorium,
+        icon: 'auditorium.png'
     },
     {
-        event: "Virtual Game Field Open",
+        event: 'FIRST Broadcast',
         start: getTime(11, 45),
-        end: getTime(15, 0),
-        location: {name: "DOW 1010", custom: false},
+        end: getTime(13, 0),
+        location: team => assignments[team]?.auditorium,
+        icon: 'auditorium.png'
     },
     {
-        event: "Breakout Rooms Open",
-        start: getTime(11, 30),
-        end: getTime(18, 0),
-        location: {name: "breakout", custom: true},
+        event: 'Breakout Rooms',
+        start: getTime(13, 0),
+        end: getTime(17, 0),
+        location: team => assignments[team]?.breakout,
+        icon: 'breakout.png'
+    },
+    {
+        event: 'Kit distribution',
+        start: getTime(13, 0),
+        end: getTime(16, 30),
+        location: 'Outside DOW 1005',
+        icon: 'kitdist.png'
     }
 ];
 
@@ -326,6 +327,23 @@ window.initMap = function() {
         mapUtils.parkingMarkers.push(mkr);
         mapUtils.parkingBounds.extend(lot);
     });
+
+    // Initialize team-agnostic location markers
+    for (const event of schedule) {
+        if (typeof event.location !== 'function') {
+            const marker = new window.google.maps.Marker({
+                position: markers[event.location],
+                map: mapUtils.map,
+                title: event.event,
+                icon: `../img/kickoff/icons/${event.icon}`
+            });
+            window.google.maps.event.addListener(marker, "click", ((marker, event) =>
+                () => {
+                    mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6>${event.location}</h6>`);
+                    mapUtils.infoWindow.open(mapUtils, marker);
+                })(marker, event));
+        }
+    }
 };
 
 const ready = () => {
