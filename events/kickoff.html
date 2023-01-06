@@ -287,10 +287,10 @@ schedule:
                                 </p>
                                 <a class="text-location" 
                                 {% if event.custom_key %}
-                                    :class="{ disabled: !(assignments[store.team]?.{{ event.custom_key }} in markers) && !('{{ event.location }}' in markers) }"
+                                    :disabled="!(assignments[store.team]?.{{ event.custom_key }} in markers) && !('{{ event.location }}' in markers)"
                                     @click="mapUtils.navigate('{{ event.title }}', '{{ event.location }}', '{{ event.custom_key }}')"
                                 {% else %}
-                                    :class="{ disabled: !('{{ event.location }}' in markers) }"
+                                    :disabled="!('{{ event.location }}' in markers)"
                                     @click="mapUtils.navigate('{{ event.title }}', '{{ event.location }}')"
                                 {% endif %}
                                     href="#event-map"
@@ -459,8 +459,13 @@ schedule:
             color: #545454;
         }
 
-        .text-location:not(.disabled):after {
+        .text-location:not([disabled="true"]):after {
             content: "↗";
+        }
+
+        .text-location[disabled="true"] {
+            pointer-events: none;
+            cursor: not-allowed;
         }
     </style>
 </body>
