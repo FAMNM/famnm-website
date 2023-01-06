@@ -1,4 +1,13 @@
-const getTime = (hour, minute) => new Date(2022, 0, 8, hour, minute, 0, 0, 0);
+import { createApp, reactive } from 'https://unpkg.com/petite-vue@0.2.2/dist/petite-vue.es.js'
+import assignments from './rooms.js'
+
+const store = reactive({
+    team: localStorage.getItem('team') ?? '',
+})
+
+createApp({store, assignments}).mount()
+
+const getTime = (hour, minute) => new Date(2023, 0, 7, hour, minute, 0, 0, 0);
 
 const getTimeString = (time) => {
     return time.toLocaleTimeString('en-US', {hour12: true, hour: 'numeric', minute: '2-digit'});
@@ -292,7 +301,7 @@ const markers = {
 };
 
 function initMap(){
-    mapUtils.map = new google.maps.Map($("#map").get(0), {
+    mapUtils.map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(42.291964, -83.715810),
         zoom: 18,
         mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -324,7 +333,7 @@ function initMap(){
     });
 };
 
-$(document).ready(() => {
+const ready = () => {
     // Asynchronously Load the map API
     const script = $(document.createElement('script'));
     script.attr("src", "https://maps.googleapis.com/maps/api/js?key=AIzaSyBRT2h0ZMOhp3GCf17rBzi_9QHkoQS9aws&callback=initMap");
@@ -356,7 +365,7 @@ $(document).ready(() => {
         const clockDiv = $(".countdown-clock");
         
         if (diff <= 0) {
-            diff = (getTime(18, 00).getTime() - (new Date()).getTime());
+            diff = (getTime(18, 0).getTime() - (new Date()).getTime());
             if (diff <= 0) {
                 clockDiv.text("We hope you enjoyed kickoff! Good luck this season!")
             } else {
@@ -385,4 +394,4 @@ $(document).ready(() => {
     
     computeDiff();
     setInterval(computeDiff, 1000);
-});
+};
