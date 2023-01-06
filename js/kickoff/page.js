@@ -58,6 +58,14 @@ const store = reactive({
     now: new Date(),
 })
 
+function eventLocation(event) {
+    if (typeof event.location === 'function') {
+        return event.location(store.team)
+    } else {
+        return event.location
+    }
+}
+
 const mapUtils = {
     toggleParking: _ => {
         store.parkingShown = !store.parkingShown;
@@ -88,7 +96,7 @@ const mapUtils = {
             mapUtils.infoWindow.close();
         }
     },
-    navigate(name, markerId) {
+    navigate(markerId) {
         if (markerId in mapUtils.locationMarkers) {
             const marker = mapUtils.locationMarkers[markerId];
 
@@ -98,11 +106,11 @@ const mapUtils = {
             mapUtils.map.setZoom(18);
 
             // create the click event to show the text popup
-            mapUtils.winListener = google.maps.event.addListener(marker, "click", ((mkr, markerId, name) =>
+            mapUtils.winListener = google.maps.event.addListener(marker, "click", ((mkr, markerId) =>
                 () => {
-                    mapUtils.infoWindow.setContent(`<h5>${name}</h5><h6>${schedule[markerId].location}</h6>`);
+                    mapUtils.infoWindow.setContent(`<h5>${schedule[markerId].event}</h5><h6>${eventLocation(schedule[markerId])}</h6>`);
                     mapUtils.infoWindow.open(mapUtils, mkr);
-                })(marker, markerId, name));
+                })(marker, markerId));
 
             // after .5 seconds, trigger the click event and
             setTimeout(() => google.maps.event.trigger(marker, "click"), 50);
@@ -191,7 +199,7 @@ window.initMap = function() {
             });
             window.google.maps.event.addListener(marker, "click", ((marker, event) =>
                 () => {
-                    mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6>${event.location}</h6>`);
+                    mapUtils.infoWindow.setContent(`<h5>${marker.getTitle()}</h5><h6>${eventLocation(event)}</h6>`);
                     mapUtils.infoWindow.open(mapUtils, marker);
                 })(marker, event));
             mapUtils.locationMarkers[eventId] = marker;

@@ -220,7 +220,7 @@ schedule:
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
-                    <h3 v-scope v-cloak>
+                    <h3 v-scope v-cloak class="d-print-none">
                         {% raw %}
                         {{ countdown(store.now, kickoffTime) }}
                         {% endraw %}
@@ -237,7 +237,7 @@ schedule:
                     <p v-else class="mb-1">
                         Enter your team number for your assigned auditorium and breakout room.
                     </p>
-                    <input id="team-number" class="form-control form-control-lg flex-shrink-1" type="number"
+                    <input id="team-number" class="form-control form-control-lg flex-shrink-1 d-print-none" type="number"
                         v-scope v-model="store.team" placeholder="Team number..." min="1" max="9999" maxlength="4"
                         :class="{ 'is-valid': assignments[store.team], 'is-invalid': typeof store.team === 'number' && !(store.team in assignments) }">
                     <span class="hidden" v-effect="onTeamChange(store.team)"></span>
@@ -250,7 +250,7 @@ schedule:
                             for {{ store.team }}
                         {% endraw %}</span>
                     </h2>
-                    <h6>Click on each location to highlight it on the map.</h6>
+                    <h6 class="d-print-none">Click on each location to highlight it on the map.</h6>
                     <div id="schedule-table" class="mt-4">
                         {% for time in page.schedule.times %}
                             <span class="schedule-time-border" style="grid-row:{{forloop.index}}"></span>
@@ -281,7 +281,7 @@ schedule:
                                 {% else %}
                                     :disabled="!('{{ event.location }}' in markers)"
                                 {% endif %}
-                                    @click="mapUtils.navigate('{{ event.title }}', '{{ event.marker_id }}')"
+                                    @click="mapUtils.navigate('{{ event.marker_id }}')"
                                     href="#event-map"
                                     v-cloak>
                                     {% if event.custom_key %}
@@ -310,7 +310,7 @@ schedule:
                     </h2>
                     <!-- <iframe src="https://www.google.com/maps/d/embed?mid=1q5jw_Bi0lDXJAXNHIrh-vLfEt4etEwg&ehbc=2E312F" class="w-100 flex-grow-1" title="FAMNM FRC Kickoff Map"></iframe> -->
                     <div id="map"></div>
-                    <button id="map-parking-toggle" type="button" class="btn btn-secondary"
+                    <button id="map-parking-toggle" type="button" class="btn btn-secondary d-print-none"
                         @click="mapUtils.toggleParking()" v-cloak>
                         {% raw %}
                             {{ store.parkingShown ? 'Hide' : 'Show' }} parking
