@@ -249,6 +249,7 @@ function countdown(now, kickoffTime) {
 }
 
 function populateTeamMarkers(team) {
+    if (!window?.google?.maps) return;
     // Populate the team-specific markers as available
     for (const [eventId, event] of Object.entries(schedule)) {
         if (typeof event.location === 'function' && event.location(store.team)) {
