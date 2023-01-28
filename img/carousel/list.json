@@ -1,8 +1,13 @@
 [
     {
-        "title": "FAMNM FRC Kickoff",
-        "description": "Teams listen to a talk from the University's Dr. Krishna Garikipati at the reveal of FIRST\u00ae DESTINATION: DEEP SPACE Presented By The Boeing Company",
-        "img": "frc-kickoff-talk-2019.jpg"
+        "title": "2023 FRC Kickoff",
+        "description": "Teams learn about the University of Michigan Robotics Institute prior to the reveal of FIRST\u00ae CHARGED UP presented by Haas",
+        "img": "../kickoff/2023/rob-presentation.jpeg"
+    },
+    {
+        "title": "Ri3D Under Development",
+        "description": "FAMNM's Robot in 3 Days team tests its new intake on cubes from CHARGED UP",
+        "img": "../ri3d/2023/claw-build.jpeg"
     },
     {
         "title": "At the Apple Orchard",
@@ -11,23 +16,13 @@
     },
     {
         "title": "FACC Winners!",
-        "description": "FAMNM's new Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
+        "description": "FAMNM's Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
         "img": "../ri3d/2019-winners.jpg"
     },
     {
         "title": "Volunteering",
         "description": "FAMNM wins the Volunteer Award at the 2018 East Jackson FTC Qualifier!",
         "img": "east-jackson-ftc.jpg"
-    },
-    {
-        "title": "Kettering FLL Qualifier",
-        "description": "FAMNM judges at the Kettering FLL event in November 2018",
-        "img": "kettering-fll-2018.jpg"
-    },
-    {
-        "title": "FAMNM Game Night",
-        "description": "FAMNM celebrates a successful semester with a night of food and games",
-        "img": "game-night-2018.jpg"
     },
     {
         "title": "Lincoln District Event",
