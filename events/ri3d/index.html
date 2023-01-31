@@ -95,40 +95,48 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
             border: solid silver 4px;
             margin-top: 10px;
         }
+
+        #ri3d-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('/img/ri3d/2023/banner.jpeg');
+            background-size: cover;
+            background-position: center 60%;
+            background-repeat: no-repeat;
+            min-height: calc(min(70vh, 36rem));
+        }
+
+        .img-contain picture, .img-contain img {
+            border-radius: 1rem;
+        }
+
+        .bi {
+            display: inline-block;
+            vertical-align: -0.125em;
+            fill: currentColor;
+        }
         
     </style>
 </head>
 <body>
     {% include header.html %}
     
+    <div class="hero p-4" id="ri3d-banner">
+        <div class="container content bg-black text-light rounded" style="--bs-bg-opacity: 0.5">
+            <h1 class="display-2 p-2 fw-bold d-inline-flex">FAMNM Robot in 3 Days</h1>
+            <div class="col mb-4">
+                <p class="lead text-light">Introducing our 2023 Robot in 3 Days, L.A.R.R.Y., for <i>CHARGED UP</i></p>
+            </div>
+            <div class="col mb-4">
+                <a href="https://www.youtube.com/playlist?list=PLSr939s0l0jtgNI9PlhpGPy69uy1q3EpP" class="btn btn-lg btn-primary" role="button" rel="noreferrer noopener" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube" viewBox="0 0 16 16">
+                        <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+                    </svg>
+                    2023 Videos
+                </a>
+            </div>
+        </div>
+    </div>
+
     <div class="container content">
-        <h1>FAMNM Robot in 3 Days</h1>
-        <div class="row desc-row text-start">
-            <div class="col-md-6 desc">
-                <h2 id="student-involvement">How do I get involved with Ri3D?</h2>
-                <p>All interested University of Michigan students are able to be a part of the FAMNM Ri3D team, provided they</p>
-                <ul>
-                    <li>Join the team by attending an Ri3D informational meeting or contacting <a href="mailto:famnm.ri3d@umich.edu">the Ri3D coordinator</a></li>
-                    <li>Attend 4 required planning meetings</li>
-                    <li>Get Wilson center training by the training deadline, which will be dependent on the year (usually early December)</li>
-                    <li>Commit to attend all 3 days of build</li>
-                    <li>Commit to attend at least one auxiliary event (bumpers, live streams, competition)</li>   
-                </ul>
-                <p>If you have further questions, please email <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
-            </div>
-            <div class="col-md-6 img-contain">
-                <img class="mx-auto" src="{{site.url}}/img/ri3d/2019-team-conf-room.png"/>
-            </div>
-        </div>
-        <div class="row desc-row text-start">
-            <div class="col-md-6 img-contain">
-                <img class="mx-auto" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
-            </div>
-            <div class="col-md-6 desc">
-                <h2 id="sponsor">How do I sponsor the FAMNM Ri3D team?</h2>
-                <p>The FAMNM Ri3D team is currently looking for sponsors! If you would like to sponsor us, please contact our coordinator at <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
-            </div>
-        </div>
         <div class="row desc-row text-start">
             <div class="col-md-6 desc">
                 <h2 id="overview">What is Ri3D?</h2>
@@ -147,8 +155,42 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
             </div>
         </div>
         <div class="row desc-row text-start">
+            <div class="col-md-6 desc">
+                <h2 id="student-involvement">How do I get involved with Ri3D?</h2>
+                <p>All interested University of Michigan students are able to be a part of the FAMNM Ri3D team, provided they</p>
+                <ul>
+                    <li>Join the team by attending an Ri3D informational meeting or contacting <a href="mailto:famnm.ri3d@umich.edu">the Ri3D coordinator</a></li>
+                    <li>Attend 4 required planning meetings</li>
+                    <li>Get Wilson center training by the training deadline, which will be dependent on the year (usually early December)</li>
+                    <li>Commit to attend all 3 days of build</li>
+                    <li>Commit to attend at least one auxiliary event (bumpers, live streams, competition)</li>   
+                </ul>
+                <p>If you have further questions, please email <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
+            </div>
             <div class="col-md-6 img-contain">
-                <img class="mx-auto" src="{{site.url}}/img/ri3d/andrew-can-use-rivets.png"/>
+                <picture>
+                    <source srcset="/img/ri3d/2023/sketch.webp" type="image/webp">
+                    <source srcset="/img/ri3d/2023/sketch.jpeg" type="image/jpeg">
+                    <img src="/img/ri3d/2023/sketch.jpeg" alt="FAMNM's Ri3D team sketches mechanism ideas">
+                </picture>
+            </div>
+        </div>
+        <div class="row desc-row text-start">
+            <div class="col-md-6 img-contain">
+                <img class="mx-auto" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
+            </div>
+            <div class="col-md-6 desc">
+                <h2 id="sponsor">How do I sponsor the FAMNM Ri3D team?</h2>
+                <p>The FAMNM Ri3D team is currently looking for sponsors! If you would like to sponsor us, please contact our coordinator at <a href="mailto:famnm.ri3d@umich.edu">famnm.ri3d@umich.edu</a>.</p>
+            </div>
+        </div>
+        <div class="row desc-row text-start">
+            <div class="col-md-6 img-contain">
+                <picture>
+                    <source srcset="/img/ri3d/2023/claw-build.webp" type="image/webp">
+                    <source srcset="/img/ri3d/2023/claw-build.jpeg" type="image/jpeg">
+                    <img src="/img/ri3d/2023/claw-build.jpeg" alt="Testing the intake with cubes from CHARGED UP">
+                </picture>
             </div>
             <div class="col-md-6 desc">
                 <h2 id="purpose">Why does FAMNM have an Ri3D team?</h2>
@@ -163,8 +205,7 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                 </p>
             </div>
         </div>
-        <div>
-            <br/>
+        <div class="row my-2">
             <h3 class="text-center">Our Ri3D Sponsors</h3>
             <ul class="sponsor-display gold-sponsor">
                 <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan College of Engineering">
@@ -198,7 +239,6 @@ title: Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan
                 <a class="mx-auto btn famnm-btn-secondary" href="2020.html">2020 Build Documentation</a>
             </p>
             <h3>2019 - Destination: Deep Space</h3>
-            <p><i>Presented by the Boeing Company</i></p>
             <a class="mx-auto btn famnm-btn-secondary" href="2019.html">2019 Build Documentation</a>
         </div>
     </div><!-- /.container -->
