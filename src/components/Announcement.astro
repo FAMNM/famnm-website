@@ -1,0 +1,41 @@
+---
+interface Props {
+    title: string;
+    image: string;
+    alt: string;
+    links: Array<{
+        text: string;
+        link: string;
+    }>;
+}
+
+const { title, image, alt, links } = Astro.props;
+---
+
+<div class="col h-3 flex-grow-1">
+    <div class="row g-0">
+        {
+            image !== undefined && (
+                <img src={image} class="rounded-4 feature-img" alt={alt} />
+            )
+        }
+
+        <div class="mt-3">
+            <h4>{title}</h4>
+            <p><slot /></p>
+            {
+                links.map(({ text, link }) => (
+                    <p>
+                        <a
+                            href={link}
+                            target="_blank"
+                            rel="noreferrer noopener"
+                        >
+                            {text}
+                        </a>
+                    </p>
+                ))
+            }
+        </div>
+    </div>
+</div>

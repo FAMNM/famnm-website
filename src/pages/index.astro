@@ -1,15 +1,147 @@
 ---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Announcement from "../components/Announcement.astro";
+import FrontpageCarousel from "../components/FrontpageCarousel.astro";
 ---
 
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width" />
-        <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
-    </head>
-    <body>
-        <h1>Astro</h1>
-    </body>
-</html>
+<BaseLayout title="FIRST® Alumni & Mentors Network at Michigan">
+    <main>
+        <div class="container p-4">
+            <div class="row align-items-center">
+                <div class="col-sm-12">
+                    <img
+                        id="frontpage-logo"
+                        class="center img-fluid"
+                        src="img/logo.png"
+                        alt="Logo for FIRST Alumni and Mentors Network at Michigan"
+                    />
+                </div>
+                <div class="col-sm-12 col-md">
+                    <p class="text-description text-center">
+                        FAMNM is a University of Michigan student organization
+                        devoted to organizing student and departmental efforts
+                        to support the
+                        <a
+                            href="https://www.firstinspires.org"
+                            rel="noreferrer noopener"
+                            target="_blank"
+                        >
+                            <i>FIRST<sup>&reg;</sup></i>
+                        </a> program locally and throughout the
+                        <a
+                            href="https://firstinmichigan.org"
+                            rel="noreferrer noopener"
+                            target="_blank">state of Michigan</a
+                        >. FAMNM offers college students the opportunity to
+                        volunteer in various <i>FIRST<sup>&reg;</sup></i> programs
+                        and events, hosts season kickoffs and Robot-in-3-Days (Ri3D),
+                        provides funding for teams, and acts as a liaison between
+                        teams and various university departments.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <section id="home-announcements" class="container mb-4">
+            <div
+                class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center"
+            >
+                <Announcement
+                    title="FRC Kickoff"
+                    image="img/kickoff/2023/first-broadcast.jpeg"
+                    alt="Watching the FIRST broadcast during FRC kickoff"
+                    links={[{ text: "View pictures", link: "/events/kickoff" }]}
+                >
+                    FAMNM hosted a successful kickoff event for the 2023 season
+                    of <i>FIRST</i> Robotics Competition, <i>CHARGED UP</i>, on <time
+                        datetime="2023-01-07">January 7th, 2023</time
+                    > at the University of Michigan's North Campus in Ann Arbor.
+                    Good luck, teams!
+                </Announcement>
+                <Announcement
+                    title="Edison bots available"
+                    image="img/index/edison.jpg"
+                    alt="A small, two-wheeled robot with three buttons and LEGO-compatible sockets on a mat with several barcodes"
+                    links={[
+                        {
+                            text: "Get Edison",
+                            link: "https://forms.gle/FtxgiYXnpmM3mu6P7",
+                        },
+                    ]}
+                >
+                    <a href="https://meetedison.com" rel="noopener">Edison</a> is
+                    a programmable robot that makes learning to code engaging and
+                    rewarding. Its programming platforms resemble those for FLL,
+                    and it's compatible with <i>LEGO</i> build systems. We have Edison
+                    robots and kits available for students, youth, and robotics groups
+                    in the Ann Arbor area. If you're interested in getting one, please
+                    fill out the following form.
+                </Announcement>
+                <Announcement
+                    title="Interested in joining FAMNM?"
+                    image="img/index/game-night-2018.jpg"
+                    alt="FAMNM game night"
+                    links={[
+                        {
+                            text: "Interest form",
+                            link: "https://docs.google.com/forms/d/1H2tbLWFuDOSvxJC3u9dfkfBNkp8iYOowHkWAzAI-Tfg/viewform",
+                        },
+                    ]}
+                >
+                    Fill out our <a
+                        href="https://docs.google.com/forms/d/1H2tbLWFuDOSvxJC3u9dfkfBNkp8iYOowHkWAzAI-Tfg/viewform"
+                        >Winter 2023 interest form</a
+                    > so that we can add you to our Slack workspace and mailing list.
+                    Also, come to our General Body and Planning Meetings on
+                    <strong>Mondays at 7:30 PM</strong> in <strong
+                        >1690 BBB</strong
+                    >.
+                </Announcement>
+            </div>
+        </section>
+
+        <FrontpageCarousel />
+
+        <section class="container mb-4" id="volunteer-list">
+            <div class="row mb-2">
+                <h1 class="text-center">FRC Event Volunteering</h1>
+                <div class="col-12 justify-content-center d-flex">
+                    <a
+                        type="button"
+                        class="btn btn-primary"
+                        role="button"
+                        href="https://docs.google.com/spreadsheets/d/1UCGM4nxUCAH1Qh0Je3I5_5y3FJOEYYLOj3YGD2zWLFE/edit"
+                        rel="noreferrer noopener"
+                    >
+                        Sign Up to Volunteer
+                    </a>
+                </div>
+            </div>
+            <iframe
+                class="w-100"
+                height="600"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRqrg5Jl1sd2KBdCbKdu-IZlGacSHeSQ17J0uV9P8T8466u-sppaKvunt4TXbOYDnh6coyNYffbQGab/pubhtml?gid=0&single=true&widget=true&headers=false"
+            ></iframe>
+        </section>
+    </main>
+
+    <style>
+        body {
+            width: 100%;
+        }
+
+        .text-description {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        #frontpage-logo {
+            max-height: 16em;
+        }
+
+        .feature-img {
+            height: 300px;
+            object-fit: cover;
+        }
+    </style>
+</BaseLayout>
