@@ -1,5 +1,3 @@
----
----
 async function carouselLoad(src) {
     //Find list source and carousel element
     const listSource = src + "list.json";
@@ -15,19 +13,19 @@ async function carouselLoad(src) {
         slideContainer.empty();
 
         carouselItems.forEach((carouselItem, i) => {
-            
+
             // Add slide indicator
             const indicator = $(document.createElement("button"));
-            
+
             indicator.attr("data-bs-target", '#' + carousel.attr("id"));
             indicator.attr("data-bs-slide-to", i);
             if (i === 0) indicator.addClass("active");
-            
+
             carousel.children(".carousel-indicators").append(indicator);
-            
+
             // Initialize slide wrapper
             const outerDiv = $(document.createElement("div"));
-            
+
             outerDiv.addClass("carousel-item");
             if (i === 0) outerDiv.addClass("active");
 
@@ -45,7 +43,7 @@ async function carouselLoad(src) {
 
             outerDiv.append(blurredImage);
             outerDiv.append(mainImage);
-            
+
             //Initialize slide caption
 
             const captionContainer = $(document.createElement("div"));
