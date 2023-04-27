@@ -1,0 +1,12 @@
+---
+interface Props {
+    i: number;
+    active: boolean;
+}
+
+const { i, active } = Astro.props;
+
+const itemClass = active ? "active" : "";
+---
+
+<button data-bs-target="#frontpage-carousel" data-bs-slide-to={i} class={itemClass} />

@@ -1,0 +1,21 @@
+---
+interface Props {
+    src: string;
+    title: string;
+    description: string;
+    active: boolean;
+}
+
+const { src, title, description, active } = Astro.props;
+
+const itemClass = active ? "carousel-item active" : "carousel-item";
+---
+
+<div class={itemClass}>
+    <img src={src} class="carousel-back-image" aria-hidden="true">
+    <img src={src} alt={title}>
+    <div class="carousel-caption">
+        <h3>{title}</h3>
+        <p>{description}</p>
+    </div>
+</div>
