@@ -10,7 +10,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.7",
     "astro": "^2.3.0",
-    "bootstrap": "^5.2.0"
+    "bootstrap": "^5.2.3",
+    "sass": "^1.62.1"
+  },
+  "devDependencies": {
+    "@types/bootstrap": "^5.2.6"
   }
 }
