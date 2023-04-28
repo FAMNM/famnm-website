@@ -1,0 +1,48 @@
+---
+import { Image } from "@astrojs/image/components";
+
+export interface CoreMember {
+    name: string;
+    email: string;
+    img: ImageMetadata;
+    role: string;
+}
+interface Props {
+    info: CoreMember;
+}
+
+const { info } = Astro.props;
+---
+
+<div class="card">
+    <a href={`mailto:${ info.email }@umich.edu`}>
+        <Image src={info.img} fit="cover" format="webp" class="card-img-top headshot" alt={`Picture of ${ info.name }, the ${ info.role } of FAMNM.`} title={info.name} width={500} />
+        <div class="card-body px-1">
+            <h5 class="card-title mb-0">{ info.role }</h5>
+            <p class="card-text mb-0">{ info.name }</p>
+            <p class="card-text">{ info.email }@umich.edu</p>
+        </div>
+    </a>
+</div>
+
+<style>
+    /** Leadership display list **/
+    .headshot {
+        object-fit: cover;
+        height: 325px;
+    }
+    
+    .card {
+        width: 250px;
+        height: 100% !important;
+    }
+    
+    .card > a {
+        color: #3b8ac3;
+    }
+    
+    .card > a:hover {
+        text-decoration: none;
+        color: #003368;
+    }
+</style>

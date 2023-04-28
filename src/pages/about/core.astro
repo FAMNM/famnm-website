@@ -1,0 +1,89 @@
+---
+import type { CoreMember } from "../../components/about/CoreMemberCard.astro";
+import CoreMemberCard from "../../components/about/CoreMemberCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+import pres from "../../images/core/pres.jpg";
+import vp from "../../images/core/vp.png";
+import admin from "../../images/core/admin.jpg";
+import reina from "../../images/core/reina.jpg";
+import treasurer from "../../images/core/treasurer.jpg";
+import corporate from "../../images/core/corporate.jpg";
+import volunteer from "../../images/core/volunteer.jpeg";
+import webmaster from "../../images/core/webmaster.png";
+
+const people: CoreMember[] = [
+    {
+        name: "Dominik Kerschbaum",
+        email: "famnm.pres",
+        img: pres,
+        role: "President",
+    },
+    {
+        name: "Jonathan Brandell",
+        email: "famnm.vp",
+        img: vp,
+        role: "Vice President",
+    },
+    {
+        name: "Adam Austerberry",
+        email: "famnm.admin",
+        img: admin,
+        role: "Director of Internal Affairs",
+    },
+    {
+        name: "Rebecca Kowalczyk",
+        email: "famnm.corporate",
+        img: corporate,
+        role: "Director of Corporate Outreach",
+    },
+    {
+        name: "Reina Mezher",
+        email: "famnm.marketing",
+        img: reina,
+        role: "Director of Marketing & Recruitment",
+    },
+    {
+        name: "Connor Williams",
+        email: "famnm.treasurer",
+        img: treasurer,
+        role: "Treasurer",
+    },
+    {
+        name: "Jiawei Chen",
+        email: "famnm.volunteer",
+        img: volunteer,
+        role: "Volunteer Coordinator",
+    },
+    {
+        name: "Michael Peng",
+        email: "famnm.webmaster",
+        img: webmaster,
+        role: "Webmaster",
+    },
+    {
+        name: "Reina Mezher",
+        email: "famnm.kickoff",
+        img: reina,
+        role: "Kickoff Coordinator",
+    },
+    {
+        name: "Dominik Kerschbaum",
+        email: "famnm.ri3d",
+        img: pres,
+        role: "Ri3D Coordinator",
+    }
+];
+---
+
+<BaseLayout title="FAMNM Core Team | FIRST® Alumni & Mentors Network at Michigan">
+    <div class="container">
+        <div class="content">
+            <h1>FAMNM Core Team 2022-2023</h1>
+            <p class="text-center">All FAMNM Core Team members can be reached at <a href="mailto:famnm.core@umich.edu">famnm.core@umich.edu</a>.</p>
+            <div class="row g-4 row-cols-auto d-flex justify-content-center">
+                {people.map(info => <div class="col"><CoreMemberCard info={info} /></div>)}
+            </div>
+        </div>
+    </div>
+</BaseLayout>
