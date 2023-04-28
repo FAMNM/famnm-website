@@ -1,13 +1,8 @@
 ---
-title: FIRST® Alumni &amp; Mentors Network at Michigan
+import BaseLayout from "../../layouts/BaseLayout.astro";
+// TODO switch to an Astro Island (away from jQuery)
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
+<BaseLayout title="FIRST® Alumni & Mentors Network at Michigan">
     
     <form class="w-50 mx-auto attendance-form">
         <br>
@@ -21,7 +16,7 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         <div class="py-4 mx-auto d-flex justify-content-between">
             <h1 class="col-10">FAMNM Attendance Form</h1>
             <div class="col text-end">
-                <a href="view.html" class="btn famnm-btn-secondary">History</a>
+                <a href="/attendance/view" class="btn famnm-btn-secondary">History</a>
             </div>
         </div>
 
@@ -92,16 +87,8 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             </div>
         </div>
     </div>
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-    <style>
-        .form-text {
-            /* To replicate Bootstrap 4 behavior */
-            display: block;
-        }
-    </style>
-    <script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script slot="scripts">
         let attendees = [];
 
         const backendUrl = "https://famnm-website-backend.herokuapp.com/api/v2";
@@ -306,5 +293,11 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             $("#submit").click(submitMeeting);
         });
     </script>
-</body>
-</html>
+</BaseLayout>
+
+<style>
+    .form-text {
+        /* To replicate Bootstrap 4 behavior */
+        display: block;
+    }
+</style>

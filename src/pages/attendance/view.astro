@@ -1,14 +1,8 @@
 ---
-title: FIRST® Alumni &amp; Mentors Network at Michigan
+import BaseLayout from "../../layouts/BaseLayout.astro";
+// TODO switch to an Astro Island (away from jQuery)
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+<BaseLayout title="FIRST® Alumni & Mentors Network at Michigan">
     <div class="w-75 pt-5 mx-auto d-flex justify-content-between">
         <h1 class="col-10">FAMNM Attendance</h1>
         <p class="col-2">
@@ -66,9 +60,8 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
         </table>
     </div>
     
-    {% include footer.html %}
-    {% include scripts.html %}
-    <script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script slot="scripts">
         let onlyActiveMembers = false;
 
         const backendUrl = "https://famnm-website-backend.herokuapp.com/api/v2";
@@ -208,5 +201,4 @@ title: FIRST® Alumni &amp; Mentors Network at Michigan
             });
         });
     </script>
-</body>
-</html>
+</BaseLayout>
