@@ -1,5 +1,9 @@
 ---
 import Announcement from "./Announcement.astro";
+
+import firstBroadcast from "../../images/index/announcements/first-broadcast.jpeg";
+import edison from "../../images/index/announcements/edison.jpg";
+import gameNight from "../../images/index/announcements/game-night-2018.jpg";
 ---
 
 
@@ -7,7 +11,7 @@ import Announcement from "./Announcement.astro";
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
         <Announcement
             title="FRC Kickoff"
-            image="img/kickoff/2023/first-broadcast.jpeg"
+            image={firstBroadcast}
             alt="Watching the FIRST broadcast during FRC kickoff"
             links={[
                 {
@@ -22,7 +26,7 @@ import Announcement from "./Announcement.astro";
         </Announcement>
         <Announcement
             title="Edison bots available"
-            image="img/index/edison.jpg"
+            image={edison}
             alt="A small, two-wheeled robot with three buttons and LEGO-compatible sockets on a mat with several barcodes"
             links={[
                 {
@@ -38,7 +42,7 @@ import Announcement from "./Announcement.astro";
         </Announcement>
         <Announcement
             title="Interested in joining FAMNM?"
-            image="img/index/game-night-2018.jpg"
+            image={gameNight}
             alt="FAMNM game night"
             links={[
                 {

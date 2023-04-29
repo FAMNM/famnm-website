@@ -1,7 +1,13 @@
+---
+import { Image } from "@astrojs/image/components";
+
+import navbarBrand from "../images/base/icon-monochrome-dark.png";
+---
+
 <nav class="navbar navbar-dark fixed-top navbar-expand-lg bg-famnm-blue w-100">
     <div class="container-fluid px-3">
         <a class="navbar-brand" href="/index.html">
-            <img alt="FAMNM logo" src="/img/icon-monochrome-dark.png" height="22px" id="navbar-logo"/>
+            <Image alt="FAMNM logo" src={navbarBrand} format="webp" height={22} id="navbar-logo" />
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar" aria-expanded="false" aria-controls="navbar" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

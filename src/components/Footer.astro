@@ -1,6 +1,12 @@
+---
+import { Image } from "@astrojs/image/components";
+
+import footerLogo from "../images/base/logo-monochrome-dark.png";
+---
+
 <div class="footer row text-center mx-0 my-0">
     <div class="footer-col col-md-6 my-4">
-        <img id="footer-logo" class="center img-fluid h-auto" src="/img/logo-monochrome-dark.png" alt="FAMNM"/>
+        <Image id="footer-logo" class="center img-fluid h-auto" src={footerLogo} format="webp" alt="FAMNM" />
         <div id="copyright-text">
             &copy; 2023 <span class="italic">FIRST</span> Alumni and Mentors Network at Michigan
         </div>
