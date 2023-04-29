@@ -15,7 +15,7 @@
     "astro": "^2.3.2",
     "bootstrap": "^5.2.3",
     "sass": "^1.62.1",
-    "sharp": "^0.32.1"
+    "sharp": "^0.31.3"
   },
   "devDependencies": {
     "@types/bootstrap": "^5.2.6"
