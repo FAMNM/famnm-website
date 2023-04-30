@@ -3,10 +3,11 @@ module.exports = {
     'react-app',
     'airbnb',
     'plugin:import/typescript',
+    'plugin:react/recommended',
   ],
   rules: {
     'no-else-return': 'off',
-    'react/jsx-filename-extension': [1, { extensions: ['.jsx', '.tsx'] }],
+    'react/jsx-filename-extension': ['warn', { extensions: ['.jsx', '.tsx'] }],
     'react/react-in-jsx-scope': 'off',
     'import/extensions': [
       'error',

@@ -232,7 +232,7 @@ export default function ViewAttendance() {
             </tr>
           </thead>
           <tbody>
-            {displayedMembers.map((member) => <MemberRow member={member} />)}
+            {displayedMembers.map((member) => <MemberRow member={member} key={member.uniqname} />)}
           </tbody>
         </table>
       </div>
