@@ -1,6 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import backendUrl from './backendUrl';
 import exhaustivenessCheck from './exhaustivenessCheck';
+import overrideSubmit from './onSubmit';
 
 interface Member {
   uniqname: string;
@@ -24,15 +25,15 @@ interface MemberRowProps {
 function MemberRow(props: MemberRowProps) {
   const { member } = props;
 
-  let mentorEmoji: '❓' | '✅' | '🚫' = '❓';
-  if (member.mentor !== null) {
-    if (member.mentor === true) {
-      mentorEmoji = '✅';
-    } else if (member.mentor === false) {
-      mentorEmoji = '🚫';
-    } else {
-      exhaustivenessCheck(member.mentor);
-    }
+  let mentorEmoji: '❓' | '✅' | '🚫';
+  if (member.mentor === null) {
+    mentorEmoji = '❓';
+  } else if (member.mentor === true) {
+    mentorEmoji = '✅';
+  } else if (member.mentor === false) {
+    mentorEmoji = '🚫';
+  } else {
+    exhaustivenessCheck(member.mentor);
   }
 
   return (
@@ -202,13 +203,6 @@ export default function ViewAttendance() {
     setUniqnameSearch(null);
   };
 
-  const uniqnameSearchPressEnter = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter') {
-      e.preventDefault();
-      search();
-    }
-  };
-
   return (
     <>
       <div className="mt-5 w-75 mx-auto">
@@ -240,11 +234,13 @@ export default function ViewAttendance() {
       <div className="mt-5 w-75 mx-auto">
         <div className="d-flex justify-content-between">
           <h2 className="col-10">Meetings</h2>
-          <div className="col-2 mx-auto uniqname-search d-flex justify-content-end mb-3">
-            <input type="text" placeholder="uniqname" ref={uniqnameSearchField} onKeyUp={uniqnameSearchPressEnter} />
-            <button type="button" className="btn famnm-btn-secondary ms-1" onClick={search}>Search</button>
-            <button type="button" className="btn btn-secondary ms-1" onClick={clear}>Clear</button>
-          </div>
+          <form onSubmit={overrideSubmit(search)}>
+            <div className="col-2 mx-auto uniqname-search d-flex justify-content-end mb-3">
+              <input type="text" placeholder="uniqname" ref={uniqnameSearchField} />
+              <button type="submit" className="btn famnm-btn-secondary ms-1">Search</button>
+              <button type="button" className="btn btn-secondary ms-1" onClick={clear}>Clear</button>
+            </div>
+          </form>
         </div>
 
         <table className="table all-meetings">
