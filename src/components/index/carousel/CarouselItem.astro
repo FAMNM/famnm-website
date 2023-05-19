@@ -1,6 +1,8 @@
 ---
+import { Picture } from '@astrojs/image/components';
+
 interface Props {
-    src: string;
+    src: ImageMetadata;
     title: string;
     description: string;
     active: boolean;
@@ -12,10 +14,10 @@ const itemClass = active ? "carousel-item active" : "carousel-item";
 ---
 
 <div class={itemClass}>
-    <img src={src} class="carousel-back-image" aria-hidden="true">
-    <img src={src} alt={title}>
-    <div class="carousel-caption">
+    <Picture src={src} class="carousel-back-image" aria-hidden="true" alt="" widths={[860, 1280, 1920]} />
+    <Picture src={src} aria-hidden="true" alt={title} widths={[860, 1280, 1920, 3840]} />
+    <div class="carousel-caption d-none d-md-block">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <p set:html={description}></p>
     </div>
 </div>

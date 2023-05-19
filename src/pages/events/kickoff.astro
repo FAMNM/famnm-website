@@ -1,59 +1,75 @@
 ---
-title: FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan
-sponsors:
-    - 0:
-        link: "https://esg.engin.umich.edu"
-        image: "esg.png"
-        name: "Engineering Student Government"
-    - 0:
-        link: "https://engin.umich.edu"
-        image: "coe.png"
-        name: "University of Michigan College of Engineering"
-schedule:
-    times:
-        - 09:00 AM
-        - 09:30 AM
-        - 10:00 AM
-        - 10:30 AM
-        - 11:00 AM
-        - 11:30 AM
-        - 12:00 PM
-        - 12:30 PM
-        - 01:00 PM
-        - 01:30 PM
-        - 02:00 PM
-        - 02:30 PM
-        - 03:00 PM
-        - 03:30 PM
-        - 04:00 PM
-        - 04:30 PM
-        - 05:00 PM
-carousel_items:
-    - title: Engineering Organization Fair
-      caption: Teams learn about Michigan Engineering's various student organizations along with the new Undergraduate Robotics program
-      image: org-fair-ground.jpeg
-      webp: org-fair-ground.webp
-    - title: Michigan Robotics Presentation
-      caption: Damen Provost, the Managing Director of the University of Michigan Robotics Institute, introduces the institute's mission and opportunities to teams
-      image: rob-presentation.jpeg
-      webp: rob-presentation.webp
-    - title: The FAMNM Event Crew
-      caption: From parking assistance to breakout room supervision, FAMNM members and affiliated volunteers ensure a smooth kickoff experience
-      image: event-crew.jpeg
-      webp: event-crew.webp
-    - title: Kit Distribution On Site
-      caption: FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams
-      image: kit-distribution.jpeg
-      webp: kit-distribution.webp
----
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-    <style>
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Carousel from "../../components/index/carousel/Carousel.astro";
 
+const sponsors = [
+    {
+        link: "https://esg.engin.umich.edu",
+        image: "esg.png",
+        name: "Engineering Student Government"
+    },
+    {
+        link: "https://engin.umich.edu",
+        image: "coe.png",
+        name: "University of Michigan College of Engineering"
+    },
+];
+
+// function hoursToTime(hours: number): string {
+//     function padZero(_in: any) {
+//         let s = `${_in}`;
+//         while (s.length < 2) s = '0' + s;
+//         return s;
+//     }
+//     const ampm = hours >= 12 ? 'PM' : 'AM';
+//     const displayHourMinutes = (hours + 11) % 12 + 1;
+//     const displayHour = Math.floor(displayHourMinutes);
+//     const displayMinute = Math.round((displayHourMinutes - displayHour) * 60);
+//     return `${padZero(displayHour)}:${padZero(displayMinute)} ${ampm}`;
+// }
+
+// const scheduleTimes = (() => {
+//     const times = [];
+//     for (let hour = 9; hour <= 17; hour += 0.5) {
+//         times.push(hoursToTime(hour));
+//     }
+//     return times;
+// })();
+
+import imgSeasonLogo from "../../images/events/frc-kickoff/2023/season_logo.png";
+import imgOrgFair from "../../images/events/frc-kickoff/2023/org-fair-ground.jpeg";
+import imgRobPresentation from "../../images/events/frc-kickoff/2023/rob-presentation.jpeg";
+import imgEventCrew from "../../images/events/frc-kickoff/2023/event-crew.jpeg";
+import imgKitDistribution from "../../images/events/frc-kickoff/2023/kit-distribution.jpeg";
+import { Image } from "@astrojs/image/components";
+
+
+const carouselItems = [
+    {
+        title: 'Engineering Organization Fair',
+        description: 'Teams learn about Michigan Engineering\'s various student organizations along with the new Undergraduate Robotics program',
+        src: imgOrgFair,
+    },
+    {
+        title: 'Michigan Robotics Presentation',
+        description: 'Damen Provost, the Managing Director of the University of Michigan Robotics Institute, introduces the institute\'s mission and opportunities to teams',
+        src: imgRobPresentation
+    },
+    {
+        title: 'The FAMNM Event Crew',
+        description: 'From parking assistance to breakout room supervision, FAMNM members and affiliated volunteers ensure a smooth kickoff experience',
+        src: imgEventCrew
+    },
+    {
+        title: 'Kit Distribution On Site',
+        description: 'FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams',
+        src: imgKitDistribution
+    }
+];
+---
+<BaseLayout title="FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
+    <style slot="head">
         /** Sponsor display list **/
-        
         ul.sponsor-display {
             padding: 0;
             vertical-align: middle;
@@ -110,17 +126,12 @@ carousel_items:
             max-height: 180px;
         }
     </style>
-</head>
-<body>
-    {% include header.html %}
-    
     <main>
         <div class="container content">
             <div class="row justify-content-center pb-4">
                 <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
                     <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CHARGED UP season information" rel="noopener noreferrer" target="_blank">
-                        <img class="center w-100" src="/img/kickoff/2023/season_logo.png"
-                            alt="Charged Up, presented by Haas">
+                        <img class="center w-100" src={imgSeasonLogo.src} alt="Charged Up, presented by Haas" />
                     </a>
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
@@ -130,74 +141,30 @@ carousel_items:
                         <i>CHARGED UP</i>, on <time datetime="2023-01-07">Saturday, January 7th, 2023</time>
                         at the University of Michigan's <a href="https://goo.gl/maps/SviBGJZca11mxoX19" rel="noopener noreferrer">North Campus</a>.
                         The kickoff featured an engineering student organization fair, an info session about the University of Michigan's new Undergraduate Robotics program,
-                        guest speakers, and team breakout rooms, with more than 40 teams in attendance. Good luck, teams!
+                        guest speakers, and team breakout rooms, with more than 40 teams in attendance.
                     </p>
                 </div>
             </div>
         </div>
-        <div id="image-carousel" class="carousel slide" data-bs-ride="false">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#image-carousel"
-                    data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                {% assign replicate_indicator_count = page.carousel_items.size | minus: 1 %}
-                {% for i in (1..replicate_indicator_count) %}
-                <button type="button" data-bs-target="#image-carousel"
-                    data-bs-slide-to="{{ i }}" aria-label="Slide {{ i | plus: 1 }}"></button>
-                {% endfor %}
-            </div>
-            <div class="carousel-inner">
-                {% for item in page.carousel_items %}
-                    {% if forloop.first %}
-                        <div class="carousel-item active">
-                    {% else %}
-                        <div class="carousel-item">
-                    {% endif %}
-                        <picture class="carousel-back-image" aria-hidden="true">
-                            <source srcset="/img/kickoff/2023/{{ item.webp }}" type="image/webp">
-                            <source srcset="/img/kickoff/2023/{{ item.image }}" type="image/jpeg">
-                            <img src="/img/kickoff/2023/{{ item.image }}" alt="">
-                        </picture>
-                        <picture>
-                            <source srcset="/img/kickoff/2023/{{ item.webp }}" type="image/webp">
-                            <source srcset="/img/kickoff/2023/{{ item.image }}" type="image/jpeg">
-                            <img src="/img/kickoff/2023/{{ item.image }}" alt="{{ item.caption }}">
-                        </picture>
-                        <div class="carousel-caption d-none d-md-block">
-                            <h3>{{ item.title }}</h3>
-                            <p>{{ item.caption }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-                <button class="carousel-control-prev" type="button" data-bs-target="#image-carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#image-carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
+        <Carousel id="kickoff-carousel" images={carouselItems} />
         <div class="container content">
             <div class="row pt-2">
                 <h3>Sponsors</h3>
                 <ul class="sponsor-display">
-                    {% for sponsor in page.sponsors %}
-                        <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer"><img class="center" src="/img/sponsor/{{ sponsor[0].image }}" alt="{{ sponsor[0].name }}" /></a></li>
-                    {% endfor %}
+                    {sponsors.map(sponsor => 
+                        <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">
+                            <img class="center" src={`/img/sponsor/${sponsor.image}`} alt={sponsor.name} />
+                        </a></li>
+                    )}
                 </ul>
                 <ul class="list-unstyled">
-                    {% for sponsor in page.sponsors %}
-                        <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer">{{ sponsor[0].name }}</a></li>
-                    {% endfor %}
+                    {sponsors.map(sponsor =>
+                        <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">{sponsor.name}</a></li>
+                    )}
                 </ul>
             </div>
         </div>
     </main>
-        
-    
-    {% include footer.html %}
-    {% include scripts.html %}
     <style>
         .schedule-time {
             text-align: right;
@@ -287,5 +254,4 @@ carousel_items:
             cursor: not-allowed;
         }
     </style>
-</body>
-</html>
+</BaseLayout>

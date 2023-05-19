@@ -1,24 +1,28 @@
 ---
-title: 2019 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+
+<BaseLayout title="2019 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan">
+    <style slot="head">
+        .container > h2, .container > h3, .container > h1 {
+            margin-top: 1rem;
+        }
+    </style>
+
     <div class="container content">
         <h1>FAMNM Robot in 3 Days - 2019 Documentation</h1>
         <a href="index.html">&larr; FAMNM Ri3D Overview</a>
-        <img class="mx-auto w-75 mt-3" src="{{site.url}}/img/ri3d/sponsor-name-here.jpg"/>
+        <img class="mx-auto w-75 mt-3" src="/img/ri3d/sponsor-name-here.jpg"/>
         <div class="my-3 font-italic">2019 FAMNM Ri3D Robot: Laika</div>
+
         <h2 id="tech-docs">Technical Documentation</h2>
-        <ul class="text-start text-par">
-            <li><a href="https://github.com/famnm/ri3d-2019" target="_blank" rel="noopener noreferrer">Source code</a></li>
-            <li><a href="https://www.youtube.com/watch?v=YZTIdKUNgck&list=PLSr939s0l0jteDxt8WwPRrvIsdbnBTp76" target="_blank" rel="noopener noreferrer">Build process playlist</a></li>
-        </ul>
+        <a class="mx-auto btn famnm-btn-secondary" href="https://www.youtube.com/watch?v=YZTIdKUNgck&list=PLSr939s0l0jteDxt8WwPRrvIsdbnBTp76">
+            Build process playlist
+        </a>
+        <a class="mx-auto btn famnm-btn-secondary" href="https://github.com/famnm/ri3d-2019">
+            GitHub
+        </a>
+
         <h2 id="faq">Frequently Asked Questions</h2>
         <dl class="text-start text-par">
             <dt>What gear ratio did you use on the arm?</dt>
@@ -28,8 +32,4 @@ title: 2019 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at M
             <dd>We used a 30-pound gas strut.</dd>
         </dl>
     </div><!-- /.container -->
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-</html>
+</BaseLayout>

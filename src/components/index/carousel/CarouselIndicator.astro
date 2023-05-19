@@ -1,12 +1,13 @@
 ---
 interface Props {
+    id: string;
     i: number;
     active: boolean;
 }
 
-const { i, active } = Astro.props;
+const { id, i, active } = Astro.props;
 
 const itemClass = active ? "active" : "";
 ---
 
-<button data-bs-target="#frontpage-carousel" data-bs-slide-to={i} class={itemClass} />
+<button data-bs-target=`#${id}` data-bs-slide-to={i} class={itemClass} aria-label=`Slide ${i + 1}` />

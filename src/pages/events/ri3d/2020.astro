@@ -1,18 +1,17 @@
 ---
-title: 2020 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan
+import BaseLayout from "../../../layouts/BaseLayout.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+<BaseLayout title="2020 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan">
+    <style slot="head">
+        .container > h2, .container > h3, .container > h1 {
+            margin-top: 1rem;
+        }
+    </style>
+
     <div class="container content">
         <h1>FAMNM Robot in 3 Days - 2020 Documentation</h1>
         <a href="index.html">&larr; FAMNM Ri3D Overview</a>
-        <img class="mx-auto w-75 mt-3" src="{{site.url}}/img/ri3d/fancy-robot.jpg"/>
+        <img class="mx-auto w-75 mt-3" src="/img/ri3d/fancy-robot.jpg"/>
         <div class="my-3 font-italic">2020 FAMNM Ri3D Robot: name TBD</div>
         <h2 id="tech-docs">Technical Documentation</h2>
         <a class="mx-auto btn famnm-btn-secondary" href="http://bit.ly/MRi3D-2020Drive">
@@ -75,8 +74,4 @@ title: 2020 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at M
             
         </dl>
     </div><!-- /.container -->
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-</html>
+</BaseLayout>
