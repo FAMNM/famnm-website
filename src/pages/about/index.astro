@@ -1,45 +1,45 @@
 ---
-title: About The FAMNM | FIRST Alumni &amp; Mentors Network at Michigan
-FIRST: <i>FIRST<sup>&reg;</sup></i>
-sponsors:
-    - 0:
-        link: "https://detroitcenter.umich.edu/projects/michigan-engineering-zone"
-        image: "mez.png"
-        name: "Michigan Engineering Zone"
-    - 0:
-        link: "https://engin.umich.edu"
-        image: "coe.png"
-        name: "University of Michigan College of Engineering"
-    - 0:
-        link: "https://esg.engin.umich.edu"
-        image: "esg.png"
-        name: "Engineering Student Government"
-    - 0:
-        link: "https://ginsberg.umich.edu"
-        image: "ginsberg.png"
-        name: "Edward Ginsberg Center"
-    - 0:
-        link: "https://spectrumcenter.umich.edu"
-        image: "spectrum.png"
-        name: "Spectrum Center"
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const sponsors = [
+    {
+        link: "https://detroitcenter.umich.edu/projects/michigan-engineering-zone",
+        image: "mez.png",
+        name: "Michigan Engineering Zone",
+    },
+    {
+        link: "https://engin.umich.edu",
+        image: "coe.png",
+        name: "University of Michigan College of Engineering",
+    },
+    {
+        link: "https://esg.engin.umich.edu",
+        image: "esg.png",
+        name: "Engineering Student Government",
+    },
+    {
+        link: "https://ginsberg.umich.edu",
+        image: "ginsberg.png",
+        name: "Edward Ginsberg Center",
+    },
+    {
+        link: "https://spectrumcenter.umich.edu",
+        image: "spectrum.png",
+        name: "Spectrum Center",
+    },
+];
+
 ---
-{% assign FIRST = page.FIRST %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+
+<BaseLayout title="About The FAMNM | FIRST Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
-            <img class="center" src="{{site.url}}/img/logo.png"/>
+            <img class="center" src="/img/logo.png" />
             <h1>About</h1>
             <p class="text-par">
                 FAMNM is an on campus effort to unite all of the
                 various departmental and individual student efforts of
-                supporting the {{ FIRST }} program locally and throughout the
+                supporting the <i>FIRST<sup>&reg;</sup></i> program locally and throughout the
                 state of Michigan. We act as a liaison between local FIRST
                 teams, the University of Michigan, and any other organizations
                 that are affiliated with either of the prior organizations
@@ -75,21 +75,21 @@ sponsors:
             
             <h1>FAMNM Sponsors and Affiliates</h1>
             <ul id="sponsors">
-                {% for sponsor in page.sponsors %}
-                    <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer"><img src="{{ site.url }}/img/sponsor/{{ sponsor[0].image }}" alt="{{ sponsor[0].name }}"/></a></li>
-                {% endfor %}
+                {sponsors.map(s => /* Not optimizing because these images are small already */
+                    <li><a href={s.link} target="_blank" rel="noopener noreferrer">
+                        <img src={`/img/sponsor/${s.image}`} alt={s.name} />
+                    </a></li>
+                )}
             </ul>
             <ul class="list-unstyled">
-                {% for sponsor in page.sponsors %}
-                    <li><a href="{{ sponsor[0].link }}" target="_blank" rel="noopener noreferrer">{{ sponsor[0].name }}</a></li>
-                {% endfor %}
+                {sponsors.map(s =>
+                    <li><a href={s.link} target="_blank" rel="noopener noreferrer">{s.name}</a></li>
+                )}
             </ul>
         </main>
     </div><!-- /.container -->
     
-    {% include footer.html %}
-    {% include scripts.html %}
-    <style>
+    <style slot="head">
         ul#sponsors {
             padding-left: 0;
             list-style-type: none;
@@ -132,5 +132,4 @@ sponsors:
             }
         }
     </style>
-</body>
-</html>
+</BaseLayout>
