@@ -1,9 +1,9 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Img } from "astro-imagetools/components";
 
 interface Props {
     title: string;
-    image: ImageMetadata;
+    image: string;
     alt: string;
     links: Array<{
         text: string;
@@ -18,7 +18,7 @@ const { title, image, alt, links } = Astro.props;
     <div class="row g-0">
         {
             image !== undefined &&
-            <Image src={image} format="webp" class="rounded-4 feature-img" alt={alt} />
+            <Img src={image} format="webp" attributes={{img: {class: "rounded-4 feature-img"}}} alt={alt} />
         }
 
         <div class="mt-3">

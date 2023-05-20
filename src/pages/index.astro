@@ -3,44 +3,36 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Announcements from "../components/index/Announcements.astro";
 import Carousel from "../components/index/carousel/Carousel.astro";
 
-// These static imports are necessary for <Picture /> to generate differently sized images at build time without requiring us to supply aspectRatio.
-import imgRobPresentation from "../images/events/frc-kickoff/2023/rob-presentation.jpeg";
-import imgClawBuild from "../images/ri3d/2023/claw-build.jpeg";
-import imgAppleOrchard from "../images/index/carousel/apple-orchard-2022.jpg";
-import img2019Winners from "../images/ri3d/2019-winners.jpg";
-import img2018Ftc from "../images/index/carousel/east-jackson-ftc.jpg";
-import imgLincolnEvent from "../images/index/carousel/lincoln-event.jpg";
-
 const images = [
     {
         title: "2023 FRC Kickoff",
         description: "Teams learn about the University of Michigan Robotics Institute prior to the reveal of FIRST\u00ae CHARGED UP presented by Haas",
-        src: imgRobPresentation,
+        src: "/img/kickoff/2023/rob-presentation.jpeg",
     },
     {
         title: "Ri3D Under Development",
         description: "FAMNM's Robot in 3 Days team tests its new intake on cubes from CHARGED UP",
-        src: imgClawBuild,
+        src: "/img/ri3d/2023/claw-build.jpeg",
     },
     {
         title: "At the Apple Orchard",
         description: "FAMNM on a social trip to Apple Charlie's Orchard in October 2022",
-        src: imgAppleOrchard,
+        src: "/img/carousel/apple-orchard-2022.jpg",
     },
     {
         title: "FACC Winners!",
         description: "FAMNM's Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
-        src: img2019Winners,
+        src: "/img/ri3d/2019-winners.jpg",
     },
     {
         title: "Volunteering",
         description: "FAMNM wins the Volunteer Award at the 2018 East Jackson FTC Qualifier!",
-        src: img2018Ftc,
+        src: "/img/carousel/east-jackson-ftc.jpg",
     },
     {
         title: "Lincoln District Event",
         description: "FAMNM Volunteers help out at the 2018 FiM Lincoln Event! Photo credit to Jonathan Skowronek",
-        src: imgLincolnEvent,
+        src: "/img/carousel/lincoln-event.jpg",
     },
 ];
 ---

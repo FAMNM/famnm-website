@@ -1,10 +1,10 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Img } from "astro-imagetools/components";
 
 export interface CoreMember {
     name: string;
     email: string;
-    img: ImageMetadata;
+    img: string;
     role: string;
 }
 interface Props {
@@ -16,7 +16,11 @@ const { info } = Astro.props;
 
 <div class="card">
     <a href={`mailto:${ info.email }@umich.edu`}>
-        <Image src={info.img} fit="cover" format="webp" class="card-img-top headshot" alt={`Picture of ${ info.name }, the ${ info.role } of FAMNM.`} title={info.name} width={500} />
+        <Img src={info.img} fit="cover" format="webp"
+            objectFit="cover"
+            attributes={{img: {class: "card-img-top", title: info.name}}}
+            alt={`Picture of ${ info.name }, the ${ info.role } of FAMNM.`}
+            width={500} height={650} />
         <div class="card-body px-1">
             <h5 class="card-title mb-0">{ info.role }</h5>
             <p class="card-text mb-0">{ info.name }</p>
@@ -26,12 +30,6 @@ const { info } = Astro.props;
 </div>
 
 <style>
-    /** Leadership display list **/
-    .headshot {
-        object-fit: cover;
-        height: 325px;
-    }
-    
     .card {
         width: 250px;
         height: 100% !important;

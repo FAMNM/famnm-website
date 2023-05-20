@@ -1,8 +1,8 @@
 ---
-import { Picture } from '@astrojs/image/components';
+import { Img } from 'astro-imagetools/components';
 
 interface Props {
-    src: ImageMetadata;
+    src: string;
     title: string;
     description: string;
     active: boolean;
@@ -14,8 +14,8 @@ const itemClass = active ? "carousel-item active" : "carousel-item";
 ---
 
 <div class={itemClass}>
-    <Picture src={src} class="carousel-back-image" aria-hidden="true" alt="" widths={[860, 1280, 1920]} />
-    <Picture src={src} aria-hidden="true" alt={title} widths={[860, 1280, 1920, 3840]} />
+    <Img src={src} attributes={{img: {class: "carousel-back-image", "aria-hidden": "true"}}} alt="" format="webp" placeholder="none" />
+    <Img src={src} alt={title} format="webp" objectFit="scale-down" />
     <div class="carousel-caption d-none d-md-block">
         <h3>{title}</h3>
         <p set:html={description}></p>

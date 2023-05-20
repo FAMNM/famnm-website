@@ -5,7 +5,7 @@ import CarouselItem from "./CarouselItem.astro";
 export interface Props {
     id: string;
     class?: string;
-    images: {title: string, description: string, src: ImageMetadata}[];
+    images: {title: string, description: string, src: string}[];
 }
 
 const { id, images, class: className } = Astro.props;
