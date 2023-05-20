@@ -1,33 +1,33 @@
 ---
-title: Robot Quick Build | FIRST® Alumni & Mentors Network at Michigan
+import Carousel from "../../components/index/carousel/Carousel.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro"
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+<BaseLayout title="Robot Quick Build | FIRST® Alumni & Mentors Network at Michigan">
+    <div class="container">
+        <div class="content">
+            <h1>FAMNM Robot Quick Build</h1>
+        </div>
+    </div>
+    <Carousel id="carousel-rqb" images={[     
+        {
+            title: "Completed Chassis",
+            description: "One team finishes the construction of their KOP chassis.",
+            src: "/img/rqb/carousel/kitbot.jpg"
+        },
+        {
+            title: "Programming",
+            description: "A FAMNM member helps one team get started with coding their robot.",
+            src: "/img/rqb/carousel/programming.jpg"
+        },
+        {
+            title: "Electrical",
+            description: "No RQB robot is complete without an electrical board!",
+            src: "/img/rqb/carousel/electrical.jpg"
+        }
+    ]} />
     <div class="container">
         <main class="content">
-            <div>
-                <h1>FAMNM Robot Quick Build</h1>
-            </div>
-            <div id="carousel-rqb" class="carousel slide" data-ride="carousel">
-                <div class="carousel-indicators"></div>
-                <div class="carousel-inner" role="listbox">
-                    <div class="carousel-tmp"><img class="carousel-loading" src="/img/mgear.gif" alt="Loading..."/></div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carousel-rqb" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Last</span>
-                </a>
-                <button class="carousel-control-next" type="button" data-bs-target="#carousel-rqb" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
+            
             <p class="text-par fw-bold">
                 FAMNM is planning to try and make FRC Kickoff 2021 a helpful
                 virtual experience for teams. As a result, we think it is 
@@ -47,13 +47,4 @@ title: Robot Quick Build | FIRST® Alumni & Mentors Network at Michigan
             </p>
         </main>
     </div>
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-    
-    <script src="/js/carousel.js"></script>
-    <script>
-        $(document).ready(carouselLoad("/img/rqb/carousel/"));
-    </script>
-</body>
-</html>
+</BaseLayout>

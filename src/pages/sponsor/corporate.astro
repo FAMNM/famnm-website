@@ -1,25 +1,20 @@
 ---
-title: Support FAMNM as a corporation or professional &#124; FIRST &reg; Alumni &amp; Mentors Network at Michigan
-FIRST: <i>FIRST<sup>&reg;</sup></i>
+import FIRST from "../../components/FIRST.astro";
+import { Img } from "astro-imagetools/components";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+// FIRST: <i>FIRST<sup>&reg;</sup></i>
 ---
-{% assign FIRST = page.FIRST %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
+<BaseLayout title="Support FAMNM as a corporation or professional | FIRST® Alumni & Mentors Network at Michigan"
     
     <div class="container">
         <main class="content">
             <h1>Supporting FAMNM as a Corporation</h1>
-            <img src="{{site.url}}/img/sponsor/corporation.jpg" class="mx-auto col-md-8 col-xs-12"/>
+            <Img src="/img/sponsor/corporation.jpg" attributes={{img: {class: "mx-auto col-md-8 col-xs-12"}}} alt="Corporate sponsors present at FAMNM's FRC kickoff" />
             <p class="text-par">
-                Are you a {{ FIRST }} supporter looking to connect to {{ FIRST }}
-                Alumni on campus? Often, {{ FIRST }} supporters invest a lot into
-                the program but have a hard time finding and recruiting {{ FIRST }}
-                alumni. Let FAMNM connect you to our network of {{ FIRST }} alumni
+                Are you a <FIRST /> supporter looking to connect to <FIRST />
+                Alumni on campus? Often, <FIRST /> supporters invest a lot into
+                the program but have a hard time finding and recruiting <FIRST />
+                alumni. Let FAMNM connect you to our network of <FIRST /> alumni
                 at the University of Michigan. Contact our Director of 
                 Corporate Outreach at <a href="mailto:famnm.corporate@umich.edu">famnm.corporate@umich.edu​</a>.
             </p>
@@ -35,8 +30,4 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
             </p>
         </main>
     </div><!-- /.container -->
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-</html>
+</BaseLayout>

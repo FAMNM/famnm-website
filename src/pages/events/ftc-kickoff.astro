@@ -1,16 +1,8 @@
 ---
-title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
+import Carousel from "../../components/index/carousel/Carousel.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    {% include title-styles.html %}
-</head>
-
-<body>
-    {% include header.html %}
-
+<BaseLayout title="FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
             <div class="row justify-content-center">
@@ -20,83 +12,33 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
-                    <p>FAMNM kicked off the 2022-2023 FTC season, <i>Power Play</i>, on <time datetime="2022-09-10">September 10, 2022</time> with 9 teams. Good luck, and enjoy this season!</p>
+                    <p>FAMNM kicked off the 2022-2023 FTC season, <i>Power Play</i>, on <time datetime="2022-09-10">September 10, 2022</time> with 9 teams.</p>
                 </div>
             </div>
         </main>
     </div>
     <!-- /.container -->
-    <div id="image-carousel" class="carousel slide" data-bs-ride="false">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#image-carousel"
-                data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#image-carousel"
-                data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#image-carousel"
-                data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <picture class="carousel-back-image" aria-hidden="true">
-                    <source srcset="/img/ftc/2022/speaker.webp" type="image/webp">
-                    <source srcset="/img/ftc/2022/speaker.jpg" type="image/jpeg">
-                    <img src="/img/ftc/2022/speaker.jpg" alt="">
-                </picture>
-                <picture>
-                    <source srcset="/img/ftc/2022/speaker.webp" type="image/webp">
-                    <source srcset="/img/ftc/2022/speaker.jpg" type="image/jpeg">
-                    <img src="/img/ftc/2022/speaker.jpg" alt="Kyle Flynn presents his FIRST journey to kickoff attendees">
-                </picture>
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Pre-Reveal Presentation</h3>
-                    <p>Kyle Flynn, Vice Chairman and Chief Technology Officer for
-                        <a href="https://theorangealliance.org/about" rel="noreferrer noopener" target="_blank">The Orange Alliance</a>,
-                        presents his <i>FIRST</i> journey to teams.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <picture class="carousel-back-image" aria-hidden="true">
-                    <source srcset="/img/ftc/2022/field-reveal.webp" type="image/webp">
-                    <source srcset="/img/ftc/2022/field-reveal.jpg" type="image/jpeg">
-                    <img src="/img/ftc/2022/field-reveal.jpg" alt="">
-                </picture>
-                <picture>
-                    <source srcset="/img/ftc/2022/field-reveal.webp" type="image/webp">
-                    <source srcset="/img/ftc/2022/field-reveal.jpg" type="image/jpeg">
-                    <img src="/img/ftc/2022/field-reveal.jpg" alt="Teams examine the newly revealed Power Play field">
-                </picture>
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Field Reveal</h3>
-                    <p>Teams visit and examine the new <i>Power Play</i> field as they ideate and strategize.
-                        FAMNM's Eeshwar Krishnan explains the game's rules in detail.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <picture class="carousel-back-image" aria-hidden="true">
-                    <source srcset="/img/ftc/2021/oluwami-digit.webp" type="image/webp">
-                    <source srcset="/img/ftc/2021/oluwami-digit.jpg" type="image/jpeg">
-                    <img src="/img/ftc/2021/oluwami-digit.jpg" alt="">
-                </picture>
-                <picture>
-                    <source srcset="/img/ftc/2021/oluwami-digit.webp" type="image/webp">
-                    <source srcset="/img/ftc/2021/oluwami-digit.jpg" type="image/jpeg">
-                    <img src="/img/ftc/2021/oluwami-digit.jpg" alt="Oluwami showcases Digit, the humanoid robot, to FTC teams during kickoff 2021">
-                </picture>
-                <div class="carousel-caption d-none d-md-block">
-                    <h3>Digit, the Humanoid</h3>
-                    <p>During FAMNM's 2021-2022 FTC kickoff, Oluwami showcases Digit, a humanoid robot from Agility Robotics.</p>
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#image-carousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#image-carousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-    </div>
+    <Carousel id="image-carousel" images={[
+        {
+            title: 'TOA Presentation',
+            description: `
+Kyle Flynn, Vice Chairman and Chief Technology Officer for
+<a href="https://theorangealliance.org/about" rel="noreferrer noopener" target="_blank">The Orange Alliance</a>,
+presents his <i>FIRST</i> journey to teams.`,
+            src: "/img/ftc/2022/speaker.jpg"
+        },
+        {
+            title: 'Field Reveal',
+            description: `Teams visit and examine the new <i>Power Play</i> field as they ideate and strategize.
+FAMNM's Eeshwar Krishnan explains the game's rules in detail.`,
+            src: "/img/ftc/2022/field-reveal.jpg"
+        },
+        {
+            title: 'Digit, the Humanoid',
+            description: `During FAMNM's 2021-2022 FTC Kickoff, Oluwami showcases Digit, a humanoid robot from Agility Robotics.`,
+            src: "/img/ftc/2021/oluwami-digit.jpg"
+        }
+    ]} />
     <div class="container p-4">
         <div class="row">
             <div class="col">
@@ -111,8 +53,6 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
         </div>
     </div>
 
-    {% include footer.html %}
-    {% include scripts.html %}
     <style>
         #schedule-table th {
             opacity: 0.75;
@@ -143,6 +83,4 @@ title: FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan
             max-width: 42rem;
         }
     </style>
-</body>
-
-</html>
+</BaseLayout>

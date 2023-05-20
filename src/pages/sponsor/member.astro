@@ -1,23 +1,14 @@
 ---
-title: Become a Member | FIRST® Alumni & Mentors Network at Michigan
-FIRST: <i>FIRST<sup>&reg;</sup></i>
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-{% assign FIRST = page.FIRST %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+<BaseLayout title="Become a Member | FIRST® Alumni & Mentors Network at Michigan">
     <div class="container">
         <div class="content">
             <h1>Joining FAMNM</h1>
             <p class="text-par">
                 FAMNM is open to all University of Michigan students. Our members
                 come from many different backgrounds, colleges, and majors, and some
-                have never even participated in {{ FIRST }} before! We know
+                have never even participated in <i>FIRST<sup>&reg;</sup></i> before! We know
                 that as a UofM student, your schedule is tight. FAMNM lets you put as
                 much or as little in as you want and works completely around your
                 schedule. Signing up is easy! Just join us on <a
@@ -63,8 +54,4 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
             </div>
         </div>
     </div><!-- /.container -->
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-</html>
+</BaseLayout> 

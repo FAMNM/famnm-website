@@ -1,21 +1,14 @@
 ---
-title: Available Resources | FIRST® Alumni & Mentors Network at Michigan
-FIRST: <i>FIRST<sup>&reg;</sup></i>
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Picture } from "astro-imagetools/components";
 ---
-{% assign FIRST = page.FIRST %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+
+<BaseLayout title="Available Resources | FIRST® Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
             <h1>Resources for Teams</h1>
             <p class="text-par">
-                Are you a {{ FIRST }} team looking for resources or mentors?
+                Are you a <i>FIRST<sup>&reg;</sup></i> team looking for resources or mentors?
                 You've come to the right place! FAMNM is here to help you 
                 by connecting you to U of M students, machinery, and opportunities.
                 As our member base is primarily comprised of FIRST alumni,
@@ -34,7 +27,7 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
             <div class="text-par img-fluid mx-auto">
                 <div class="pt-5">
                     <h2 class="text-center">FIRST Robotics Competition</h2>
-                    <img class="my-3 w-50" src="../img/teams/FRC-Demos.jpg" alt="FIRST Robotics Competition"/>
+                    <Picture attributes={{picture: {class: "my-3 mx-auto w-50 d-block"}}} src="/img/teams/FRC-Demos.jpg" format="webp" alt="FIRST Robotics Competition" breakpoints={[500, 1000]} />
                     For our FRC teams, we can help provide mentor support 
                     throughout the build and competition season. We additionally
                     host an annual <a href="../events/kickoff.html">FRC Kickoff</a>. Interested? 
@@ -42,7 +35,7 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
                 </div>
                 <div class="pt-5">
                     <h2 class="text-center">FIRST Tech Challenge</h2>
-                    <img class="my-3 w-50" src="../img/teams/FTC-Kickoff.jpg"  alt="FIRST Tech Challenge"/>
+                    <Picture attributes={{picture: {class: "my-3 mx-auto w-50 d-block"}}} src="/img/teams/FTC-Kickoff.jpg" format="webp" alt="FIRST Tech Challenge" breakpoints={[500, 1000]} />
                     Currently, FAMNM primarily supports FTC teams through our 
                     annual <a href="../events/ftc-kickoff">FTC Kickoff</a>
                     event. We also provide opportunities for mentorship to local
@@ -51,7 +44,7 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
                 </div>
                 <div class="pt-5">
                     <h2 class="text-center">FIRST Lego League</h2>
-                    <img class="my-3 w-50" src="../img/teams/FLL-TrashTrek.jpg" alt="FIRST Lego League">
+                    <Picture attributes={{picture: {class: "my-3 mx-auto w-50 d-block"}}} src="/img/teams/FLL-TrashTrek.jpg" format="webp" alt="FIRST Lego League" breakpoints={[500, 1000]} />
                     With FLL, we are working on building team 
                     relationships, and are currently only providing 
                     mentor support for teams in our area. Interested? 
@@ -63,8 +56,4 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
         </main>
     </div>
     <!-- /.container -->
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-</html>
+</BaseLayout>

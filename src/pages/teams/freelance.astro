@@ -1,16 +1,7 @@
 ---
-title: Freelance Mentor Program | FIRST® Alumni & Mentors Network at Michigan
-FIRST: <i>FIRST<sup>&reg;</sup></i>
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-{% assign FIRST = page.FIRST %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {% include title-styles.html %}
-</head>
-<body>
-    {% include header.html %}
-    
+<BaseLayout title="Freelance Mentor Program | FIRST® Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
             <h1>Freelance Mentor Program</h1>
@@ -27,16 +18,12 @@ FIRST: <i>FIRST<sup>&reg;</sup></i>
             </p>
             <p class="text-par">
                 Looking for help? Reach out to the team coordinator for your level of FIRST:
-                <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu​</a>, 
-                <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu​</a>, or
-                <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu​</a>.
+                <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu</a>, 
+                <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu</a>, or
+                <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu</a>.
             </p>
             <img class="img-fluid col-md-8 col-xs-12" id="freelance-img" src="../img/teams/fr_mentor1.jpg" alt="FAMNM Freelance Mentoring"/>
-            <b>Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for {{ FIRST }} Power Up!</b>
+            <b>Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for <i>FIRST<sup>&reg;</sup></i> Power Up!</b>
         </main>
     </div>
-    
-    {% include footer.html %}
-    {% include scripts.html %}
-</body>
-</html>
+</BaseLayout>
