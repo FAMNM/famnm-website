@@ -17,7 +17,7 @@ const { id, images, class: className } = Astro.props;
             <CarouselIndicator id={id} i={i} active={i === 0} />
         )}
     </div>
-    <div class="carousel-inner" role="listbox">
+    <div class="carousel-inner" role="listbox" aria-label="Carousel elements">
         {images.map(({ src, title, description }, i) => 
             <CarouselItem src={src} title={title} description={description} active={i === 0} />
         )}

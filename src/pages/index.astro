@@ -2,6 +2,7 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Announcements from "../components/index/Announcements.astro";
 import Carousel from "../components/index/carousel/Carousel.astro";
+import { Img } from "astro-imagetools/components";
 
 const images = [
     {
@@ -42,8 +43,9 @@ const images = [
         <div class="container p-4">
             <div class="row align-items-center">
                 <div class="col-sm-12">
-                    <img id="frontpage-logo" class="center img-fluid" src="img/logo.png"
-                    alt="Logo for FIRST Alumni and Mentors Network at Michigan"/>
+                    <Img attributes={{img: {id: "frontpage-logo", class: "center img-fluid"}}}
+                        src="img/logo.png" alt="Logo for FIRST Alumni and Mentors Network at Michigan"
+                        placeholder="none" format="webp" height={512} />
                 </div>
                 <div class="col-sm-12 col-md">
                     <p class="text-description text-center">
@@ -77,7 +79,9 @@ const images = [
                     </a>
                 </div>
             </div>
-            <iframe class="w-100" height="600" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRqrg5Jl1sd2KBdCbKdu-IZlGacSHeSQ17J0uV9P8T8466u-sppaKvunt4TXbOYDnh6coyNYffbQGab/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+            <iframe class="w-100" height="600" title="FRC event volunteering sign-up spreadsheet"
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRqrg5Jl1sd2KBdCbKdu-IZlGacSHeSQ17J0uV9P8T8466u-sppaKvunt4TXbOYDnh6coyNYffbQGab/pubhtml?gid=0&amp;single=true&amp;widget=true&amp;headers=false">
+            </iframe>
         </section>
     </main>
 
@@ -93,6 +97,7 @@ const images = [
 
         #frontpage-logo {
             max-height: 16em;
+            object-fit: contain;
         }
 
         .feature-img {

@@ -1,6 +1,12 @@
+---
+import { Picture } from "astro-imagetools/components";
+---
 <div class="footer row text-center mx-0 my-0">
     <div class="footer-col col-md-6 my-4">
-        <img id="footer-logo" class="center img-fluid h-auto" src="/img/base/logo-monochrome-dark.png" alt="FAMNM" />
+        <Picture attributes={{picture: {
+            id: "footer-logo",
+            class: "center img-fluid h-auto"
+        }}} alt="FAMNM logo" src="/img/base/logo-monochrome-dark.png" breakpoints={[750, 1500]} placeholder="none" format={["webp", "png"]} />
         <div id="copyright-text">
             &copy; 2023 <i>FIRST</i> Alumni and Mentors Network at Michigan
         </div>
@@ -61,7 +67,7 @@
         <!--End Mailchimp Signup Form-->
     </div>
     <div class="footer-col col-md-6 my-4">
-        <h3>Sponsors and Affiliates</h3>
+        <h1 class="h3">Sponsors and Affiliates</h1>
         <ul>
             <li><a href="https://engin.umich.edu" target="_blank" rel="noopener">University of Michigan College of Engineering</a></li>
             <li><a href="https://esg.engin.umich.edu" target="_blank" rel="noopener">Engineering Student Government</a></li>

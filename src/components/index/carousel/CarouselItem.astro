@@ -13,7 +13,7 @@ const { src, title, description, active } = Astro.props;
 const itemClass = active ? "carousel-item active" : "carousel-item";
 ---
 
-<div class={itemClass}>
+<div class={itemClass} role="option" aria-label=`${title}`>
     <Img src={src} attributes={{img: {class: "carousel-back-image", "aria-hidden": "true"}}} alt="" format="webp" placeholder="none" />
     <Img src={src} alt={title} format="webp" objectFit="scale-down" />
     <div class="carousel-caption d-none d-md-block">
