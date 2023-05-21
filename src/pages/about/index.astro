@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Picture } from "astro-imagetools/components";
 
 const sponsors = [
     {
@@ -34,7 +35,7 @@ const sponsors = [
 <BaseLayout title="About The FAMNM | FIRST Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
-            <img class="center" src="/img/logo.png" />
+            <Picture attributes={{picture: {class: "center"}}} src="/img/logo.png" alt="FAMNM Logo" breakpoints={[840, 1680, 3360]} />
             <h1>About</h1>
             <p class="text-par">
                 FAMNM is an on campus effort to unite all of the
