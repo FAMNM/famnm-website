@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Picture } from "astro-imagetools/components";
+import { Picture, Img } from "astro-imagetools/components";
 
 const sponsors = [
     {
@@ -76,9 +76,9 @@ const sponsors = [
             
             <h1>FAMNM Sponsors and Affiliates</h1>
             <ul id="sponsors">
-                {sponsors.map(s => /* Not optimizing because these images are small already */
+                {sponsors.map(s =>
                     <li><a href={s.link} target="_blank" rel="noopener noreferrer">
-                        <img src={`/img/sponsor/${s.image}`} alt={s.name} />
+                        <Img src={`/img/sponsor/${s.image}`} alt={s.name} placeholder="none" />
                     </a></li>
                 )}
             </ul>
@@ -90,7 +90,7 @@ const sponsors = [
         </main>
     </div><!-- /.container -->
     
-    <style slot="head">
+    <style slot="head" is:global>
         ul#sponsors {
             padding-left: 0;
             list-style-type: none;
@@ -115,6 +115,7 @@ const sponsors = [
         ul#sponsors > li > a > img {
             max-width: 300px;
             max-height: 150px;
+            width: auto;
         }
         
         .vid-content {

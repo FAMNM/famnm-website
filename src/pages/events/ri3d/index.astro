@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { Picture } from "astro-imagetools/components";
+import { Picture, Img } from "astro-imagetools/components";
 
 const sidePictureAttributes = {
     picture: {
@@ -18,7 +18,7 @@ const sidePicture = {
 ---
 
 <BaseLayout title="Robot in Three Days (Ri3D) | FIRST® Alumni & Mentors Network at Michigan">
-    <style slot="head">
+    <style slot="head" is:global>
         .champs{
             background: red;
             background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet);
@@ -102,10 +102,12 @@ const sidePicture = {
         
         ul.gold-sponsor {
             border: solid gold 4px;
+            padding: 0.5rem;
         }
         
         ul.silver-sponsor {
             border: solid silver 4px;
+            padding: 0.5rem;
             margin-top: 10px;
         }
 
@@ -207,21 +209,21 @@ const sidePicture = {
                 <h3 class="text-center">Our Ri3D Sponsors</h3>
                 <ul class="sponsor-display gold-sponsor">
                     <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan College of Engineering">
-                        <img class="center" src="../../img/sponsor/coe.png" alt="University of Michigan College of Engineering" />
+                        <Img attributes={{img: {class: "center"}}} placeholder="none" src="/img/sponsor/coe.png" alt="University of Michigan College of Engineering" />
                     </a></li>
                     <li><a href="https://robotics.umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan Robotics Institute">
-                        <img class="center" src="../../img/sponsor/robotics-institute.png" alt="University of Michigan Robotics Institute" />
+                        <Img attributes={{img: {class: "center"}}} placeholder="none" src="/img/sponsor/robotics-institute.png" alt="University of Michigan Robotics Institute" />
                     </a></li>
                 </ul>
                 <ul class="sponsor-display silver-sponsor">
                     <li><a href="https://www.netscout.com/" target="_blank" rel="noopener noreferrer" aria-label="NETSCOUT">
-                        <img class="center" src="../../img/sponsor/netscout.png" alt="NETSCOUT"/>
+                        <Img attributes={{img: {class: "center"}}} placeholder="none" src="/img/sponsor/netscout.png" alt="NETSCOUT"/>
                     </a></li>
                     <li><a href="https://me.engin.umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan Department of Mechanical Engineering">
-                        <img class="center" src="../../img/sponsor/CoE-ME-vert.png" alt="University of Michigan Department of Mechanical Engineering" />
+                        <Img attributes={{img: {class: "center"}}} placeholder="none" src="/img/sponsor/CoE-ME-vert.png" alt="University of Michigan Department of Mechanical Engineering" />
                     </a></li>
                     <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="College of Engineering Student Government">
-                        <img class="center" src="../../img/sponsor/esg.png" alt="College of Engineering Student Government" />
+                        <Img attributes={{img: {class: "center"}}} placeholder="none" src="/img/sponsor/esg.png" alt="College of Engineering Student Government" />
                     </a></li>
                 </ul>
             </div>
