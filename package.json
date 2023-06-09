@@ -10,7 +10,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.16.9",
     "@astrojs/react": "^2.2.1",
     "@popperjs/core": "^2.11.8",
     "@types/react": "^18.2.9",
