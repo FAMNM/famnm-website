@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
+import { Picture } from "astro-imagetools/components";
 ---
 <BaseLayout title="2020 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan">
     <style slot="head">
@@ -11,7 +12,7 @@ import BaseLayout from "../../../layouts/BaseLayout.astro";
     <div class="container content">
         <h1>FAMNM Robot in 3 Days - 2020 Documentation</h1>
         <a href="../">&larr; FAMNM Ri3D Overview</a>
-        <img class="mx-auto w-75 mt-3" src="/img/ri3d/fancy-robot.jpg"/>
+        <Picture attributes={{picture: {class: "mx-auto w-75 mt-3 d-block"}}} src="/img/ri3d/fancy-robot.jpg" alt="FAMNM's 2020 Ri3D robot at the Wilson Center"/>
         <div class="my-3 font-italic">2020 FAMNM Ri3D Robot: name TBD</div>
         <h2 id="tech-docs">Technical Documentation</h2>
         <a class="mx-auto btn famnm-btn-secondary" href="http://bit.ly/MRi3D-2020Drive">
