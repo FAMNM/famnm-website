@@ -1,4 +1,5 @@
 import orgData from './org-data.json';
+import * as bootstrap from "bootstrap";
 
 const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
@@ -15,3 +16,6 @@ orgData.forEach(entry => {
         console.log(`Error: Element with id ${entry.id} does not exist`);
     }
 });
+
+const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+[...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl));
