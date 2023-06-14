@@ -125,7 +125,7 @@ const carouselItems = [
             <div class="row justify-content-center pb-4">
                 <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
                     <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CHARGED UP season information" rel="noopener noreferrer" target="_blank">
-                        <Img attributes={{img: {class: "center w-100"}}} src="/img/kickoff/2023/season_logo.png" alt="Charged Up, presented by Haas" placeholder="none" />
+                        <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2023/season_logo.png" alt="Charged Up, presented by Haas" placeholder="none" />
                     </a>
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
@@ -147,7 +147,7 @@ const carouselItems = [
                 <ul class="sponsor-display">
                     {sponsors.map(sponsor => 
                         <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">
-                            <Img attributes={{img: {class: "center"}}} src={`/img/sponsor/${sponsor.image}`} alt={sponsor.name} placeholder="none" />
+                            <Img attributes={{img: {class: "center"}}} format="webp" src={`/img/sponsor/${sponsor.image}`} alt={sponsor.name} placeholder="none" />
                         </a></li>
                     )}
                 </ul>

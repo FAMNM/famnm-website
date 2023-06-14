@@ -1,5 +1,5 @@
 ---
-import { Img } from "astro-imagetools/components";
+import { Picture } from "astro-imagetools/components";
 
 export interface CoreMember {
     name: string;
@@ -16,7 +16,7 @@ const { info } = Astro.props;
 
 <div class="card">
     <a href={`mailto:${ info.email }@umich.edu`}>
-        <Img src={info.img} fit="cover" format="webp"
+        <Picture src={info.img} fit="cover"
             objectFit="cover"
             attributes={{img: {class: "card-img-top", title: info.name}}}
             alt={`Picture of ${ info.name }, the ${ info.role } of FAMNM.`}

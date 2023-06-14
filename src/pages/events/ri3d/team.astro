@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { Img } from "astro-imagetools/components";
+import { Picture } from "astro-imagetools/components";
 const people = [
     {
         name: "Austin Barkey",
@@ -146,7 +146,7 @@ const people = [
                 {people.map(person =>
                     <div class="col-md-6 col-lg-4">
                         <div class="card mt-4">
-                            <Img alt={`Picture of ${person.name}`} attributes={{img: {class: "card-img-top img-fluid w-100"}}} src={person.image} />
+                            <Picture alt={`Picture of ${person.name}`} attributes={{img: {class: "card-img-top img-fluid w-100"}}} src={person.image} />
                             <div class="card-block p-4">
                                 <h4 class="card-title">{person.name}</h4>
                                 <p class="card-text">

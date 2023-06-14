@@ -1,5 +1,5 @@
 ---
-import { Img } from "astro-imagetools/components";
+import { Picture } from "astro-imagetools/components";
 
 interface Props {
     title: string;
@@ -18,7 +18,7 @@ const { title, image, alt, links } = Astro.props;
     <div class="row g-0">
         {
             image !== undefined &&
-            <Img src={image} format="webp" attributes={{img: {class: "rounded-4 feature-img"}}} alt={alt} />
+            <Picture src={image} attributes={{img: {class: "rounded-4 feature-img"}}} alt={alt} placeholder="none" />
         }
 
         <div class="mt-3">
