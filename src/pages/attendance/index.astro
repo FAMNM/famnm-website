@@ -1,0 +1,16 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import CreateAttendance from "../../components/attendance/CreateAttendance";
+---
+<BaseLayout title="FIRST® Alumni & Mentors Network at Michigan">
+    <div class="w-50 mx-auto pb-5">
+        <div class="py-4 mx-auto d-flex justify-content-between">
+            <h1 class="col-10">FAMNM Attendance Form</h1>
+            <div class="col text-end">
+                <a href="/attendance/view" class="btn famnm-btn-secondary">History</a>
+            </div>
+        </div>
+
+        <CreateAttendance client:load />
+    </div>
+</BaseLayout>

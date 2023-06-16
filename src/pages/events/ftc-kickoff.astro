@@ -1,0 +1,87 @@
+---
+import Carousel from "../../components/index/carousel/Carousel.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Img } from "astro-imagetools/components";
+---
+<BaseLayout title="FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
+    <div class="container">
+        <main class="content">
+            <div class="row justify-content-center">
+                <div class="col col-10 col-lg-6 mx-auto p-2 p-md-3">
+                    <Img attributes={{img: {class: "center w-50"}}} src="/img/ftc/2022/season_logo.png"
+                        alt="Power Play, presented by Raytheon Technologies" placeholder="none" format="webp">
+                </div>
+                <div class="col col-12 mt-1 mt-md-2">
+                    <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
+                    <p>FAMNM kicked off the 2022-2023 FTC season, <i>Power Play</i>, on <time datetime="2022-09-10">September 10, 2022</time> with 9 teams.</p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- /.container -->
+    <Carousel id="image-carousel" images={[
+        {
+            title: 'TOA Presentation',
+            description: `
+Kyle Flynn, Vice Chairman and Chief Technology Officer for
+<a href="https://theorangealliance.org/about" rel="noreferrer noopener" target="_blank">The Orange Alliance</a>,
+presents his <i>FIRST</i> journey to teams.`,
+            src: "/img/ftc/2022/speaker.jpg"
+        },
+        {
+            title: 'Field Reveal',
+            description: `Teams visit and examine the new <i>Power Play</i> field as they ideate and strategize.
+FAMNM's Eeshwar Krishnan explains the game's rules in detail.`,
+            src: "/img/ftc/2022/field-reveal.jpg"
+        },
+        {
+            title: 'Digit, the Humanoid',
+            description: `During FAMNM's 2021-2022 FTC Kickoff, Oluwami showcases Digit, a humanoid robot from Agility Robotics.`,
+            src: "/img/ftc/2021/oluwami-digit.jpg"
+        }
+    ]} />
+    <div class="container p-4">
+        <div class="row">
+            <div class="col">
+                <p class="m-0">
+                    <a href="https://www.firstinspires.org/ftc" rel="noopener noreferrer">FIRST Tech Challenge</a>
+                    (FTC) is the middle/high school level in the FIRST progression of programs.
+                    In 2017, FAMNM launched its first FTC Kickoff event, where we invited local teams to view the reveal of the new
+                    year's challenge in early September. The event came complete with FRC Demos, inspiring speeches, and a chance
+                    to see an official FTC game field!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #schedule-table th {
+            opacity: 0.75;
+            text-align: right;
+            width: 5.5rem;
+            height: 2.6rem;
+            transform: translateY(-1.3rem);
+            line-height: 100%;
+            vertical-align: middle;
+            padding: 0.5rem 0 0.5rem 0.5rem;
+        }
+
+        .schedule-time {
+            padding: 4px;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.7);
+        }
+
+        #schedule-table td {
+            padding: 2px;
+            border-top: 1px solid rgba(0, 0, 0, 0.4);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+            vertical-align: middle;
+            font-size: 1.1rem;
+        }
+
+        #schedule-table {
+            max-width: 42rem;
+        }
+    </style>
+</BaseLayout>

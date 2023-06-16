@@ -1,0 +1,74 @@
+---
+import type { CoreMember } from "../../components/about/CoreMemberCard.astro";
+import CoreMemberCard from "../../components/about/CoreMemberCard.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const people: CoreMember[] = [
+    {
+        name: "Dominik Kerschbaum",
+        email: "famnm.pres",
+        img: "/img/about/core/pres.jpg",
+        role: "President",
+    },
+    {
+        name: "Jonathan Brandell",
+        email: "famnm.vp",
+        img: "/img/about/core/vp.png",
+        role: "Vice President",
+    },
+    {
+        name: "Adam Austerberry",
+        email: "famnm.admin",
+        img: "/img/about/core/admin.jpg",
+        role: "Director of Internal Affairs",
+    },
+    {
+        name: "Reina Mezher",
+        email: "famnm.marketing",
+        img: "/img/about/core/reina.jpg",
+        role: "Director of Marketing and Campus Outreach",
+    },
+    {
+        name: "Sophia Bomar",
+        email: "famnm.treasurer",
+        img: "/img/about/core/temp.jpg",
+        role: "Treasurer",
+    },
+    {
+        name: "Jiawei Chen",
+        email: "famnm.volunteer",
+        img: "/img/about/core/volunteer.jpeg",
+        role: "Volunteer Coordinator",
+    },
+    {
+        name: "Michael Peng",
+        email: "famnm.webmaster",
+        img: "/img/about/core/webmaster.png",
+        role: "Webmaster",
+    },
+    {
+        name: "Reina Mezher",
+        email: "famnm.kickoff",
+        img: "/img/about/core/reina.jpg",
+        role: "Kickoff Coordinator",
+    },
+    {
+        name: "Dominik Kerschbaum",
+        email: "famnm.ri3d",
+        img: "/img/about/core/pres.jpg",
+        role: "Ri3D Coordinator",
+    }
+];
+---
+
+<BaseLayout title="FAMNM Core Team | FIRST® Alumni & Mentors Network at Michigan">
+    <div class="container">
+        <div class="content">
+            <h1>FAMNM Core Team 2022-2023</h1>
+            <p class="text-center">All FAMNM Core Team members can be reached at <a href="mailto:famnm.core@umich.edu">famnm.core@umich.edu</a>.</p>
+            <div class="row g-4 row-cols-auto d-flex justify-content-center">
+                {people.map(info => <div class="col"><CoreMemberCard info={info} /></div>)}
+            </div>
+        </div>
+    </div>
+</BaseLayout>

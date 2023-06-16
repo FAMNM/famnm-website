@@ -1,0 +1,63 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import orgChart from "../../components/org-structure.svg?raw";
+import orgData from "../../scripts/org-structure/org-data.json";
+---
+
+<BaseLayout title="Organizational Structure | FIRST® Alumni & Mentors Network at Michigan">
+    <link slot="head" href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+    <div class="container">
+        <div class="content">
+            <h1>FAMNM Organizational Structure</h1>
+            <p class="text-par">
+                Below is a chart of FAMNM's organizational
+                structure. Executive Board members and Core Team members
+                constitute FAMNM's leadership structure, the FAMNM Core.
+                Dashed lines indicate collaborative relationships between
+                committees and Core Team members. Hover over or tap any of the
+                boxes to learn more!
+            </p>
+            <div id="org-pic-contain" set:html={orgChart}></div>
+            <div id="text-descriptions">
+                {orgData.map((item) =>
+                    <h2 class="mt-5">
+                        {item.title}
+                    </h2>
+                    <p class="text-par">
+                        {item.content}
+                    </p>
+                )}
+            </div>
+        </div>
+    </div><!-- /.container -->
+
+    <Fragment slot="scripts">
+        <script src="../../scripts/org-structure/org-structure.ts"></script>
+    </Fragment>
+
+    <style slot="head">
+        #org-pic-contain {
+            padding: 10px 0;
+            user-select: none;
+            overflow-x: auto;
+        }
+        
+        @media(min-width: 768px) {
+            #org-pic {
+                width: 100%;
+            }
+        }
+        
+        @media(max-width: 767px) {
+            #org-pic {
+                width: 250%;
+            }
+        }
+        
+        @media(max-width: 399px) {
+            #org-pic {
+                width: 500%;
+            }
+        }
+    </style>
+</BaseLayout>

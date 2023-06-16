@@ -1,0 +1,59 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Picture } from "astro-imagetools/components";
+---
+
+<BaseLayout title="Available Resources | FIRST® Alumni & Mentors Network at Michigan">
+    <div class="container">
+        <main class="content">
+            <h1>Resources for Teams</h1>
+            <p class="text-par">
+                Are you a <i>FIRST<sup>&reg;</sup></i> team looking for resources or mentors?
+                You've come to the right place! FAMNM is here to help you 
+                by connecting you to U of M students, machinery, and opportunities.
+                As our member base is primarily comprised of FIRST alumni,
+                we do our best to provide the next generation of FIRST
+                students the best experience possible and grow our extensive 
+                FIRST FAMNMily!
+            </p>
+            <p class="text-par" style="margin-bottom: 1.5em;">
+                Any team that would like to obtain support and resources 
+                from FAMNM must become affiliated with FAMNM by working 
+                with one of our Coordinators to review and customize a contract.
+                This will outline the expectations and responsibilities of 
+                both parties so as to ensure that FAMNM is best meeting the
+                team's needs and structure.
+            </p>
+            <div class="text-par img-fluid mx-auto">
+                <div class="pt-5">
+                    <h2 class="text-center">FIRST Robotics Competition</h2>
+                    <Picture attributes={{picture: {class: "my-3 mx-auto w-50 d-block"}}} src="/img/teams/FRC-Demos.jpg" format="webp" alt="FIRST Robotics Competition" breakpoints={[500, 1000]} />
+                    For our FRC teams, we can help provide mentor support 
+                    throughout the build and competition season. We additionally
+                    host an annual <a href="../events/kickoff/">FRC Kickoff</a>. Interested? 
+                    Email our head FRC Coordinator at <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu</a> to get connected.
+                </div>
+                <div class="pt-5">
+                    <h2 class="text-center">FIRST Tech Challenge</h2>
+                    <Picture attributes={{picture: {class: "my-3 mx-auto w-50 d-block"}}} src="/img/teams/FTC-Kickoff.jpg" format="webp" alt="FIRST Tech Challenge" breakpoints={[500, 1000]} />
+                    Currently, FAMNM primarily supports FTC teams through our 
+                    annual <a href="../events/ftc-kickoff/">FTC Kickoff</a>
+                    event. We also provide opportunities for mentorship to local
+                    teams. Interested in getting involved? Email our FTC 
+                    Coordinator at <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu</a> to get connected.
+                </div>
+                <div class="pt-5">
+                    <h2 class="text-center">FIRST Lego League</h2>
+                    <Picture attributes={{picture: {class: "my-3 mx-auto w-50 d-block"}}} src="/img/teams/FLL-TrashTrek.jpg" format="webp" alt="FIRST Lego League" breakpoints={[500, 1000]} />
+                    With FLL, we are working on building team 
+                    relationships, and are currently only providing 
+                    mentor support for teams in our area. Interested? 
+                    Email our FLL Coordinator at
+                    <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu</a>
+                    to get connected.
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- /.container -->
+</BaseLayout>

@@ -1,0 +1,2 @@
+# Prettier doesn't handle HTML very well
+*.astro

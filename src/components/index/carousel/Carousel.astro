@@ -1,0 +1,33 @@
+---
+import CarouselIndicator from "./CarouselIndicator.astro";
+import CarouselItem from "./CarouselItem.astro";
+
+export interface Props {
+    id: string;
+    class?: string;
+    images: {title: string, description: string, src: string}[];
+}
+
+const { id, images, class: className } = Astro.props;
+---
+
+<div id={id} class=`carousel slide ${className ?? ''}` data-bs-ride="false">
+    <div class="carousel-indicators">
+        {images.map((_, i) => 
+            <CarouselIndicator id={id} i={i} active={i === 0} />
+        )}
+    </div>
+    <div class="carousel-inner" role="listbox" aria-label="Carousel elements">
+        {images.map(({ src, title, description }, i) => 
+            <CarouselItem src={src} title={title} description={description} active={i === 0} />
+        )}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target=`#${id}` data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Last</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target=`#${id}` data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </button>
+</div>

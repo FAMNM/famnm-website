@@ -1,0 +1,251 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Carousel from "../../components/index/carousel/Carousel.astro";
+import { Img } from "astro-imagetools/components";
+
+const sponsors = [
+    {
+        link: "https://esg.engin.umich.edu",
+        image: "esg.png",
+        name: "Engineering Student Government"
+    },
+    {
+        link: "https://engin.umich.edu",
+        image: "coe.png",
+        name: "University of Michigan College of Engineering"
+    },
+];
+
+// function hoursToTime(hours: number): string {
+//     function padZero(_in: any) {
+//         let s = `${_in}`;
+//         while (s.length < 2) s = '0' + s;
+//         return s;
+//     }
+//     const ampm = hours >= 12 ? 'PM' : 'AM';
+//     const displayHourMinutes = (hours + 11) % 12 + 1;
+//     const displayHour = Math.floor(displayHourMinutes);
+//     const displayMinute = Math.round((displayHourMinutes - displayHour) * 60);
+//     return `${padZero(displayHour)}:${padZero(displayMinute)} ${ampm}`;
+// }
+
+// const scheduleTimes = (() => {
+//     const times = [];
+//     for (let hour = 9; hour <= 17; hour += 0.5) {
+//         times.push(hoursToTime(hour));
+//     }
+//     return times;
+// })();
+
+const carouselItems = [
+    {
+        title: 'Engineering Organization Fair',
+        description: 'Teams learn about Michigan Engineering\'s various student organizations along with the new Undergraduate Robotics program',
+        src: "/img/kickoff/2023/org-fair-ground.jpeg",
+    },
+    {
+        title: 'Michigan Robotics Presentation',
+        description: 'Damen Provost, the Managing Director of the University of Michigan Robotics Institute, introduces the institute\'s mission and opportunities to teams',
+        src: "/img/kickoff/2023/rob-presentation.jpeg",
+    },
+    {
+        title: 'The FAMNM Event Crew',
+        description: 'From parking assistance to breakout room supervision, FAMNM members and affiliated volunteers ensure a smooth kickoff experience',
+        src: "/img/kickoff/2023/event-crew.jpeg",
+    },
+    {
+        title: 'Kit Distribution On Site',
+        description: 'FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams',
+        src: "/img/kickoff/2023/kit-distribution.jpeg",
+    }
+];
+---
+<BaseLayout title="FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
+    <style slot="head" is:global>
+        /** Sponsor display list **/
+        ul.sponsor-display {
+            padding: 0;
+            vertical-align: middle;
+            height: auto;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        @media (max-width: 768px) {
+            ul.sponsor-display>li {
+                list-style-type: none;
+                vertical-align: middle;
+            }
+            
+            ul.sponsor-display>li img {
+                max-width: 100%;
+            }
+            
+            #quick-links>.btn {
+                margin: 5px auto;
+            }
+            
+            #map {
+                height: 400px;
+            }
+        }
+        
+        @media (min-width: 768px) {
+            ul.sponsor-display>li {
+                list-style-type: none;
+                display: inline-block;
+                vertical-align: middle;
+            }
+            
+            ul.sponsor-display>li img {
+                max-width: 250px;
+            }
+            
+            #map {
+                height: 600px;
+            }
+        }
+        
+        ul.sponsor-display>li:hover {
+            background-color: #cccccc;
+        }
+        
+        ul.sponsor-display>li>a {
+            display: block;
+            padding: 10px;
+        }
+        
+        ul.sponsor-display>li img {
+            max-height: 180px;
+            width: auto;
+        }
+    </style>
+    <main>
+        <div class="container content">
+            <div class="row justify-content-center pb-4">
+                <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
+                    <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CHARGED UP season information" rel="noopener noreferrer" target="_blank">
+                        <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2023/season_logo.png" alt="Charged Up, presented by Haas" placeholder="none" />
+                    </a>
+                </div>
+                <div class="col col-12 mt-1 mt-md-2">
+                    <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
+                    <p>
+                        FAMNM held a kickoff event in person for FRC's 2023 season game,
+                        <i>CHARGED UP</i>, on <time datetime="2023-01-07">Saturday, January 7th, 2023</time>
+                        at the University of Michigan's <a href="https://goo.gl/maps/SviBGJZca11mxoX19" rel="noopener noreferrer">North Campus</a>.
+                        The kickoff featured an engineering student organization fair, an info session about the University of Michigan's new Undergraduate Robotics program,
+                        guest speakers, and team breakout rooms, with more than 40 teams in attendance.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <Carousel id="kickoff-carousel" images={carouselItems} />
+        <div class="container content">
+            <div class="row pt-2">
+                <h3>Sponsors</h3>
+                <ul class="sponsor-display">
+                    {sponsors.map(sponsor => 
+                        <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">
+                            <Img attributes={{img: {class: "center"}}} format="webp" src={`/img/sponsor/${sponsor.image}`} alt={sponsor.name} placeholder="none" />
+                        </a></li>
+                    )}
+                </ul>
+                <ul class="list-unstyled">
+                    {sponsors.map(sponsor =>
+                        <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">{sponsor.name}</a></li>
+                    )}
+                </ul>
+            </div>
+        </div>
+    </main>
+    <style>
+        .schedule-time {
+            text-align: right;
+            line-height: 100%;
+            width: 5.5rem;
+            height: fit-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transform: translateY(-15px);
+            padding: 4px;
+            border-radius: 6px;
+            border: 1px solid #888888;
+            background-color: #dfdfdf;
+            font-weight: bold;
+            grid-column: 1;
+        }
+
+        .schedule-time-border {
+            border-top: 1px solid #888888;
+            margin-top: -2px;
+            grid-column: 1/-1;
+        }
+
+        #schedule-table td {
+            padding: 2px;
+            vertical-align: middle;
+            margin: 2px;
+            font-size: 1.1rem;
+        }
+
+        #schedule-table {
+            max-width: 42rem;
+            display: grid;
+            gap: 4px;
+            grid-template-columns: 5.8rem repeat(3, 8px) 1fr repeat(3, 4px) repeat(3, 8px) 1fr repeat(3, 4px);
+            grid-template-rows: repeat({{ page.schedule.times | size }}, 48px);
+        }
+
+        #schedule-table .event {
+            font-size: 0.9rem;
+            padding: 4px;
+            background-color: var(--event-background);
+            border-left: 6px solid var(--event-color);
+            border-top: 1px solid var(--event-color);
+            border-right: 1px solid var(--event-color);
+            border-bottom: 1px solid var(--event-color);
+            border-radius: 0.25rem;
+            text-align: left;
+            line-height: 115%;
+            vertical-align: top;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .event-indent-0 {
+            --event-color: #003368;
+            --event-background: #a3bdda;
+        }
+
+        .event-indent-1 {
+            --event-color: #005269;
+            --event-background: #9ec7d3;
+        }
+
+        .event-indent-2 {
+            --event-color: #006966;
+            --event-background: #a2dad8;
+        }
+
+        [v-cloak] {
+            display: none;
+        }
+
+        .text-location {
+            color: #545454;
+        }
+
+        .text-location:not([disabled="true"]):after {
+            content: "↗";
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .text-location[disabled="true"] {
+            pointer-events: none;
+            cursor: not-allowed;
+        }
+    </style>
+</BaseLayout>

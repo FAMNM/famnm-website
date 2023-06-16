@@ -1,0 +1,14 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ViewAttendance from "../../components/attendance/ViewAttendance";
+---
+<BaseLayout title="FIRST® Alumni & Mentors Network at Michigan">
+    <div class="w-75 pt-5 mx-auto d-flex justify-content-between">
+        <h1 class="col-10">FAMNM Attendance</h1>
+        <p class="col-2">
+            <a href="/attendance" class="btn famnm-btn-secondary">+</a>
+        </p>
+    </div>
+    
+    <ViewAttendance client:load />
+</BaseLayout>
