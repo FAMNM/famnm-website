@@ -1,4 +1,5 @@
 ---
+import SponsorList from "../../../components/SponsorList.astro";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
 import { Picture, Img } from "astro-imagetools/components";
 
@@ -33,7 +34,6 @@ const sidePicture = {
         
         .lead-card {
             padding: 1.5em;
-            background-color: #eeeeee;
         }
         
         @media (min-width: 768px) {
@@ -100,12 +100,12 @@ const sidePicture = {
             padding: 10px;
         }
         
-        ul.gold-sponsor {
+        .gold-sponsor {
             border: solid gold 4px;
             padding: 0.5rem;
         }
         
-        ul.silver-sponsor {
+        .silver-sponsor {
             border: solid silver 4px;
             padding: 0.5rem;
             margin-top: 10px;
@@ -207,39 +207,39 @@ const sidePicture = {
             </div>
             <div class="row my-2">
                 <h3 class="text-center">Our Ri3D Sponsors</h3>
-                <ul class="sponsor-display gold-sponsor">
-                    <li><a href="https://engin.umich.edu" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan College of Engineering">
-                        <Img attributes={{img: {class: "center"}}} format="webp" placeholder="none" src="/img/sponsor/coe.png" alt="University of Michigan College of Engineering" />
-                    </a></li>
-                    <li><a href="https://robotics.umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan Robotics Institute">
-                        <Img attributes={{img: {class: "center"}}} format="webp" placeholder="none" src="/img/sponsor/robotics-institute.png" alt="University of Michigan Robotics Institute" />
-                    </a></li>
-                </ul>
-                <ul class="sponsor-display silver-sponsor">
-                    <li><a href="https://www.netscout.com/" target="_blank" rel="noopener noreferrer" aria-label="NETSCOUT">
-                        <Img attributes={{img: {class: "center"}}} format="webp" placeholder="none" src="/img/sponsor/netscout.png" alt="NETSCOUT"/>
-                    </a></li>
-                    <li><a href="https://me.engin.umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="University of Michigan Department of Mechanical Engineering">
-                        <Img attributes={{img: {class: "center"}}} format="webp" placeholder="none" src="/img/sponsor/CoE-ME-vert.png" alt="University of Michigan Department of Mechanical Engineering" />
-                    </a></li>
-                    <li><a href="http://esg.engin.umich.edu/" target="_blank" rel="noopener noreferrer" aria-label="College of Engineering Student Government">
-                        <Img attributes={{img: {class: "center"}}} format="webp" placeholder="none" src="/img/sponsor/esg.png" alt="College of Engineering Student Government" />
-                    </a></li>
-                </ul>
+                <div class="gold-sponsor">
+                    <h4>Gold Sponsors</h4>
+                    <SponsorList sponsors={["coe", "rob"]} />
+                </div>
+                <div class="silver-sponsor">
+                    <h4>Silver Sponsors</h4>
+                    <SponsorList sponsors={["netscout", "me", "esg"]} />
+                </div>
             </div>
-            <div class="card lead-card text-start">
+            <div class="card lead-card bg-body-secondary text-start">
                 <h2>Previous Competitions</h2>
                 <p>
                     Here, you can see the documentation for our Ri3D builds in previous years. If your team is looking for insight for their build process,
                     or you're just curious to see what we did, check out our documentation page!
                 </p>
-                <h3>2020 - Infinite Recharge</h3>
-                <p class="mx-auto">
-                    <a class="mx-auto my-1 btn famnm-btn-secondary" href="team/">2020 Ri3D Team</a>
-                    <a class="mx-auto my-1 btn famnm-btn-secondary" href="2020/">2020 Build Documentation</a>
-                </p>
-                <h3>2019 - Destination: Deep Space</h3>
-                <a class="mx-auto btn famnm-btn-secondary" href="2019/">2019 Build Documentation</a>
+                <div class="container text-center">
+                    <div class="row">
+                        <div class="col-12 col-md-6">
+                            <h3>2020 - Infinite Recharge</h3>
+                            <p class="mx-auto">
+                                <a class="mx-auto my-1 btn famnm-btn-secondary" href="team/">2020 Ri3D Team</a>
+                                <a class="mx-auto my-1 btn famnm-btn-secondary" href="2020/">2020 Build Documentation</a>
+                            </p>
+                        </div>
+                        <div class="col-12 col-md-6">
+                            <h3>2019 - Destination: Deep Space</h3>
+                            <p class="mx-auto">
+                                <a class="mx-auto btn famnm-btn-secondary" href="2019/">2019 Build Documentation</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div><!-- /.container -->
     </main>

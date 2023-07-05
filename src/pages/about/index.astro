@@ -1,34 +1,7 @@
 ---
+import SponsorList from "../../components/SponsorList.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Picture, Img } from "astro-imagetools/components";
-
-const sponsors = [
-    {
-        link: "https://detroitcenter.umich.edu/projects/michigan-engineering-zone",
-        image: "mez.png",
-        name: "Michigan Engineering Zone",
-    },
-    {
-        link: "https://engin.umich.edu",
-        image: "coe.png",
-        name: "University of Michigan College of Engineering",
-    },
-    {
-        link: "https://esg.engin.umich.edu",
-        image: "esg.png",
-        name: "Engineering Student Government",
-    },
-    {
-        link: "https://ginsberg.umich.edu",
-        image: "ginsberg.png",
-        name: "Edward Ginsberg Center",
-    },
-    {
-        link: "https://spectrumcenter.umich.edu",
-        image: "spectrum.png",
-        name: "Spectrum Center",
-    },
-];
+import { Picture } from "astro-imagetools/components";
 
 ---
 
@@ -75,63 +48,7 @@ const sponsors = [
             </div>
             
             <h1>FAMNM Sponsors and Affiliates</h1>
-            <ul id="sponsors">
-                {sponsors.map(s =>
-                    <li><a href={s.link} target="_blank" rel="noopener noreferrer">
-                        <Img src={`/img/sponsor/${s.image}`} alt={s.name} placeholder="none" format="webp" />
-                    </a></li>
-                )}
-            </ul>
-            <ul class="list-unstyled">
-                {sponsors.map(s =>
-                    <li><a href={s.link} target="_blank" rel="noopener noreferrer">{s.name}</a></li>
-                )}
-            </ul>
+            <SponsorList sponsors={["mez", "coe", "esg", "ginsberg", "spectrum"]} />
         </main>
     </div><!-- /.container -->
-    
-    <style slot="head" is:global>
-        ul#sponsors {
-            padding-left: 0;
-            list-style-type: none;
-        }
-        
-        ul#sponsors > li {
-            display: inline-block;
-            margin: 10px;
-        }
-        
-        ul#sponsors > li > a {
-            display: block;
-            padding: 5px;
-            color: inherit;
-            text-decoration: none;
-        }
-        
-        ul#sponsors > li:hover > a {
-            background-color: #cccccc;
-        }
-        
-        ul#sponsors > li > a > img {
-            max-width: 300px;
-            max-height: 150px;
-            width: auto;
-        }
-        
-        .vid-content {
-            margin: 1em auto;
-        }
-        
-        @media (max-width: 767px) {
-            ul#sponsors > li > a > img {
-                max-width: 100px;
-            }
-        }
-        
-        @media (min-width: 992px) {
-            .vid-content {
-                width: 80%;
-            }
-        }
-    </style>
 </BaseLayout>

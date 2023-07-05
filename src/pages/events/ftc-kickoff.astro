@@ -1,4 +1,5 @@
 ---
+import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Carousel from "../../components/index/carousel/Carousel.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Img } from "astro-imagetools/components";
@@ -8,8 +9,16 @@ import { Img } from "astro-imagetools/components";
         <main class="content">
             <div class="row justify-content-center">
                 <div class="col col-10 col-lg-6 mx-auto p-2 p-md-3">
-                    <Img attributes={{img: {class: "center w-50"}}} src="/img/ftc/2022/season_logo.png"
-                        alt="Power Play, presented by Raytheon Technologies" placeholder="none" format="webp">
+                    <ThemeSwitcher>
+                        <span slot="light">
+                            <Img attributes={{img: {class: "center w-50"}}} src="/img/ftc/2022/season_logo.png"
+                                alt="Power Play, presented by Raytheon Technologies" placeholder="none" format="webp" />
+                        </span>
+                        <span slot="dark">
+                            <img class="center w-50" src="/img/ftc/2022/season_logo_dark.svg"
+                                alt="Power Play, presented by Raytheon Technologies" />
+                        </span>
+                    </ThemeSwitcher>
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>

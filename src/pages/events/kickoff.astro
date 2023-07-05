@@ -2,19 +2,8 @@
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Carousel from "../../components/index/carousel/Carousel.astro";
 import { Img } from "astro-imagetools/components";
-
-const sponsors = [
-    {
-        link: "https://esg.engin.umich.edu",
-        image: "esg.png",
-        name: "Engineering Student Government"
-    },
-    {
-        link: "https://engin.umich.edu",
-        image: "coe.png",
-        name: "University of Michigan College of Engineering"
-    },
-];
+import SponsorList from "../../components/SponsorList.astro";
+import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 
 // function hoursToTime(hours: number): string {
 //     function padZero(_in: any) {
@@ -61,71 +50,17 @@ const carouselItems = [
 ];
 ---
 <BaseLayout title="FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
-    <style slot="head" is:global>
-        /** Sponsor display list **/
-        ul.sponsor-display {
-            padding: 0;
-            vertical-align: middle;
-            height: auto;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        @media (max-width: 768px) {
-            ul.sponsor-display>li {
-                list-style-type: none;
-                vertical-align: middle;
-            }
-            
-            ul.sponsor-display>li img {
-                max-width: 100%;
-            }
-            
-            #quick-links>.btn {
-                margin: 5px auto;
-            }
-            
-            #map {
-                height: 400px;
-            }
-        }
-        
-        @media (min-width: 768px) {
-            ul.sponsor-display>li {
-                list-style-type: none;
-                display: inline-block;
-                vertical-align: middle;
-            }
-            
-            ul.sponsor-display>li img {
-                max-width: 250px;
-            }
-            
-            #map {
-                height: 600px;
-            }
-        }
-        
-        ul.sponsor-display>li:hover {
-            background-color: #cccccc;
-        }
-        
-        ul.sponsor-display>li>a {
-            display: block;
-            padding: 10px;
-        }
-        
-        ul.sponsor-display>li img {
-            max-height: 180px;
-            width: auto;
-        }
-    </style>
     <main>
         <div class="container content">
             <div class="row justify-content-center pb-4">
                 <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
                     <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CHARGED UP season information" rel="noopener noreferrer" target="_blank">
-                        <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2023/season_logo.png" alt="Charged Up, presented by Haas" placeholder="none" />
+                        <ThemeSwitcher>
+                            <span slot="light">
+                                <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2023/season_logo.png" alt="Charged Up, presented by Haas" placeholder="none" />
+                            </span>
+                            <img class="center w-100" src="/img/kickoff/2023/season_logo.svg" alt="Charged Up, presented by Haas" slot="dark" />
+                        </ThemeSwitcher>
                     </a>
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
@@ -144,22 +79,11 @@ const carouselItems = [
         <div class="container content">
             <div class="row pt-2">
                 <h3>Sponsors</h3>
-                <ul class="sponsor-display">
-                    {sponsors.map(sponsor => 
-                        <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">
-                            <Img attributes={{img: {class: "center"}}} format="webp" src={`/img/sponsor/${sponsor.image}`} alt={sponsor.name} placeholder="none" />
-                        </a></li>
-                    )}
-                </ul>
-                <ul class="list-unstyled">
-                    {sponsors.map(sponsor =>
-                        <li><a href={sponsor.link} target="_blank" rel="noopener noreferrer">{sponsor.name}</a></li>
-                    )}
-                </ul>
+                <SponsorList sponsors={["esg", "coe"]} />
             </div>
         </div>
     </main>
-    <style>
+    <!-- <style>
         .schedule-time {
             text-align: right;
             line-height: 100%;
@@ -247,5 +171,5 @@ const carouselItems = [
             pointer-events: none;
             cursor: not-allowed;
         }
-    </style>
+    </style> -->
 </BaseLayout>
