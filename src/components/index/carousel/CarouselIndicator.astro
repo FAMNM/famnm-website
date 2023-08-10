@@ -11,3 +11,10 @@ const itemClass = active ? "active" : "";
 ---
 
 <button data-bs-target=`#${id}` data-bs-slide-to={i} class={itemClass} aria-label=`Slide ${i + 1}` />
+
+<style>
+    button {
+        /* To override dark mode styling */
+        background-color: white !important;
+    }
+</style>
