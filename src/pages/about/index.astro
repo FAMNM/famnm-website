@@ -1,4 +1,5 @@
 ---
+import FIRST from "../../components/FIRST.astro";
 import SponsorList from "../../components/SponsorList.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -44,7 +45,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             
             <h1>What is FIRST?</h1>
             <p class="text-par">
-                <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer">FIRST</a>
+                <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer"><FIRST /></a>
                 (For Inspiration and Recognition of Science and Technology)
                 is a non-profit organization intended to get K-12 children
                 involved in science, technology, engineering, and
@@ -53,11 +54,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             </p>
             
             <div class="vid-content embed-responsive embed-responsive-16by9">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/wSA6InzFAZE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/wSA6InzFAZE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             
             <h1>FAMNM Sponsors and Affiliates</h1>
-            <SponsorList sponsors={["mez", "coe", "esg", "ginsberg", "spectrum"]} />
+            <SponsorList sponsors={["coe", "esg", "invensity", "rob", "ece", "cse"]} />
         </main>
     </div><!-- /.container -->
 </BaseLayout>

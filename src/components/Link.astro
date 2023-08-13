@@ -1,0 +1,10 @@
+---
+export interface Props {
+    to: string;
+    [anyProp: string]: any;
+}
+
+const { to } = Astro.props;
+---
+
+<a href={to} rel="noreferrer noopener" target="_blank" {...Astro.props}><slot /></a>
