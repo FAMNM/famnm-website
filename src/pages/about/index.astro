@@ -1,14 +1,23 @@
 ---
 import SponsorList from "../../components/SponsorList.astro";
+import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Picture } from "astro-imagetools/components";
 
 ---
 
 <BaseLayout title="About The FAMNM | FIRST Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
-            <Picture attributes={{picture: {class: "center"}}} src="/img/logo.png" alt="FAMNM Logo" breakpoints={[840, 1680, 3360]} />
+            <ThemeSwitcher>
+                <span slot="light">
+                    <img class="center img-fluid" src="/img/logo-light.svg"
+                        alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="512" />
+                </span>
+                <span slot="dark">
+                    <img class="center img-fluid" src="/img/logo-dark.svg"
+                        alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="512" />
+                </span>
+            </ThemeSwitcher>
             <h1>About</h1>
             <p class="text-par">
                 FAMNM is an on campus effort to unite all of the

@@ -3,6 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Announcements from "../components/index/Announcements.astro";
 import Carousel from "../components/index/carousel/Carousel.astro";
 import { Img } from "astro-imagetools/components";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 
 const images = [
     {
@@ -43,9 +44,16 @@ const images = [
         <div class="container p-4">
             <div class="row align-items-center">
                 <div class="col-sm-12">
-                    <Img attributes={{img: {id: "frontpage-logo", class: "center img-fluid"}}}
-                        src="img/logo.png" alt="Logo for FIRST Alumni and Mentors Network at Michigan"
-                        placeholder="none" format="webp" height={512} />
+                    <ThemeSwitcher>
+                        <span slot="light">
+                            <img id="frontpage-logo" class="center img-fluid" src="/img/logo-light.svg"
+                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="512" />
+                        </span>
+                        <span slot="dark">
+                            <img id="frontpage-logo" class="center img-fluid" src="/img/logo-dark.svg"
+                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="512" />
+                        </span>
+                    </ThemeSwitcher>
                 </div>
                 <div class="col-sm-12 col-md">
                     <p class="text-description text-center">

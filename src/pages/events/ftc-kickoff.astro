@@ -1,4 +1,5 @@
 ---
+import FIRST from "../../components/FIRST.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Carousel from "../../components/index/carousel/Carousel.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
@@ -7,22 +8,25 @@ import { Img } from "astro-imagetools/components";
 <BaseLayout title="FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
     <div class="container">
         <main class="content">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mb-4">
                 <div class="col col-10 col-lg-6 mx-auto p-2 p-md-3">
                     <ThemeSwitcher>
                         <span slot="light">
-                            <Img attributes={{img: {class: "center w-50"}}} src="/img/ftc/2022/season_logo.png"
-                                alt="Power Play, presented by Raytheon Technologies" placeholder="none" format="webp" />
+                            <Img attributes={{img: {class: "center w-50"}}} src="/img/ftc/2023/centerstage-light.png"
+                                alt="CENTERSTAGE, presented by RTX" placeholder="none" format="webp" />
                         </span>
                         <span slot="dark">
-                            <img class="center w-50" src="/img/ftc/2022/season_logo_dark.svg"
-                                alt="Power Play, presented by Raytheon Technologies" />
+                            <Img attributes={{img: {class: "center w-50"}}} src="/img/ftc/2023/centerstage-dark.png"
+                                alt="CENTERSTAGE, presented by RTX" placeholder="none" format="webp" />
                         </span>
                     </ThemeSwitcher>
                 </div>
-                <div class="col col-12 mt-1 mt-md-2">
+                <div class="col col-12 col-lg-8 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
-                    <p>FAMNM kicked off the 2022-2023 FTC season, <i>Power Play</i>, on <time datetime="2022-09-10">September 10, 2022</time> with 9 teams.</p>
+                    <p class="lead mb-4">FAMNM will be hosting a kickoff for the 2023&ndash;2024 season of <FIRST /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time datetime="2023-09-09">September 9<sup>th</sup>, 2023</time> on the University of Michigan's <a href="https://goo.gl/maps/fLGy2FxVHeozWEZt6" rel="noreferrer noopener" target="_blank">North Campus</a>. <b class="fw-bold">All participating teams should register via the form linked below!</b></p>
+                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+                        <a class="btn btn-primary btn-lg gap-3" href="https://docs.google.com/forms/d/e/1FAIpQLScHcz1_QHT7NDC7adpyc5g0fcbwE-7XNabfk5JzqGWR6e_UsA/viewform" rel="noreferrer noopener" target="_blank">Register your team</a>
+                    </div>
                 </div>
             </div>
         </main>

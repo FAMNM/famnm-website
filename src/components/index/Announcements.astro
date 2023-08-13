@@ -6,6 +6,20 @@ import Announcement from "./Announcement.astro";
 <section id="home-announcements" class="container mb-4">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
         <Announcement
+            title="Upcoming FTC Kickoff"
+            image="/img/ftc/2022/speaker.webp"
+            alt="Kyle Flynn, CTO of the Orange Alliance, presents his FIRST journey to FTC teams during kickoff in 2022"
+            links={[
+                {
+                    text: "Register your team",
+                    link: "https://docs.google.com/forms/d/e/1FAIpQLScHcz1_QHT7NDC7adpyc5g0fcbwE-7XNabfk5JzqGWR6e_UsA/viewform",
+                },
+            ]}
+        >
+            FAMNM will host a kickoff for the 2023&ndash;2024 FIRST Tech Challenge season, <i>CENTERSTAGE</i>, on
+            <time datetime="2023-09-09">September 9th, 2023</time>. If your team plans to attend, please register below!
+        </Announcement>
+        <Announcement
             title="FRC Kickoff"
             image="/img/index/announcements/first-broadcast.jpeg"
             alt="Watching the FIRST broadcast during FRC kickoff"
@@ -18,20 +32,6 @@ import Announcement from "./Announcement.astro";
         >
             FAMNM hosted a successful kickoff event for the 2023 season of <i>FIRST</i> Robotics Competition, <i>CHARGED UP</i>,
             on <time datetime="2023-01-07">January 7th, 2023</time> at the University of Michigan's North Campus in Ann Arbor.
-        </Announcement>
-        <Announcement
-            title="Upcoming FTC Kickoff"
-            image="/img/ftc/2022/speaker.webp"
-            alt="Kyle Flynn, CTO of the Orange Alliance, presents his FIRST journey to FTC teams during kickoff in 2022"
-            links={[
-                {
-                    text: "Learn More",
-                    link: "/events/ftc-kickoff/",
-                },
-            ]}
-        >
-            FAMNM will host a kickoff for the 2023&ndash;2024 FIRST Tech Challenge season, <i>CENTERSTAGE</i>, on
-            <time datetime="2023-09-09">September 9th, 2023</time>.
         </Announcement>
         <Announcement
             title="Interested in joining FAMNM?"
