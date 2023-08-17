@@ -1,5 +1,6 @@
 ---
 import { Picture } from "astro-imagetools/components";
+import Link from "./Link.astro";
 ---
 <div class="footer row text-center mx-0 my-0">
     <div class="footer-col col-md-6 my-4">
@@ -69,11 +70,12 @@ import { Picture } from "astro-imagetools/components";
     <div class="footer-col col-md-6 my-4">
         <h1 class="h3">Sponsors and Affiliates</h1>
         <ul>
-            <li><a href="https://engin.umich.edu" target="_blank" rel="noopener">University of Michigan College of Engineering</a></li>
-            <li><a href="https://esg.engin.umich.edu" target="_blank" rel="noopener">Engineering Student Government</a></li>
-            <li><a href="https://robotics.umich.edu" target="_blank" rel="noopener">Michigan Robotics</a></li>
-            <li><a href="https://ece.engin.umich.edu" target="_blank" rel="noopener">Electrical and Computer Engineering</a></li>
-            <li><a href="https://cse.engin.umich.edu" target="_blank" rel="noopener">Computer Science and Engineering</a></li>
+            <li><Link to="https://engin.umich.edu">University of Michigan College of Engineering</Link></li>
+            <li><Link to="https://esg.engin.umich.edu">Engineering Student Government</Link></li>
+            <li><Link to="https://invensity.com">Invensity</Link></li>
+            <li><Link to="https://robotics.umich.edu">Michigan Robotics</Link></li>
+            <li><Link to="https://ece.engin.umich.edu">Electrical and Computer Engineering</Link></li>
+            <li><Link to="https://cse.engin.umich.edu">Computer Science and Engineering</Link></li>
         </ul>
     </div>
 </div>

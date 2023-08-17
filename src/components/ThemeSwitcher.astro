@@ -1,0 +1,25 @@
+<span class="light">
+    <slot name="light" />
+</span>
+<span class="dark">
+    <slot name="dark" />
+</span>
+
+<style lang="scss">
+    $color-mode-type: media-query;
+    $primary: #164FA6;
+    
+    @import "bootstrap/scss/_mixins.scss";
+
+    .dark {
+        display: none;
+    }
+    @include color-mode(dark) {
+        .dark {
+            display: inline;
+        }
+        .light {
+            display: none;
+        }
+    }
+</style>

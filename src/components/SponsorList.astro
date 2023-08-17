@@ -1,0 +1,199 @@
+---
+import ThemeSwitcher from './ThemeSwitcher.astro';
+import { Img } from "astro-imagetools/components";
+
+export const allSponsors = {
+    mez: {
+        link: "https://detroitcenter.umich.edu/projects/michigan-engineering-zone",
+        image: {
+            light: "mez.png",
+            dark: "mez.png"
+        },
+        name: "Michigan Engineering Zone",
+    },
+    coe: {
+        link: "https://engin.umich.edu",
+        image: {
+            light: "coe.svg",
+            dark: "coe-light.svg"
+        },
+        name: "University of Michigan College of Engineering",
+    },
+    esg: {
+        link: "https://esg.engin.umich.edu",
+        image: {
+            light: "esg.png",
+            dark: "esg.png"
+        },
+        name: "Engineering Student Government",
+    },
+    ginsberg: {
+        link: "https://ginsberg.umich.edu",
+        image: {
+            light: "ginsberg.png",
+            dark: "ginsberg-light.png"
+        },
+        name: "Edward Ginsberg Center",
+    },
+    spectrum: {
+        link: "https://spectrumcenter.umich.edu",
+        image: {
+            light: "spectrum.png",
+            dark: "spectrum.png"
+        },
+        name: "Spectrum Center",
+    },
+    netscout: {
+        link: "https://www.netscout.com",
+        image: {
+            light: "netscout.png",
+            dark: "netscout.png"
+        },
+        name: "NETSCOUT"
+    },
+    me: {
+        link: "https://me.engin.umich.edu",
+        image: {
+            light: "mecheng.svg",
+            dark: "mecheng-light.svg"
+        },
+        name: "University of Michigan Department of Mechanical Engineering"
+    },
+    rob: {
+        link: "https://robotics.umich.edu",
+        image: {
+            light: "rob.svg",
+            dark: "rob-white.svg"
+        },
+        name: "Michigan Robotics"
+    },
+    invensity: {
+        link: "https://www.invensity.com",
+        image: {
+            light: "invensity.png",
+            dark: "invensity.png"
+        },
+        name: "INVENSITY"
+    },
+    cse: {
+        link: "https://cse.engin.umich.edu",
+        image: {
+            light: "cse.svg",
+            dark: "cse-white.svg"
+        },
+        name: "Computer Science and Engineering"
+    },
+    ece: {
+        link: "https://ece.engin.umich.edu",
+        image: {
+            light: "ece.svg",
+            dark: "ece-white.svg",
+        },
+        name: "Electrical and Computer Engineering"
+    },
+    ford: {
+        link: "https://ford.com",
+        image: {
+            light: "ford-oval.png",
+            dark: "ford-oval.png"
+        },
+        name: "Ford"
+    }
+};
+
+function optimizeAsNeeded<E>(filename: string, unoptimized: E, optimized: E): E {
+    return filename.toLowerCase().endsWith("svg") ? unoptimized : optimized;
+}
+
+interface Props {
+    sponsors: (keyof typeof allSponsors)[];
+    ["class"]?: string;
+}
+
+const { sponsors } = Astro.props;
+---
+<ul id="sponsors" {...Astro.props}>
+    {sponsors.map(s => /* Not using astro-imagetools because some images are SVGs */
+        <li><a href={allSponsors[s].link} target="_blank" rel="noopener noreferrer">
+                <ThemeSwitcher>
+                    {optimizeAsNeeded(allSponsors[s].image.light,
+                        <img src={`/img/sponsor/${allSponsors[s].image.light}`} alt={allSponsors[s].name} slot="light" class="image-min-height" />,
+                        <span slot="light">
+                            <Img src={`/img/sponsor/${allSponsors[s].image.light}`} format="webp" placeholder="none" alt={allSponsors[s].name} />
+                        </span>)}
+                    {optimizeAsNeeded(allSponsors[s].image.dark,
+                        <img src={`/img/sponsor/${allSponsors[s].image.dark}`} alt={allSponsors[s].name} slot="dark" class="image-min-height" />,
+                        <span slot="dark">
+                            <Img src={`/img/sponsor/${allSponsors[s].image.dark}`} format="webp" placeholder="none" alt={allSponsors[s].name} />
+                        </span>)}
+                </ThemeSwitcher>
+        </a></li>
+    )}
+</ul>
+<ul class="list-unstyled">
+    {sponsors.map(s =>
+        <li><a href={allSponsors[s].link} target="_blank" rel="noopener noreferrer">{allSponsors[s].name}</a></li>
+    )}
+</ul>
+
+<style is:global>
+    ul#sponsors {
+        padding-left: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    ul#sponsors > li > a {
+        display: block;
+        padding: 8px;
+        color: inherit;
+        text-decoration: none;
+        border-radius: 0.2rem;
+        width: fit-content;
+    }
+    
+    ul#sponsors > li:hover > a {
+        background-color: rgba(154, 154, 154, 0.25);
+    }
+    
+    ul#sponsors > li > a img {
+        display: block !important;
+        max-height: 10rem !important;
+        max-width: 28rem !important;
+        object-fit: contain !important;
+        width: auto !important;
+    }
+
+    .image-min-height {
+        min-height: 9rem;
+    }
+    
+    .vid-content {
+        margin: 1em auto;
+    }
+    
+    @media (max-width: 767px) {
+        ul#sponsors > li {
+            margin: 4px;
+        }
+
+        ul#sponsors > li > a img {
+            max-width: 20rem !important;
+            max-height: 8.5rem !important;
+        }
+
+        .image-min-height {
+            min-height: 8rem;
+        }
+    }
+    
+    @media (min-width: 992px) {
+        .vid-content {
+            width: 80%;
+        }
+    }
+</style>
