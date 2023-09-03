@@ -27,7 +27,7 @@ const { title, image, alt, links } = Astro.props;
 
             {
                 links.map(({ text, link }) => 
-                    <p><a href={link} target="_blank" rel="noreferrer noopener">{text}</a></p>
+                    <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link"><button class="btn famnm-btn-secondary">{text}</button></a></p>
                 )
             }
         </div>
