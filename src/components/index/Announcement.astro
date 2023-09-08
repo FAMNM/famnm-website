@@ -8,6 +8,7 @@ interface Props {
     links: Array<{
         text: string;
         link: string;
+        tooltip?: string;
     }>;
 }
 
@@ -26,8 +27,15 @@ const { title, image, alt, links } = Astro.props;
             <p><slot /></p>
 
             {
-                links.map(({ text, link }) => 
-                    <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link"><button class="btn famnm-btn-secondary">{text}</button></a></p>
+                links.map(({ text, link, tooltip }) =>
+                    tooltip ?
+                        <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link">
+                            <button class="btn famnm-btn-secondary"
+                                data-bs-toggle="tooltip" data-placement="top" title={tooltip}>{text}</button>
+                        </a></p> :
+                        <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link">
+                            <button class="btn famnm-btn-secondary">{text}</button>
+                        </a></p>
                 )
             }
         </div>

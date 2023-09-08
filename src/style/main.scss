@@ -118,7 +118,7 @@ body > * {
     text-decoration: none;
 }
 
-.footer #social-icons a svg {
+.footer #social-icons a {
     margin: 0 5px;
 }
 
@@ -293,4 +293,54 @@ input[type=text] {
     background-color: #3b8ac3;
     border-color: #115b90;
     margin: 2em;
+}
+
+.event {
+    display: block;
+    text-align: left;
+    padding: 8px;
+    border-radius: 4px;
+    background-color: var(--bs-primary-bg-subtle);
+}
+
+.event-time-container {
+    height: 0px;
+    display: flex;
+    align-items: center;
+    overflow: visible;
+    transform: translate(0, -1.5px);
+}
+
+.event-time {
+    text-align: center;
+    background-color: var(--bs-dark-bg-subtle);
+    padding: 4px;
+    border-radius: 4px;
+    line-height: 100%;
+    z-index: 1;
+}
+
+.event-time-divider {
+    height: 2px;
+    background-color: var(--bs-dark-bg-subtle);
+    grid-column: 1/-1;
+    z-index: -1;
+    margin-bottom: 1px;
+    flex-grow: 1;
+}
+
+.event-map-container {
+    width: 100%;
+    min-height: 500px;
+    padding: 2rem;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.event-map-marker {
+    background-color: #003368;
+    color: #fefeff;
+    padding: 4px;
+    border-radius: 2px;
+    font-size: 18px;
 }
