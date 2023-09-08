@@ -344,3 +344,23 @@ input[type=text] {
     border-radius: 2px;
     font-size: 18px;
 }
+
+.event-time-bar {
+    border-top: 2px solid firebrick;
+    box-sizing: border-box;
+    color: firebrick;
+    font-weight: bold;
+    text-align: left;
+    left: 0;
+    right: 0;
+    position: absolute;
+    opacity: 0.8;
+}
+
+.event-time-bar::after {
+    background-color: firebrick;
+    content: "Now";
+    color: white;
+    padding: 3px;
+    font-size: 16px;
+}

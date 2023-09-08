@@ -28,14 +28,17 @@ import 'mapbox-gl/dist/mapbox-gl.css';
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
                     <p class="mb-4">FAMNM is hosting a kickoff for the 2023&ndash;2024 season of <FIRST /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time datetime="2023-09-09">September 9<sup>th</sup>, 2023</time> on the University of Michigan's <a href="https://goo.gl/maps/fLGy2FxVHeozWEZt6" rel="noreferrer noopener" target="_blank">North Campus</a>.</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg gap-3" href="https://docs.google.com/spreadsheets/d/1APPI9L76-n7B-cM7JXfZwbMEv8TdedkOScCtLDttj1Y/edit#gid=943429782" rel="noreferrer noopener" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Due to regulatory requirements, you may only sign up for positions that don't involve interaction with middle-school students from now until the event.">
-                            Sign up to volunteer
+                        <a class="btn btn-primary btn-lg gap-3" href="https://goo.gl/maps/j85AHBo7Cfpo2JQC6" rel="noreferrer noopener" target="_blank" data-bs-toggle="tooltip" data-placement="top" title="Due to regulatory requirements, you may only sign up for positions that don't involve interaction with middle-school students from now until the event.">
+                            Directions to Parking lot 1 (NC21)
+                        </a>
+                        <a class="btn btn-primary btn-lg gap-3" href="https://goo.gl/maps/4yzBxQtXjteB23PT7" rel="noreferrer noopener" target="_blank">
+                            Directions to Parking lot 2 (NC20)
                         </a>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <DayAgenda minHour={7} maxHour={12} events={[
+                <DayAgenda events={[
                     {
                         startMins: 9*60 + 30,
                         endMins: 10*60 + 30,
@@ -57,8 +60,8 @@ import 'mapbox-gl/dist/mapbox-gl.css';
                     {
                         startMins: 12*60 + 30,
                         endMins: 13*60,
-                        activity: "Pizza Pickup",
-                        icon: "fa-pizza"
+                        activity: "🍕 Pizza Pickup",
+                        location: "EECS Building"
                     },
                     {
                         startMins: 13*60,
@@ -74,9 +77,15 @@ import 'mapbox-gl/dist/mapbox-gl.css';
                         icon: 'fa-eye'
                     },
                     {
-                        title: 'Parking',
+                        title: 'Parking 1',
                         lat: 42.29366014488359,
                         long: -83.71640351893917,
+                        icon: 'fa-square-parking'
+                    },
+                    {
+                        title: 'Parking 2',
+                        lat: 42.293609183988885,
+                        long: -83.71369853952213,
                         icon: 'fa-square-parking'
                     },
                     {

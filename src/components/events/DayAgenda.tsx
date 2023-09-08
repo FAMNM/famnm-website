@@ -1,8 +1,7 @@
+import { useRef, useState } from "react";
 import EventMap from "./EventMap";
 
 export interface Agenda {
-    minHour: number;
-    maxHour: number;
     startTime: number;
     events: {
         startMins: number;
@@ -19,21 +18,31 @@ export interface Agenda {
     }[];
 }
 
+const kHeightMultiplier = 2;
+
 export default function DayAgenda(props: Agenda) {
     if (props === undefined) return null;
-    const { minHour, maxHour, events, startTime, markers } = props;
+    const { events, startTime, markers } = props;
 
     const uniqueTimes = new Set(events.flatMap(i => [i.startMins, i.endMins]));
     const uniqueTimesSorted = Array.from(uniqueTimes).sort();
     const cellSizes = pairwiseDiff(uniqueTimesSorted);
+    const minTime = uniqueTimesSorted[0]!;
+    const maxTime = uniqueTimesSorted[uniqueTimesSorted.length - 1]!;
+
+    const [now, setNow] = useState<Date>(new Date());
+    const nowUpdater = useRef(setInterval(() => {
+        setNow(new Date());
+    }, 1000 * 30));
 
     const styles: {[name: string]: React.CSSProperties} = {
         scheduleContainer: {
             display: 'grid',
             gridTemplateColumns: `10ch auto`,
             gap: '4px',
+            position: 'relative',
             marginBottom: '0.5rem',
-            gridTemplateRows: cellSizes.map(size => `${size * 1.8}px`).join(' ')
+            gridTemplateRows: cellSizes.map(size => `${size * kHeightMultiplier}px`).join(' ')
         }
     };
 
@@ -45,10 +54,22 @@ export default function DayAgenda(props: Agenda) {
         </div>
     }
 
+    function renderTimeBar(date: Date) {
+        const msSinceMidnight = date.getTime() - startTime;
+        const minutesSinceMidnight = msSinceMidnight / 1000 / 60;
+        if (minutesSinceMidnight < minTime || minutesSinceMidnight > maxTime) {
+            return null;
+        }
+        const minutesSinceStart = minutesSinceMidnight - minTime;
+        const pixelsFromTop = minutesSinceStart * kHeightMultiplier - 1;
+        return <div className="event-time-bar" style={{top: `${pixelsFromTop}px`}}></div>
+    }
+
     return <>
         <div className="col-12 col-md-4">
             <h2 className="mb-4">Schedule</h2>
             <div style={styles.scheduleContainer}>
+                {renderTimeBar(now)}
                 {uniqueTimesSorted.map((time, i) =>
                     <div style={{gridRow: i+1, gridColumn: '1/-1'}} className="event-time-container" key={time}>
                         <div className="event-time">{formatTime(time)}</div>
