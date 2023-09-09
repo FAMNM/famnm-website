@@ -4,6 +4,9 @@ import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Carousel from "../../components/index/carousel/Carousel.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Img } from "astro-imagetools/components";
+import DayAgenda from "../../components/events/DayAgenda.tsx";
+import 'mapbox-gl/dist/mapbox-gl.css';
+
 ---
 <BaseLayout title="FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
     <div class="container">
@@ -23,11 +26,88 @@ import { Img } from "astro-imagetools/components";
                 </div>
                 <div class="col col-12 col-lg-9 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
-                    <p class="mb-4">FAMNM will be hosting a kickoff for the 2023&ndash;2024 season of <FIRST /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time datetime="2023-09-09">September 9<sup>th</sup>, 2023</time> on the University of Michigan's <a href="https://goo.gl/maps/fLGy2FxVHeozWEZt6" rel="noreferrer noopener" target="_blank">North Campus</a>. <b class="fw-bold">All participating teams should register via the form linked below!</b></p>
+                    <p class="mb-4">FAMNM is hosting a kickoff for the 2023&ndash;2024 season of <FIRST /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time datetime="2023-09-09">September 9<sup>th</sup>, 2023</time> on the University of Michigan's <a href="https://goo.gl/maps/fLGy2FxVHeozWEZt6" rel="noreferrer noopener" target="_blank">North Campus</a>.</p>
                     <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg gap-3" href="https://docs.google.com/forms/d/e/1FAIpQLScHcz1_QHT7NDC7adpyc5g0fcbwE-7XNabfk5JzqGWR6e_UsA/viewform" rel="noreferrer noopener" target="_blank">Register your team</a>
+                        <a class="btn btn-primary btn-lg gap-3" href="https://goo.gl/maps/j85AHBo7Cfpo2JQC6" rel="noreferrer noopener" target="_blank">
+                            Directions to Parking lot 1 (NC21)
+                        </a>
+                        <a class="btn btn-primary btn-lg gap-3" href="https://goo.gl/maps/4yzBxQtXjteB23PT7" rel="noreferrer noopener" target="_blank">
+                            Directions to Parking lot 2 (NC20)
+                        </a>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+                <DayAgenda events={[
+                    {
+                        startMins: 9*60 + 30,
+                        endMins: 10*60 + 30,
+                        activity: "Check In",
+                        location: "Pierpont Commons",
+                        icon: "fa-handshake"
+                    },
+                    {
+                        startMins: 10*60 + 30,
+                        endMins: 11*60 + 45,
+                        activity: "Demonstrations & Tours",
+                    },
+                    {
+                        startMins: 12*60,
+                        endMins: 12*60 + 30,
+                        activity: "Game Reveal",
+                        icon: "fa-eye",
+                        location: "Stamps Auditorium"
+                    },
+                    {
+                        startMins: 12*60 + 30,
+                        endMins: 13*60,
+                        activity: "🍕 Pizza Pickup",
+                        location: "EECS Building"
+                    },
+                    {
+                        startMins: 13*60,
+                        endMins: 15*60,
+                        activity: "Field Reveal & Breakout Rooms",
+                        icon: "fa-people-group"
+                    }
+                ]} startTime={Date.UTC(2023, 8, 9, 4, 0, 0)} markers={[
+                    {
+                        title: 'Game Reveal',
+                        lat: 42.29210183926731,
+                        long: -83.71690565127908,
+                        icon: 'fa-eye'
+                    },
+                    {
+                        title: 'Parking 1',
+                        lat: 42.29366014488359,
+                        long: -83.71640351893917,
+                        icon: 'fa-square-parking'
+                    },
+                    {
+                        title: 'Parking 2',
+                        lat: 42.293609183988885,
+                        long: -83.71369853952213,
+                        icon: 'fa-square-parking'
+                    },
+                    {
+                        title: 'Field Reveal',
+                        lat: 42.292889905590265,
+                        long: -83.71566299695363,
+                        icon: 'fa-people-line'
+                    },
+                    {
+                        title: 'Check-In',
+                        lat: 42.291404102011604,
+                        long: -83.71735215001658,
+                        icon: 'fa-handshake'
+                    },
+                    {
+                        title: 'Breakout Rooms',
+                        lat: 42.29249990273177,
+                        long: -83.71473462921678,
+                        icon: 'fa-people-group'
+                    }
+                ]} client:load />
             </div>
         </main>
     </div>

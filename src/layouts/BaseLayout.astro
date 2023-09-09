@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import Scripts from "../components/Scripts.astro";
 import TitleStyles from "../components/TitleStyles.astro";
+import { ViewTransitions } from "astro:transitions";
 
 const { title } = Astro.props;
 ---
@@ -14,6 +15,7 @@ const { title } = Astro.props;
     <head>
         <TitleStyles title={title} />
         <slot name="head" />
+        <ViewTransitions />
     </head>
     <body>
         <Header />
