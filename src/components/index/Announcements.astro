@@ -6,31 +6,37 @@ import Announcement from "./Announcement.astro";
 <section id="home-announcements" class="container mb-4">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
         <Announcement
-            title="Upcoming FTC Kickoff"
-            image="/img/ftc/2022/speaker.webp"
-            alt="Kyle Flynn, CTO of the Orange Alliance, presents his FIRST journey to FTC teams during kickoff in 2022"
+            title="Offseason FRC volunteering"
+            image="/img/teams/frc-2019-referee.jpg"
+            alt="A FAMNM member volunteers as a referee at an offseason FRC competition in 2019"
             links={[
                 {
-                    text: "See event schedule and map",
-                    link: "/events/ftc-kickoff",
+                    text: "Sign up to volunteer",
+                    link: "https://docs.google.com/spreadsheets/d/1y21P9C3zvn2nZkpPv_Wkg1PdPLeSCFIN1_S3EfKJYMw/edit#gid=0",
+                    tooltip: "umich.edu account required"
                 },
             ]}
         >
-            FAMNM is hosting a kickoff for the 2023&ndash;2024 FIRST Tech Challenge season, <i>CENTERSTAGE</i>, on
-            <time datetime="2023-09-09">September 9th, 2023</time>.
+            FAMNM is organizing volunteering efforts at nearby FRC offseason events in 2023. Join us!
         </Announcement>
         <Announcement
-            title="Request mentoring from FAMNM"
+            title="Matching teams with mentors"
             image="/img/teams/fr_mentor2.jpg"
             alt="Freelance mentors from FAMNM helping out an FRC team"
             links={[
                 {
                     text: "Request mentoring",
                     link: "https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
+                },
+                {
+                    text: "Offer mentoring",
+                    link: "https://docs.google.com/forms/d/e/1FAIpQLSc_cboTYS4eDCsD0Z2NylXrKOez33J6Ij88vC7x8-SzZh5VkQ/viewform",
+                    tooltip: "umich.edu account required"
                 }
             ]}
         >
-            If you would like your team to receive mentoring from FAMNM students at any level of commitment (from one-time help to full time mentorship), please fill out the request form below!
+            Teams, fill out the request form below to receive mentoring from FAMNM members.<br />
+            FAMNM members, fill out the freelance interest form below to get matched with a team.
         </Announcement>
         <Announcement
             title="Interested in joining FAMNM?"
@@ -43,7 +49,7 @@ import Announcement from "./Announcement.astro";
                 },
             ]}
         >
-            Come to our Fall 2023 General Body Meetings on <b>Tuesdays at 7 PM</b> (check Slack for location), and
+            Come to our Fall 2023 General Body Meetings <b>every Monday at 7 PM in DOW 1206</b>, and
             fill out our <a href="https://forms.gle/UVQ5rXoXxjexmo8e6">Fall 2023 interest form</a>
             so that we can add you to our Slack workspace and mailing list.
         </Announcement>
