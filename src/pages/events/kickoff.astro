@@ -4,6 +4,8 @@ import Carousel from "../../components/index/carousel/Carousel.astro";
 import { Img } from "astro-imagetools/components";
 import SponsorList from "../../components/SponsorList.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
+import FIRST from "../../components/FIRST.astro";
+import Link from "../../components/Link.astro";
 
 // function hoursToTime(hours: number): string {
 //     function padZero(_in: any) {
@@ -54,24 +56,40 @@ const carouselItems = [
         <div class="container content">
             <div class="row justify-content-center pb-4">
                 <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
-                    <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CHARGED UP season information" rel="noopener noreferrer" target="_blank">
+                    <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CRESCENDO season information" rel="noopener noreferrer" target="_blank">
                         <ThemeSwitcher>
                             <span slot="light">
-                                <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2023/season_logo.png" alt="Charged Up, presented by Haas" placeholder="none" />
+                                <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2024/season_logo_light.png" alt="CRESCENDO, presented by Haas" placeholder="none" />
                             </span>
-                            <img class="center w-100" src="/img/kickoff/2023/season_logo.svg" alt="Charged Up, presented by Haas" slot="dark" />
+                            <span slot="dark">
+                                <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2024/season_logo_dark.png" alt="CRESCENDO, presented by Haas" placeholder="none" />
+                            </span>
                         </ThemeSwitcher>
                     </a>
                 </div>
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
                     <p>
-                        FAMNM held a kickoff event in person for FRC's 2023 season game,
-                        <i>CHARGED UP</i>, on <time datetime="2023-01-07">Saturday, January 7th, 2023</time>
-                        at the University of Michigan's <a href="https://goo.gl/maps/SviBGJZca11mxoX19" rel="noopener noreferrer">North Campus</a>.
-                        The kickoff featured an engineering student organization fair, an info session about the University of Michigan's new Undergraduate Robotics program,
-                        guest speakers, and team breakout rooms, with more than 40 teams in attendance.
+                        FAMNM will hold a kickoff for the 2024 FRC season,
+                        <i>CRESCENDO</i>, on <time datetime="2024-01-06">Saturday, January 6th, 2024</time>
+                        at the University of Michigan's <Link to="https://goo.gl/maps/SviBGJZca11mxoX19">North Campus</Link>.
+                        To sign up, please register for this event on FIRST's website,
+                        and then fill out the following form.
                     </p>
+                </div>
+                <div class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center">
+                    <a class="btn famnm-btn-secondary btn-lg gap-3"
+                            rel="noreferrer noopener"
+                            target="_blank"
+                            href="https://www.firstinspires.org/sites/default/files/uploads/resource_library/frc/events/kickoff/frc_kickoff_instructions.pdf">
+                        Register with FIRST
+                    </a>
+                    <a class="btn famnm-btn-secondary btn-lg gap-3"
+                            rel="noreferrer noopener"
+                            target="_blank"
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSf5AqbloeG3BB6XkObmvOV6a9Rh6wUlhCWAJrUyJC1n0LJwtQ/viewform?usp=sf_link">
+                        Register with FAMNM
+                    </a>
                 </div>
             </div>
         </div>

@@ -1,10 +1,29 @@
 ---
+import FIRST from "../FIRST.astro";
+import Link from "../Link.astro";
 import Announcement from "./Announcement.astro";
 ---
 
 
 <section id="home-announcements" class="container mb-4">
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
+        <Announcement
+            title="Register for 2024 FRC kickoff"
+            image="/img/index/announcements/first-broadcast.jpeg"
+            alt="Teams watch FIRST's kickoff broadcast during FAMNM's 2023 FRC kickoff"
+            links={[
+                {
+                    text: "Register with FAMNM",
+                    link: "https://docs.google.com/forms/d/e/1FAIpQLSf5AqbloeG3BB6XkObmvOV6a9Rh6wUlhCWAJrUyJC1n0LJwtQ/viewform?usp=sf_link",
+                },
+            ]}
+        >
+            FAMNM is hosting a kickoff for the 2024 FRC season, CRESCENDO<sup>SM</sup>,
+            on <time datetime="2024-01-06">January 6, 2024</time> at the University of Michigan in Ann Arbor.
+
+            To sign up, please register with <Link to="https://www.firstinspires.org/team-event-search/event?id=70167">FIRST</Link>
+            and then fill out the following registration form.
+        </Announcement>
         <Announcement
             title="Offseason FRC volunteering"
             image="/img/teams/frc-2019-referee.jpg"
@@ -38,20 +57,6 @@ import Announcement from "./Announcement.astro";
             Teams, fill out the request form below to receive mentoring from FAMNM members.<br />
             FAMNM members, fill out the freelance interest form below to get matched with a team.
         </Announcement>
-        <Announcement
-            title="Interested in joining FAMNM?"
-            image="/img/index/announcements/game-night-2018.jpg"
-            alt="FAMNM game night"
-            links={[
-                {
-                    text: "Interest form",
-                    link: "https://forms.gle/UVQ5rXoXxjexmo8e6",
-                },
-            ]}
-        >
-            Come to our Fall 2023 General Body Meetings <b>every Monday at 7 PM in DOW 1206</b>, and
-            fill out our <a href="https://forms.gle/UVQ5rXoXxjexmo8e6">Fall 2023 interest form</a>
-            so that we can add you to our Slack workspace and mailing list.
-        </Announcement>
+        
     </div>
 </section>
