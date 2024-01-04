@@ -4,8 +4,10 @@ import Carousel from "../../components/index/carousel/Carousel.astro";
 import { Img } from "astro-imagetools/components";
 import SponsorList from "../../components/SponsorList.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
-import FIRST from "../../components/FIRST.astro";
 import Link from "../../components/Link.astro";
+import Countdown from "../../components/events/Countdown";
+import KickoffScheduleMap from "../../components/events/KickoffScheduleMap";
+import 'mapbox-gl/dist/mapbox-gl.css';
 
 // function hoursToTime(hours: number): string {
 //     function padZero(_in: any) {
@@ -53,8 +55,8 @@ const carouselItems = [
 ---
 <BaseLayout title="FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
     <main>
-        <div class="container content">
-            <div class="row justify-content-center pb-4">
+        <div class="container content mb-3">
+            <div class="row justify-content-center">
                 <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
                     <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CRESCENDO season information" rel="noopener noreferrer" target="_blank">
                         <ThemeSwitcher>
@@ -70,29 +72,52 @@ const carouselItems = [
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
                     <p>
-                        FAMNM will hold a kickoff for the 2024 FRC season,
+                        FAMNM is kicking off the 2024 FRC season,
                         <i>CRESCENDO</i>, on <time datetime="2024-01-06">Saturday, January 6th, 2024</time>
                         at the University of Michigan's <Link to="https://goo.gl/maps/SviBGJZca11mxoX19">North Campus</Link>.
-                        To sign up, please register for this event on FIRST's website,
-                        and then fill out the following form.
+                        The kickoff will feature a student organization fair,
+                        an information session for <Link to="https://robotics.umich.edu">Michigan Robotics</Link>,
+                        a guest speaker, U-M campus tours, kit distribution, and breakout rooms for registered teams.
+                        Upon arrival, teams may park in blue spaces in
+                        <Link to="https://maps.app.goo.gl/kAKi4yPQLRHosNh77">NC20</Link>,
+                        <Link to="https://maps.app.goo.gl/7NmSLk1wEvJ4dRPc7">NC21</Link>,
+                        <Link to="https://maps.app.goo.gl/xz3gVdaAnixMomXJA">NC27</Link>, and
+                        <Link to="https://maps.app.goo.gl/pnqWgyf8x8iq7K8m9">NC26</Link>.
                     </p>
+                </div>
+                <div class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center">
+                    <Countdown
+                        startTime={new Date("2024-01-06 08:00:00 EST")}
+                        endTime={new Date("2024-01-06 16:00:00 EST")}
+                        client:only />
                 </div>
                 <div class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center">
                     <a class="btn famnm-btn-secondary btn-lg gap-3"
                             rel="noreferrer noopener"
                             target="_blank"
-                            href="https://www.firstinspires.org/sites/default/files/uploads/resource_library/frc/events/kickoff/frc_kickoff_instructions.pdf">
-                        Register with FIRST
+                            href="https://maps.app.goo.gl/xz3gVdaAnixMomXJA"
+                            data-bs-toggle="tooltip" data-placement="bottom" title="Directions to NC27, which is closest to kickoff activities among all parking options">
+                        <i class="fa-solid fa-diamond-turn-right"></i>
+                        Directions to Campus
                     </a>
                     <a class="btn famnm-btn-secondary btn-lg gap-3"
                             rel="noreferrer noopener"
                             target="_blank"
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSf5AqbloeG3BB6XkObmvOV6a9Rh6wUlhCWAJrUyJC1n0LJwtQ/viewform?usp=sf_link">
-                        Register with FAMNM
+                            href="https://www.firstinspires.org/robotics/frc/kickoff">
+                        <i class="fa-solid fa-circle-info"></i>
+                        FIRST Kickoff Site
+                    </a>
+                    <a class="btn famnm-btn-secondary btn-lg gap-3"
+                            rel="noreferrer noopener"
+                            target="_blank"
+                            href="https://docs.google.com/document/d/e/2PACX-1vQCUEnKKBlDhx0ZVcjg_SHG1Lt72z31-jj1iL2r-hORfARYcW2DbWTh1WDdby3ahymrbAl4UmFthMTI/pub">
+                        <i class="fa-solid fa-file"></i>
+                        Schedule Document
                     </a>
                 </div>
             </div>
         </div>
+        <KickoffScheduleMap schedule="frc" client:load />
         <Carousel id="kickoff-carousel" images={carouselItems} />
         <div class="container content">
             <div class="row pt-2">
@@ -101,93 +126,4 @@ const carouselItems = [
             </div>
         </div>
     </main>
-    <!-- <style>
-        .schedule-time {
-            text-align: right;
-            line-height: 100%;
-            width: 5.5rem;
-            height: fit-content;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transform: translateY(-15px);
-            padding: 4px;
-            border-radius: 6px;
-            border: 1px solid #888888;
-            background-color: #dfdfdf;
-            font-weight: bold;
-            grid-column: 1;
-        }
-
-        .schedule-time-border {
-            border-top: 1px solid #888888;
-            margin-top: -2px;
-            grid-column: 1/-1;
-        }
-
-        #schedule-table td {
-            padding: 2px;
-            vertical-align: middle;
-            margin: 2px;
-            font-size: 1.1rem;
-        }
-
-        #schedule-table {
-            max-width: 42rem;
-            display: grid;
-            gap: 4px;
-            grid-template-columns: 5.8rem repeat(3, 8px) 1fr repeat(3, 4px) repeat(3, 8px) 1fr repeat(3, 4px);
-            grid-template-rows: repeat({{ page.schedule.times | size }}, 48px);
-        }
-
-        #schedule-table .event {
-            font-size: 0.9rem;
-            padding: 4px;
-            background-color: var(--event-background);
-            border-left: 6px solid var(--event-color);
-            border-top: 1px solid var(--event-color);
-            border-right: 1px solid var(--event-color);
-            border-bottom: 1px solid var(--event-color);
-            border-radius: 0.25rem;
-            text-align: left;
-            line-height: 115%;
-            vertical-align: top;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .event-indent-0 {
-            --event-color: #003368;
-            --event-background: #a3bdda;
-        }
-
-        .event-indent-1 {
-            --event-color: #005269;
-            --event-background: #9ec7d3;
-        }
-
-        .event-indent-2 {
-            --event-color: #006966;
-            --event-background: #a2dad8;
-        }
-
-        [v-cloak] {
-            display: none;
-        }
-
-        .text-location {
-            color: #545454;
-        }
-
-        .text-location:not([disabled="true"]):after {
-            content: "↗";
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        }
-
-        .text-location[disabled="true"] {
-            pointer-events: none;
-            cursor: not-allowed;
-        }
-    </style> -->
 </BaseLayout>

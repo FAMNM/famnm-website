@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState, type KeyboardEventHandler } from "react";
 import EventMap from "./EventMap";
+import mapboxgl from "mapbox-gl";
 
 export interface Agenda {
     startTime: number;
@@ -9,20 +10,28 @@ export interface Agenda {
         activity: string;
         icon?: string;
         location?: string;
+        locationMarkerCode?: string;
+        // If multiple events occupy the same space, we can place them side-by-side
+        // We have 2 columns standard
+        startColumn?: number; // Default: 1
+        endColumn?: number; // Default: 2
+        // We should also indent them
+        indent?: number; // Default: 0 (level)
     }[];
-    markers: {
+    markers: {[code: string]: {
         lat: number;
         long: number;
         title: string;
         icon: string;
-    }[];
+    }};
 }
 
-const kHeightMultiplier = 2;
+const kHeightMultiplier = 1.6;
 
 export default function DayAgenda(props: Agenda) {
     if (props === undefined) return null;
     const { events, startTime, markers } = props;
+    const map = useRef<mapboxgl.Map | null>(null);
 
     const uniqueTimes = new Set(events.flatMap(i => [i.startMins, i.endMins]));
     const uniqueTimesSorted = Array.from(uniqueTimes).sort();
@@ -30,15 +39,18 @@ export default function DayAgenda(props: Agenda) {
     const minTime = uniqueTimesSorted[0]!;
     const maxTime = uniqueTimesSorted[uniqueTimesSorted.length - 1]!;
 
+    // For testing only
+    // const [now, setNow] = useState<Date>(new Date("2024-01-06 09:50:04 EST"));
+
     const [now, setNow] = useState<Date>(new Date());
-    const nowUpdater = useRef(setInterval(() => {
+    useRef(setInterval(() => {
         setNow(new Date());
     }, 1000 * 30));
-
+    
     const styles: {[name: string]: React.CSSProperties} = {
         scheduleContainer: {
             display: 'grid',
-            gridTemplateColumns: `10ch auto`,
+            gridTemplateColumns: `9ch 1fr 1fr`,
             gap: '4px',
             position: 'relative',
             marginBottom: '0.5rem',
@@ -46,12 +58,47 @@ export default function DayAgenda(props: Agenda) {
         }
     };
 
+    const focusLocation = useCallback((locationMarkerCode: string) => {
+        const { long, lat } = markers[locationMarkerCode]!;
+        map.current?.easeTo({
+            center: [long, lat],
+            zoom: 18
+        });
+    }, [map, markers]);
+
     function buildEvent(event: typeof events[number], i: number) {
-        return <div className="event" style={{gridRow: uniqueTimesSorted.indexOf(event.startMins) + 1, gridColumn: 2}} key={i}>
-            {event.icon && <><i className={`fa-solid ${event.icon}`} />&nbsp;</>}
-            <strong className="fw-bold">{event.activity}</strong>
-            {event.location && <><br />{event.location}</>}
-        </div>
+        const startColumn = (event.startColumn ?? 1) + 1;
+        const endColumn = (event.endColumn ?? 2) + 2;
+        const startRow = uniqueTimesSorted.indexOf(event.startMins) + 1;
+        const endRow = uniqueTimesSorted.indexOf(event.endMins) + 1;
+        const leftIndent = (event.startColumn ?? 1) === 1 ? (event.indent ?? 0) * 8 : 0;
+        const rightIndent = (event.startColumn ?? 1) === 2 ? (event.indent ?? 0) * 4 : 0;
+
+        const onKeyDown: KeyboardEventHandler<HTMLDivElement>|undefined = event.location === undefined ? undefined : (evt => {
+            if (evt.key === ' ') {
+                evt.preventDefault();
+                focusLocation(event.locationMarkerCode!);
+            }
+        });
+
+        return <div style={{
+            marginLeft: `${leftIndent}px`,
+            marginRight: `${rightIndent}px`,
+            gridRow: `${startRow} / ${endRow}`,
+            gridColumn: `${startColumn} / ${endColumn}`,
+        }} key={i}>
+            <div className={`event event-indent-${event.indent ?? 0}`}>
+                {event.icon && <><i className={`fa-solid ${event.icon}`} />&nbsp;</>}
+                <strong className="fw-bold">{event.activity}</strong>
+                {event.location && <>
+                    <div className="text-location" tabIndex={0}
+                        onKeyDown={onKeyDown}
+                        onClick={event.location !== undefined ? (() => focusLocation(event.locationMarkerCode!)) : undefined}>
+                        {event.location}
+                    </div>
+                </>}
+            </div>
+        </div> 
     }
 
     function renderTimeBar(date: Date) {
@@ -65,8 +112,9 @@ export default function DayAgenda(props: Agenda) {
         return <div className="event-time-bar" style={{top: `${pixelsFromTop}px`}}></div>
     }
 
+
     return <>
-        <div className="col-12 col-md-4">
+        <div className="col-12 col-md-6 col-lg-5">
             <h2 className="mb-4">Schedule</h2>
             <div style={styles.scheduleContainer}>
                 {renderTimeBar(now)}
@@ -78,9 +126,9 @@ export default function DayAgenda(props: Agenda) {
                 {events.map(buildEvent)}
             </div>
         </div>
-        <div className="col-12 col-md-8 d-flex flex-column">
+        <div className="col-12 col-md-6 col-lg-7 d-flex flex-column">
             <h2>Map</h2>
-            <EventMap markers={markers} />
+            <EventMap markers={Object.values(markers)} mapRef={map} />
         </div>
     </>;
 }
