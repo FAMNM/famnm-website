@@ -297,10 +297,52 @@ input[type=text] {
 
 .event {
     display: block;
-    text-align: left;
-    padding: 8px;
     border-radius: 4px;
-    background-color: var(--bs-primary-bg-subtle);
+    font-size: 1rem;
+    padding: 4px;
+    background-color: var(--event-background);
+    border-left: 6px solid var(--event-color);
+    border-top: 1px solid var(--event-color);
+    border-right: 1px solid var(--event-color);
+    border-bottom: 1px solid var(--event-color);
+    border-radius: 0.25rem;
+    text-align: left;
+    line-height: 115%;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.event-indent-0 {
+    --event-color: #003368;
+    --event-background: #a3bdda;
+}
+
+.event-indent-1 {
+    --event-color: #005269;
+    --event-background: #9ec7d3;
+}
+
+.event-indent-2 {
+    --event-color: #006966;
+    --event-background: #a2dad8;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    .event-indent-0 {
+        --event-background: #003368;
+        --event-color: #4f80b9;
+    }
+    
+    .event-indent-1 {
+        --event-background: #005269;
+        --event-color: #56a1b8;
+    }
+    
+    .event-indent-2 {
+        --event-background: #006966;
+        --event-color: #50a9a6;
+    }
 }
 
 .event-time-container {
@@ -332,7 +374,7 @@ input[type=text] {
 .event-map-container {
     width: 100%;
     min-height: 500px;
-    padding: 2rem;
+    padding: 1rem;
     box-sizing: border-box;
     flex-grow: 1;
 }
@@ -363,4 +405,30 @@ input[type=text] {
     color: white;
     padding: 3px;
     font-size: 16px;
+}
+
+.text-location {
+    color: #545454;
+    cursor: pointer;
+}
+
+.text-location:not([disabled="true"]):after {
+    content: " ↗";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.text-location[disabled="true"] {
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+    .text-location {
+        color: #cfcfcf;
+    }
+}
+
+#team-entry {
+    max-width: 30rem;
+    margin: auto;
 }
