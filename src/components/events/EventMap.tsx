@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, type MutableRefObject } from "react";
 import mapboxgl from "mapbox-gl";
-mapboxgl.accessToken = 'pk.eyJ1IjoiLWJyb2Fkd2VsbCIsImEiOiJjbG1hNG00emswazB3M2RycXJ3NzNyZ2hzIn0.sFckVj-c_YZE9XJxd_KCKQ';
+mapboxgl.accessToken = 'pk.eyJ1IjoiZmFtbm0iLCJhIjoiY2xxeWlsMzB1MHJhdjJpcG81eWxvNm1qMyJ9.2lpKHbsw8I8IfwwGbNtPNA';
 
 export interface MapProps {
     markers: {
