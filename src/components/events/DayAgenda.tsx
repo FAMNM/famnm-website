@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useRef, useState, type KeyboardEventHandler } from "react";
+import { useCallback, useMemo, useRef, useState, type KeyboardEventHandler, useEffect } from "react";
 import EventMap from "./EventMap";
 import mapboxgl from "mapbox-gl";
 
@@ -46,6 +46,11 @@ export default function DayAgenda(props: Agenda) {
     useRef(setInterval(() => {
         setNow(new Date());
     }, 1000 * 30));
+
+    // This is necessary because of SSR
+    useEffect(() => {
+        setNow(new Date());
+    }, []);
     
     const styles: {[name: string]: React.CSSProperties} = {
         scheduleContainer: {
