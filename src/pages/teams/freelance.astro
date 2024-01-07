@@ -1,4 +1,5 @@
 ---
+import Link from "../../components/Link.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Picture } from "astro-imagetools/components";
 ---
@@ -18,11 +19,17 @@ import { Picture } from "astro-imagetools/components";
                 team The Robobears.
             </p>
             <p class="text-par">
-                Looking for help? Reach out to the team coordinator for your level of FIRST:
-                <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu</a>, 
-                <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu</a>, or
+                Looking for help? If you represent an FLL team, contact our FLL coordinator at
                 <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu</a>.
+                If you represent an FRC or FTC team, fill out the form linked below
+                to request mentoring from FAMNM.
             </p>
+            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-4">
+                <Link to="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
+                    class="btn btn-primary btn-lg">Request FRC or FTC mentoring&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></Link>
+                <a href="mailto:famnm.fll@umich.edu"
+                    class="btn btn-primary btn-lg">Contact FLL coordinator&nbsp;&nbsp;<i class="fa-solid fa-envelope"></i></a>
+            </div>
             <Picture attributes={{picture: {class: "img-fluid col-md-8 col-xs-12 d-inline-block", id: "freelance-img"}}} src="/img/teams/fr_mentor1.jpg" alt="FAMNM Freelance Mentoring"/>
             <p><b>Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for <i>FIRST<sup>&reg;</sup></i> Power Up!</b></p>
         </main>

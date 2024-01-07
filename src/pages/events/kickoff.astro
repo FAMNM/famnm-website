@@ -5,30 +5,7 @@ import { Img } from "astro-imagetools/components";
 import SponsorList from "../../components/SponsorList.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Link from "../../components/Link.astro";
-import Countdown from "../../components/events/Countdown";
-import KickoffScheduleMap from "../../components/events/KickoffScheduleMap";
-import 'mapbox-gl/dist/mapbox-gl.css';
-
-// function hoursToTime(hours: number): string {
-//     function padZero(_in: any) {
-//         let s = `${_in}`;
-//         while (s.length < 2) s = '0' + s;
-//         return s;
-//     }
-//     const ampm = hours >= 12 ? 'PM' : 'AM';
-//     const displayHourMinutes = (hours + 11) % 12 + 1;
-//     const displayHour = Math.floor(displayHourMinutes);
-//     const displayMinute = Math.round((displayHourMinutes - displayHour) * 60);
-//     return `${padZero(displayHour)}:${padZero(displayMinute)} ${ampm}`;
-// }
-
-// const scheduleTimes = (() => {
-//     const times = [];
-//     for (let hour = 9; hour <= 17; hour += 0.5) {
-//         times.push(hoursToTime(hour));
-//     }
-//     return times;
-// })();
+// import 'mapbox-gl/dist/mapbox-gl.css';
 
 const carouselItems = [
     {
@@ -72,51 +49,40 @@ const carouselItems = [
                 <div class="col col-12 mt-1 mt-md-2">
                     <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
                     <p>
-                        FAMNM is kicking off the 2024 FRC season,
+                        FAMNM kicked off the 2024 FRC season,
                         <i>CRESCENDO</i>, on <time datetime="2024-01-06">Saturday, January 6th, 2024</time>
                         at the University of Michigan's <Link to="https://goo.gl/maps/SviBGJZca11mxoX19">North Campus</Link>.
-                        The kickoff will feature a student organization fair,
+                        The kickoff featured a student organization fair,
                         an information session for <Link to="https://robotics.umich.edu">Michigan Robotics</Link>,
                         a guest speaker, U-M campus tours, kit distribution, and breakout rooms for registered teams.
-                        Upon arrival, teams may park in blue spaces in
-                        <Link to="https://maps.app.goo.gl/kAKi4yPQLRHosNh77">NC20</Link>,
-                        <Link to="https://maps.app.goo.gl/7NmSLk1wEvJ4dRPc7">NC21</Link>, and
-                        <Link to="https://maps.app.goo.gl/pnqWgyf8x8iq7K8m9">NC26</Link>.
+                        Good luck and have fun, teams!&nbsp;<i class="fa-solid fa-music"></i>
                     </p>
                 </div>
                 <div class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center">
-                    <Countdown
-                        startTime={new Date("2024-01-06 08:00:00 EST")}
-                        endTime={new Date("2024-01-06 16:00:00 EST")}
-                        client:only />
-                </div>
-                <div class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center">
-                    <a class="btn famnm-btn-secondary btn-lg gap-3"
+                    <a class="btn famnm-btn-secondary btn-lg gap-2"
                             rel="noreferrer noopener"
                             target="_blank"
-                            href="https://maps.app.goo.gl/7NmSLk1wEvJ4dRPc7"
-                            data-bs-toggle="tooltip" data-placement="bottom" title="Directions to NC21, which is closest to kickoff activities among all parking options">
-                        <i class="fa-solid fa-diamond-turn-right"></i>
-                        Directions to Campus
+                            href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">
+                        Season Materials&nbsp;
+                        <i class="fa-solid fa-book"></i>
                     </a>
-                    <a class="btn famnm-btn-secondary btn-lg gap-3"
+                    <a class="btn famnm-btn-secondary btn-lg gap-2"
                             rel="noreferrer noopener"
                             target="_blank"
-                            href="https://www.firstinspires.org/robotics/frc/kickoff">
+                            href="https://famnm.notion.site/8ed1dfac55f24396832423fe40543ba4?v=6e8f1a13b8f649fab8549ed69f175c61">
+                        Resource Collection&nbsp;
                         <i class="fa-solid fa-circle-info"></i>
-                        FIRST Kickoff Site
                     </a>
-                    <a class="btn famnm-btn-secondary btn-lg gap-3"
+                    <a class="btn famnm-btn-secondary btn-lg gap-2"
                             rel="noreferrer noopener"
                             target="_blank"
-                            href="https://docs.google.com/document/d/e/2PACX-1vQCUEnKKBlDhx0ZVcjg_SHG1Lt72z31-jj1iL2r-hORfARYcW2DbWTh1WDdby3ahymrbAl4UmFthMTI/pub">
-                        <i class="fa-solid fa-file"></i>
-                        Schedule Document
+                            href="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform">
+                        Request FAMNM Mentoring&nbsp;
+                        <i class="fa-solid fa-handshake-angle"></i>
                     </a>
                 </div>
             </div>
         </div>
-        <KickoffScheduleMap schedule="frc" client:load />
         <Carousel id="kickoff-carousel" images={carouselItems} />
         <div class="container content">
             <div class="row pt-2">
