@@ -114,7 +114,7 @@ const { sponsors } = Astro.props;
 ---
 <ul id="sponsors" {...Astro.props}>
     {sponsors.map(s => /* Not using astro-imagetools because some images are SVGs */
-        <li><a href={allSponsors[s].link} target="_blank" rel="noopener noreferrer">
+        <li><a href={allSponsors[s].link} target="_blank" rel="noopener noreferrer" title={allSponsors[s].name} aria-label={allSponsors[s].name}>
                 <ThemeSwitcher>
                     {optimizeAsNeeded(allSponsors[s].image.light,
                         <img src={`/img/sponsor/${allSponsors[s].image.light}`} alt={allSponsors[s].name} slot="light" class="image-min-height" />,
