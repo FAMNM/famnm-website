@@ -2,7 +2,6 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Announcements from "../components/index/Announcements.astro";
 import Carousel from "../components/index/carousel/Carousel.astro";
-import { Img } from "astro-imagetools/components";
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
 
 const images = [
@@ -47,11 +46,11 @@ const images = [
                     <ThemeSwitcher>
                         <span slot="light">
                             <img id="frontpage-logo" class="center img-fluid" src="/img/logo-light.svg"
-                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="512" />
+                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="600" width="2100" />
                         </span>
                         <span slot="dark">
                             <img id="frontpage-logo" class="center img-fluid" src="/img/logo-dark.svg"
-                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="512" />
+                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="600" width="2100" />
                         </span>
                     </ThemeSwitcher>
                 </div>
@@ -60,12 +59,10 @@ const images = [
                         FAMNM is a University of Michigan student
                         organization devoted to organizing student and departmental
                         efforts to support the
-                        <a href="https://www.firstinspires.org" rel="noreferrer noopener" target="_blank">
-                            <i>FIRST<sup>&reg;</sup></i>
-                        </a> program locally and throughout the
+                        <a href="https://www.firstinspires.org" rel="noreferrer noopener" target="_blank"><i>FIRST</i></a><sup>&reg;</sup> program locally and throughout the
                         <a href="https://firstinmichigan.org" rel="noreferrer noopener" target="_blank">state of Michigan</a>.
                         FAMNM offers college students the opportunity to volunteer in
-                        various <i>FIRST<sup>&reg;</sup></i> programs and events,
+                        various <i>FIRST</i><sup>&reg;</sup> programs and events,
                         hosts season kickoffs and Robot-in-3-Days (Ri3D), provides
                         funding for teams, and acts as a liaison between teams and
                         various university departments.

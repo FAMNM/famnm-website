@@ -16,10 +16,7 @@ body {
     font-size-adjust: inherit;
 }
 
-/* Link style reset */
-a {
-    text-decoration: none;
-}
+/* Do not reset link styles for color-blind accessibility. */
 
 body > * {
     flex-shrink: 0;
@@ -106,8 +103,6 @@ body > * {
 
 .footer a {
     color: #d7d7d7;
-    text-decoration: underline;
-    min-width: 100px;
 }
 
 .footer #social-icons {
@@ -255,6 +250,7 @@ iframe {
 .famnm-btn {
     background-color: #ffd536;
     color: black;
+    text-decoration: none;
 }
 
 .famnm-btn:hover {
@@ -264,6 +260,7 @@ iframe {
 .famnm-btn-secondary {
     background-color: #2A6593;
     color: #f3f3f3;
+    text-decoration: none;
 }
 
 .famnm-btn-secondary:hover {
