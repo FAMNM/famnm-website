@@ -58,3 +58,47 @@ import Link from "./Link.astro";
         </ul>
     </div>
 </div>
+<style lang="scss">
+    .footer {
+        background-color: #003368;
+        color: #ffffff;
+        clear: both;
+        font-size: 1.18em;
+        flex-grow: 1;
+
+        #copyright-text {
+            font-size: 0.75em;
+        }
+
+        ul {
+            padding-left: 0;
+            list-style-type: none;
+        }
+
+        ul > li {
+            margin: 0.5em 0;
+        }
+
+        a {
+            color: #d7d7d7;
+        }
+
+        #social-icons {
+            font-size: 25px;
+        }
+
+        #social-icons a {
+            text-decoration: none;
+        }
+
+        #social-icons a {
+            margin: 0 5px;
+        }
+    }
+</style>
+<!-- Scoped selectors don't work with astro-imagetools components -->
+<style is:global>
+    #footer-logo {
+        max-width: 75% !important;
+    }
+</style>

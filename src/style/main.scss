@@ -75,47 +75,6 @@ body > * {
     opacity: 1;
 }
 
-/** Footer formatting **/
-.footer {
-    background-color: #003368;
-    color: #ffffff;
-    clear: both;
-    font-size: 1.18em;
-    flex-grow: 1;
-}
-
-.footer #copyright-text {
-    font-size: 0.75em;
-}
-
-.footer #footer-logo {
-    max-width: 75% !important;
-}
-
-.footer ul {
-    padding-left: 0;
-    list-style-type: none;
-}
-
-.footer ul > li {
-    margin: 0.5em 0;
-}
-
-.footer a {
-    color: #d7d7d7;
-}
-
-.footer #social-icons {
-    font-size: 25px;
-}
-
-.footer #social-icons a {
-    text-decoration: none;
-}
-
-.footer #social-icons a {
-    margin: 0 5px;
-}
 
 /** Image formatting **/
 img {
@@ -131,69 +90,7 @@ picture {
     display: flex;
 }
 
-/** Carousel **/
 
-div.carousel-item > img, div.carousel-item > picture {
-    background-repeat: no-repeat;
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.carousel-back-image, .carousel-back-image > img {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover;
-    object-position: center;
-    filter: blur(7px);
-}
-
-/* Add a black gradient behind the captions to increase legibility by a lot. */
-div.carousel-caption {
-    background-color: rgba(0,0,0,0.5);
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    padding: 1.5em;
-    background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8));
-}
-
-div.carousel-caption a {
-    color: #59a9e3;
-}
-
-/* Custom viewport-size based image sizing */
-@media (max-width: 767px)
-{
-    div.carousel-inner {
-        height: 300px;
-    }
-    
-    div.carousel-inner > .carousel-item {
-        height: 100%;
-    }
-    
-    div.carousel-inner img.loading {
-        height: 30%;
-    }
-    
-    div.carousel-inner > div.carousel-tmp {
-        padding: 100px;
-        height: 300px;
-        max-height: 300px;
-    }
-    
-    div.carousel-inner div.carousel-caption {
-        display: none;
-    }
-    
-    ol.carousel-indicators {
-        background-color: rgba(0,0,0,0.5);
-    }
-}
 
 @media (min-width: 768px)
 {
