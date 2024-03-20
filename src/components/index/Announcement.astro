@@ -29,12 +29,12 @@ const { title, image, alt, links } = Astro.props;
             {
                 links.map(({ text, link, tooltip }) =>
                     tooltip ?
-                        <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link">
-                            <button class="btn famnm-btn-secondary"
-                                data-bs-toggle="tooltip" data-placement="top" title={tooltip}>{text}</button>
+                        <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link btn famnm-btn-secondary"
+                            data-bs-toggle="tooltip" data-placement="top" title={tooltip}>
+                            {text}
                         </a></p> :
-                        <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link">
-                            <button class="btn famnm-btn-secondary">{text}</button>
+                        <p><a href={link} target="_blank" rel="noreferrer noopener" class="icon-link btn famnm-btn-secondary">
+                            {text}
                         </a></p>
                 )
             }

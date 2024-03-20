@@ -37,4 +37,34 @@ const { id, images, class: className } = Astro.props;
     .carousel-control-next-icon {
         filter: none !important;
     }
+
+    /* Custom viewport-size based image sizing */
+    @media (max-width: 767px)
+    {
+        div.carousel-inner {
+            height: 300px;
+        }
+        
+        div.carousel-inner > .carousel-item {
+            height: 100%;
+        }
+        
+        div.carousel-inner img.loading {
+            height: 30%;
+        }
+        
+        div.carousel-inner > div.carousel-tmp {
+            padding: 100px;
+            height: 300px;
+            max-height: 300px;
+        }
+        
+        div.carousel-inner div.carousel-caption {
+            display: none;
+        }
+        
+        .carousel-indicators {
+            background-color: rgba(0,0,0,0.5);
+        }
+    }
 </style>
