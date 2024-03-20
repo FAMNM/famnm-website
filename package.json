@@ -29,6 +29,7 @@
     "vite": "^5.1.6"
   },
   "devDependencies": {
+    "@astropub/codecs": "^0.4.4",
     "@types/bootstrap": "^5.2.10",
     "@typescript-eslint/eslint-plugin": "^7.3.0",
     "@typescript-eslint/parser": "^7.3.0",
@@ -45,6 +46,7 @@
     "find-cache-dir": "^5.0.0",
     "object-hash": "^3.0.0",
     "potrace": "^2.1.8",
+    "sharp": "^0.33.2",
     "typescript": "^5.4.2",
     "vitest": "^1.4.0"
   }
