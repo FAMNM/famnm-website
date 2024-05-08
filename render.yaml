@@ -5,6 +5,3 @@ services:
     buildCommand: pnpm build
     staticPublishPath: ./dist
     pullRequestPreviewsEnabled: true
-
-databases:
-  - name: famnm-attendance
