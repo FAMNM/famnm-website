@@ -1,186 +1,205 @@
 ---
+import { importImage } from "../../../images/imageImport";
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { Picture } from "astro-imagetools/components";
+import { Picture } from "astro:assets";
 const people = [
-    {
-        name: "Austin Barkey",
-        standing: "Senior",
-        major: "Mechanical Engineering",
-        quote: "Give me the go ahead. I will make it happen.",
-        image: "/img/ri3d/team/austin.jpg",
-    },
-    {
-        name: "Anuraag Bharadwaj",
-        standing: "Grad Student",
-        major: "Computer Science",
-        quote: "Have the fruit snacks arrived yet?",
-        image: "/img/ri3d/team/anuraag.jpg",
-    },
-    {
-        name: "Luke Bilby",
-        standing: "Junior",
-        major: "Mechanical Engineering",
-        quote: "Do what it takes",
-        image: "/img/ri3d/team/luke.jpg",
-    },
-    {
-        name: "Colin Bott",
-        standing: "Senior",
-        major: "Mechanical Engineering",
-        quote: "I like robots",
-        image: "/img/ri3d/team/colin.jpg",
-    },
-    {
-        name: "Jonathan Brandell",
-        standing: "Freshman",
-        major: "Biomedical Engineering",
-        quote: "If climate change isn't real, why is Tim so hot?",
-        image: "/img/ri3d/team/jon.jpg",
-    },
-    {
-        name: "Tyler Brandt",
-        standing: "Freshman",
-        major: "Computer Science",
-        quote: "Just gimme 5 more minutes",
-        image: "/img/ri3d/team/tyler.jpg",
-    },
-    {
-        name: "Chandra Desai",
-        standing: "Sophomore",
-        major: "Computer Science",
-        quote: "Not afraid of godlike opponents, only afraid of pig-like teammates ...",
-        image: "/img/ri3d/team/chan.jpg",
-    },
-    {
-        name: "Jade Ebels",
-        standing: "Sophomore",
-        major: "Engineering Physics",
-        quote: "I don't build robots but I'm the reason you know they got built",
-        image: "/img/ri3d/team/jade.jpg",
-    },
-    {
-        name: "Marshall Gaunt",
-        standing: "Junior",
-        major: "Industrial Operations Engineering",
-        quote: "Alumnus and Mentor for FRC 1684",
-        image: "/img/ri3d/team/marshall.jpg",
-    },
-    {
-        name: "Carmen Giger",
-        standing: "Sophomore",
-        major: "",
-        quote: "Silence.",
-        image: "/img/ri3d/team/carmen.jpg",
-    },
-    {
-        name: "Travis Gurlik",
-        standing: "Junior",
-        major: "Computer Science",
-        quote: "Robots? Robots.",
-        image: "/img/ri3d/team/travis.jpg",
-    },
-    {
-        name: "Rebecca Jean",
-        standing: "Freshman",
-        major: "",
-        quote: "Same soup, just reheated",
-        image: "/img/ri3d/team/rebeccaj.jpg",
-    },
-    {
-        name: "Amanda Kline",
-        standing: "Senior",
-        major: "Computer Science",
-        quote: "I've built my robots, but spreadsheets? I love me some spreadsheets.",
-        image: "/img/ri3d/team/amanda.jpg"		  ,
-    },
-    {
-        name: "Rebecca Kowalczyk",
-        standing: "Freshman",
-        major: "Mechanical Engineering",
-        quote: "This is why we can't have nice things",
-        image: "/img/ri3d/team/rebeccak.jpg",
-    },
-    {
-        name: "Leo Liang",
-        standing: "Freshman",
-        major: "Computer Science",
-        quote: "Robotics. Eat it. Is good for you. ",
-        image: "/img/ri3d/team/leo.jpg",
-    },
-    {
-        name: "Alex Shaw",
-        standing: "Junior",
-        major: "Materials Science Engineering",
-        quote: "This quote was written using 100% recycled words.",
-        image: "/img/ri3d/team/alex.jpg",
-    },
-    {
-        name: "Timothy Taubitz",
-        standing: "Freshman",
-        major: "Electrical Engineering",
-        quote: "Gimme guac or take a walk",
-        image: "/img/ri3d/team/tim.jpg",
-    },
-    {
-        name: "Michelle Wang",
-        standing: "Senior",
-        major: "Mechanical Engineering",
-        quote: "I'll burn that bridge when I get to it",
-        image: "/img/ri3d/team/michelle.jpg",
-    },
-    {
-        name: "Keyen Yockey",
-        standing: "Junior",
-        major: "Mechanical Engineering",
-        quote: "I just eyeballed it",
-        image: "/img/ri3d/team/keyen.png",
-    },
+  {
+    name: "Austin Barkey",
+    standing: "Senior",
+    major: "Mechanical Engineering",
+    quote: "Give me the go ahead. I will make it happen.",
+    image: "ri3d/team/austin.jpg",
+  },
+  {
+    name: "Anuraag Bharadwaj",
+    standing: "Grad Student",
+    major: "Computer Science",
+    quote: "Have the fruit snacks arrived yet?",
+    image: "ri3d/team/anuraag.jpg",
+  },
+  {
+    name: "Luke Bilby",
+    standing: "Junior",
+    major: "Mechanical Engineering",
+    quote: "Do what it takes",
+    image: "ri3d/team/luke.jpg",
+  },
+  {
+    name: "Colin Bott",
+    standing: "Senior",
+    major: "Mechanical Engineering",
+    quote: "I like robots",
+    image: "ri3d/team/colin.jpg",
+  },
+  {
+    name: "Jonathan Brandell",
+    standing: "Freshman",
+    major: "Biomedical Engineering",
+    quote: "If climate change isn't real, why is Tim so hot?",
+    image: "ri3d/team/jon.jpg",
+  },
+  {
+    name: "Tyler Brandt",
+    standing: "Freshman",
+    major: "Computer Science",
+    quote: "Just gimme 5 more minutes",
+    image: "ri3d/team/tyler.jpg",
+  },
+  {
+    name: "Chandra Desai",
+    standing: "Sophomore",
+    major: "Computer Science",
+    quote:
+      "Not afraid of godlike opponents, only afraid of pig-like teammates ...",
+    image: "ri3d/team/chan.jpg",
+  },
+  {
+    name: "Jade Ebels",
+    standing: "Sophomore",
+    major: "Engineering Physics",
+    quote: "I don't build robots but I'm the reason you know they got built",
+    image: "ri3d/team/jade.jpg",
+  },
+  {
+    name: "Marshall Gaunt",
+    standing: "Junior",
+    major: "Industrial Operations Engineering",
+    quote: "Alumnus and Mentor for FRC 1684",
+    image: "ri3d/team/marshall.jpg",
+  },
+  {
+    name: "Carmen Giger",
+    standing: "Sophomore",
+    major: "",
+    quote: "Silence.",
+    image: "ri3d/team/carmen.jpg",
+  },
+  {
+    name: "Travis Gurlik",
+    standing: "Junior",
+    major: "Computer Science",
+    quote: "Robots? Robots.",
+    image: "ri3d/team/travis.jpg",
+  },
+  {
+    name: "Rebecca Jean",
+    standing: "Freshman",
+    major: "",
+    quote: "Same soup, just reheated",
+    image: "ri3d/team/rebeccaj.jpg",
+  },
+  {
+    name: "Amanda Kline",
+    standing: "Senior",
+    major: "Computer Science",
+    quote:
+      "I've built my robots, but spreadsheets? I love me some spreadsheets.",
+    image: "ri3d/team/amanda.jpg",
+  },
+  {
+    name: "Rebecca Kowalczyk",
+    standing: "Freshman",
+    major: "Mechanical Engineering",
+    quote: "This is why we can't have nice things",
+    image: "ri3d/team/rebeccak.jpg",
+  },
+  {
+    name: "Leo Liang",
+    standing: "Freshman",
+    major: "Computer Science",
+    quote: "Robotics. Eat it. Is good for you. ",
+    image: "ri3d/team/leo.jpg",
+  },
+  {
+    name: "Alex Shaw",
+    standing: "Junior",
+    major: "Materials Science Engineering",
+    quote: "This quote was written using 100% recycled words.",
+    image: "ri3d/team/alex.jpg",
+  },
+  {
+    name: "Timothy Taubitz",
+    standing: "Freshman",
+    major: "Electrical Engineering",
+    quote: "Gimme guac or take a walk",
+    image: "ri3d/team/tim.jpg",
+  },
+  {
+    name: "Michelle Wang",
+    standing: "Senior",
+    major: "Mechanical Engineering",
+    quote: "I'll burn that bridge when I get to it",
+    image: "ri3d/team/michelle.jpg",
+  },
+  {
+    name: "Keyen Yockey",
+    standing: "Junior",
+    major: "Mechanical Engineering",
+    quote: "I just eyeballed it",
+    image: "ri3d/team/keyen.png",
+  },
 ];
 ---
-<BaseLayout title="FAMNM Ri3D Team | FIRST® Alumni &amp; Mentors Network at Michigan">
-    <div class="container">
-        <div class="content">
-            <h1>2020 Ri3D Team</h1>
-            
-            <div class="row">
-                {people.map(person =>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="card mt-4">
-                            <Picture alt={`Picture of ${person.name}`} attributes={{img: {class: "card-img-top img-fluid w-100"}}} src={person.image} />
-                            <div class="card-block p-4">
-                                <h4 class="card-title">{person.name}</h4>
-                                <p class="card-text">
-                                    {person.major == "" ?
-                                        <><b>{person.standing}</b><br/></>
-                                    :
-                                        <><b>{person.standing}: </b>{person.major}<br/></>
-                                    }
-                                    <i>{person.quote}</i>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                )}
+
+<BaseLayout
+  title="FAMNM Ri3D Team | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <div class="content">
+      <h1>2020 Ri3D Team</h1>
+
+      <div class="row">
+        {
+          people.map((person) => (
+            <div class="col-md-6 col-lg-4">
+              <div class="card mt-4">
+                <Picture
+                  alt={`Picture of ${person.name}`}
+                  class="card-img-top img-fluid w-100 h-auto"
+                  src={importImage(person.image)}
+                />
+                <div class="card-block p-4">
+                  <h4 class="card-title">{person.name}</h4>
+                  <p class="card-text">
+                    {person.major == "" ? (
+                      <>
+                        <b>{person.standing}</b>
+                        <br />
+                      </>
+                    ) : (
+                      <>
+                        <b>{person.standing}: </b>
+                        {person.major}
+                        <br />
+                      </>
+                    )}
+                    <i>{person.quote}</i>
+                  </p>
+                </div>
+              </div>
             </div>
-        </div>
-    </div><!-- /.container -->
-    
-    <!-- Page styles -->
-    <style slot="head" is:global>
-        @media (max-width: 800px) {
-            .card-img-top {
-                height: 100% !important;
-            }
+          ))
         }
-        
-        @media (min-width: 801px) {
-            .card-img-top {
-                height: 25vw !important;
-            }
-        }
-        
-        .card-img-top {
-            object-fit: cover;
-        }
-    </style>
+      </div>
+    </div>
+  </div><!-- /.container -->
+
+  <!-- Page styles -->
+  <style slot="head" is:global>
+    @media (max-width: 800px) {
+      .card-img-top {
+        height: 100% !important;
+      }
+    }
+
+    @media (min-width: 801px) {
+      .card-img-top {
+        height: 25vw !important;
+      }
+    }
+
+    .card-img-top {
+      object-fit: cover;
+    }
+  </style>
 </BaseLayout>

@@ -3,62 +3,85 @@ import FIRST from "../../components/FIRST.astro";
 import SponsorList from "../../components/SponsorList.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
 
+import logoLight from "../../images/logo-light.svg";
+import logoDark from "../../images/logo-dark.svg";
 ---
 
-<BaseLayout title="About The FAMNM | FIRST Alumni & Mentors Network at Michigan">
-    <div class="container">
-        <main class="content">
-            <ThemeSwitcher>
-                <span slot="light">
-                    <img class="center img-fluid" src="/img/logo-light.svg"
-                        alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="600" width="2100" />
-                </span>
-                <span slot="dark">
-                    <img class="center img-fluid" src="/img/logo-dark.svg"
-                        alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="600" width="2100" />
-                </span>
-            </ThemeSwitcher>
-            <h1>About</h1>
-            <p class="text-par">
-                FAMNM is an on campus effort to unite all of the
-                various departmental and individual student efforts of
-                supporting the <i>FIRST<sup>&reg;</sup></i> program locally and throughout the
-                state of Michigan. We act as a liaison between local FIRST
-                teams, the University of Michigan, and any other organizations
-                that are affiliated with either of the prior organizations
-                stated (such as MEZ, WISE, Maker Works and the Fab Lab). FAMNM
-                aims to support the FIRST teams with funds, volunteers,
-                University resources, and publicity, with the ultimate goal of
-                strengthening the relationship between the University and
-                FIRST programs.
-            </p>
-            
-            <p class="text-par">
-                FAMNM also acts as a collegiate network for
-                both FIRST Alumni and University of Michigan students who
-                volunteer with and support FIRST teams. The organization
-                aims to provide professional development opportunities including
-                but not limited to resume critiquing, mock interviews, and
-                corporate recruiting events.
-            </p>
-            
-            <h1>What is FIRST?</h1>
-            <p class="text-par">
-                <a href="https://www.firstinspires.org/" target="_blank" rel="noopener noreferrer"><FIRST /></a>
-                (For Inspiration and Recognition of Science and Technology)
-                is a non-profit organization intended to get K-12 children
-                involved in science, technology, engineering, and
-                mathematics (STEM). Founded in 1989, it now reaches over
-                400,000 kids worldwide.
-            </p>
-            
-            <div class="vid-content embed-responsive embed-responsive-16by9">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/wSA6InzFAZE" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            
-            <h1>FAMNM Sponsors and Affiliates</h1>
-            <SponsorList sponsors={["coe", "esg", "invensity", "rob", "ece", "cse"]} />
-        </main>
-    </div><!-- /.container -->
+<BaseLayout
+  title="About The FAMNM | FIRST Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <main class="content">
+      <ThemeSwitcher>
+        <span slot="light">
+          <Image
+            class="center img-fluid"
+            src={logoLight}
+            alt="Logo for FIRST Alumni and Mentors Network at Michigan"
+            height="600"
+            width="2100"
+          />
+        </span>
+        <span slot="dark">
+          <Image
+            class="center img-fluid"
+            src={logoDark}
+            alt="Logo for FIRST Alumni and Mentors Network at Michigan"
+            height="600"
+            width="2100"
+          />
+        </span>
+      </ThemeSwitcher>
+      <h1>About</h1>
+      <p class="text-par">
+        FAMNM is an on campus effort to unite all of the various departmental
+        and individual student efforts of supporting the <i
+          >FIRST<sup>&reg;</sup></i
+        > program locally and throughout the state of Michigan. We act as a liaison
+        between local FIRST teams, the University of Michigan, and any other organizations
+        that are affiliated with either of the prior organizations stated (such as
+        MEZ, WISE, Maker Works and the Fab Lab). FAMNM aims to support the FIRST
+        teams with funds, volunteers, University resources, and publicity, with the
+        ultimate goal of strengthening the relationship between the University and
+        FIRST programs.
+      </p>
+
+      <p class="text-par">
+        FAMNM also acts as a collegiate network for both FIRST Alumni and
+        University of Michigan students who volunteer with and support FIRST
+        teams. The organization aims to provide professional development
+        opportunities including but not limited to resume critiquing, mock
+        interviews, and corporate recruiting events.
+      </p>
+
+      <h1>What is FIRST?</h1>
+      <p class="text-par">
+        <a
+          href="https://www.firstinspires.org/"
+          target="_blank"
+          rel="noopener noreferrer"><FIRST /></a
+        >
+        (For Inspiration and Recognition of Science and Technology) is a non-profit
+        organization intended to get K-12 children involved in science, technology,
+        engineering, and mathematics (STEM). Founded in 1989, it now reaches over
+        400,000 kids worldwide.
+      </p>
+
+      <div class="vid-content embed-responsive embed-responsive-16by9">
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/wSA6InzFAZE"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen></iframe>
+      </div>
+
+      <h1>FAMNM Sponsors and Affiliates</h1>
+      <SponsorList
+        sponsors={["coe", "esg", "invensity", "rob", "ece", "cse"]}
+      />
+    </main>
+  </div><!-- /.container -->
 </BaseLayout>

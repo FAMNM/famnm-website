@@ -1,94 +1,132 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Carousel from "../../components/index/carousel/Carousel.astro";
-import { Img } from "astro-imagetools/components";
+import { Image } from "astro:assets";
 import SponsorList from "../../components/SponsorList.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Link from "../../components/Link.astro";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
+import seasonLogoLight from "../../images/kickoff/2024/season_logo_light.png";
+import seasonLogoDark from "../../images/kickoff/2024/season_logo_dark.png";
+
 const carouselItems = [
-    {
-        title: 'Engineering Organization Fair',
-        description: 'Teams learn about Michigan Engineering\'s various student organizations along with the new Undergraduate Robotics program',
-        src: "/img/kickoff/2024/orgfair.png",
-    },
-    {
-        title: 'Michigan Robotics Presentation',
-        description: 'Teams learn about the curricular roadmap of the Robotics major at the University of Michigan',
-        src: "/img/kickoff/2024/robotics_infosession.png",
-    },
-    {
-        title: 'The FAMNM Event Crew',
-        description: 'From parking assistance to breakout room supervision, FAMNM members and affiliated volunteers ensure a smooth kickoff experience',
-        src: "/img/kickoff/2023/event-crew.jpeg",
-    },
-    {
-        title: 'Kit Distribution On Site',
-        description: 'FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams',
-        src: "/img/kickoff/2023/kit-distribution.jpeg",
-    }
+  {
+    title: "Engineering Organization Fair",
+    description:
+      "Teams learn about Michigan Engineering's various student organizations along with the new Undergraduate Robotics program",
+    src: "kickoff/2024/orgfair.png",
+  },
+  {
+    title: "Michigan Robotics Presentation",
+    description:
+      "Teams learn about the curricular roadmap of the Robotics major at the University of Michigan",
+    src: "kickoff/2024/robotics_infosession.png",
+  },
+  {
+    title: "The FAMNM Event Crew",
+    description:
+      "From parking assistance to breakout room supervision, FAMNM members and affiliated volunteers ensure a smooth kickoff experience",
+    src: "kickoff/2023/event-crew.jpeg",
+  },
+  {
+    title: "Kit Distribution On Site",
+    description:
+      "FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams",
+    src: "kickoff/2023/kit-distribution.jpeg",
+  },
 ];
 ---
+
 <BaseLayout title="FRC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
-    <main>
-        <div class="container content mb-3">
-            <div class="row justify-content-center">
-                <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
-                    <a href="https://www.firstinspires.org/robotics/frc/game-and-season" aria-label="CRESCENDO season information" rel="noopener noreferrer" target="_blank">
-                        <ThemeSwitcher>
-                            <span slot="light">
-                                <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2024/season_logo_light.png" alt="CRESCENDO, presented by Haas" placeholder="none" />
-                            </span>
-                            <span slot="dark">
-                                <Img attributes={{img: {class: "center w-100"}}} format="webp" src="/img/kickoff/2024/season_logo_dark.png" alt="CRESCENDO, presented by Haas" placeholder="none" />
-                            </span>
-                        </ThemeSwitcher>
-                    </a>
-                </div>
-                <div class="col col-12 mt-1 mt-md-2">
-                    <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff</h1>
-                    <p>
-                        FAMNM kicked off the 2024 FRC season,
-                        <i>CRESCENDO</i>, on <time datetime="2024-01-06">Saturday, January 6th, 2024</time>
-                        at the University of Michigan's <Link to="https://goo.gl/maps/SviBGJZca11mxoX19">North Campus</Link>.
-                        The kickoff featured <i>FIRST</i>'s season kickoff livestream, a student organization fair,
-                        an information session for <Link to="https://robotics.umich.edu">Michigan Robotics</Link>,
-                        a guest speaker, U-M campus tours, kit distribution, and breakout rooms for registered teams.
-                        Good luck and have fun, teams!&nbsp;<i class="fa-solid fa-music"></i>
-                    </p>
-                </div>
-                <div class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center">
-                    <a class="btn famnm-btn-secondary btn-lg gap-2"
-                            rel="noreferrer noopener"
-                            target="_blank"
-                            href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system">
-                        Season Materials&nbsp;
-                        <i class="fa-solid fa-book"></i>
-                    </a>
-                    <a class="btn famnm-btn-secondary btn-lg gap-2"
-                            rel="noreferrer noopener"
-                            target="_blank"
-                            href="https://famnm.notion.site/8ed1dfac55f24396832423fe40543ba4?v=6e8f1a13b8f649fab8549ed69f175c61">
-                        Resource Collection&nbsp;
-                        <i class="fa-solid fa-circle-info"></i>
-                    </a>
-                    <a class="btn famnm-btn-secondary btn-lg gap-2"
-                            rel="noreferrer noopener"
-                            target="_blank"
-                            href="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform">
-                        Request FAMNM Mentoring&nbsp;
-                        <i class="fa-solid fa-handshake-angle"></i>
-                    </a>
-                </div>
-            </div>
+  <main>
+    <div class="container content mb-3">
+      <div class="row justify-content-center">
+        <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
+          <a
+            href="https://www.firstinspires.org/robotics/frc/game-and-season"
+            aria-label="CRESCENDO season information"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <ThemeSwitcher>
+              <span slot="light">
+                <Image
+                  class="center w-100 h-auto"
+                  format="webp"
+                  src={seasonLogoLight}
+                  alt="CRESCENDO, presented by Haas"
+                />
+              </span>
+              <span slot="dark">
+                <Image
+                  class="center w-100 h-auto"
+                  format="webp"
+                  src={seasonLogoDark}
+                  alt="CRESCENDO, presented by Haas"
+                />
+              </span>
+            </ThemeSwitcher>
+          </a>
         </div>
-        <Carousel id="kickoff-carousel" images={carouselItems} />
-        <div class="container content">
-            <div class="row pt-2">
-                <h3>Sponsors</h3>
-                <SponsorList sponsors={["esg", "coe"]} />
-            </div>
+        <div class="col col-12 mt-1 mt-md-2">
+          <h1 class="display-6 fw-bold">
+            FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff
+          </h1>
+          <p>
+            FAMNM kicked off the 2024 FRC season,
+            <i>CRESCENDO</i>, on <time datetime="2024-01-06"
+              >Saturday, January 6th, 2024</time
+            >
+            at the University of Michigan's <Link
+              to="https://goo.gl/maps/SviBGJZca11mxoX19">North Campus</Link
+            >. The kickoff featured <i>FIRST</i>'s season kickoff livestream, a
+            student organization fair, an information session for <Link
+              to="https://robotics.umich.edu">Michigan Robotics</Link
+            >, a guest speaker, U-M campus tours, kit distribution, and breakout
+            rooms for registered teams. Good luck and have fun, teams!&nbsp;<i
+              class="fa-solid fa-music"></i>
+          </p>
         </div>
-    </main>
+        <div
+          class="col col-12 mt-1 mt-md-2 gap-2 d-grid d-sm-flex justify-content-sm-center"
+        >
+          <a
+            class="btn famnm-btn-secondary btn-lg gap-2"
+            rel="noreferrer noopener"
+            target="_blank"
+            href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system"
+          >
+            Season Materials&nbsp;
+            <i class="fa-solid fa-book"></i>
+          </a>
+          <a
+            class="btn famnm-btn-secondary btn-lg gap-2"
+            rel="noreferrer noopener"
+            target="_blank"
+            href="https://famnm.notion.site/8ed1dfac55f24396832423fe40543ba4?v=6e8f1a13b8f649fab8549ed69f175c61"
+          >
+            Resource Collection&nbsp;
+            <i class="fa-solid fa-circle-info"></i>
+          </a>
+          <a
+            class="btn famnm-btn-secondary btn-lg gap-2"
+            rel="noreferrer noopener"
+            target="_blank"
+            href="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
+          >
+            Request FAMNM Mentoring&nbsp;
+            <i class="fa-solid fa-handshake-angle"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <Carousel id="kickoff-carousel" images={carouselItems} />
+    <div class="container content">
+      <div class="row pt-2">
+        <h3>Sponsors</h3>
+        <SponsorList sponsors={["esg", "coe"]} />
+      </div>
+    </div>
+  </main>
 </BaseLayout>

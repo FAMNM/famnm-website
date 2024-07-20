@@ -3,105 +3,144 @@ import FIRST from "../../components/FIRST.astro";
 import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Carousel from "../../components/index/carousel/Carousel.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Img } from "astro-imagetools/components";
+import { Image } from "astro:assets";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
+import seasonLogoLight from "../../images/ftc/2023/centerstage-light.png";
+import seasonLogoDark from "../../images/ftc/2023/centerstage-dark.png";
 ---
+
 <BaseLayout title="FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
-    <div class="container">
-        <main class="content">
-            <div class="row justify-content-center mb-4">
-                <div class="col col-12 col-lg-6 mx-auto p-2 p-md-3">
-                    <ThemeSwitcher>
-                        <span slot="light">
-                            <Img attributes={{img: {class: "center w-75"}}} src="/img/ftc/2023/centerstage-light.png"
-                                alt="CENTERSTAGE, presented by RTX" placeholder="none" format="webp" />
-                        </span>
-                        <span slot="dark">
-                            <Img attributes={{img: {class: "center w-75"}}} src="/img/ftc/2023/centerstage-dark.png"
-                                alt="CENTERSTAGE, presented by RTX" placeholder="none" format="webp" />
-                        </span>
-                    </ThemeSwitcher>
-                </div>
-                <div class="col col-12 col-lg-9 mt-1 mt-md-2">
-                    <h1 class="display-6 fw-bold">FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff</h1>
-                    <p class="mb-4">FAMNM hosted a successful kickoff for the 2023&ndash;2024 season of <FIRST /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time datetime="2023-09-09">September 9<sup>th</sup>, 2023</time> on the University of Michigan's <a href="https://goo.gl/maps/fLGy2FxVHeozWEZt6" rel="noreferrer noopener" target="_blank">North Campus</a>. Good luck, teams! <i class="fa-solid fa-paper-plane"></i></p>
-                    <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                        <a class="btn btn-primary btn-lg gap-3" href="https://firstinspiresst01.blob.core.windows.net/first-in-show-ftc/game-manual-part-2-traditional.pdf" rel="noreferrer noopener" target="_blank">
-                            Game Manual 2
-                        </a>
-                        <a class="btn btn-primary btn-lg gap-3" href="https://www.youtube.com/watch?v=6e-5Uo1dRic&t=2s" rel="noreferrer noopener" target="_blank">
-                            Game Animation
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </div>
-    <!-- /.container -->
-    <Carousel id="image-carousel" images={[
-        {
-            title: 'CENTERSTAGE Reveal',
-            description: 'Teams visit and inspect the newly revealed <i>CENTERSTAGE</i> game field.',
-            src: "/img/ftc/2023/field-reveal.png"
-        },
-        {
-            title: 'TOA Presentation',
-            description: `
+  <div class="container">
+    <main class="content">
+      <div class="row justify-content-center mb-4">
+        <div class="col col-12 col-lg-6 mx-auto p-2 p-md-3">
+          <ThemeSwitcher>
+            <span slot="light">
+              <Image
+                class="center w-75 h-auto"
+                src={seasonLogoLight}
+                alt="CENTERSTAGE, presented by RTX"
+                format="webp"
+              />
+            </span>
+            <span slot="dark">
+              <Image
+                class="center w-75 h-auto"
+                src={seasonLogoDark}
+                alt="CENTERSTAGE, presented by RTX"
+                format="webp"
+              />
+            </span>
+          </ThemeSwitcher>
+        </div>
+        <div class="col col-12 col-lg-9 mt-1 mt-md-2">
+          <h1 class="display-6 fw-bold">
+            FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff
+          </h1>
+          <p class="mb-4">
+            FAMNM hosted a successful kickoff for the 2023&ndash;2024 season of <FIRST
+            /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time
+              datetime="2023-09-09">September 9<sup>th</sup>, 2023</time
+            > on the University of Michigan's <a
+              href="https://goo.gl/maps/fLGy2FxVHeozWEZt6"
+              rel="noreferrer noopener"
+              target="_blank">North Campus</a
+            >. Good luck, teams! <i class="fa-solid fa-paper-plane"></i>
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a
+              class="btn btn-primary btn-lg gap-3"
+              href="https://firstinspiresst01.blob.core.windows.net/first-in-show-ftc/game-manual-part-2-traditional.pdf"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Game Manual 2
+            </a>
+            <a
+              class="btn btn-primary btn-lg gap-3"
+              href="https://www.youtube.com/watch?v=6e-5Uo1dRic&t=2s"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Game Animation
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- /.container -->
+  <Carousel
+    id="image-carousel"
+    images={[
+      {
+        title: "CENTERSTAGE Reveal",
+        description:
+          "Teams visit and inspect the newly revealed <i>CENTERSTAGE</i> game field.",
+        src: "ftc/2023/field-reveal.png",
+      },
+      {
+        title: "TOA Presentation",
+        description: `
 During FAMNM's 2022&ndash;2023 FTC Kickoff,
 Kyle Flynn, Vice Chairman and Chief Technology Officer for
 <a href="https://theorangealliance.org/about" rel="noreferrer noopener" target="_blank">The Orange Alliance</a>,
 presents his <i>FIRST</i> journey to teams.`,
-            src: "/img/ftc/2022/speaker.jpg"
-        },
-        {
-            title: 'Digit, the Humanoid',
-            description: `During FAMNM's 2021&ndash;2022 FTC Kickoff, Oluwami showcases Digit, a humanoid robot from Agility Robotics.`,
-            src: "/img/ftc/2021/oluwami-digit.jpg"
-        }
-    ]} />
-    <div class="container p-4">
-        <div class="row">
-            <div class="col">
-                <p class="m-0">
-                    <a href="https://www.firstinspires.org/ftc" rel="noopener noreferrer">FIRST Tech Challenge</a>
-                    (FTC) is the middle/high school level in the FIRST progression of programs.
-                    In 2017, FAMNM launched its first FTC Kickoff event, where we invited local teams to view the reveal of the new
-                    year's challenge in early September. The event came complete with FRC Demos, inspiring speeches, and a chance
-                    to see an official FTC game field!
-                </p>
-            </div>
-        </div>
+        src: "ftc/2022/speaker.jpg",
+      },
+      {
+        title: "Digit, the Humanoid",
+        description: `During FAMNM's 2021&ndash;2022 FTC Kickoff, Oluwami showcases Digit, a humanoid robot from Agility Robotics.`,
+        src: "ftc/2021/oluwami-digit.jpg",
+      },
+    ]}
+  />
+  <div class="container p-4">
+    <div class="row">
+      <div class="col">
+        <p class="m-0">
+          <a href="https://www.firstinspires.org/ftc" rel="noopener noreferrer"
+            >FIRST Tech Challenge</a
+          >
+          (FTC) is the middle/high school level in the FIRST progression of programs.
+          In 2017, FAMNM launched its first FTC Kickoff event, where we invited local
+          teams to view the reveal of the new year's challenge in early September.
+          The event came complete with FRC Demos, inspiring speeches, and a chance
+          to see an official FTC game field!
+        </p>
+      </div>
     </div>
+  </div>
 
-    <style>
-        #schedule-table th {
-            opacity: 0.75;
-            text-align: right;
-            width: 5.5rem;
-            height: 2.6rem;
-            transform: translateY(-1.3rem);
-            line-height: 100%;
-            vertical-align: middle;
-            padding: 0.5rem 0 0.5rem 0.5rem;
-        }
+  <style>
+    #schedule-table th {
+      opacity: 0.75;
+      text-align: right;
+      width: 5.5rem;
+      height: 2.6rem;
+      transform: translateY(-1.3rem);
+      line-height: 100%;
+      vertical-align: middle;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+    }
 
-        .schedule-time {
-            padding: 4px;
-            border-radius: 6px;
-            border: 1px solid rgba(0, 0, 0, 0.7);
-        }
+    .schedule-time {
+      padding: 4px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.7);
+    }
 
-        #schedule-table td {
-            padding: 2px;
-            border-top: 1px solid rgba(0, 0, 0, 0.4);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.4);
-            vertical-align: middle;
-            font-size: 1.1rem;
-        }
+    #schedule-table td {
+      padding: 2px;
+      border-top: 1px solid rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+      vertical-align: middle;
+      font-size: 1.1rem;
+    }
 
-        #schedule-table {
-            max-width: 42rem;
-        }
-    </style>
+    #schedule-table {
+      max-width: 42rem;
+    }
+  </style>
 </BaseLayout>

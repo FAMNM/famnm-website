@@ -1,37 +1,42 @@
 ---
-import { Picture } from "astro-imagetools/components";
+import { Picture } from "astro:assets";
+import { importImage } from "../../images/imageImport";
 
 export interface CoreMember {
-    name: string;
-    email: string;
-    img: string;
-    role: string;
+  name: string;
+  email: string;
+  img: string;
+  role: string;
 }
 interface Props {
-    info: CoreMember;
+  info: CoreMember;
 }
 
 const { info } = Astro.props;
 ---
 
 <div class="card">
-    <Picture src={info.img} fit="cover"
-        objectFit="cover"
-        attributes={{img: {class: "card-img-top", title: info.name}}}
-        alt={`Picture of ${ info.name }, the ${ info.role } of FAMNM.`}
-        width={500} height={650} />
-    <div class="card-body px-1">
-        <h5 class="card-title mb-0">{ info.role }</h5>
-        <p class="card-text mb-0">{ info.name }</p>
-        <p class="card-text">
-            <a href={`mailto:${ info.email }@umich.edu`}>{ info.email }@umich.edu</a>
-        </p>
-    </div>
+  <Picture
+    src={importImage(info.img)}
+    style={{ objectFit: "cover" }}
+    class="card-img-top"
+    title={info.name}
+    alt={`Picture of ${info.name}, the ${info.role} of FAMNM.`}
+    height={250}
+    densities={[1, 2]}
+  />
+  <div class="card-body px-1">
+    <h5 class="card-title mb-0">{info.role}</h5>
+    <p class="card-text mb-0">{info.name}</p>
+    <p class="card-text">
+      <a href={`mailto:${info.email}@umich.edu`}>{info.email}@umich.edu</a>
+    </p>
+  </div>
 </div>
 
 <style>
-    .card {
-        width: 250px;
-        height: 100% !important;
-    }
+  .card {
+    width: 250px;
+    height: 100% !important;
+  }
 </style>

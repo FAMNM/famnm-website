@@ -2,63 +2,68 @@
 import Announcement from "./Announcement.astro";
 ---
 
-
 <section id="home-announcements" class="container mb-4">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mx-1 justify-content-center">
-        <Announcement
-            title="2024 FRC kickoff"
-            image="/img/kickoff/2024/broadcast.png"
-            alt="Teams watch FIRST's kickoff broadcast during FAMNM's 2024 FRC kickoff"
-            links={[
-                {
-                    text: "Season Resources",
-                    link: "/events/kickoff/",
-                },
-                {
-                    text: "FAMNM Ri3D livestreams",
-                    link: "https://twitch.tv/famnm",
-                }
-            ]}
-        >
-            FAMNM kicked off the 2024 FRC season, <i>CRESCENDO</i>,
-            on <time datetime="2024-01-06">January 6, 2024</time> at the University of Michigan in Ann Arbor.
-        </Announcement>
-        <Announcement
-            title="Matching teams with mentors"
-            image="/img/teams/fr_mentor2.jpg"
-            alt="Freelance mentors from FAMNM helping out an FRC team"
-            links={[
-                {
-                    text: "Request mentoring",
-                    link: "https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
-                },
-                {
-                    text: "Offer mentoring",
-                    link: "https://docs.google.com/forms/d/e/1FAIpQLSc_cboTYS4eDCsD0Z2NylXrKOez33J6Ij88vC7x8-SzZh5VkQ/viewform",
-                    tooltip: "umich.edu account required"
-                }
-            ]}
-        >
-            Teams, fill out the request form below to receive mentoring from FAMNM members.<br />
-            FAMNM members, fill out the freelance interest form below to get matched with a team.
-        </Announcement>
-        <Announcement
-            title="2024 FRC volunteering"
-            image="/img/index/announcements/Dom-FIM-States-2024.jpg"
-            alt="A FAMNM member volunteers as a field resetter at the FRC Michigan State Championship in 2024"
-            links={[
-                {
-                    text: "Sign up to volunteer",
-                    link: "https://docs.google.com/spreadsheets/d/1kDUFPgt9U2acVZzC9ucnnrpB4CG4xknzRRGcc_Sd7WU/edit#gid=0",
-                    tooltip: "umich.edu account required"
-                },
-                {
-                    text: "Register with FIRST",
-                    link: "https://drive.google.com/file/d/1KK0DTUVbxq3v1YfF9FJ_Uh-PXcA-3GdS/view?usp=drive_link"
-                }
-            ]}
-        >
-            FAMNM is organizing volunteering efforts at <i>CRESCENDO</i> FRC events. Join us!
-        </Announcement>
-    </div>
+  <div
+    class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mx-1 justify-content-center"
+  >
+    <Announcement
+      title="2024 FRC kickoff"
+      image="kickoff/2024/broadcast.png"
+      alt="Teams watch FIRST's kickoff broadcast during FAMNM's 2024 FRC kickoff"
+      links={[
+        {
+          text: "Season Resources",
+          link: "/events/kickoff/",
+        },
+        {
+          text: "FAMNM Ri3D livestreams",
+          link: "https://twitch.tv/famnm",
+        },
+      ]}
+    >
+      FAMNM kicked off the 2024 FRC season, <i>CRESCENDO</i>, on <time
+        datetime="2024-01-06">January 6, 2024</time
+      > at the University of Michigan in Ann Arbor.
+    </Announcement>
+    <Announcement
+      title="Matching teams with mentors"
+      image="teams/fr_mentor2.jpg"
+      alt="Freelance mentors from FAMNM helping out an FRC team"
+      links={[
+        {
+          text: "Request mentoring",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform",
+        },
+        {
+          text: "Offer mentoring",
+          link: "https://docs.google.com/forms/d/e/1FAIpQLSc_cboTYS4eDCsD0Z2NylXrKOez33J6Ij88vC7x8-SzZh5VkQ/viewform",
+          tooltip: "umich.edu account required",
+        },
+      ]}
+    >
+      Teams, fill out the request form below to receive mentoring from FAMNM
+      members.<br />
+      FAMNM members, fill out the freelance interest form below to get matched with
+      a team.
+    </Announcement>
+    <Announcement
+      title="2024 FRC volunteering"
+      image="index/announcements/Dom-FIM-States-2024.jpg"
+      alt="A FAMNM member volunteers as a field resetter at the FRC Michigan State Championship in 2024"
+      links={[
+        {
+          text: "Sign up to volunteer",
+          link: "https://docs.google.com/spreadsheets/d/1kDUFPgt9U2acVZzC9ucnnrpB4CG4xknzRRGcc_Sd7WU/edit#gid=0",
+          tooltip: "umich.edu account required",
+        },
+        {
+          text: "Register with FIRST",
+          link: "https://drive.google.com/file/d/1KK0DTUVbxq3v1YfF9FJ_Uh-PXcA-3GdS/view?usp=drive_link",
+        },
+      ]}
+    >
+      FAMNM is organizing volunteering efforts at <i>CRESCENDO</i> FRC events. Join
+      us!
+    </Announcement>
+  </div>
 </section>

@@ -1,36 +1,54 @@
 ---
 import BaseLayout from "../../../layouts/BaseLayout.astro";
-import { Picture } from "astro-imagetools/components";
+import { Picture } from "astro:assets";
+import sponsorNameHere from "../../../images/ri3d/sponsor-name-here.jpg";
 ---
 
-<BaseLayout title="2019 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan">
-    <style slot="head">
-        .container > h2, .container > h3, .container > h1 {
-            margin-top: 1rem;
-        }
-    </style>
+<BaseLayout
+  title="2019 Ri3D Technical Documentation | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <style slot="head">
+    .container > h2,
+    .container > h3,
+    .container > h1 {
+      margin-top: 1rem;
+    }
+  </style>
 
-    <div class="container content">
-        <h1>FAMNM Robot in 3 Days - 2019 Documentation</h1>
-        <a href="../">&larr; FAMNM Ri3D Overview</a>
-        <Picture attributes={{picture: {class: "mx-auto w-75 mt-3 d-block"}}} src="/img/ri3d/sponsor-name-here.jpg" alt="A FAMNM Ri3D robot with a piece of tape where 'SPONSOR NAME HERE' is written" />
-        <div class="my-3 font-italic">2019 FAMNM Ri3D Robot: Laika</div>
+  <div class="container content">
+    <h1>FAMNM Robot in 3 Days - 2019 Documentation</h1>
+    <a href="../">&larr; FAMNM Ri3D Overview</a>
+    <Picture
+      class="mx-auto w-75 mt-3 d-block h-auto"
+      src={sponsorNameHere}
+      alt="A FAMNM Ri3D robot with a piece of tape where 'SPONSOR NAME HERE' is written"
+    />
+    <div class="my-3 font-italic">2019 FAMNM Ri3D Robot: Laika</div>
 
-        <h2 id="tech-docs">Technical Documentation</h2>
-        <a class="mx-auto btn famnm-btn-secondary" href="https://www.youtube.com/watch?v=YZTIdKUNgck&list=PLSr939s0l0jteDxt8WwPRrvIsdbnBTp76">
-            Build process playlist
-        </a>
-        <a class="mx-auto btn famnm-btn-secondary" href="https://github.com/famnm/ri3d-2019">
-            GitHub
-        </a>
+    <h2 id="tech-docs">Technical Documentation</h2>
+    <a
+      class="mx-auto btn famnm-btn-secondary"
+      href="https://www.youtube.com/watch?v=YZTIdKUNgck&list=PLSr939s0l0jteDxt8WwPRrvIsdbnBTp76"
+    >
+      Build process playlist
+    </a>
+    <a
+      class="mx-auto btn famnm-btn-secondary"
+      href="https://github.com/famnm/ri3d-2019"
+    >
+      GitHub
+    </a>
 
-        <h2 id="faq">Frequently Asked Questions</h2>
-        <dl class="text-start text-par">
-            <dt>What gear ratio did you use on the arm?</dt>
-            <dd>We had a 100:1 gearbox driving a chain-and-sprocket mechanism with a ratio of roughly 3:1, so overall the ratio was 300:1.</dd>
-            <br/>
-            <dt>What size gas strut did you use to counterbalance the arm?</dt>
-            <dd>We used a 30-pound gas strut.</dd>
-        </dl>
-    </div><!-- /.container -->
+    <h2 id="faq">Frequently Asked Questions</h2>
+    <dl class="text-start text-par">
+      <dt>What gear ratio did you use on the arm?</dt>
+      <dd>
+        We had a 100:1 gearbox driving a chain-and-sprocket mechanism with a
+        ratio of roughly 3:1, so overall the ratio was 300:1.
+      </dd>
+      <br />
+      <dt>What size gas strut did you use to counterbalance the arm?</dt>
+      <dd>We used a 30-pound gas strut.</dd>
+    </dl>
+  </div><!-- /.container -->
 </BaseLayout>
