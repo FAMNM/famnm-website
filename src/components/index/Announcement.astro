@@ -1,5 +1,5 @@
 ---
-import { Picture } from "astro:assets";
+import { Image } from "astro:assets";
 import { importImage } from "../../images/imageImport";
 
 interface Props {
@@ -20,11 +20,10 @@ const { title, image: imageLink, alt, links } = Astro.props;
   <div class="row g-0">
     {
       imageLink !== undefined && (
-        <Picture
+        <Image
           src={importImage(imageLink)}
           class="rounded-4 feature-img"
           alt={alt}
-          formats={["webp", "png"]}
           widths={[360, 480, 640, 800, 1024]}
         />
       )
