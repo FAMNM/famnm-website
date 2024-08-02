@@ -24,6 +24,8 @@ const { title, image: imageLink, alt, links } = Astro.props;
           src={importImage(imageLink)}
           class="rounded-4 feature-img"
           alt={alt}
+          formats={["webp", "png"]}
+          widths={[360, 480, 640, 800, 1024, 2048]}
         />
       )
     }

@@ -15,8 +15,19 @@ const itemClass = active ? "carousel-item active" : "carousel-item";
 ---
 
 <div class={itemClass} role="option" aria-label=`${title}`>
-  <Image src={image} class="carousel-back-image" aria-hidden="true" alt="" />
-  <Image src={image} alt={title} style={{ objectFit: "scale-down" }} />
+  <Image
+    src={image}
+    class="carousel-back-image"
+    aria-hidden="true"
+    alt=""
+    densities={[0.25, 0.5, 1, 1.5]}
+  />
+  <Image
+    src={image}
+    alt={title}
+    style={{ objectFit: "scale-down" }}
+    densities={[0.25, 0.5, 1, 1.5]}
+  />
   <div class="carousel-caption d-none d-md-block">
     <h3>{title}</h3>
     <p set:html={description} />
