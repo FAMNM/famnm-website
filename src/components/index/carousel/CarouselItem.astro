@@ -19,12 +19,14 @@ const itemClass = active ? "carousel-item active" : "carousel-item";
     src={image}
     class="carousel-back-image"
     aria-hidden="true"
+    loading="lazy"
     alt=""
     densities={[0.25, 0.5, 1, 1.5]}
   />
   <Image
     src={image}
     alt={title}
+    loading="lazy"
     style={{ objectFit: "scale-down" }}
     densities={[0.25, 0.5, 1, 1.5]}
   />
