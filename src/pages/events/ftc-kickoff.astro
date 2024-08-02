@@ -6,19 +6,19 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
-import seasonLogoLight from "../../images/ftc/2023/centerstage-light.png";
-import seasonLogoDark from "../../images/ftc/2023/centerstage-dark.png";
+import seasonLogoLight from "../../images/ftc/2024/into-the-deep-light.png";
+import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
 ---
 
 <BaseLayout title="FTC Kickoff | FIRST® Alumni & Mentors Network at Michigan">
   <div class="container">
     <main class="content">
       <div class="row justify-content-center mb-4">
-        <div class="col col-12 col-lg-6 mx-auto p-2 p-md-3">
+        <div class="col col-12 col-lg-6 mx-auto p-2 p-md-4">
           <ThemeSwitcher>
             <span slot="light">
               <Image
-                class="center w-75 h-auto"
+                class="center w-50 h-auto"
                 src={seasonLogoLight}
                 alt="CENTERSTAGE, presented by RTX"
                 format="webp"
@@ -26,7 +26,7 @@ import seasonLogoDark from "../../images/ftc/2023/centerstage-dark.png";
             </span>
             <span slot="dark">
               <Image
-                class="center w-75 h-auto"
+                class="center w-50 h-auto"
                 src={seasonLogoDark}
                 alt="CENTERSTAGE, presented by RTX"
                 format="webp"
@@ -39,31 +39,32 @@ import seasonLogoDark from "../../images/ftc/2023/centerstage-dark.png";
             FAMNM <i>FIRST<sup>&reg;</sup></i> Tech Challenge Kickoff
           </h1>
           <p class="mb-4">
-            FAMNM hosted a successful kickoff for the 2023&ndash;2024 season of <FIRST
-            /> Tech Challenge, CENTERSTAGE<sup>SM</sup>, on <time
-              datetime="2023-09-09">September 9<sup>th</sup>, 2023</time
-            > on the University of Michigan's <a
+            FAMNM will host a kickoff event for the 2024&ndash;2025 season of <FIRST
+            /> Tech Challenge, INTO THE DEEP<sup>SM</sup>, on <time
+              datetime="2024-09-07">September 7<sup>th</sup>, 2024</time
+            > at the University of Michigan's <a
               href="https://goo.gl/maps/fLGy2FxVHeozWEZt6"
               rel="noreferrer noopener"
               target="_blank">North Campus</a
-            >. Good luck, teams! <i class="fa-solid fa-paper-plane"></i>
+            >. To attend, please register your team via the form linked below
+            and fill out Children on Campus forms for all participating minors.
           </p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <a
               class="btn btn-primary btn-lg gap-3"
-              href="https://firstinspiresst01.blob.core.windows.net/first-in-show-ftc/game-manual-part-2-traditional.pdf"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSc413Z-bqM2gSaNAPuujkJObWtHLPkARnWDYbsV1D7pUAqTOA/viewform"
               rel="noreferrer noopener"
               target="_blank"
             >
-              Game Manual 2
+              Register
             </a>
             <a
               class="btn btn-primary btn-lg gap-3"
-              href="https://www.youtube.com/watch?v=6e-5Uo1dRic&t=2s"
+              href="https://umforms.tfaforms.net/2?CampId=701UI00000CHzY6YAL"
               rel="noreferrer noopener"
               target="_blank"
             >
-              Game Animation
+              Children on Campus Forms
             </a>
           </div>
         </div>
@@ -77,7 +78,7 @@ import seasonLogoDark from "../../images/ftc/2023/centerstage-dark.png";
       {
         title: "CENTERSTAGE Reveal",
         description:
-          "Teams visit and inspect the newly revealed <i>CENTERSTAGE</i> game field.",
+          "Teams visit and inspect the <i>CENTERSTAGE</i> game field from the 2023&ndash;2024 season.",
         src: "ftc/2023/field-reveal.png",
       },
       {
