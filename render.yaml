@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: famnm-website
+    runtime: static
+    buildCommand: pnpm build
+    staticPublishPath: ./dist
+    pullRequestPreviewsEnabled: true

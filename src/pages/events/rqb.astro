@@ -1,50 +1,47 @@
 ---
 import Carousel from "../../components/index/carousel/Carousel.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro"
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
-<BaseLayout title="Robot Quick Build | FIRST® Alumni & Mentors Network at Michigan">
-    <div class="container">
-        <div class="content">
-            <h1>FAMNM Robot Quick Build</h1>
-        </div>
+
+<BaseLayout
+  title="Robot Quick Build | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <div class="content">
+      <h1>FAMNM Robot Quick Build</h1>
     </div>
-    <Carousel id="carousel-rqb" images={[     
-        {
-            title: "Completed Chassis",
-            description: "One team finishes the construction of their KOP chassis.",
-            src: "/img/rqb/carousel/kitbot.jpg"
-        },
-        {
-            title: "Programming",
-            description: "A FAMNM member helps one team get started with coding their robot.",
-            src: "/img/rqb/carousel/programming.jpg"
-        },
-        {
-            title: "Electrical",
-            description: "No RQB robot is complete without an electrical board!",
-            src: "/img/rqb/carousel/electrical.jpg"
-        }
-    ]} />
-    <div class="container">
-        <main class="content">
-            
-            <p class="text-par fw-bold">
-                FAMNM is planning to try and make FRC Kickoff 2021 a helpful
-                virtual experience for teams. As a result, we think it is 
-                unlikely that there will be a RQB this upcoming academic 
-                year. If you're a rookie team and would like support from 
-                FAMNM during your 2021 build season, please reach out to 
-                <a href="mailto:famnm.frc@umich.edu">FAMNM's FRC Coordinator</a> who can help
-                connect you to available mentorship and other resources.
-            </p>
-            <p class="text-par">
-                The Robot Quick Build (RQB) is an event held in
-                early January, usually the day after our FRC Kickoff event.
-                Teams work with FAMNM members to jumpstart their FRC season
-                by getting a working drivetrain on the first day of build season! FAMNM
-                offers assistance in mechanical, electrical, programming, and game strategy.
-                Check out some highlights from last year's RQB in the image slideshow above!
-            </p>
-        </main>
-    </div>
+  </div>
+  <Carousel
+    id="carousel-rqb"
+    images={[
+      {
+        title: "Completed Chassis",
+        description: "One team finishes the construction of their KOP chassis.",
+        src: "rqb/carousel/kitbot.jpg",
+      },
+      {
+        title: "Programming",
+        description:
+          "A FAMNM member helps one team get started with coding their robot.",
+        src: "rqb/carousel/programming.jpg",
+      },
+      {
+        title: "Electrical",
+        description: "No RQB robot is complete without an electrical board!",
+        src: "rqb/carousel/electrical.jpg",
+      },
+    ]}
+  />
+  <div class="container">
+    <main class="content">
+      <p class="text-par">
+        The Robot Quick Build (RQB) is an event held in early January, usually
+        the day after our FRC Kickoff event. Teams work with FAMNM members to
+        jumpstart their FRC season by getting a working drivetrain on the first
+        day of build season! FAMNM offers assistance in mechanical, electrical,
+        programming, and game strategy. Check out some highlights from last
+        year's RQB in the image slideshow above!
+      </p>
+    </main>
+  </div>
 </BaseLayout>

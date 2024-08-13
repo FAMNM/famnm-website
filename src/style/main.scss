@@ -90,19 +90,21 @@ picture {
     display: flex;
 }
 
-
+div.carousel-inner > .carousel-item {
+    height: 300px;
+}
 
 @media (min-width: 768px)
 {
-    
+
     div.carousel-inner > .carousel-item {
         height: 400px;
     }
-    
+
     div.carousel-inner img.loading {
         height: 50%;
     }
-    
+
     div.carousel-inner > div.carousel-tmp {
         padding: 150px;
         height: 400px;
@@ -114,11 +116,11 @@ picture {
     div.carousel-inner > .carousel-item {
         height: 500px;
     }
-    
+
     div.carousel-inner img.loading {
         height: 75%;
     }
-    
+
     div.carousel-inner > div.carousel-tmp {
         padding: 200px;
         height: 500px;
@@ -227,12 +229,12 @@ input[type=text] {
         --event-background: #003368;
         --event-color: #4f80b9;
     }
-    
+
     .event-indent-1 {
         --event-background: #005269;
         --event-color: #56a1b8;
     }
-    
+
     .event-indent-2 {
         --event-background: #006966;
         --event-color: #50a9a6;

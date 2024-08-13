@@ -1,32 +1,45 @@
 ---
 import FIRST from "../../components/FIRST.astro";
-import { Img } from "astro-imagetools/components";
+import { Image } from "astro:assets";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-// FIRST: <i>FIRST<sup>&reg;</sup></i>
+import sponsorPicture from "../../images/sponsor/corporation.jpg";
 ---
-<BaseLayout title="Support FAMNM as a corporation or professional | FIRST® Alumni & Mentors Network at Michigan">
-    <div class="container">
-        <main class="content">
-            <h1>Supporting FAMNM as a Corporation</h1>
-            <Img src="/img/sponsor/corporation.jpg" attributes={{img: {class: "mx-auto col-md-8 col-xs-12"}}} alt="Corporate sponsors present at FAMNM's FRC kickoff" />
-            <p class="text-par">
-                Are you a <FIRST /> supporter looking to connect to <FIRST />
-                Alumni on campus? Often, <FIRST /> supporters invest a lot into
-                the program but have a hard time finding and recruiting <FIRST />
-                alumni. Let FAMNM connect you to our network of <FIRST /> alumni
-                at the University of Michigan. Contact our Director of 
-                Corporate Outreach at <a href="mailto:famnm.corporate@umich.edu">famnm.corporate@umich.edu​</a>.
-            </p>
-            
-            <h1>Getting Involved as a Professional</h1>
-            <p class="text-par">
-                Are you interested in mentoring a team or volunteering at an 
-                event? Contact our coordinators at the appropriate address:
-                <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu​</a> for high school robotics,
-                <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu​</a> for middle school robotics, 
-                <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu​</a> for elementary robotics, and 
-                <a href="mailto:famnm.volunteer@umich.edu">famnm.volunteer@umich.edu​</a> to volunteer with us at any level.
-            </p>
-        </main>
-    </div><!-- /.container -->
+
+<BaseLayout
+  title="Support FAMNM as a corporation or professional | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <main class="content">
+      <h1>Supporting FAMNM as a Corporation</h1>
+      <Image
+        src={sponsorPicture}
+        class="mx-auto col-md-8 col-xs-12 h-auto"
+        alt="Corporate sponsors present at FAMNM's FRC kickoff"
+        densities={[0.2, 0.5, 0.7, 1, 2]}
+      />
+      <p class="text-par">
+        Are you a <FIRST /> supporter looking to connect to <FIRST />
+        Alumni on campus? Often, <FIRST /> supporters invest a lot into the program
+        but have a hard time finding and recruiting <FIRST />
+        alumni. Let FAMNM connect you to our network of <FIRST /> alumni at the University
+        of Michigan. Contact our Director of Corporate Outreach at <a
+          href="mailto:famnm.corporate@umich.edu">famnm.corporate@umich.edu​</a
+        >.
+      </p>
+
+      <h1>Getting Involved as a Professional</h1>
+      <p class="text-par">
+        Are you interested in mentoring a team or volunteering at an event?
+        Contact our coordinators at the appropriate address:
+        <a href="mailto:famnm.frc@umich.edu">famnm.frc@umich.edu​</a> for high school
+        robotics,
+        <a href="mailto:famnm.ftc@umich.edu">famnm.ftc@umich.edu​</a> for middle
+        school robotics,
+        <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu​</a> for elementary
+        robotics, and
+        <a href="mailto:famnm.volunteer@umich.edu">famnm.volunteer@umich.edu​</a
+        > to volunteer with us at any level.
+      </p>
+    </main>
+  </div><!-- /.container -->
 </BaseLayout>

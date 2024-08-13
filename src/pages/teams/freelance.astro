@@ -1,37 +1,59 @@
 ---
 import Link from "../../components/Link.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import { Picture } from "astro-imagetools/components";
+import { Picture } from "astro:assets";
+import freelanceMentorPicture from "../../images/teams/fr_mentor1.jpg";
 ---
-<BaseLayout title="Freelance Mentor Program | FIRST® Alumni & Mentors Network at Michigan">
-    <div class="container">
-        <main class="content">
-            <h1>Freelance Mentor Program</h1>
-            <p class="text-par">
-                The Freelance Mentor Program provides short-term mentoring
-                resources to local teams of all levels. University of Michigan students 
-                with expertise in areas such as chassis, electronics, programming, 
-                presentations, and business plans are available assist teams on a case
-                by case basis. Some notable examples include a day of autonomous
-                mentoring for FRC team WARHBOTS (shown below), an afternoon of practice 
-                match refereeing and practice judging sessions for the five Chelsea and 
-                Dexter FTC teams, and a project presentation review and critique for FLL
-                team The Robobears.
-            </p>
-            <p class="text-par">
-                Looking for help? If you represent an FLL team, contact our FLL coordinator at
-                <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu</a>.
-                If you represent an FRC or FTC team, fill out the form linked below
-                to request mentoring from FAMNM.
-            </p>
-            <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-4">
-                <Link to="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
-                    class="btn btn-primary btn-lg">Request FRC or FTC mentoring&nbsp;&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></Link>
-                <a href="mailto:famnm.fll@umich.edu"
-                    class="btn btn-primary btn-lg">Contact FLL coordinator&nbsp;&nbsp;<i class="fa-solid fa-envelope"></i></a>
-            </div>
-            <Picture attributes={{picture: {class: "img-fluid col-md-8 col-xs-12 d-inline-block", id: "freelance-img"}}} src="/img/teams/fr_mentor1.jpg" alt="FAMNM Freelance Mentoring"/>
-            <p><b>Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for <i>FIRST<sup>&reg;</sup></i> Power Up!</b></p>
-        </main>
-    </div>
+
+<BaseLayout
+  title="Freelance Mentor Program | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <main class="content">
+      <h1>Freelance Mentor Program</h1>
+      <p class="text-par">
+        The Freelance Mentor Program provides short-term mentoring resources to
+        local teams of all levels. University of Michigan students with
+        expertise in areas such as chassis, electronics, programming,
+        presentations, and business plans are available assist teams on a case
+        by case basis. Some notable examples include a day of autonomous
+        mentoring for FRC team WARHBOTS (shown below), an afternoon of practice
+        match refereeing and practice judging sessions for the five Chelsea and
+        Dexter FTC teams, and a project presentation review and critique for FLL
+        team The Robobears.
+      </p>
+      <p class="text-par">
+        Looking for help? If you represent an FLL team, contact our FLL
+        coordinator at
+        <a href="mailto:famnm.fll@umich.edu">famnm.fll@umich.edu</a>. If you
+        represent an FRC or FTC team, fill out the form linked below to request
+        mentoring from FAMNM.
+      </p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-4">
+        <Link
+          to="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
+          class="btn btn-primary btn-lg"
+          >Request FRC or FTC mentoring&nbsp;&nbsp;
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </Link>
+        <a href="mailto:famnm.fll@umich.edu" class="btn btn-primary btn-lg">
+          Contact FLL coordinator&nbsp;&nbsp;
+          <i class="fa-solid fa-envelope"></i>
+        </a>
+      </div>
+      <Picture
+        class="img-fluid col-md-8 col-xs-12 d-inline-block"
+        id="freelance-img"
+        src={freelanceMentorPicture}
+        alt="FAMNM Freelance Mentoring"
+      />
+      <p>
+        <b
+          >Pictured: Freelance mentors helping out Team 6618 - WARHBOTS for <i
+            >FIRST<sup>&reg;</sup></i
+          > Power Up!</b
+        >
+      </p>
+    </main>
+  </div>
 </BaseLayout>

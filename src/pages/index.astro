@@ -3,107 +3,139 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import Announcements from "../components/index/Announcements.astro";
 import Carousel from "../components/index/carousel/Carousel.astro";
 import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+import { Image } from "astro:assets";
 
+import logoLight from "../images/logo-light.svg";
+import logoDark from "../images/logo-dark.svg";
 const images = [
-    {
-        title: "Michigan State Championship 2024",
-        description: "FAMNM Alumni and Members at the 2024 Michigan State Championship!",
-        src: "/img/index/announcements/michigan-states-2024.jpg",
-    },
-    {
-        title: "2023 FRC Kickoff",
-        description: "Teams learn about the University of Michigan Robotics Institute prior to the reveal of FIRST\u00ae CHARGED UP presented by Haas",
-        src: "/img/kickoff/2023/rob-presentation.jpeg",
-    },
-    {
-        title: "Ri3D Under Development",
-        description: "FAMNM's Robot in 3 Days team tests its new intake on cubes from CHARGED UP",
-        src: "/img/ri3d/2023/claw-build.jpeg",
-    },
-    {
-        title: "At the Apple Orchard",
-        description: "FAMNM on a social trip to Apple Charlie's Orchard in October 2022",
-        src: "/img/carousel/apple-orchard-2022.jpg",
-    },
-    {
-        title: "FACC Winners!",
-        description: "FAMNM's Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
-        src: "/img/ri3d/2019-winners.jpg",
-    },
-    {
-        title: "Volunteering",
-        description: "FAMNM wins the Volunteer Award at the 2018 East Jackson FTC Qualifier!",
-        src: "/img/carousel/east-jackson-ftc.jpg",
-    }
+  {
+    title: "Michigan State Championship 2024",
+    description:
+      "FAMNM Alumni and Members at the 2024 Michigan State Championship!",
+    src: "index/announcements/michigan-states-2024.jpg",
+  },
+  {
+    title: "2023 FRC Kickoff",
+    description:
+      "Teams learn about the University of Michigan Robotics Institute prior to the reveal of FIRST\u00ae CHARGED UP presented by Haas",
+    src: "kickoff/2023/rob-presentation.jpeg",
+  },
+  {
+    title: "Ri3D Under Development",
+    description:
+      "FAMNM's Robot in 3 Days team tests its new intake on cubes from CHARGED UP",
+    src: "ri3d/2023/claw-build.jpeg",
+  },
+  {
+    title: "At the Apple Orchard",
+    description:
+      "FAMNM on a social trip to Apple Charlie's Orchard in October 2022",
+    src: "carousel/apple-orchard-2022.jpg",
+  },
+  {
+    title: "FACC Winners!",
+    description:
+      "FAMNM's Robot in 3 Days team with the championship trophy from the first annual FIRST Alumni Collegiate Competition",
+    src: "ri3d/2019-winners.jpg",
+  },
+  {
+    title: "Volunteering",
+    description:
+      "FAMNM wins the Volunteer Award at the 2018 East Jackson FTC Qualifier!",
+    src: "carousel/east-jackson-ftc.jpg",
+  },
 ];
 ---
 
 <BaseLayout title="FIRST® Alumni & Mentors Network at Michigan">
-    <main>
-        <div class="container p-4">
-            <div class="row align-items-center">
-                <div class="col-sm-12">
-                    <ThemeSwitcher>
-                        <span slot="light">
-                            <img id="frontpage-logo" class="center img-fluid" src="/img/logo-light.svg"
-                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="600" width="2100" />
-                        </span>
-                        <span slot="dark">
-                            <img id="frontpage-logo" class="center img-fluid" src="/img/logo-dark.svg"
-                                alt="Logo for FIRST Alumni and Mentors Network at Michigan" height="600" width="2100" />
-                        </span>
-                    </ThemeSwitcher>
-                </div>
-                <div class="col-sm-12 col-md">
-                    <p class="text-description text-center">
-                        FAMNM is a University of Michigan student
-                        organization devoted to organizing student and departmental
-                        efforts to support the
-                        <a href="https://www.firstinspires.org" rel="noreferrer noopener" target="_blank"><i>FIRST</i></a><sup>&reg;</sup> program locally and throughout the
-                        <a href="https://firstinmichigan.org" rel="noreferrer noopener" target="_blank">state of Michigan</a>.
-                        FAMNM offers college students the opportunity to volunteer in
-                        various <i>FIRST</i><sup>&reg;</sup> programs and events,
-                        hosts season kickoffs and Robot-in-3-Days (Ri3D), provides
-                        funding for teams, and acts as a liaison between teams and
-                        various university departments.
-                    </p>
-                </div>
-            </div>
+  <main>
+    <div class="container p-4">
+      <div class="row align-items-center">
+        <div class="col-sm-12">
+          <ThemeSwitcher>
+            <span slot="light">
+              <Image
+                id="frontpage-logo"
+                class="center img-fluid"
+                src={logoLight}
+                alt="Logo for FIRST Alumni and Mentors Network at Michigan"
+                height="600"
+                width="2100"
+              />
+            </span>
+            <span slot="dark">
+              <Image
+                id="frontpage-logo"
+                class="center img-fluid"
+                src={logoDark}
+                alt="Logo for FIRST Alumni and Mentors Network at Michigan"
+                height="600"
+                width="2100"
+              />
+            </span>
+          </ThemeSwitcher>
         </div>
-
-        <Announcements />
-
-        <Carousel id="homepage-carousel" images={images} class="mx-0 w-100 px-0" />
-
-        <div class="container p-4">
-            <div class="card lead-card bg-body-secondary text-start p-4">
-                <h2 class="card-title">Interested in joining FAMNM?</h2>
-                <p class="card-text">Come to our Winter 2024 General Body Meetings <b>every Monday at 7 PM in EECS 3427</b>,
-                    and fill out our
-                    <a href="https://forms.gle/AmDLDRvCZisRb6tcA" rel="noreferrer noopener">Winter 2024 interest form</a>
-                    so that we can add you to our Slack workspace and mailing list.</p>
-            </div>
+        <div class="col-sm-12 col-md">
+          <p class="text-description text-center">
+            FAMNM is a University of Michigan student organization devoted to
+            organizing student and departmental efforts to support the
+            <a
+              href="https://www.firstinspires.org"
+              rel="noreferrer noopener"
+              target="_blank"><i>FIRST</i></a
+            ><sup>&reg;</sup> program locally and throughout the
+            <a
+              href="https://firstinmichigan.org"
+              rel="noreferrer noopener"
+              target="_blank">state of Michigan</a
+            >. FAMNM offers college students the opportunity to volunteer in
+            various <i>FIRST</i><sup>&reg;</sup> programs and events, hosts season
+            kickoffs and Robot-in-3-Days (Ri3D), provides funding for teams, and
+            acts as a liaison between teams and various university departments.
+          </p>
         </div>
-    </main>
+      </div>
+    </div>
 
-    <style is:global>
-        body {
-            width: 100%;
-        }
+    <Announcements />
 
-        .text-description {
-            font-size: 18px;
-            line-height: 1.5;
-        }
+    <Carousel id="homepage-carousel" images={images} class="mx-0 w-100 px-0" />
 
-        #frontpage-logo {
-            max-height: 16em;
-            object-fit: contain;
-        }
+    <div class="container p-4">
+      <div class="card lead-card bg-body-secondary text-start p-4">
+        <h2 class="card-title">Interested in joining FAMNM?</h2>
+        <p class="card-text">
+          Come to our Winter 2024 General Body Meetings <b
+            >every Monday at 7 PM in EECS 3427</b
+          >, and fill out our
+          <a
+            href="https://forms.gle/AmDLDRvCZisRb6tcA"
+            rel="noreferrer noopener">Winter 2024 interest form</a
+          >
+          so that we can add you to our Slack workspace and mailing list.
+        </p>
+      </div>
+    </div>
+  </main>
 
-        .feature-img {
-            height: 300px !important;
-            object-fit: cover !important;
-        }
-    </style>
+  <style is:global>
+    body {
+      width: 100%;
+    }
+
+    .text-description {
+      font-size: 18px;
+      line-height: 1.5;
+    }
+
+    #frontpage-logo {
+      max-height: 16em;
+      object-fit: contain;
+    }
+
+    .feature-img {
+      height: 300px !important;
+      object-fit: cover !important;
+    }
+  </style>
 </BaseLayout>

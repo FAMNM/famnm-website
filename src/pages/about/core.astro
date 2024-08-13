@@ -4,95 +4,95 @@ import CoreMemberCard from "../../components/about/CoreMemberCard.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 
 const people: CoreMember[] = [
-    {
-        name: "Dominik Kerschbaum",
-        email: "famnm.pres",
-        img: "/img/about/core/pres.jpg",
-        role: "President",
-    },
-    {
-        name: "Jonathan Brandell",
-        email: "famnm.vp",
-        img: "/img/about/core/vp.png",
-        role: "Vice President",
-    },
-    {
-        name: "Melissa Peters",
-        email: "famnm.admin",
-        img: "/img/about/core/doia.jpg",
-        role: "Director of Internal Affairs",
-    },
-    {
-        name: "Reina Mezher",
-        email: "famnm.marketing",
-        img: "/img/about/core/reina.jpg",
-        role: "Director of Marketing and Campus Outreach",
-    },
-    {
-        name: "Sophia Bomar",
-        email: "famnm.treasurer",
-        img: "/img/about/core/temp.jpg",
-        role: "Treasurer",
-    },
-    {
-        name: "Jiawei Chen",
-        email: "famnm.volunteer",
-        img: "/img/about/core/volunteer.jpeg",
-        role: "Volunteer Coordinator",
-    },
-    {
-        name: "Michael Peng",
-        email: "famnm.webmaster",
-        img: "/img/about/core/webmaster.png",
-        role: "Webmaster",
-    },
-    {
-        name: "Reina Mezher",
-        email: "famnm.kickoff",
-        img: "/img/about/core/reina.jpg",
-        role: "Kickoff Coordinator",
-    },
-    {
-        name: "Dominik Kerschbaum",
-        email: "famnm.ri3d",
-        img: "/img/about/core/pres.jpg",
-        role: "Ri3D Coordinator",
-    },
-    {
-        name: "Bianca Skraly",
-        email: "famnm.frc",
-        img: "/img/about/core/temp.jpg",
-        role: "FRC Coordinator"
-    },
-    {
-        name: "Ian Carter",
-        email: "famnm.ftc",
-        img: "/img/about/core/ftc.png",
-        role: "FTC Coordinator"
-    },
-    {
-        name: "Samantha Lecea",
-        email: "famnm.fll",
-        img: "/img/about/core/fll-1.jpg",
-        role: "FLL Coordinator"
-    },
-    {
-        name: "Elise Segal",
-        email: "famnm.fll",
-        img: "/img/about/core/fll-2.jpg",
-        role: "FLL Coordinator"
-    }
+  {
+    name: "Reina Mezher",
+    email: "famnm.pres",
+    img: "about/core/reina.jpg",
+    role: "President",
+  },
+  {
+    name: "Bridget Bruce",
+    email: "famnm.vp",
+    img: "about/core/bridget.jpg",
+    role: "Vice President",
+  },
+  {
+    name: "Melissa Peters",
+    email: "famnm.admin",
+    img: "about/core/melissa.jpg",
+    role: "Director of Internal Affairs",
+  },
+  {
+    name: "Elise Segal",
+    email: "famnm.treasurer",
+    img: "about/core/elise.jpg",
+    role: "Treasurer",
+  },
+  {
+    name: "Jiawei Chen",
+    email: "famnm.volunteer",
+    img: "about/core/jiawei.jpeg",
+    role: "Volunteer Coordinator",
+  },
+  {
+    name: "Elise Segal",
+    email: "famnm.volunteer",
+    img: "about/core/elise.jpg",
+    role: "Volunteer Coordinator",
+  },
+  {
+    name: "Reina Mezher",
+    email: "famnm.kickoff",
+    img: "about/core/reina.jpg",
+    role: "Kickoff Coordinator",
+  },
+  {
+    name: "Bridget Bruce",
+    email: "famnm.ri3d",
+    img: "about/core/bridget.jpg",
+    role: "Ri3D Coordinator",
+  },
+  {
+    name: "Bianca Skraly",
+    email: "famnm.frc",
+    img: "about/core/temp.jpg",
+    role: "FRC Coordinator",
+  },
+  {
+    name: "Ian Carter",
+    email: "famnm.ftc",
+    img: "about/core/ian.png",
+    role: "FTC Coordinator",
+  },
+  {
+    name: "Elise Segal",
+    email: "famnm.fll",
+    img: "about/core/elise.jpg",
+    role: "FLL Coordinator",
+  },
 ];
 ---
 
-<BaseLayout title="FAMNM Core Team | FIRST® Alumni & Mentors Network at Michigan">
-    <div class="container">
-        <div class="content">
-            <h1>FAMNM Core Team 2023&ndash;2024</h1>
-            <p class="text-center">All FAMNM Core Team members can be reached at <a href="mailto:famnm.core@umich.edu">famnm.core@umich.edu</a>.</p>
-            <div class="row g-4 row-cols-auto d-flex justify-content-center">
-                {people.map(info => <div class="col"><CoreMemberCard info={info} /></div>)}
+<BaseLayout
+  title="FAMNM Core Team | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <div class="content">
+      <h1>FAMNM Core Team 2024&ndash;2025</h1>
+      <p class="text-center">
+        All FAMNM Core Team members can be reached at <a
+          href="mailto:famnm.core@umich.edu">famnm.core@umich.edu</a
+        >.
+      </p>
+      <div class="row g-4 row-cols-auto d-flex justify-content-center">
+        {
+          people.map((info) => (
+            <div class="col">
+              <CoreMemberCard info={info} />
             </div>
-        </div>
+          ))
+        }
+      </div>
     </div>
+  </div>
 </BaseLayout>

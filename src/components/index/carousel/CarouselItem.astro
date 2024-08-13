@@ -1,70 +1,92 @@
 ---
-import { Img } from 'astro-imagetools/components';
+import { Image } from "astro:assets";
+import { importImage } from "../../../images/imageImport";
 
 interface Props {
-    src: string;
-    title: string;
-    description: string;
-    active: boolean;
+  src: string;
+  title: string;
+  description: string;
+  active: boolean;
 }
 
 const { src, title, description, active } = Astro.props;
-
+const image = importImage(src);
 const itemClass = active ? "carousel-item active" : "carousel-item";
 ---
 
 <div class={itemClass} role="option" aria-label=`${title}`>
-    <Img src={src} attributes={{img: {class: "carousel-back-image", "aria-hidden": "true"}}} alt="" format="webp" placeholder="none" />
-    <Img src={src} alt={title} format="webp" objectFit="scale-down" />
-    <div class="carousel-caption d-none d-md-block">
-        <h3>{title}</h3>
-        <p set:html={description}></p>
-    </div>
+  <Image
+    src={image}
+    class="carousel-back-image"
+    aria-hidden="true"
+    loading="lazy"
+    alt=""
+    densities={[0.25, 0.5, 1, 1.5]}
+  />
+  <Image
+    src={image}
+    alt={title}
+    loading="lazy"
+    style={{ objectFit: "scale-down" }}
+    densities={[0.25, 0.5, 1, 1.5]}
+  />
+  <div class="carousel-caption d-none d-md-block">
+    <h3>{title}</h3>
+    <p set:html={description} />
+  </div>
 </div>
 
 <style>
-    .carousel-caption {
-        /* To counter the dark mode design */
-        color: white !important;
-        /* Add a black gradient behind the captions to increase legibility by a lot. */
-        background-color: rgba(0,0,0,0.5);
-        bottom: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        padding: 1.5em;
-        background: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.8));
-    }
+  .carousel-caption {
+    /* To counter the dark mode design */
+    color: white !important;
+    /* Add a black gradient behind the captions to increase legibility by a lot. */
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1.5em;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.6) 50%,
+      rgba(0, 0, 0, 0.8)
+    );
+  }
 
-    .carousel-caption a {
-        color: #59a9e3;
-    }
+  .carousel-caption a {
+    color: #59a9e3;
+  }
 </style>
 <style is:global>
-    /** Carousel **/
+  /** Carousel **/
 
-    .carousel-back-image, .carousel-back-image > img {
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        object-position: center;
-        filter: blur(7px);
-    }
+  .carousel-back-image,
+  .carousel-back-image > img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(7px);
+  }
 
-    .carousel-item > img, .carousel-item > picture {
-        background-repeat: no-repeat;
-        position: absolute !important;
-        top: 0 !important;
-        bottom: 0;
-        left: 0;
-        right: 0;
-    }
+  .carousel-item > img,
+  .carousel-item > picture {
+    background-repeat: no-repeat;
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 
-    .carousel-back-image, .carousel-back-image > img {
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        object-position: center;
-        filter: blur(7px);
-    }
+  .carousel-back-image,
+  .carousel-back-image > img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    filter: blur(7px);
+  }
 </style>
