@@ -1,0 +1,183 @@
+---
+import FIRST from "../../components/FIRST.astro";
+import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+// import 'mapbox-gl/dist/mapbox-gl.css';
+
+import seasonLogoLight from "../../images/ftc/2024/into-the-deep-light.png";
+import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
+---
+
+<BaseLayout title="FRC Offseaon | FIRST® Alumni & Mentors Network at Michigan">
+  <div class="container">
+    <main class="content">
+      <div class="row justify-content-center mb-4">
+        <div class="col col-12 col-lg-6 mx-auto p-2 p-md-4">
+          <!-- This is the image that displays in the middle 
+           It can change based on light/dark mode-->
+          <ThemeSwitcher>
+            <span slot="light">
+              <Image
+                class="center w-50 h-auto"
+                src={seasonLogoLight}
+                alt="CENTERSTAGE, presented by RTX"
+                format="webp"
+              />
+            </span>
+            <span slot="dark">
+              <Image
+                class="center w-50 h-auto"
+                src={seasonLogoDark}
+                alt="CENTERSTAGE, presented by RTX"
+                format="webp"
+              />
+            </span>
+          </ThemeSwitcher>
+        </div>
+        <div class="col col-12 col-lg-9 mt-1 mt-md-2">
+          <h1 class="display-6 fw-bold">
+            <!-- Title Text -->
+            FAMNM <i>FIRST<sup>&reg;</sup></i> <br>
+            Washenaw Robotics Competition: <br> 
+            FRC Offseaon Event
+          </h1>
+          <p class="mb-4">
+            <!-- Text Below the Title -->
+            Compete in the 2025 FRC game ReefScape! We have space for __ teams to compete.
+            The cost is $___ per robot, payable ____. 
+          </p>
+          <!-- Buttons below -->
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a
+              class="btn btn-primary btn-lg gap-3"
+              href="https://youtu.be/ewlDPvRK4U4?si=uRsIvmmNIRP4Ke7Y"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Team Sign Up
+            </a>
+            <a
+              class="btn btn-primary btn-lg gap-3"
+              href="https://ftc-resources.firstinspires.org/file/ftc/game/manual"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Volenter Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- /.container -->
+  
+  <div class="content">
+    <div class="row">
+      <div class="col">
+        <h1>General Info</h1>
+        <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
+        <p class="m-0">
+          <b>Address</b><br>
+          2552 N Maple Rd, <br> Ann Arbor, MI 48103  
+        </p>
+        <p class="m-0">
+          <b>Date</b><br>
+          Setup: August 1-2, 2025 <br>
+          Competition: August 3, 2025  
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--Table Scheudle -->
+  <div class="container">
+  <div class="content">
+        <h1 class="display-7 fw-bold">Schedule</h1>
+        <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
+
+          <p class="m-0">
+            <b>Thursday, August 1: Setup</b><br>
+            4pm: Field Build <br>
+          </p>
+
+          <p class="m-0">
+            <b>Friday, August 1: Setup</b><br>
+            4pm: Field Build, Pit Set Up <br>  
+            4pm: Field Build, Pit Set Up <br> 
+          </p>
+
+          <p class="m-0">
+            <b>Saturday, August 1: Setup</b><br>
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+            4pm: Field Build, Pit Set Up <br> 
+          </p>
+
+        </div>
+        <br>Times are subject to change based on the flow of matches.
+      </div>
+  </div>
+</div>
+  <!-- Bottom Text -->
+  <div class="content">
+    <div class="row">
+      <div class="col">
+        <h1>Contact Info</h1>
+        <p class="m-0">
+          Event Coordinator: brandan@umich.edu, (###)###-#### <br>
+          Volenter Coordinator: noah@umich.edu <br>
+        </p>
+      </div>
+  </div>
+
+  <style>
+    #schedule-table th {
+      opacity: 0.75;
+      text-align: right;
+      width: 5.5rem;
+      height: 2.6rem;
+      transform: translateY(-1.3rem);
+      line-height: 100%;
+      vertical-align: middle;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+
+    .schedule-time {
+      padding: 4px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.7);
+    }
+
+    #schedule-table td {
+      padding: 2px;
+      border-top: 1px solid rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+      vertical-align: middle;
+      font-size: 1.1rem;
+    }
+
+    #schedule-table {
+      max-width: 42rem;
+    }
+
+    table{
+      align-items: center;
+    }
+    th {
+      padding-top: 6px;
+      padding-bottom: 4px;
+    }
+    td {
+      text-align: start;
+      vertical-align: top;
+    }
+  </style>
+</BaseLayout>
