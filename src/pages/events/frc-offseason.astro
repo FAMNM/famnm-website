@@ -5,8 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
-import seasonLogoLight from "../../images/ftc/2024/into-the-deep-light.png";
-import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
+import seasonLogoLight from "../../images/offseason/frc_offszn_placeholder_logo.png";
+import seasonLogoDark from "../../images/offseason/frc_offszn_placeholder_logo.png";
 ---
 
 <BaseLayout title="FRC Offseaon | FIRST® Alumni & Mentors Network at Michigan">
@@ -38,14 +38,14 @@ import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
         <div class="col col-12 col-lg-9 mt-1 mt-md-2">
           <h1 class="display-6 fw-bold">
             <!-- Title Text -->
-            FAMNM <i>FIRST<sup>&reg;</sup></i> <br>
-            Washenaw Robotics Competition: <br> 
-            FRC Offseaon Event
+            FAMNM
+            Washtenaw Robotics Competition: <br> 
+            Robotics Offseason Event
           </h1>
           <p class="mb-4">
             <!-- Text Below the Title -->
-            Compete in the 2025 FRC game ReefScape! We have space for __ teams to compete.
-            The cost is $___ per robot, payable ____. 
+            Compete at ___ robotics offseason event! We have space for __ teams to compete.
+            The cost is $___ per robot, payable ____.
           </p>
           <!-- Buttons below -->
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -55,7 +55,7 @@ import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
               rel="noreferrer noopener"
               target="_blank"
             >
-              Team Sign Up
+              Team Interest Form
             </a>
             <a
               class="btn btn-primary btn-lg gap-3"
@@ -63,7 +63,7 @@ import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
               rel="noreferrer noopener"
               target="_blank"
             >
-              Volenter Sign Up
+             Volunteer Sign Up
             </a>
           </div>
         </div>
@@ -83,7 +83,7 @@ import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
         </p>
         <p class="m-0">
           <b>Date</b><br>
-          Setup: August 1-2, 2025 <br>
+          Setup: August 2, 2025 <br>
           Competition: August 3, 2025  
         </p>
       </div>
@@ -94,31 +94,27 @@ import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
   <!--Table Scheudle -->
   <div class="container">
   <div class="content">
-        <h1 class="display-7 fw-bold">Schedule</h1>
+        <h1>Schedule</h1>
         <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
 
           <p class="m-0">
-            <b>Thursday, August 1: Setup</b><br>
-            4pm: Field Build <br>
-          </p>
-
-          <p class="m-0">
             <b>Friday, August 1: Setup</b><br>
-            4pm: Field Build, Pit Set Up <br>  
-            4pm: Field Build, Pit Set Up <br> 
+            3pm: Field Build, Pit Set Up <br>  
+            6pm: Pit Load In<br> 
+            8pm: Pits Close<br> 
           </p>
 
           <p class="m-0">
             <b>Saturday, August 1: Setup</b><br>
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
-            4pm: Field Build, Pit Set Up <br> 
+            7am: Pits Open <br> 
+            8:30am: Opening Ceremony <br> 
+            9am: Qualifications Start <br> 
+            1pm: Lunch <br> 
+            2pm: Alliance Selection <br> 
+            2:30pm: Playoffs Start <br> 
+            6pm: Award Ceremony <br> 
+            7pm: Event Ends, Teardown <br> 
+            9pm: Event Packed <br> 
           </p>
 
         </div>
@@ -126,17 +122,30 @@ import seasonLogoDark from "../../images/ftc/2024/into-the-deep-dark.png";
       </div>
   </div>
 </div>
-  <!-- Bottom Text -->
+<!-- Bottom Text -->
+<div class="content">
+  <div class="row">
+    <div class="col">
+      <h1>FAQ</h1>
+      <p class="m-0">
+        <b>How are Playoffs going to work?</b> <br>
+        Every team will be able to participate in the playoffs. There will be the regular 2 rounds<br>
+        of playoff selections, then the rest of the teams will be randomized. A team can opt out of playing,<br>
+        just make sure to communicate with the volunteers. <br>
+      </p>
+    </div>
+</div>
+<!-- Bottom Text -->
   <div class="content">
     <div class="row">
       <div class="col">
         <h1>Contact Info</h1>
         <p class="m-0">
           Event Coordinator: brandan@umich.edu, (###)###-#### <br>
-          Volenter Coordinator: noah@umich.edu <br>
+          Volunteer Coordinator: noah@umich.edu <br>
         </p>
       </div>
-  </div>
+</div>
 
   <style>
     #schedule-table th {
