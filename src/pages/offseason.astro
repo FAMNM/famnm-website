@@ -1,12 +1,11 @@
 ---
-import FIRST from "../../components/FIRST.astro";
-import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
-import BaseLayout from "../../layouts/BaseLayout.astro";
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 import { Image } from "astro:assets";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
-import seasonLogoLight from "../../images/offseason/frc_offszn_placeholder_logo.png";
-import seasonLogoDark from "../../images/offseason/frc_offszn_placeholder_logo.png";
+import competionLogoLight from "../images/offseason/frc_offszn_placeholder_logo.png";
+import competionLogoDark from "../images/offseason/frc_offszn_placeholder_logo.png";
 ---
 
 <BaseLayout title="FRC Offseaon | FIRST® Alumni & Mentors Network at Michigan">
@@ -20,16 +19,16 @@ import seasonLogoDark from "../../images/offseason/frc_offszn_placeholder_logo.p
             <span slot="light">
               <Image
                 class="center w-50 h-auto"
-                src={seasonLogoLight}
-                alt="CENTERSTAGE, presented by RTX"
+                src={competionLogoLight}
+                alt="Wolverine Robotics Competition" 
                 format="webp"
               />
             </span>
             <span slot="dark">
               <Image
                 class="center w-50 h-auto"
-                src={seasonLogoDark}
-                alt="CENTERSTAGE, presented by RTX"
+                src={competionLogoDark}
+                alt="Wolverine Robotics Competition"
                 format="webp"
               />
             </span>
@@ -50,15 +49,15 @@ import seasonLogoDark from "../../images/offseason/frc_offszn_placeholder_logo.p
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <a
               class="btn btn-primary btn-lg gap-3"
-              href="https://youtu.be/ewlDPvRK4U4?si=uRsIvmmNIRP4Ke7Y"
+              href="https://forms.gle/DpowGcAkguVRvYP88"
               rel="noreferrer noopener"
               target="_blank"
             >
-              Team Interest Form
+              Interest Form
             </a>
             <a
               class="btn btn-primary btn-lg gap-3"
-              href="https://ftc-resources.firstinspires.org/file/ftc/game/manual"
+              href=""
               rel="noreferrer noopener"
               target="_blank"
             >
@@ -142,8 +141,10 @@ import seasonLogoDark from "../../images/offseason/frc_offszn_placeholder_logo.p
       <div class="col">
         <h1>Contact Info</h1>
         <p class="m-0">
-          Event Coordinator: brandmcd@umich.edu, (502)702-9942 <br>
-          Volunteer Coordinator: noahtonn@umich.edu, (586)-248-3883 <br>
+            <span style="font-size: 1.2rem;"><b>Event Coordinator: Brandon McDonald </b></span>  <br>
+            brandmcd@umich.edu, (502)702-9942 <br>
+            <span style="font-size: 1.2rem;"><b>Volunteer Coordinator: Noah Tonn </b></span> <br>
+            noahtonn@umich.edu, (586)-248-3883 <br>
         </p>
       </div>
 </div>
