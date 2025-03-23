@@ -1,0 +1,194 @@
+---
+import ThemeSwitcher from "../components/ThemeSwitcher.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { Image } from "astro:assets";
+// import 'mapbox-gl/dist/mapbox-gl.css';
+
+import competionLogoLight from "../images/offseason/wolverine_robotics_competiton_logo.png";
+import competionLogoDark from "../images/offseason/wolverine_robotics_competiton_logo.png";
+---
+
+<BaseLayout title="FRC Offseaon | FIRST® Alumni & Mentors Network at Michigan">
+  <div class="container">
+    <main class="content">
+      <div class="row justify-content-center mb-4">
+        <div class="col col-12 col-lg-6 mx-auto p-2 p-md-4">
+          <!-- This is the image that displays in the middle 
+           It can change based on light/dark mode-->
+          <ThemeSwitcher>
+            <span slot="light">
+              <Image
+                class="center w-50 h-auto"
+                src={competionLogoLight}
+                alt="Wolverine Robotics Competition" 
+                format="webp"
+              />
+            </span>
+            <span slot="dark">
+              <Image
+                class="center w-50 h-auto"
+                src={competionLogoDark}
+                alt="Wolverine Robotics Competition"
+                format="webp"
+              />
+            </span>
+          </ThemeSwitcher>
+        </div>
+        <div class="col col-12 col-lg-9 mt-1 mt-md-2">
+          <h1 class="display-6 fw-bold">
+            <!-- Title Text -->
+            FAMNM
+            Wolverine Robotics Competition
+          </h1>
+          <p class="mb-4">
+            <!-- Text Below the Title -->
+            Compete at Wolverine Robotics Competition offseason event at Skyline High School!
+            The cost is $200 per robot.
+          </p>
+          <!-- Buttons below -->
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a
+              class="btn btn-primary btn-lg gap-3"
+              href="https://forms.gle/DpowGcAkguVRvYP88"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+              Interest Form
+            </a>
+            <a
+              class="btn btn-primary btn-lg gap-3"
+              href="https://forms.gle/Qg5aVgrN7mQhoNBfA"
+              rel="noreferrer noopener"
+              target="_blank"
+            >
+             Volunteer Sign Up
+            </a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <!-- /.container -->
+  
+  <div class="content">
+    <div class="row">
+      <div class="col">
+        <h1>General Info</h1>
+        <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
+        <p class="m-0">
+          <span style="font-size: 1.2rem;"><b>Skyline HS Address</b><br></span>
+          2552 N Maple Rd, <br> Ann Arbor, MI 48103  
+        </p>
+        <p class="m-0">
+          <span style="font-size: 1.2rem;"><b>Date</b><br></span>
+          Setup: Friday, August 1, 2025 <br>
+          Competition: Saturday, August 2, 2025  
+        </p>
+      </div>
+      </div>
+    </div>
+  </div>
+  
+  <!--Table Scheudle -->
+  <div class="container">
+  <div class="content">
+        <h1>Schedule</h1>
+        <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
+
+          <p class="text-start"> 
+            <span style="font-size: 1.2rem;"><b>Friday, August 1: Setup</b></span><br>
+            3:30 pm: Field Build <br>  
+            6:00 pm: Team Load In<br> 
+            8:00 pm: Pits Close<br> 
+          </p>
+
+          <p class="text-start">
+            <span style="font-size: 1.2rem;"><b>Saturday, August 2: Setup</b></span><br>
+            7:30 am: Pits Open <br> 
+            8:30 am: Opening Ceremony <br> 
+            9:30 am: Qualifications Start <br> 
+            1:00 pm: Lunch <br> 
+            2:00 pm: Continue Qualifications<br>
+            3:00 pm: Alliance Selection <br> 
+            3:30 pm: Playoffs Start <br> 
+            6:30 pm: Award Ceremony <br> 
+            7:00 pm: Event Ends, Teardown <br>
+            8:00 pm: Pits Close<br> 
+            9:00 pm: Event Packed <br> 
+          </p>
+
+        </div>
+        <br>Times are subject to change based on the flow of matches.
+      </div>
+  </div>
+</div>
+<!-- Bottom Text -->
+<div class="content">
+  <div class="row">
+    <div class="col">
+      <h1>FAQ</h1>
+      <p class="m-0">
+        <span style="font-size: 1.2rem;"><b>How are Playoffs going to work?</b></span> <br>
+        Every team will be able to participate in the playoffs. There will be the regular 2 rounds<br>
+        of playoff selections, then the rest of the teams will be randomized. A team can opt out of playing,<br>
+        just make sure to communicate with the volunteers. <br>
+      </p>
+    </div>
+</div>
+<!-- Bottom Text -->
+  <div class="content">
+    <div class="row">
+      <div class="col">
+        <h1>Contact Info</h1>
+        <p class="m-0">
+            <span style="font-size: 1.2rem;"><b>Event Coordinator: Brandon McDonald </b></span>  <br>
+            brandmcd@umich.edu, (502)702-9942 <br>
+            <span style="font-size: 1.2rem;"><b>Volunteer Coordinator: Noah Tonn </b></span> <br>
+            noahtonn@umich.edu, (586)-248-3883 <br>
+        </p>
+      </div>
+</div>
+
+  <style>
+    #schedule-table th {
+      opacity: 0.75;
+      text-align: right;
+      width: 5.5rem;
+      height: 2.6rem;
+      transform: translateY(-1.3rem);
+      line-height: 100%;
+      vertical-align: middle;
+      padding: 0.5rem 0 0.5rem 0.5rem;
+    }
+
+    .schedule-time {
+      padding: 4px;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.7);
+    }
+
+    #schedule-table td {
+      padding: 2px;
+      border-top: 1px solid rgba(0, 0, 0, 0.4);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+      vertical-align: middle;
+      font-size: 1.1rem;
+    }
+
+    #schedule-table {
+      max-width: 42rem;
+    }
+
+    table{
+      align-items: center;
+    }
+    th {
+      padding-top: 6px;
+      padding-bottom: 4px;
+    }
+    td {
+      text-align: start;
+      vertical-align: top;
+    }
+  </style>
+</BaseLayout>
