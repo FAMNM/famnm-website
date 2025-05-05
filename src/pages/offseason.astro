@@ -129,6 +129,7 @@ import competionLogoDark from "../images/offseason/wolverine_robotics_competiton
     {[
       "573 - Mech Warriors",
       "1188 - The Ravens",
+      "1250 - Gator-Bots",
       "1506 - Metal Muscle",
       "1701 - RoboCubs",
       "3538 - RoboJackets",
@@ -139,12 +140,13 @@ import competionLogoDark from "../images/offseason/wolverine_robotics_competiton
       "6570 - Whiteford Bobcats",
       "7196 - Tech Tigers",
       "7211 - Hollywood",
-      "7660 - The Byting Irish"
+      "7660 - The Byting Irish",
+      "8179 - Robo Falcons"
     ].map((team, index) => (
       /* split into 3 cols if screen is big enough, only 1 otherwise */
        /* style makes even rows maize, odd rows blue */
       <div class={`col-12 col-md-4 text-center ${index % 3 === 0 ? "row-start" : ""}`}>
-        <p style={`color: ${index % 2 === 0 ? "#F3AC27" : "#004cbf"};`}>{team}</p>
+        <p style={`color: ${index % 2 === 0 ? "#F3AC27" : "#1768e3"};`}>{team}</p>
       </div>
     ))}
 
