@@ -6,7 +6,10 @@ import { Image } from "astro:assets";
 
 import competionLogoLight from "../images/offseason/wolverine_robotics_competiton_logo.png";
 import competionLogoDark from "../images/offseason/wolverine_robotics_competiton_logo.png";
+
+import SponsorList from "../components/SponsorList.astro";
 ---
+
 
 <BaseLayout title="FRC Offseaon | FIRST® Alumni & Mentors Network at Michigan">
   <div class="container">
@@ -130,6 +133,7 @@ import competionLogoDark from "../images/offseason/wolverine_robotics_competiton
       "66 - Grizzly Robotics",
       "573 - Mech Warriors",
       "1188 - The Ravens",
+      "1189 - Gearheads",
       "1250 - Gator-Bots",
       "1506 - Metal Muscle",
       "1684 - The Chimeras",
@@ -191,6 +195,14 @@ import competionLogoDark from "../images/offseason/wolverine_robotics_competiton
       </div>
     </div>
   </div>
+
+  <div class="container content">
+      <div class="row pt-2">
+        <h1>Sponsors</h1>
+        <SponsorList sponsors={["esg", "rob"]} />
+      </div>
+    </div>
+    
 </div>
 
   <style>
