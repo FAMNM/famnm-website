@@ -8,8 +8,49 @@ import competionLogoLight from "../images/offseason/wolverine_robotics_competito
 import competionLogoDark from "../images/offseason/wolverine_robotics_competiton_logo.png";
 
 import SponsorList from "../components/SponsorList.astro";
----
+import Carousel from "../components/index/carousel/Carousel.astro";
 
+const carouselItems = [
+  {
+    title: "",
+    description:
+      "",
+    src: "offseason/2025/frc_offszn_behindglass_2025.jpeg",
+  },
+  {
+    title: "",
+    description:
+      "",
+    src: "offseason/2025/frc_offszn_field_2025.jpeg",
+  },
+  {
+    title: "",
+    description:
+      "",
+    src: "offseason/2025/frc_offszn_onfield_2025.jpeg",
+  },
+  {
+    title: "",
+    description:
+      "",
+    src: "offseason/2025/frc_offszn_queue_2025.jpeg",
+  },
+  {
+    title: "",
+    description:
+      "",
+    src: "offseason/2025/frc_offszn_scoringtable_2025.jpeg",
+  },
+  {
+    title: "",
+    description:
+      "",
+    src: "offseason/2025/frc_offszn_setup_2025.jpeg",
+  },
+];
+
+
+---
 
 <BaseLayout title="FRC Offseaon | FIRST® Alumni & Mentors Network at Michigan">
   <div class="container">
@@ -45,9 +86,8 @@ import SponsorList from "../components/SponsorList.astro";
           </h1>
           <p class="mb-4">
             <!-- Text Below the Title -->
-            Compete at this year's Wolverine Robotics Competition offseason event at Skyline High School!
-            The cost is $200 per robot.<br>
-            Registration is now closed, but we are still seeking volunteers!
+            FAMNM hosted an offseaon event in the summer of 2025 at Skyline High School. The event had qualifications, playoffs, and judged awards all in one day.
+            <br>Thank you to all of the volunteers and sponsors that helped make this event possible!
           </p>
           <!-- Buttons below -->
                 <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
@@ -61,15 +101,15 @@ import SponsorList from "../components/SponsorList.astro";
                   </a>
                 </div> -->
                 <br>
-                <h1>Watch Here:</h1>
+                <h1>Media</h1>
               <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
             <a
               class="btn btn-primary btn-lg gap-3"
-              href="https://www.twitch.tv/FAMNM"
+              href="https://drive.google.com/drive/folders/1BQcBZ9IspfLxLeISH5bf3DmFJX--FheP"
               rel="noreferrer noopener"
               target="_blank"
             >
-              FAMNM Twitch
+              Photos
             </a>
             <a
               class="btn btn-primary btn-lg gap-3"
@@ -77,7 +117,7 @@ import SponsorList from "../components/SponsorList.astro";
               rel="noreferrer noopener"
               target="_blank"
             >
-              Pit Podcast
+              Pit Podcast VOD
             </a>
           </div>
         </div>
@@ -104,36 +144,11 @@ import SponsorList from "../components/SponsorList.astro";
       </div>
     </div>
   </div>
-  
-  <!--Table Scheudle -->
+
+  <!--Carousel -->
   <div class="container">
-  <div class="content">
-        <h1>Schedule</h1>
-        <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
-
-          <p class="text-start"> 
-            <span style="font-size: 1.2rem;"><b>Friday, August 1: Setup</b></span><br>
-            3:30 pm: Field Build <br>  
-            6:00 pm: Team Load In<br> 
-            8:00 pm: Pits Close<br> 
-          </p>
-
-          <p class="text-start">
-            <span style="font-size: 1.2rem;"><b>Saturday, August 2: Competition</b></span><br>
-            7:30 am: Pits Open <br> 
-            8:30 am: Opening Ceremony <br> 
-            9:00 am: Qualifications Start <br> 
-            1:00 pm: Lunch <br> 
-            2:00 pm: Qualifications Continue<br>
-            3:00 pm: Alliance Selection <br> 
-            3:30 pm: Playoffs Start <br> 
-            6:30 pm: Award Ceremony <br> 
-            7:00 pm: Event Ends, Teardown <br>
-            7:30 pm: Pits Close<br>  
-          </p>
-
-        </div>
-        <br>Times are subject to change based on event flow.
+      <div class="content">
+        <Carousel id="kickoff-carousel" images={carouselItems} />
       </div>
   </div>
 </div>
@@ -185,33 +200,7 @@ import SponsorList from "../components/SponsorList.astro";
 
     </div>
   </div>
-<!-- FAQ -->
-<div class="content">
-  <div class="row">
-    <div class="col">
-      <h1>FAQ</h1>
-      <p class="m-0">
-        <span style="font-size: 1.2rem;"><b>How are Playoffs going to work?</b></span> <br>
-        Every team will be on an alliance for playoffs. <br>
-        We will follow the standard a snake draft allowing for 4 teams per alliance.<br>
-        Playoffs will follow the usual double elimination bracket. <br>
-        This however is subject to change based on the number of teams that sign up. <br>
-        If you have suggestions feel free to reach out to our event coordinator! <br>
-        <br>
-        <span style="font-size: 1.2rem;"><b>Will there be a machine shop on site?</b></span> <br>
-        No, there will not be a machine shop on site. <br>
-        <br>
-        <span style="font-size: 1.2rem;"><b>Will there be food at the event?</b></span> <br>
-        Food will not be provided, nor will there be concessions. However, there <br> 
-        is a dedicated lunch area. We recommend either bringing food or purchasing food locally. <br>
-        If there are any allergy concerns, please let the event coordinator know. <br>
-        <br>
-        <span style="font-size: 1.2rem;"><b>Will there be on site parking?</b></span> <br>
-        Yes, there will be on site parking. Teams will also be able to park trailers in <br>
-        a separate parking lot. Details on trailer parking will be sent out to teams directly.
-      </p>
-    </div>
-</div>
+
 <!-- Bottom Text -->
   <div class="content">
     <div class="row">
