@@ -7,10 +7,16 @@ import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Link from "../../components/Link.astro";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
-import seasonLogoLight from "../../images/kickoff/2024/season_logo_light.png";
-import seasonLogoDark from "../../images/kickoff/2024/season_logo_dark.png";
+import seasonLogoLight from "../../images/kickoff/2026/rebuild_season_logo_light.png";
+import seasonLogoDark from "../../images/kickoff/2026/rebuild_season_logo_dark.png";
 
 const carouselItems = [
+  {
+    title: "Kit Distribution On Site",
+    description:
+      "FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams",
+    src: "kickoff/2023/kit-distribution.jpeg",
+  },
   {
     title: "Engineering Organization Fair",
     description:
@@ -28,12 +34,6 @@ const carouselItems = [
     description:
       "From parking assistance to breakout room supervision, FAMNM members and affiliated volunteers ensure a smooth kickoff experience",
     src: "kickoff/2023/event-crew.jpeg",
-  },
-  {
-    title: "Kit Distribution On Site",
-    description:
-      "FAMNM distributes the new Kit of Parts for <i>CHARGED UP</i> to attending teams",
-    src: "kickoff/2023/kit-distribution.jpeg",
   },
 ];
 ---
@@ -74,18 +74,14 @@ const carouselItems = [
             FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff
           </h1>
           <p>
-            FAMNM kicked off the 2024 FRC season,
-            <i>CRESCENDO</i>, on <time datetime="2024-01-06"
-              >Saturday, January 6th, 2024</time
+            FAMNM will be hosting a kickoff for the 2026 FRC season,
+            <i>REBUILT</i>, on <time datetime="2026-01-10"
+              >Saturday, January 10th, 2026</time
             >
-            at the University of Michigan's <Link
-              to="https://goo.gl/maps/SviBGJZca11mxoX19">North Campus</Link
-            >. The kickoff featured <i>FIRST</i>'s season kickoff livestream, a
-            student organization fair, an information session for <Link
-              to="https://robotics.umich.edu">Michigan Robotics</Link
-            >, a guest speaker, U-M campus tours, kit distribution, and breakout
-            rooms for registered teams. Good luck and have fun, teams!&nbsp;<i
-              class="fa-solid fa-music"></i>
+            at <Link
+              to="https://www.google.com/maps/place/Stamps+Auditorium/@42.2920709,-83.7194285,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x883caf00459093c1:0x4afa30c646a3067!8m2!3d42.2920709!4d-83.7168536!16s%2Fg%2F11vrxmtynq?entry=tts&g_ep=EgoyMDI1MDkwMi4wIPu8ASoASAFQAw%3D%3D&skid=105fb843-c647-412c-ae65-46099a7431e4">Stamps Auditorium</Link
+            > on University of Michigan's North Campus.  Good luck and have fun, teams!&nbsp;<i
+              class="fa-solid fa-search"></i>
           </p>
         </div>
         <div
@@ -95,28 +91,10 @@ const carouselItems = [
             class="btn famnm-btn-secondary btn-lg gap-2"
             rel="noreferrer noopener"
             target="_blank"
-            href="https://www.firstinspires.org/resource-library/frc/competition-manual-qa-system"
+            href="https://www.firstinspires.org/programs/frc/game-and-season"
           >
             Season Materials&nbsp;
-            <i class="fa-solid fa-book"></i>
-          </a>
-          <a
-            class="btn famnm-btn-secondary btn-lg gap-2"
-            rel="noreferrer noopener"
-            target="_blank"
-            href="https://famnm.notion.site/8ed1dfac55f24396832423fe40543ba4?v=6e8f1a13b8f649fab8549ed69f175c61"
-          >
-            Resource Collection&nbsp;
             <i class="fa-solid fa-circle-info"></i>
-          </a>
-          <a
-            class="btn famnm-btn-secondary btn-lg gap-2"
-            rel="noreferrer noopener"
-            target="_blank"
-            href="https://docs.google.com/forms/d/e/1FAIpQLSdxwCNhkoOetBASDQuRNeuxTaVqER6vIT36LixpFXDfwyfEEA/viewform"
-          >
-            Request FAMNM Mentoring&nbsp;
-            <i class="fa-solid fa-handshake-angle"></i>
           </a>
         </div>
       </div>
