@@ -86,40 +86,9 @@ const carouselItems = [
           </h1>
           <p class="mb-4">
             <!-- Text Below the Title -->
-            FAMNM hosted an offseaon event in the summer of 2025 at Skyline High School. The event had qualifications, playoffs, and judged awards all in one day.
-            <br>Thank you to all of the volunteers and sponsors that helped make this event possible!
+            FAMNM is hosting an offseason event in the summer of 2026 at Skyline High School. The event will feature qualifications, playoffs, and judged awards all in one day.
+            <br>Thank you to all of the volunteers and sponsors that help make this event possible!
           </p>
-          <!-- Buttons below -->
-                <!-- <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-                  <a
-                    class="btn btn-primary btn-lg gap-3"
-                    href="https://forms.gle/P3jHtpDWgeF4dKNe9"
-                    rel="noreferrer noopener"
-                    target="_blank"
-                  >
-                  Volunteer Sign Up
-                  </a>
-                </div> -->
-                <br>
-                <h1>Media</h1>
-              <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a
-              class="btn btn-primary btn-lg gap-3"
-              href="https://drive.google.com/drive/folders/1BQcBZ9IspfLxLeISH5bf3DmFJX--FheP"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Photos
-            </a>
-            <a
-              class="btn btn-primary btn-lg gap-3"
-              href="https://www.youtube.com/watch?v=tTc_SdbR1Fg"
-              rel="noreferrer noopener"
-              target="_blank"
-            >
-              Pit Podcast VOD
-            </a>
-          </div>
         </div>
       </div>
     </main>
@@ -137,68 +106,73 @@ const carouselItems = [
         </p>
         <p class="m-0">
           <span style="font-size: 1.2rem;"><b>Dates</b><br></span>
-          Setup: Friday, August 1, 2025 <br>
-          Competition: Saturday, August 2, 2025  
+          Setup: Friday, July 31, 2026 <br>
+          Competition: Saturday, August 1, 2026  
         </p>
       </div>
       </div>
     </div>
   </div>
 
-  <!--Carousel -->
+  <!-- Registration and Volunteer Buttons -->
   <div class="container">
-      <div class="content">
-        <Carousel id="kickoff-carousel" images={carouselItems} />
+    <div class="content">
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a
+          class="btn btn-primary btn-lg gap-3"
+          href="https://forms.gle/aPGnBjktQUQEanZS8"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Team Registration
+        </a>
+        <a
+          class="btn btn-primary btn-lg gap-3"
+          href="https://forms.gle/uPoxCGNvE4oMQ5Wr5"
+          rel="noreferrer noopener"
+          target="_blank"
+        >
+          Volunteer Sign Up
+        </a>
       </div>
+    </div>
   </div>
-</div>
+
+  <!--Schedule -->
+  <div class="container">
+    <div class="content">
+      <h1>Schedule</h1>
+      <div class="d-grid gap-5 d-sm-flex justify-content-sm-center">
+        <p class="text-start">
+          <span style="font-size: 1.2rem;"><b>Friday, July 31: Setup</b></span><br>
+          2:30 pm: Field Build <br>
+          6:00 pm: Team Load In<br>
+          8:00 pm: Pits Close<br>
+        </p>
+
+        <p class="text-start">
+          <span style="font-size: 1.2rem;"><b>Saturday, August 1: Competition</b></span><br>
+          7:30 am: Pits Open <br>
+          8:30 am: Opening Ceremony <br>
+          9:00 am: Qualifications Start <br>
+          1:00 pm: Lunch <br>
+          2:00 pm: Qualifications Continue<br>
+          3:00 pm: Alliance Selection <br>
+          3:30 pm: Playoffs Start <br>
+          6:30 pm: Award Ceremony <br>
+          7:30 pm: Event Ends, Teardown <br>
+          8:00 pm: Pits Close<br>
+        </p>
+      </div>
+      <br>Times are subject to change based on event flow.
+    </div>
+  </div>
+
  <!-----Team List------>
  <div class="container">
   <div class="content">
-    <h1>Team List</h1>
-    <div class="row">
-    {[
-      "48 - Team E.L.I.T.E.",
-      "66 - Grizzly Robotics",
-      "247 - Da Bears",
-      "548 - Robostangs",
-      "830 - The RatPack",
-      "1188 - The Ravens",
-      "1189 - Gearheads",
-      "1250 - Gator-Bots",
-      "1502 - Technical Difficulties",
-      "1506 - Metal Muscle",
-      "1684 - The Chimeras",
-      "1701 - RoboCubs",
-      "3015 - Ranger Robotics",
-      "3322 - Eagle Evolution",
-      "3538 - RoboJackets",
-      "3618 - Petoskey Paladins",
-      "4362 - Gems",
-      "5066 - Singularity",
-      "5090 - TorqueNados",
-      "5660 - Symmetrical Chaos",
-      "5708 - Zebrotics",
-      "6081 - Digital Dislocators",
-      "6570 - Whiteford Bobcats",
-      "7196 - Tech Tigers",
-      "7196B - Tech Tigers",
-      "7211 - Hollywood",
-      "7211B - B-roll",
-      "7660 - The Byting Irish",
-      "8179 - Robo Falcons",
-      "9245 - Laker Dreadnoughts",
-      "9312 - NERD Spark",
-      "10285 - Sacred Heart Blue and Gold Outlanders"
-    ].map((team, index) => (
-      /* split into 3 cols if screen is big enough, only 1 otherwise */
-       /* style makes even rows maize, odd rows blue */
-      <div class={`col-12 col-md-4 text-center ${index % 3 === 0 ? "row-start" : ""}`}>
-        <p style={`color: ${index % 2 === 0 ? "#F3AC27" : "#1768e3"};`}>{team}</p>
-      </div>
-    ))}
-
-    </div>
+    <h1>Registered Teams</h1>
+    <p>Team list coming soon. Register your team using the button above!</p>
   </div>
 
 <!-- Bottom Text -->
@@ -209,13 +183,18 @@ const carouselItems = [
         <p class="m-0">
             <span style="font-size: 1.2rem;"><b>General Email: </b></span> <br>
             famnm.offseason@umich.edu <br>
-            <span style="font-size: 1.2rem;"><b>Event Coordinator: Brandon McDonald </b></span>  <br>
-            brandmcd@umich.edu<br>
-            <span style="font-size: 1.2rem;"><b>Volunteer Coordinator: Noah Tonn </b></span> <br>
-            noahtonn@umich.edu<br>
+            <span style="font-size: 1.2rem;"><b>Event Coordinator: Brandon McDonald </b></span><br>
+            <span style="font-size: 1.2rem;"><b>Volunteer Coordinator: Noah Tonn </b></span> 
         </p>
       </div>
     </div>
+  </div>
+
+  <!--Carousel -->
+  <div class="container">
+      <div class="content">
+        <Carousel id="kickoff-carousel" images={carouselItems} />
+      </div>
   </div>
 
   <div class="container content">
@@ -224,6 +203,29 @@ const carouselItems = [
         <SponsorList sponsors={["esg", "rob"]} />
       </div>
     </div>
+
+  <!-- Media Section -->
+  <div class="container">
+    <div class="content">
+      <h1>Media</h1>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+        <a
+          class="btn btn-primary btn-lg gap-3"
+          href="#"
+          rel="noreferrer noopener"
+        >
+          Photos
+        </a>
+        <a
+          class="btn btn-primary btn-lg gap-3"
+          href="#"
+          rel="noreferrer noopener"
+        >
+          Pit Podcast VOD
+        </a>
+      </div>
+    </div>
+  </div>
     
 </div>
 
