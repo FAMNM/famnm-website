@@ -229,23 +229,18 @@ const carouselItems = [
   </div>
 
   <div class="content">
-    <h1>BBot Waitlist (In order of Priority)</h1>
-    <div class="row">
+  <h1>Waitlist (In order of Priority)</h1>
+  <ol style="font-size: 1.2rem; font-weight: 500; padding-left: 2rem;">
     {[
-      "8280 - K9.0 Robotics",
-      "1701 - Robocubs",
-      "7211 - Hollywood",
-      "3641 - The Flying Toasters",
-      "1502 - Technical Difficulties",
-      "7660 - The Byting Irish",
-      "3707 - TechnoDogs"
+      "7196 - Tech Tigers"
+      // Add more teams as needed in order
     ].map((team, index) => (
-      <div class={`col-12 col-md-4 text-center ${index % 3 === 0 ? "row-start" : ""}`}>
-        <p style={`color: ${index % 2 === 0 ? "#F3AC27" : "#1768e3"};`}>{team}</p>
-      </div>
+      <li style={`color: ${index % 2 === 0 ? '#F3AC27' : '#1768e3'};`}>
+        {team}
+      </li>
     ))}
-    </div>
-  </div>
+  </ol>
+</div>
 
 <!-- Bottom Text --><!-- Contact Info block removed! -->
 
