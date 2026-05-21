@@ -230,13 +230,16 @@ const carouselItems = [
 
   <div class="content">
   <h1>Waitlist (In order of Priority)</h1>
-  <ol style="font-size: 1.2rem; font-weight: 500; padding-left: 2rem;">
+  <ol class="d-flex flex-column align-items-center mb-0 ps-0" style="list-style: none;">
     {[
       "7196 - Tech Tigers"
       // Add more teams as needed in order
     ].map((team, index) => (
-      <li style={`color: ${index % 2 === 0 ? '#F3AC27' : '#1768e3'};`}>
-        {team}
+      <li
+        style={`color: ${index % 2 === 0 ? '#F3AC27' : '#1768e3'}; font-size: 1.2rem;`}
+        class="text-center my-1"
+      >
+        <span class="fw-bold me-2">{index + 1}.</span>{team}
       </li>
     ))}
   </ol>
@@ -326,4 +329,3 @@ const carouselItems = [
     }
   </style>
 </BaseLayout>
-
