@@ -196,7 +196,6 @@ const carouselItems = [
       "830 - The RatPack",
       "1076 - PiHi Samurai",
       "1188 - The Ravens",
-      "1189 - Gearheads",
       "1250 - Gator-Bots",
       "1502 - Technical Difficulties",
       "1506 - Metal Muscle",
@@ -211,10 +210,9 @@ const carouselItems = [
       "3707 - TechnoDogs",
       "4362 - Gems",
       "4391 - BraveBots",
-      "4810 - I AM Robot",
       "5066 - Singularity",
+      "5067 - Steiner Steel Storm",
       "5090 - TorqueNados",
-      "5256 - Atomics",
       "5460 - Strike Zone",
       "5695 - Heavy Duty Eagles",
       "5708 - Zebrotics",
@@ -228,7 +226,8 @@ const carouselItems = [
       "8179 - Robo Falcons",
       "8280 - K9.0 Robotics",
       "10672 - Trobots",
-      "11387 - G.L.E.A.M. - Grass Lake Engineering and Mechanics"
+      "11387 - G.L.E.A.M. - Grass Lake Engineering and Mechanics",
+      "11505 - Kensington Woods Robotics"
     ].map((team, index) => (
       <div class={`col-12 col-md-4 text-center ${index % 3 === 0 ? "row-start" : ""}`}>
         <p style={`color: ${index % 2 === 0 ? "#F3AC27" : "#1768e3"};`}>{team}</p>
@@ -241,8 +240,6 @@ const carouselItems = [
   <h1>Waitlist (In order of Priority)</h1>
   <ol class="d-flex flex-column align-items-center mb-0 ps-0" style="list-style: none;">
     {[
-      "11505 - Kensington Woods Robotics",
-      "5067 - Steiner Steel Storm"
       // Add more teams as needed in order
     ].map((team, index) => (
       <li
