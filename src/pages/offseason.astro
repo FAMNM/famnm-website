@@ -6,6 +6,7 @@ import { Image } from "astro:assets";
 
 import competionLogoLight from "../images/offseason/wolverine_robotics_competiton_logo.png";
 import competionLogoDark from "../images/offseason/wolverine_robotics_competiton_logo.png";
+import pitmap from "../images/offseason/2026/2026_pitmap.png";
 
 import SponsorList from "../components/SponsorList.astro";
 import Carousel from "../components/index/carousel/Carousel.astro";
@@ -134,19 +135,19 @@ const carouselItems = [
       <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
         <a
           class="btn btn-primary btn-lg gap-3"
-          href="https://forms.gle/aPGnBjktQUQEanZS8"
+          href="https://www.thebluealliance.com/event/2026miwrc"
           rel="noreferrer noopener"
           target="_blank"
         >
-          Team Registration
+          The Blue Alliance
         </a>
         <a
           class="btn btn-primary btn-lg gap-3"
-          href="https://forms.gle/uPoxCGNvE4oMQ5Wr5"
+          href="https://www.youtube.com/live/Ep0gw_Y4kno"
           rel="noreferrer noopener"
           target="_blank"
         >
-          Volunteer Sign Up
+          Live Stream
         </a>
       </div>
     </div>
@@ -234,19 +235,13 @@ const carouselItems = [
   </div>
 
   <div class="content">
-  <h1>Waitlist (In order of Priority)</h1>
-  <ol class="d-flex flex-column align-items-center mb-0 ps-0" style="list-style: none;">
-    {[
-      // Add more teams as needed in order
-    ].map((team, index) => (
-      <li
-        style={`color: ${index % 2 === 0 ? '#F3AC27' : '#1768e3'}; font-size: 1.2rem;`}
-        class="text-center my-1"
-      >
-        <span class="fw-bold me-2">{index + 1}.</span>{team}
-      </li>
-    ))}
-  </ol>
+  <h1>Pit Map</h1>
+    <Image
+                class="center w-50 h-auto"
+                src={pitmap}
+                alt="Wolverine Robotics Competition" 
+                format="webp"
+              />
 </div>
 
 <!-- Bottom Text -->
@@ -261,7 +256,7 @@ const carouselItems = [
   <div class="container content">
       <div class="row pt-2">
         <h1>Sponsors</h1>
-        <SponsorList sponsors={[]} />
+        <SponsorList sponsors={["famnm", "csg", "coe", "project", "adgpe"]} />
       </div>
     </div>
 
