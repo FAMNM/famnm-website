@@ -1,0 +1,29 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { Picture } from "astro:assets";
+import freelanceMentorPicture from "../../images/ftc/2019/notebook.jpg";
+---
+
+<BaseLayout
+  title="Workshops | FIRST® Alumni & Mentors Network at Michigan"
+>
+  <div class="container">
+    <main class="content">
+      <h1>Workshops</h1>
+      <p class="text-par">
+        Join us for our robotics workshops! These will be hosted throughout the year
+        at University of Michigan, and are open to all teams. A Fall 2026 schedule and topic list
+        will be avalible soon!
+      </p>
+      </div>
+      <Picture
+        class="img-fluid col-md-8 col-xs-12 d-inline-block"
+        id="freelance-img"
+        src={freelanceMentorPicture}
+        alt="FAMNM Freelance Mentoring"
+      />
+      <p>
+      </p>
+    </main>
+  </div>
+</BaseLayout>
