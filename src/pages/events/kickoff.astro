@@ -7,10 +7,16 @@ import ThemeSwitcher from "../../components/ThemeSwitcher.astro";
 import Link from "../../components/Link.astro";
 // import 'mapbox-gl/dist/mapbox-gl.css';
 
-import seasonLogoLight from "../../images/kickoff/2026/rebuild_season_logo_light.png";
-import seasonLogoDark from "../../images/kickoff/2026/rebuild_season_logo_dark.png";
+import seasonLogoLight from "../../images/logo-light.svg";
+import seasonLogoDark from "../../images/logo-dark.svg";
 
 const carouselItems = [
+  {
+    title: "REBUILT Reveal",
+    description:
+      "Teams fill Stamps Auditorium for the 2026 FRC game reveal",
+    src: "kickoff/2026/stamps-crowd.jpg",
+  },
   {
     title: "Kit Distribution On Site",
     description:
@@ -45,7 +51,7 @@ const carouselItems = [
         <div class="col col-8 col-md-6 col-lg-4 mx-auto p-4 p-md-5">
           <a
             href="https://www.firstinspires.org/robotics/frc/game-and-season"
-            aria-label="CRESCENDO season information"
+            aria-label="FRC season information"
             rel="noopener noreferrer"
             target="_blank"
           >
@@ -55,7 +61,7 @@ const carouselItems = [
                   class="center w-100 h-auto"
                   format="webp"
                   src={seasonLogoLight}
-                  alt="CRESCENDO, presented by Haas"
+                  alt="FIRST Alumni and Mentors Network at Michigan logo"
                 />
               </span>
               <span slot="dark">
@@ -63,7 +69,7 @@ const carouselItems = [
                   class="center w-100 h-auto"
                   format="webp"
                   src={seasonLogoDark}
-                  alt="CRESCENDO, presented by Haas"
+                  alt="FIRST Alumni and Mentors Network at Michigan logo"
                 />
               </span>
             </ThemeSwitcher>
@@ -74,14 +80,17 @@ const carouselItems = [
             FAMNM <i>FIRST<sup>&reg;</sup></i> Robotics Competition Kickoff
           </h1>
           <p>
-            FAMNM will be hosting a kickoff for the 2026 FRC season,
-            <i>REBUILT</i>, on <time datetime="2026-01-10"
-              >Saturday, January 10th, 2026</time
-            >
-            at <Link
+            FAMNM will host a kickoff for the 2027 FRC season,
+            <i>BIOCORE</i>, on <time datetime="2027-01-09"
+              >Saturday, January 9th, 2027</time
+            >. Location and registration details are coming soon.
+          </p>
+          <p>
+            Our 2026 kickoff for <i>REBUILT</i> filled <Link
               to="https://www.google.com/maps/place/Stamps+Auditorium/@42.2920709,-83.7194285,792m/data=!3m2!1e3!4b1!4m6!3m5!1s0x883caf00459093c1:0x4afa30c646a3067!8m2!3d42.2920709!4d-83.7168536!16s%2Fg%2F11vrxmtynq?entry=tts&g_ep=EgoyMDI1MDkwMi4wIPu8ASoASAFQAw%3D%3D&skid=105fb843-c647-412c-ae65-46099a7431e4">Stamps Auditorium</Link
-            > on University of Michigan's North Campus.  Good luck and have fun, teams!&nbsp;<i
-              class="fa-solid fa-search"></i>
+            > on University of Michigan's North Campus. Three days later, local teams
+            joined us at the Wilson Center and Robotics Building for the reveal of
+            our Robot in 3 Days robot, <i>Ziptie McRivet</i>.
           </p>
         </div>
         <div
