@@ -3,79 +3,55 @@
         "id": "svg-president",
         "title": "President",
         "placement": "bottom",
-        "content": "The President is responsible for setting the overall strategy and direction of the organization, as well as organizing general body and FAMNM planning meetings, and maintains communication with FIRST and other FIRST collegiate groups."
+        "content": "The President oversees FAMNM's strategy, creates meeting agendas and sends them to the organization, and schedules and leads General Body Meetings. The President maintains contact with FIRST Headquarters and FIRST in Michigan leadership, ensures compliance with FIRST protocols, and supports relations with other FIRST collegiate groups."
     },
     {
         "id": "svg-vp",
         "title": "Vice President",
         "placement": "bottom",
-        "content": "The Vice President is responsible for all communication with the University of Michigan and student organizations with which FAMNM is affiliated, ensures that FAMNM is in compliance with University policies, and works with the Director of Internal Affairs to reach out to all FIRST alumni at the University of Michigan."
+        "content": "The Vice President is responsible for communication and relationships with the University of Michigan, including partnerships with student organizations, the Michigan Engineering Zone, SSO paperwork, and University initiatives. The Vice President also reserves rooms on North and Central Campus, maintains compliance with University policies, and works with the Director of Internal Affairs to engage U-M FIRST alumni."
     },
     {
         "id": "svg-dir-int",
         "title": "Director of Internal Affairs",
         "placement": "bottom",
-        "content": "The Director of Internal Affairs is responsible for managing membership in FAMNM, maintaining the FAMNM Slack workspace and email lists, and managing the onboarding process for new members."
+        "content": "The Director of Internal Affairs takes attendance and minutes at Planning and General Body Meetings; maintains FAMNM's Slack, calendar, Maize Pages, Google Drive, email lists, and listservs; leads onboarding for new members; and ensures members comply with the University's Children on Campus policies."
     },
     {
         "id": "svg-dir-marketing",
-        "title": "Director of Marketing",
+        "title": "Director of Marketing and Campus Outreach",
         "placement": "right",
-        "content": "The Director of Marketing is responsible for overseeing the activitiese of the Marketing Committee, specifically: updating and managing FAMNM's social media accounts, maintaining branding standards, and ordering FAMNM swag."
+        "content": "The Director of Marketing and Campus Outreach schedules and leads the Marketing and Campus Outreach Committee and serves as its spokesperson at General Body Meetings."
     },
     {
         "id": "svg-treasurer",
         "title": "Treasurer",
         "placement": "right",
-        "content": "The Treasurer is responsible for overseeing the Treasury Committee, and ensuring that its responsibilities are duly executed. Also responsible for approving reimbursements, ensuring the continuity of the UM FIRST Scholarship, and overseeing all of FAMNM's income and expenditures."
-    },
-    {
-        "id": "svg-dir-co",
-        "title": "Director of Corporate Outreach",
-        "placement": "right",
-        "content": "The Director of Corporate Outreach is responsible for overseeing the activites of the Corporate Outreach Committee and maintains communication with FAMNM's partnercorporations."
+        "content": "The Treasurer leads the Treasury Committee, reviews and approves all FAMNM reimbursements, oversees all income and expenditure, and maintains FAMNM's communication with the U-M FIRST Scholarship."
     },
     {
         "id": "svg-dir-pd",
         "title": "Director of Project Development",
         "placement": "right",
-        "content": "The Director of Project Development is responsible for organizing and overseeing the activities of the Project Development Committee, as well as ensuring that all FAMNM events run smoothly."
+        "content": "The Director of Project Development leads the Project Development Committee and ensures that every FAMNM event is well staffed and has an event lead."
     },
     {
         "id": "svg-kickoff-coord",
         "title": "Kickoff Coordinator",
         "placement": "left",
-        "content": "The Kickoff Coordinator is responsible for organizing and managing all kickoff-related events run by FAMNM, such as FRC Kickoff, FTC Kickoff, or FRC Robot Quick Build. Works with the Project Development Committee to continually improve all kickoff events."
+        "content": "The Kickoff Coordinator coordinates FAMNM's kickoff events, including FTC Kickoff and FRC Kickoff, handles their external communication, and works with the Project Development Committee to improve them."
     },
     {
         "id": "svg-ri3d-coord",
         "title": "Ri3D Coordinator",
         "placement": "left",
-        "content": "The Ri3D coordinator is responsible for organizing the FAMNM Ri3D team as well as overseeing fundraising and recruitment for the team. The Ri3D coordinator is not responsible for running the team during the Ri3D build and competition days, but makes sure the team is well-equipped during both build and competition."
-    },
-    {
-        "id": "svg-frc-coord",
-        "title": "FRC Coordinator",
-        "placement": "left",
-        "content": "The FRC Coordinator is FAMNM's point of contact for all affiliated FRC teams, and works to provide affiliated FRC teams with any resources available to FAMNM. Ensures that all of FAMNM's FRC mentors have completed appropriate trainings and paperwork."
-    },
-    {
-        "id": "svg-ftc-coord",
-        "title": "FTC Coordinator",
-        "placement": "left",
-        "content": "The FTC Coordinator is FAMNM's point of contact for all affiliated FTC teams, and works to provide affiliated FTC teams with any resources available to FAMNM. Ensures that all of FAMNM's FTC mentors have completed appropriate trainings and paperwork."
-    },
-    {
-        "id": "svg-fll-coord",
-        "title": "FLL Coordinator",
-        "placement": "left",
-        "content": "The FLL Coordinator is FAMNM's point of contact for all affiliated FLL teams, and works to provide affiliated FLL teams with any resources available to FAMNM. Ensures that all of FAMNM's FLL mentors have completed appropriate trainings and paperwork."
+        "content": "The Ri3D Coordinator manages the FAMNM Robot in 3 Days team, leads its regular meetings, recruitment events, and information sessions, pursues funding for Ri3D, and maintains communication between FACC and FAMNM."
     },
     {
         "id": "svg-volunteer-coord",
         "title": "Volunteer Coordinator",
         "placement": "left",
-        "content": "The Volunteer Coordinator is responsible for managing all FAMNM volunteers and organizing logistics forFAMNM's volunteer operations."
+        "content": "The Volunteer Coordinator assists the President in maintaining contact with FIRST in Michigan, organizes logistics and budget for volunteers traveling to competitions, offers volunteer opportunities to partner student organizations with the Vice President, and ensures volunteers meet all requirements to participate."
     },
     {
         "id": "svg-exec-board",
@@ -105,31 +81,25 @@
         "id": "svg-webmaster",
         "title": "Webmaster",
         "placement": "right",
-        "content": "The Webmaster is responsible for overseeing all websites managed by FAMNM, as well as managing the FAMNM Website Committee."
+        "content": "The Webmaster leads the Website Committee, approves new website projects and appoints project leads, oversees all FAMNM web projects, and manages membership in the FAMNM GitHub organization."
     },
     {
         "id": "svg-website-comm",
         "title": "Website Committee",
         "placement": "right",
-        "content": "The Website Committee is responsible for maintaining the FAMNM website and other FAMNM-managed website projects."
+        "content": "The Website Committee maintains the FAMNM website and other FAMNM web projects, works with the Marketing and Campus Outreach Committee on branding, and keeps logistical information for FAMNM kickoff events on the website."
     },
     {
         "id": "svg-marketing-comm",
-        "title": "Marketing Committee",
+        "title": "Marketing and Campus Outreach Committee",
         "placement": "right",
-        "content": "The Marketing Committee is responsible for maintaining FAMNM's social media accounts, producing marketing materials for events at which FAMNM participates, maintaining and updating FAMNM branding standards, and designing FAMNM swag."
+        "content": "The Marketing and Campus Outreach Committee maintains FAMNM's social media, advertises FAMNM and its events on campus and at FIRST events, leads recruiting, organizes social events, maintains branding standards and apparel, engages the U-M FIRST alumni network, and writes member and alumni newsletters."
     },
     {
         "id": "svg-treasury-comm",
         "title": "Treasury Committee",
         "placement": "right",
-        "content": "The Treasury Committee is responsible for balancing and maintaining FAMNM's budget, applying for funding for FAMNM events, managing reimbursements of FAMNM members, and working on the University of Michigan FIRST Scholarship."
-    },
-    {
-        "id": "svg-co-comm",
-        "title": "Corporate Outreach Committee",
-        "placement": "right",
-        "content": "The Corporate Outreach Committee is responsible for managing FAMNM's corporate sponsorships, maintaining communication with FAMNM alumni, and providing professional development opportunities for FAMNM members."
+        "content": "The Treasury Committee creates and maintains FAMNM's annual budget (May 1 to April 30), organizes fundraising, applies for University funding, oversees the scholarship fund, and manages reimbursement requests."
     },
     {
         "id": "svg-alums",
@@ -141,7 +111,7 @@
         "id": "svg-pd-comm",
         "title": "Project Development Committee",
         "placement": "right",
-        "content": "The Project Development committee is responsible for creating new FAMNM events and improving existing FAMNM events."
+        "content": "The Project Development Committee leads and develops skills workshops and programs for FIRST teams, improves FAMNM-hosted events for FIRST participants, and organizes professional development and skills workshops for FAMNM members."
     },
     {
         "id": "svg-ri3d-comm",
@@ -153,19 +123,13 @@
         "id": "svg-mentors",
         "title": "Mentors",
         "placement": "left",
-        "content": "FAMNM Mentors are all mentors that work regularly with one or more affiliated team(s) during build season."
-    },
-    {
-        "id": "svg-freelance-mentors",
-        "title": "Freelance Mentors",
-        "placement": "left",
-        "content": "Freelance Mentors are mentors that donate their free time to help teams in need of one-off mentorship. Freelance mentors are not associated with any particular team."
+        "content": "FAMNM Mentors mentor a specific FIRST team or individual during the build and competition season. Their responsibilities depend on what the team asks of them."
     },
     {
         "id": "svg-volunteers",
         "title": "Volunteers",
         "placement": "left",
-        "content": "Volunteers are all FAMNM members who volunteer at FIRST events, and are organized through the Volunteer Coordinator."
+        "content": "FAMNM members who volunteer at FIRST events, organized through the Volunteer Coordinator. Members who volunteer at two or more official FIRST events in a key or certified role are FAMNM Critical Volunteers."
     },
     {
         "id": "svg-general-members",
